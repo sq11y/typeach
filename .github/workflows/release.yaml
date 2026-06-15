@@ -51,7 +51,7 @@ jobs:
       - name: "Setup environment"
         uses: ./.github/actions/setup-environment
       - name: "Publish to NPM"
-        run: cd packages/core && pnpm publish
+        run: cd packages/core && pnpm publish --access public
 
   release-theme:
     name: "Release @typeach/theme"
@@ -64,4 +64,4 @@ jobs:
       - name: "Setup environment"
         uses: ./.github/actions/setup-environment
       - name: "Publish to NPM"
-        run: cd packages/theme && pnpm publish
+        run: cd packages/theme && pnpm publish --access public
