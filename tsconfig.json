@@ -1,0 +1,14 @@
+{
+  "extends": "./packages/core/tsconfig.app.json",
+  "include": [
+    "./env.d.ts",
+    "./docs/**/*",
+    "./docs/**/*.vue",
+    "./packages/**/__docs__/*",
+    "./packages/**/__docs__/*.vue"
+  ],
+
+  "compilerOptions": {
+    "types": ["do11y/types"]
+  }
+}

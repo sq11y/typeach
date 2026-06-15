@@ -1,0 +1,54 @@
+@use "@typeach/theme/utils";
+
+a {
+  color: var(--blue-80);
+
+  &:not(.logo) {
+    border-radius: var(--border-radius);
+    corner-shape: squircle;
+
+    padding-inline: var(--relative-spacing-xs);
+    margin-inline: calc(var(--relative-spacing-xs) * -1);
+  }
+}
+
+header a,
+footer a {
+  color: inherit;
+}
+
+.required-tag,
+code:not(pre code),
+kbd {
+  display: inline-block;
+  min-width: fit-content;
+
+  border-radius: var(--border-radius);
+  padding-inline: var(--relative-spacing-s);
+
+  margin-inline: 1px;
+}
+
+.required-tag,
+code:not(pre code) {
+  border: var(--invisible-border);
+}
+
+.required-tag {
+  background-color: var(--red-30);
+  color: var(--red-80);
+}
+
+code:not(pre code) {
+  background-color: var(--blue-30);
+  color: var(--blue-80);
+
+  font-size: var(--font-size-smaller);
+}
+
+kbd {
+  background-color: var(--bg);
+  border: 1px solid var(--grey-60);
+
+  font-size: var(--font-size-smaller);
+}

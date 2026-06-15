@@ -1,0 +1,16 @@
+# Logs and dependencies
+pnpm-debug.log*
+node_modules
+
+# Build
+dist
+*.tsbuildinfo
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.todo
+.tmp
+.DS_Store
+

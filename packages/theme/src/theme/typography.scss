@@ -1,0 +1,119 @@
+@function dynamic-font-size($font-size) {
+  @return calc(var(--font-size-scale, 1) * #{$font-size});
+}
+
+@function dynamic-line-height($line-height) {
+  @return calc(var(--line-height-scale, 1) * #{$line-height});
+}
+
+:root {
+  --letter-spacing: normal;
+  --word-spacing: normal;
+  --code-white-space: pre-wrap;
+
+  --font-size-smaller: 0.875em;
+  --font-size-bigger: 1.2em;
+
+  --font-size-scale: 1;
+  --line-height-scale: 1;
+
+  /* Minimum font-size of 16px */
+  /* --font-size-scale: 1.0256410256; */
+
+  --font-size-xs: #{dynamic-font-size(0.975rem)};
+  --line-height-xs: #{dynamic-line-height(1.7)};
+
+  --font-size-s: #{dynamic-font-size(1.12125rem)};
+  --line-height-s: #{dynamic-line-height(1.7)};
+
+  --font-size-m: #{dynamic-font-size(1.291875rem)};
+  --line-height-m: #{dynamic-line-height(1.625)};
+
+  --font-size-l: #{dynamic-font-size(1.4625rem)};
+  --line-height-l: #{dynamic-line-height(1.6)};
+
+  --font-size-xl: #{dynamic-font-size(1.56rem)};
+  --line-height-xl: #{dynamic-line-height(1.45)};
+
+  --font-size-xxl: #{dynamic-font-size(1.95rem)};
+  --line-height-xxl: #{dynamic-line-height(1.45)};
+
+  --font-size-xxxl: #{dynamic-font-size(2.4375rem)};
+  --line-height-xxxl: #{dynamic-line-height(1.4)};
+
+  --font-size-xxxxl: #{dynamic-font-size(3.65625rem)};
+  --line-height-xxxxl: #{dynamic-line-height(1.35)};
+
+  --font-size-xxxxxl: #{dynamic-font-size(5.3625rem)};
+  --line-height-xxxxxl: #{dynamic-line-height(1.2)};
+}
+
+:where(html) {
+  letter-spacing: var(--letter-spacing, normal);
+  word-spacing: var(--word-spacing, normal);
+
+  hyphens: auto;
+}
+
+:where(body) {
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
+}
+
+:where(h1) {
+  font-size: var(--font-size-xxxxxl);
+  line-height: var(--line-height-xxxxxl);
+}
+
+:where(h2) {
+  font-size: var(--font-size-xxxxl);
+  line-height: var(--line-height-xxxxl);
+}
+
+:where(h3) {
+  font-size: var(--font-size-xxxl);
+  line-height: var(--line-height-xxxl);
+}
+
+:where(h4) {
+  font-size: var(--font-size-xxl);
+  line-height: var(--line-height-xxl);
+}
+
+:where(h5) {
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-xl);
+}
+
+:where(h6) {
+  font-size: var(--font-size-l);
+  line-height: var(--line-height-l);
+}
+
+:where(body) {
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  hyphens: auto;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+:where(p, small, caption, figcaption, blockquote, li) {
+  text-wrap: pretty;
+  max-width: 70ch;
+}
+
+:where(pre) {
+  white-space: var(--code-white-space, pre-wrap);
+}
+
+:where(table) {
+  font-variant-numeric: slashed-zero tabular-nums;
+}
+
+:where(small) {
+  font-size: var(--font-size-smaller);
+}

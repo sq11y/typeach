@@ -1,0 +1,38 @@
+@import url("https://fonts.bunny.net/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Signika:wght@300..700&display=swap");
+
+:root {
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --font-family-heading: "Signika", sans-serif;
+  --font-family-body: "Atkinson Hyperlegible Next", sans-serif;
+  --font-family-mono: "JetBrains Mono", monospace;
+}
+
+:where(h1, h2, h3, h4, h5, h6),
+.heading-font {
+  font-family: var(--font-family-heading);
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  font-weight: var(--font-weight-medium);
+}
+
+:where(strong) {
+  font-weight: var(--font-weight-medium);
+}
+
+:where(html, kbd),
+.body-font {
+  font-family: var(--font-family-body);
+}
+
+:where(html, kbd) {
+  font-weight: var(--font-weight-normal);
+}
+
+:where(code),
+.mono-font {
+  font-family: var(--font-family-mono);
+}

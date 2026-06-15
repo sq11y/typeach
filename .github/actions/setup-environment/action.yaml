@@ -1,0 +1,24 @@
+name: "Setup environment"
+description: "Checkout the code and setup the environment."
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Setup pnpm"
+      uses: pnpm/action-setup@v4
+    - name: "Setup vite-plus"
+      uses: voidzero-dev/setup-vp@v1
+      with:
+        node-version: 24
+        cache: true
+    - name: "Setup Node"
+      uses: actions/setup-node@v6
+      with:
+        node-version: 24
+        cache: pnpm
+    - name: "Install dependencies"
+      shell: bash
+      run: vp install --frozen-lockfile
+    - name: "Build packages"
+      shell: bash
+      run: pnpm build

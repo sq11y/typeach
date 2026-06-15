@@ -1,0 +1,28 @@
+{
+  "name": "@typeach/theme",
+  "version": "0.0.0",
+  "description": "Theme for Typeach components.",
+  "homepage": "https://sq11y.github.io/typeach/",
+  "license": "MIT",
+  "repository": "github:sq11y/typeach",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/theme/index.css",
+  "module": "./dist/theme/index.css",
+  "exports": {
+    ".": "./dist/theme/index.css",
+    "./reset": "./dist/reset.css",
+    "./utils": "./dist/utils.scss"
+  },
+  "scripts": {
+    "build": "rimraf dist && sass src:dist --no-source-map && pnpm copy-utils",
+    "copy-utils": "rimraf dist/utils.css && copyfiles -u 1 src/utils.scss dist"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "rimraf": "^6.1.3",
+    "sass": "^1.101.0"
+  }
+}

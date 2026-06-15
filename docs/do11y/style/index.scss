@@ -1,0 +1,96 @@
+@use "@typeach/theme";
+@use "@typeach/theme/reset";
+@use "@typeach/theme/utils";
+
+@use "./typography.scss";
+@use "./flow.scss";
+@use "./inline.scss";
+@use "./block.scss";
+
+:root {
+  --border-radius: 8px;
+  --border-shape: 1px solid;
+  --border: var(--border-shape) var(--grey-40);
+  --invisible-border: var(--border-shape) transparent;
+
+  --article-inline-size: min(calc(100svw - 2rem), 50rem);
+  --inline-margin: calc((100svw - var(--article-inline-size)) / 2);
+
+  --icon-size: 1.25em;
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+body {
+  min-height: 100svh;
+  @include utils.center-grid(var(--spacing-xxxxxl));
+  grid-template-rows: auto 1fr auto;
+}
+
+header {
+  position: sticky;
+  z-index: 5;
+
+  inset-block-start: var(--spacing-xl);
+  margin-inline: auto;
+
+  @include utils.center-flex(var(--spacing-xl));
+
+  padding-inline-end: var(--spacing-l);
+  padding-block: var(--spacing-xxs);
+
+  border-radius: var(--border-radius);
+  border: var(--invisible-border);
+
+  background-color: var(--green-30);
+  color: var(--green-80);
+
+  @media (width <= 38rem) {
+    margin-inline: auto calc(var(--inline-margin));
+  }
+}
+
+.logo {
+  overflow: hidden;
+  scale: 1.5;
+
+  width: 3rem;
+
+  corner-shape: squircle;
+  border-radius: 50%;
+}
+
+header nav {
+  @include utils.center-flex(var(--spacing-m));
+}
+
+main {
+  width: var(--article-inline-size);
+}
+
+footer {
+  padding-inline: var(--inline-margin);
+  padding-block: var(--spacing-xxxl);
+
+  background-color: var(--pink-20);
+  color: var(--pink-80);
+
+  border-block-start: var(--invisible-border);
+}
+
+a[href^="https://github.com"] {
+  @include utils.center-flex(var(--spacing-xs));
+  display: inline-flex;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--blue-80);
+  box-shadow: 0 0 0 6px var(--blue-30);
+}
+
+svg {
+  width: var(--icon-size);
+}

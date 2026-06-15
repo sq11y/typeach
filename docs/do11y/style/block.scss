@@ -1,0 +1,95 @@
+@use "@typeach/theme/utils";
+
+h1,
+h3 {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+h1 {
+  width: fit-content;
+
+  border-radius: var(--border-radius);
+
+  color: var(--pink-80);
+
+  &::before {
+    width: 2.25em;
+    aspect-ratio: 1;
+
+    transform-origin: center;
+    left: -0.75em;
+    top: -0.55em;
+
+    background-color: var(--pink-40);
+
+    /**
+      * Flower shape.
+      *
+      * Number of petals: 10
+      * Rotation: 0
+      *
+      * @see https://css-generators.com/flower-shapes/
+      */
+    --g: /23.606% 23.606% radial-gradient(#000 calc(71% - 1px), #0000 71%) no-repeat;
+
+    mask:
+      100% 50% var(--g),
+      90.451% 79.389% var(--g),
+      65.451% 97.553% var(--g),
+      34.549% 97.553% var(--g),
+      9.549% 79.389% var(--g),
+      0% 50% var(--g),
+      9.549% 20.611% var(--g),
+      34.549% 2.447% var(--g),
+      65.451% 2.447% var(--g),
+      90.451% 20.611% var(--g),
+      radial-gradient(100% 100%, #000 36.327%, #0000 calc(36.327% + 1px));
+  }
+}
+
+h1:not(:has(+ .description)) {
+  margin-block-end: var(--spacing-xxxxl);
+}
+
+.description {
+  margin-inline: 8.5rem var(--spacing-s);
+  margin-block: 0rem var(--spacing-xxxl);
+
+  color: var(--pink-80);
+}
+
+h3 {
+  max-width: fit-content;
+  padding-inline: var(--spacing-xxs);
+
+  border-radius: var(--border-radius);
+  border: var(--invisible-border);
+
+  color: var(--brown-80);
+  background-color: var(--brown-20);
+
+  text-box-trim: trim-both;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  color: var(--brown-fg);
+}
+
+@media (width < 38rem) {
+  h1::before {
+    content: none;
+  }
+
+  .description {
+    margin-inline-start: 0;
+  }
+}

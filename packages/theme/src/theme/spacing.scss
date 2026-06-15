@@ -1,0 +1,35 @@
+@function spacing($multiplier) {
+  @return calc(var(--spacing-unit, 0.25rem) * #{$multiplier});
+}
+
+@function relative-spacing($multiplier) {
+  @return calc(var(--relative-spacing-unit, 0.125em) * #{$multiplier});
+}
+
+:root {
+  --spacing-unit: 0.25rem;
+
+  --spacing-xxs: #{spacing(1)}; // 4px
+  --spacing-xs: #{spacing(2)}; // 8px
+  --spacing-s: #{spacing(3)}; // 12px
+  --spacing-m: #{spacing(4)}; // 16px
+  --spacing-l: #{spacing(6)}; // 24px
+  --spacing-xl: #{spacing(8)}; // 32px
+  --spacing-xxl: #{spacing(10)}; // 40px
+  --spacing-xxxl: #{spacing(14)}; // 56px
+  --spacing-xxxxl: #{spacing(20)}; // 80px
+  --spacing-xxxxxl: #{spacing(26)}; // 104px
+
+  --relative-spacing-unit: 0.125em;
+
+  --relative-spacing-xxs: #{relative-spacing(1)}; // 2px
+  --relative-spacing-xs: #{relative-spacing(2)}; // 4px
+  --relative-spacing-s: #{relative-spacing(3)}; // 6px
+  --relative-spacing-m: #{relative-spacing(4)}; // 8px
+  --relative-spacing-l: #{relative-spacing(6)}; // 12px
+  --relative-spacing-xl: #{relative-spacing(8)}; // 16px
+  --relative-spacing-xxl: #{relative-spacing(10)}; // 20px
+  --relative-spacing-xxxl: #{relative-spacing(14)}; // 28px
+  --relative-spacing-xxxxl: #{relative-spacing(20)}; // 40px
+  --relative-spacing-xxxxxl: #{relative-spacing(26)}; // 52px
+}

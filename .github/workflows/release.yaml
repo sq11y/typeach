@@ -1,0 +1,63 @@
+name: "Release NPM packages"
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - packages/**
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  version-bumps:
+    name: "Look for version bumps"
+    runs-on: ubuntu-latest
+    outputs:
+      core_changed: ${{ steps.core.outputs.changed }}
+      theme_changed: ${{ steps.theme.outputs.changed }}
+      any_changed: ${{ steps.core.outputs.changed == 'true' || steps.theme.outputs.changed == 'true' }}
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v6
+      - name: "Look for a version bump in @typeach/core"
+        id: core
+        uses: EndBug/version-check@v3
+        with:
+          file-name: ./packages/core/package.json
+      - name: "Look for a version bump in @typeach/theme"
+        id: theme
+        uses: EndBug/version-check@v3
+        with:
+          file-name: ./packages/theme/package.json
+
+  test:
+    name: "Test"
+    uses: sq11y/typeach/.github/workflows/test.yaml@main
+    needs: version-bumps
+    if: needs.version-bumps.outputs.any_changed == 'true'
+
+  release-core:
+    name: "Release @typeach/core"
+    runs-on: ubuntu-latest
+    needs: [version-bumps, test]
+    if: needs.version-bumps.outputs.core_changed == 'true'
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v6
+      - name: "Setup environment"
+        uses: ./.github/actions/setup-environment
+      - name: "Publish to NPM"
+        run: cd packages/core && pnpm publish
+
+  release-theme:
+    name: "Release @typeach/theme"
+    runs-on: ubuntu-latest
+    needs: [version-bumps]
+    if: needs.version-bumps.outputs.theme_changed == 'true'
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v6
+      - name: "Setup environment"
+        uses: ./.github/actions/setup-environment
+      - name: "Publish to NPM"
+        run: cd packages/theme && pnpm publish

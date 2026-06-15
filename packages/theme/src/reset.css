@@ -1,0 +1,114 @@
+/* Use a more intuitive box-sizing model. */
+:where(*, *::before, *::after, *::details-content) {
+  box-sizing: border-box;
+}
+
+/* Remove default margins. */
+:where(*:not(dialog)) {
+  margin: 0;
+}
+
+/**
+ * Ensure a gap above an anchor
+ * when it is scrolled into view.
+ */
+:where([id]) {
+  scroll-margin-block: 5ex;
+}
+
+/**
+  * Avoid layoud shifts due to an
+  * inconsistent scrollbar.
+  */
+:where(html) {
+  scrollbar-gutter: stable;
+  text-size-adjust: none;
+}
+
+/* Take up the full height of the screen. */
+:where(body) {
+  min-height: 100svh;
+}
+
+/* Ensure clickable targets are communicated. */
+:where(a, select:enabled:not([aria-disabled="true"]), button:enabled:not([aria-disabled="true"])) {
+  cursor: pointer;
+}
+
+/**
+  * Ensure button color is inherited,
+  * by default Safari on mobile renders
+  * button text as blue.
+  */
+:where(button) {
+  color: inherit;
+}
+
+/* Inherit font for form controls */
+:where(button, input, textarea, select) {
+  font: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+}
+
+/* Allow textareas to resize to fit content */
+:where(textarea:not([rows])) {
+  field-sizing: content;
+}
+
+/**
+  * Prefer the font to decide where
+  * underlines should be placed.
+  */
+:where(a) {
+  text-underline-position: from-font;
+}
+
+/**
+  * Make selection select the entire text
+  * for inline code snippets.
+  */
+:where(code:not(pre code)) {
+  user-select: all;
+}
+
+/* Improve media defaults */
+:where(img, svg, picture, video, canvas, iframe) {
+  max-inline-size: 100%;
+  min-inline-size: 0;
+
+  display: block;
+}
+
+/* Avoid text overflows */
+:where(pre) {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* Avoid text overflows */
+:where(p, h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: break-word;
+
+  @media (width < 28rem) {
+    word-break: break-all;
+  }
+}
+
+/* Improve line wrapping for paragraphs */
+:where(p) {
+  text-wrap: pretty;
+  max-width: 75ch;
+}
+
+/* Improve line wrapping for headings */
+:where(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+}
+
+/* Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  :where(:root) {
+    interpolate-size: allow-keywords;
+  }
+}

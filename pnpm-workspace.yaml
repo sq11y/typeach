@@ -1,0 +1,25 @@
+packages:
+  - "docs"
+  - "apps/*"
+  - "packages/*"
+
+catalog:
+  "@types/node": "^24.13.2"
+  "@vueuse/core": "^14.3.0"
+  vue: "^3.5.38"
+  vue-router: "^5.1.0"
+  vite: "^8.0.16"
+  vite-plus: "latest"
+  pinia: "^3.0.4"
+
+peerDependencyRules:
+  allowAny:
+    - "vite"
+  allowedVersions:
+    vite: "*"
+
+allowBuilds:
+  "@parcel/watcher": true
+  esbuild: true
+
+minimumReleaseAge: 0

@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "VoidZero.vite-plus-extension-pack",
+    "Vue.volar",
+    "dbaeumer.vscode-eslint",
+    "EditorConfig.EditorConfig",
+    "oxc.oxc-vscode",
+    "antfu.pnpm-catalog-lens",
+    "vunguyentuan.vscode-css-variables"
+  ]
+}

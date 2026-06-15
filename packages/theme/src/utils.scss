@@ -1,0 +1,112 @@
+@use "sass:string";
+@use "sass:list";
+
+@mixin visually-hidden {
+  &:not(:focus):not(:focus-within) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+
+    height: 1px;
+    width: 1px;
+
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+  }
+}
+
+@mixin center-content {
+  display: grid;
+  place-content: center;
+}
+
+@mixin center-grid($gap: false) {
+  display: grid;
+  justify-items: center;
+
+  @if $gap {
+    gap: $gap;
+  }
+}
+
+@mixin center-flex($gap: false) {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @if $gap {
+    gap: $gap;
+  }
+}
+
+@mixin vertical-flex($gap: false) {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-self: stretch;
+
+  @if $gap {
+    gap: $gap;
+  }
+}
+
+@mixin space-between($gap: false) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @if $gap {
+    gap: $gap;
+  }
+}
+
+@mixin square($width: auto, $height: $width) {
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+
+  @if ($width) {
+    min-width: $width;
+    width: $width;
+    max-width: $width;
+  }
+
+  @if ($height) {
+    min-height: $height;
+    height: $height;
+    max-height: $height;
+  }
+}
+
+@mixin transition($properties...) {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+
+    @if list.length($properties) {
+      transition-property: #{$properties};
+      transition-duration: var(--transition-duration, 0.175s);
+      transition-timing-function: ease-in-out;
+    }
+  }
+}
+
+@mixin enabled {
+  &:enabled:not([aria-disabled="true"]),
+  &[aria-disabled="false"]:not(:disabled) {
+    @content;
+  }
+}
+
+@mixin disabled {
+  &:disabled,
+  &[aria-disabled="true"] {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
