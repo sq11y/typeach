@@ -47,7 +47,6 @@ export default defineConfig((env) => ({
       "prefer-destructuring": "error",
 
       "typescript/ban-ts-comment": "error",
-      "typescript/no-empty-object-type": "error",
       "typescript/no-explicit-any": "error",
       "typescript/no-namespace": "error",
       "typescript/no-require-imports": "error",
