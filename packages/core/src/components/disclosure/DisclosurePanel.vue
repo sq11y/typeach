@@ -40,6 +40,7 @@ export interface DisclosurePanelProps {
 
   /**
    * The id for the element.
+   * @default useId()
    */
   id?: string;
 }
