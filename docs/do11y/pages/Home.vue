@@ -1,12 +1,16 @@
-<template></template>
+<template>
+  <h1 class="tagline">
+    A component library for those who believe <em>everything</em> is political.
+  </h1>
+</template>
 
-<script lang="ts" setup>
-import { onBeforeMount } from "vue";
-import { useRouter } from "vue-router";
+<style lang="scss">
+@use "@typeach/theme/utils";
 
-const router = useRouter();
-
-onBeforeMount(() => {
-  router.push({ path: "/p/components" });
-});
-</script>
+.tagline {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xxxxxl);
+  line-height: var(--line-height-xxxxxl);
+}
+</style>
