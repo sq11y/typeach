@@ -38,9 +38,9 @@
     <br />
 
     Fonts used:
-    <a class="heading-font" href="https://fonts.bunny.net/family/signika">Signika </a> by Anna Giedryś for headings,
-    <a href="https://fonts.bunny.net/family/atkinson-hyperlegible-next">Atkinson Hyperlegible Next </a> by The Braille Institute for body text
-    and <a class="mono-font" href="https://fonts.bunny.net/family/jetbrains-mono">JetBrains Mono </a> by JetBrains for code snippets.
+    <a class="heading-font" href="https://fonts.bunny.net/family/signika">Signika</a> by Anna Giedryś for headings,
+    <a href="https://fonts.bunny.net/family/atkinson-hyperlegible-next">Atkinson Hyperlegible Next</a> by The Braille Institute for body text
+    and <a class="mono-font" href="https://fonts.bunny.net/family/jetbrains-mono">JetBrains Mono</a> by JetBrains for code snippets.
   </footer>
 </template>
 
