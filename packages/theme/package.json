@@ -2,6 +2,11 @@
   "name": "@typeach/theme",
   "version": "0.0.0",
   "description": "Theme for Typeach components.",
+  "keywords": [
+    "accessibility",
+    "scss",
+    "theme"
+  ],
   "homepage": "https://sq11y.github.io/typeach/",
   "license": "MIT",
   "repository": "github:sq11y/typeach",

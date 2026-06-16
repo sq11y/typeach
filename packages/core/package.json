@@ -2,6 +2,11 @@
   "name": "@typeach/core",
   "version": "0.0.5",
   "description": "Component library for Vue.",
+  "keywords": [
+    "accessibility",
+    "components",
+    "vue"
+  ],
   "homepage": "https://sq11y.github.io/typeach/",
   "license": "MIT",
   "repository": "github:sq11y/typeach",

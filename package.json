@@ -2,6 +2,13 @@
   "name": "@typeach/docs",
   "version": "0.0.0",
   "private": true,
+  "keywords": [
+    "accessibility",
+    "components",
+    "scss",
+    "theme",
+    "vue"
+  ],
   "homepage": "https://sq11y.github.io/typeach/",
   "repository": "github:sq11y/typeach",
   "type": "module",
