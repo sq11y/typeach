@@ -37,7 +37,7 @@ header {
   inset-block-start: var(--spacing-xl);
   margin-inline: auto;
 
-  @include utils.center-flex(var(--spacing-xl));
+  @include utils.center-flex(var(--spacing-m));
 
   padding-inline-end: var(--spacing-l);
   padding-block: var(--spacing-xxs);
@@ -51,6 +51,16 @@ header {
   @media (width <= 38rem) {
     margin-inline: auto calc(var(--inline-margin));
   }
+}
+
+header > :first-child {
+  @include utils.center-flex(var(--spacing-xl));
+
+  text-decoration: none;
+
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-bigger);
 }
 
 .logo {

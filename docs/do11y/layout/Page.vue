@@ -1,9 +1,9 @@
 <template>
   <header>
-    <RouterLink class="logo" to="/">
-      <PeachyVisuallyHidden>Typeach</PeachyVisuallyHidden>
+    <RouterLink to="/">
+      <img class="logo" alt="Squirrel mascot" src="/logo.webp" />
 
-      <img alt="Squirrel mascot" src="/logo.webp" />
+      <span>Typeach </span>
     </RouterLink>
 
     <nav>
@@ -45,8 +45,6 @@
 </template>
 
 <script lang="ts" setup>
-import { PeachyVisuallyHidden } from "@typeach/core";
-
 import GithubIcon from "../icons/github.svg?component";
 
 import "../style/index.scss";
