@@ -3,13 +3,11 @@
 a {
   color: var(--blue-80);
 
-  &:not(.logo) {
-    border-radius: var(--border-radius);
-    corner-shape: squircle;
+  border-radius: var(--border-radius);
+  corner-shape: squircle;
 
-    padding-inline: var(--relative-spacing-xs);
-    margin-inline: calc(var(--relative-spacing-xs) * -1);
-  }
+  padding-inline: var(--relative-spacing-xs);
+  margin-inline: calc(var(--relative-spacing-xs) * -1);
 }
 
 header a,
