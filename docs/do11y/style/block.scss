@@ -105,3 +105,13 @@ pre:not(.code-block pre) {
   border: var(--invisible-border);
   border-radius: var(--border-radius);
 }
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+
+  @media (width < 46rem) {
+    grid-template-columns: 1fr;
+  }
+}
