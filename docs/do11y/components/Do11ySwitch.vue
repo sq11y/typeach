@@ -41,7 +41,7 @@ button[aria-checked] {
   gap: var(--relative-spacing-m);
 
   .switch {
-    padding-inline: var(--relative-spacing-xs) var(--relative-spacing-xl);
+    padding-inline: var(--relative-spacing-xxs) var(--relative-spacing-l);
     padding-block: 0.0125em;
 
     border: var(--invisible-border);
@@ -55,7 +55,7 @@ button[aria-checked] {
 
 button[aria-checked="true"] {
   .switch {
-    padding-inline: var(--relative-spacing-xl) var(--relative-spacing-xs);
+    padding-inline: var(--relative-spacing-l) var(--relative-spacing-xxs);
 
     background-color: var(--green-30);
     color: var(--green-70);
