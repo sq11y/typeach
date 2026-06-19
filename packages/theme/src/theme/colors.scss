@@ -16,25 +16,25 @@
   --grey-30: #{saturated-color(oklch(89% 0.005 28))};
   --grey-40: #{saturated-color(oklch(86% 0.005 28))};
   --grey-50: #{saturated-color(oklch(80% 0.005 28))};
-  --grey-60: #{saturated-color(oklch(46% 0.005 28))};
-  --grey-70: #{saturated-color(oklch(42% 0.005 28))};
+  --grey-60: #{saturated-color(oklch(63% 0.0083 17.36))};
+  --grey-70: #{saturated-color(oklch(46% 0.005 28))};
   --grey-80: #{saturated-color(oklch(36% 0.005 28))};
   --grey-90: #{saturated-color(oklch(29% 0.005 28))};
   --grey-fg: #{saturated-color(oklch(20% 0.005 28))};
 
   /* Red */
 
-  --red-bg: #{saturated-color(oklch(98% 0.054 17))};
+  --red-bg: #{saturated-color(oklch(98% 0.045 17))};
   --red-10: #{saturated-color(oklch(95% 0.054 17))};
   --red-20: #{saturated-color(oklch(93% 0.066 17))};
-  --red-30: #{saturated-color(oklch(89% 0.09 18))};
-  --red-40: #{saturated-color(oklch(86% 0.132 19))};
-  --red-50: #{saturated-color(oklch(80% 0.156 19))};
-  --red-60: #{saturated-color(oklch(46% 0.24 29))};
-  --red-70: #{saturated-color(oklch(42% 0.255 28))};
-  --red-80: #{saturated-color(oklch(36% 0.255 27))};
-  --red-90: #{saturated-color(oklch(29% 0.265 27))};
-  --red-fg: #{saturated-color(oklch(20% 0.27 27))};
+  --red-30: #{saturated-color(oklch(89% 0.085 18))};
+  --red-40: #{saturated-color(oklch(86% 0.12 19))};
+  --red-50: #{saturated-color(oklch(80% 0.14 19))};
+  --red-60: #{saturated-color(oklch(63% 0.18 19))};
+  --red-70: #{saturated-color(oklch(46% 0.18 28))};
+  --red-80: #{saturated-color(oklch(36% 0.18 27))};
+  --red-90: #{saturated-color(oklch(29% 0.17 27))};
+  --red-fg: #{saturated-color(oklch(20% 0.14 27))};
 
   /* Orange */
 
@@ -44,11 +44,11 @@
   --orange-30: #{saturated-color(oklch(89% 0.09 55))};
   --orange-40: #{saturated-color(oklch(86% 0.12 54))};
   --orange-50: #{saturated-color(oklch(80% 0.144 54))};
-  --orange-60: #{saturated-color(oklch(46% 0.192 46))};
-  --orange-70: #{saturated-color(oklch(42% 0.18 47))};
-  --orange-80: #{saturated-color(oklch(36% 0.15 48))};
-  --orange-90: #{saturated-color(oklch(29% 0.144 48))};
-  --orange-fg: #{saturated-color(oklch(20% 0.144 48))};
+  --orange-60: #{saturated-color(oklch(63% 0.155 54))};
+  --orange-70: #{saturated-color(oklch(46% 0.18 47))};
+  --orange-80: #{saturated-color(oklch(36% 0.16 47))};
+  --orange-90: #{saturated-color(oklch(29% 0.15 47))};
+  --orange-fg: #{saturated-color(oklch(20% 0.15 46))};
 
   /* Yellow */
 
@@ -58,8 +58,8 @@
   --yellow-30: #{saturated-color(oklch(89% 0.095 86))};
   --yellow-40: #{saturated-color(oklch(86% 0.114 87))};
   --yellow-50: #{saturated-color(oklch(80% 0.1464 87))};
-  --yellow-60: #{saturated-color(oklch(46% 0.186 81))};
-  --yellow-70: #{saturated-color(oklch(42% 0.186 80))};
+  --yellow-60: #{saturated-color(oklch(63% 0.168 87))};
+  --yellow-70: #{saturated-color(oklch(46% 0.186 80))};
   --yellow-80: #{saturated-color(oklch(36% 0.174 79))};
   --yellow-90: #{saturated-color(oklch(29% 0.174 75))};
   --yellow-fg: #{saturated-color(oklch(20% 0.174 75))};
@@ -72,8 +72,8 @@
   --brown-30: #{saturated-color(oklch(89% 0.054 57))};
   --brown-40: #{saturated-color(oklch(86% 0.072 58))};
   --brown-50: #{saturated-color(oklch(80% 0.102 58))};
-  --brown-60: #{saturated-color(oklch(46% 0.108 54))};
-  --brown-70: #{saturated-color(oklch(42% 0.096 54))};
+  --brown-60: #{saturated-color(oklch(63% 0.102 58))};
+  --brown-70: #{saturated-color(oklch(46% 0.096 54))};
   --brown-80: #{saturated-color(oklch(36% 0.078 54))};
   --brown-90: #{saturated-color(oklch(29% 0.072 54))};
   --brown-fg: #{saturated-color(oklch(20% 0.072 54))};
@@ -86,22 +86,22 @@
   --green-30: #{saturated-color(oklch(89% 0.0684 134))};
   --green-40: #{saturated-color(oklch(86% 0.09 134))};
   --green-50: #{saturated-color(oklch(80% 0.138 134))};
-  --green-60: #{saturated-color(oklch(46% 0.162 140))};
-  --green-70: #{saturated-color(oklch(42% 0.126 139))};
+  --green-60: #{saturated-color(oklch(62% 0.138 134))};
+  --green-70: #{saturated-color(oklch(46% 0.126 139))};
   --green-80: #{saturated-color(oklch(36% 0.102 138))};
   --green-90: #{saturated-color(oklch(29% 0.09 138))};
   --green-fg: #{saturated-color(oklch(20% 0.09 138))};
 
   /* Turquoise */
 
-  --turquoise-bg: #{saturated-color(oklch(98% 0.0222 205))};
-  --turquoise-10: #{saturated-color(oklch(95% 0.0228 205))};
-  --turquoise-20: #{saturated-color(oklch(93% 0.039 205))};
-  --turquoise-30: #{saturated-color(oklch(89% 0.0492 206))};
+  --turquoise-bg: #{saturated-color(oklch(98% 0.014 205))};
+  --turquoise-10: #{saturated-color(oklch(95% 0.024 205))};
+  --turquoise-20: #{saturated-color(oklch(93% 0.04 205))};
+  --turquoise-30: #{saturated-color(oklch(89% 0.043 206))};
   --turquoise-40: #{saturated-color(oklch(86% 0.066 207))};
   --turquoise-50: #{saturated-color(oklch(80% 0.096 207))};
-  --turquoise-60: #{saturated-color(oklch(46% 0.228 203))};
-  --turquoise-70: #{saturated-color(oklch(42% 0.216 202))};
+  --turquoise-60: #{saturated-color(oklch(62% 0.12 207))};
+  --turquoise-70: #{saturated-color(oklch(44% 0.18 202))};
   --turquoise-80: #{saturated-color(oklch(36% 0.204 201))};
   --turquoise-90: #{saturated-color(oklch(29% 0.192 201))};
   --turquoise-fg: #{saturated-color(oklch(20% 0.192 201))};
@@ -109,13 +109,13 @@
   /* Blue */
 
   --blue-bg: #{saturated-color(oklch(98% 0.015 247))};
-  --blue-10: #{saturated-color(oklch(95% 0.015 252))};
+  --blue-10: #{saturated-color(oklch(95% 0.023 252))};
   --blue-20: #{saturated-color(oklch(93% 0.036 252))};
   --blue-30: #{saturated-color(oklch(89% 0.0564 253))};
   --blue-40: #{saturated-color(oklch(86% 0.072 256))};
   --blue-50: #{saturated-color(oklch(80% 0.12 256))};
-  --blue-60: #{saturated-color(oklch(46% 0.21 253))};
-  --blue-70: #{saturated-color(oklch(42% 0.18 252))};
+  --blue-60: #{saturated-color(oklch(63% 0.14 256))};
+  --blue-70: #{saturated-color(oklch(46% 0.17 252))};
   --blue-80: #{saturated-color(oklch(36% 0.15 251))};
   --blue-90: #{saturated-color(oklch(29% 0.132 250))};
   --blue-fg: #{saturated-color(oklch(20% 0.132 250))};
@@ -128,23 +128,23 @@
   --purple-30: #{saturated-color(oklch(89% 0.0852 313))};
   --purple-40: #{saturated-color(oklch(86% 0.1044 314))};
   --purple-50: #{saturated-color(oklch(80% 0.15 314))};
-  --purple-60: #{saturated-color(oklch(46% 0.3 306))};
-  --purple-70: #{saturated-color(oklch(42% 0.24 305))};
+  --purple-60: #{saturated-color(oklch(63% 0.18 314))};
+  --purple-70: #{saturated-color(oklch(46% 0.24 305))};
   --purple-80: #{saturated-color(oklch(36% 0.21 304))};
-  --purple-90: #{saturated-color(oklch(29% 0.186 304))};
-  --purple-fg: #{saturated-color(oklch(20% 0.186 304))};
+  --purple-90: #{saturated-color(oklch(29% 0.184 304))};
+  --purple-fg: #{saturated-color(oklch(20% 0.168 303))};
 
   /* ===== Pink ===== */
 
   --pink-bg: #{saturated-color(oklch(98% 0.04 340))};
   --pink-10: #{saturated-color(oklch(95% 0.045 340))};
-  --pink-20: #{saturated-color(oklch(93% 0.06 340))};
-  --pink-30: #{saturated-color(oklch(89% 0.078 341))};
-  --pink-40: #{saturated-color(oklch(86% 0.096 342))};
-  --pink-50: #{saturated-color(oklch(80% 0.15 342))};
-  --pink-60: #{saturated-color(oklch(46% 0.312 348))};
-  --pink-70: #{saturated-color(oklch(42% 0.288 348))};
-  --pink-80: #{saturated-color(oklch(36% 0.24 349))};
-  --pink-90: #{saturated-color(oklch(29% 0.228 349))};
-  --pink-fg: #{saturated-color(oklch(20% 0.228 349))};
+  --pink-20: #{saturated-color(oklch(93% 0.063 340))};
+  --pink-30: #{saturated-color(oklch(89.5% 0.07 341))};
+  --pink-40: #{saturated-color(oklch(86% 0.091 342))};
+  --pink-50: #{saturated-color(oklch(80% 0.14 342))};
+  --pink-60: #{saturated-color(oklch(63% 0.2 342))};
+  --pink-70: #{saturated-color(oklch(46% 0.27 348))};
+  --pink-80: #{saturated-color(oklch(36% 0.25 349))};
+  --pink-90: #{saturated-color(oklch(29% 0.2112 350))};
+  --pink-fg: #{saturated-color(oklch(20% 0.217 350))};
 }
