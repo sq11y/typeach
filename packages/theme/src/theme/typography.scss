@@ -51,8 +51,6 @@
 :where(html) {
   letter-spacing: var(--letter-spacing, normal);
   word-spacing: var(--word-spacing, normal);
-
-  hyphens: auto;
 }
 
 :where(body) {
@@ -60,48 +58,49 @@
   line-height: var(--line-height-m);
 }
 
-:where(h1) {
+:where(h1, .h1) {
   font-size: var(--font-size-xxxxxl);
   line-height: var(--line-height-xxxxxl);
 }
 
-:where(h2) {
+:where(h2, .h2) {
   font-size: var(--font-size-xxxxl);
   line-height: var(--line-height-xxxxl);
 }
 
-:where(h3) {
+:where(h3, .h3) {
   font-size: var(--font-size-xxxl);
   line-height: var(--line-height-xxxl);
 }
 
-:where(h4) {
+:where(h4, .h4) {
   font-size: var(--font-size-xxl);
   line-height: var(--line-height-xxl);
 }
 
-:where(h5) {
+:where(h5, .h5) {
   font-size: var(--font-size-xl);
   line-height: var(--line-height-xl);
 }
 
-:where(h6) {
+:where(h6, .h6) {
   font-size: var(--font-size-l);
   line-height: var(--line-height-l);
 }
 
-:where(body) {
+:where(body, .p) {
   font-size: var(--font-size-m);
   line-height: var(--line-height-m);
 }
 
-:where(h1, h2, h3, h4, h5, h6) {
+:where(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6) {
   hyphens: auto;
   text-wrap: balance;
   overflow-wrap: anywhere;
 }
 
-:where(p, small, caption, figcaption, blockquote, li) {
+:where(p, small, caption, figcaption, blockquote, li, .p) {
+  hyphens: auto;
   text-wrap: pretty;
   max-width: 70ch;
 }
@@ -114,6 +113,6 @@
   font-variant-numeric: slashed-zero tabular-nums;
 }
 
-:where(small) {
+:where(small, .small) {
   font-size: var(--font-size-smaller);
 }
