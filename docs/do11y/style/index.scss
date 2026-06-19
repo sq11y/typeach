@@ -95,7 +95,7 @@ main {
   width: var(--article-inline-size);
 }
 
-footer {
+body > footer {
   padding-inline: var(--inline-margin);
   padding-block: var(--spacing-xxxl);
 

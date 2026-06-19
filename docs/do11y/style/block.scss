@@ -1,6 +1,6 @@
 @use "@typeach/theme/utils";
 
-h1,
+h1:not(.tagline),
 h3 {
   position: relative;
 
