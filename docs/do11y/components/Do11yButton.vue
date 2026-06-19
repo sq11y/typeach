@@ -32,7 +32,7 @@ const components = {
 <style lang="scss">
 @use "@typeach/theme/utils";
 
-button {
+button:not([commandfor="nav"]) {
   @include utils.center-flex;
   gap: var(--relative-spacing-s);
 

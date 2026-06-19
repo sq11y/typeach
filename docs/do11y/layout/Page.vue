@@ -6,7 +6,11 @@
       <span>Typeach </span>
     </RouterLink>
 
-    <nav>
+    <PeachyButton ref="button" v-if="isSmallScreen" command="toggle-popover" commandfor="nav">
+      <MenuIcon aria-label="Navigation" />
+    </PeachyButton>
+
+    <nav id="nav" :popover="isSmallScreen ? 'auto' : undefined" @click="button?.$el.click()">
       <RouterLink to="/p/components">Components</RouterLink>
       <RouterLink to="/p/colors">Colors</RouterLink>
     </nav>
@@ -46,7 +50,29 @@
 </template>
 
 <script lang="ts" setup>
+import { useTemplateRef } from "vue";
+
+import { useMediaQuery } from "@vueuse/core";
+
+import { PeachyButton } from "@typeach/core";
+
 import GithubIcon from "../icons/github.svg?component";
+import MenuIcon from "../icons/menu.svg?component";
 
 import "../style/index.scss";
+
+const isSmallScreen = useMediaQuery("(width <= 32rem)");
+
+const button = useTemplateRef("button");
 </script>
+
+<style lang="scss">
+@use "@typeach/theme/utils";
+
+button[commandfor="nav"] {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  color: inherit;
+}
+</style>

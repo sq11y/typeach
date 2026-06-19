@@ -74,7 +74,21 @@ header > :first-child {
 }
 
 header nav {
-  @include utils.center-flex(var(--spacing-m));
+  &:not([popover]) {
+    @include utils.center-flex(var(--spacing-m));
+  }
+
+  &:popover-open {
+    @include utils.vertical-flex(var(--spacing-m));
+
+    margin-inline: auto calc(var(--inline-margin));
+    top: 6.25rem;
+
+    border: var(--border);
+    border-radius: var(--border-radius);
+
+    padding: var(--spacing-m);
+  }
 }
 
 main {
