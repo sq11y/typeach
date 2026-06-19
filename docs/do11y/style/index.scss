@@ -103,4 +103,5 @@ a[href^="https://github.com"] {
 
 svg {
   width: var(--icon-size);
+  min-width: var(--icon-size);
 }
