@@ -8,6 +8,7 @@
 
     <nav>
       <RouterLink to="/p/components">Components</RouterLink>
+      <RouterLink to="/p/colors">Colors</RouterLink>
     </nav>
   </header>
 
