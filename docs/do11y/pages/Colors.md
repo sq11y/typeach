@@ -7,7 +7,7 @@
 
   import ApcaIcon from '../icons/apca.svg?component';
   
-  const apca = ref(true)
+  const apca = ref(false)
 </script>
 
 # Colors
