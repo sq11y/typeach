@@ -6,6 +6,7 @@ description: "Showcase tabular data."
 
 <script setup>
   import { useRoute } from 'vue-router';
+  import { useMediaQuery } from '@vueuse/core';
 
   import TableSandbox from './Table.sandbox.vue';
   import TableMeta from '../Table.vue?meta';
@@ -16,6 +17,8 @@ description: "Showcase tabular data."
   import TableCellMeta from '../TableCell.vue?meta';
 
   const route = useRoute();
+
+  const tallTable = useMediaQuery('(width < 28rem)');
 </script>
 
 # {{ route?.meta.title }}
@@ -24,7 +27,7 @@ description: "Showcase tabular data."
   {{ route?.meta.description }}
 </div>
 
-<TableSandbox title="Table" height="21rem"  />
+<TableSandbox title="Table" :height="tallTable ? '45rem' : '30rem'"  />
 
 ## API reference
 

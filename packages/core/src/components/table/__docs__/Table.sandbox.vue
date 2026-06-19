@@ -4,11 +4,11 @@
     <PeachyTableHead>
       <PeachyTableRow>
         <PeachyTableHeadingCell>
-          Heading 1
+          Name
         </PeachyTableHeadingCell>
 
         <PeachyTableHeadingCell>
-          Heading 2
+          Description
         </PeachyTableHeadingCell>
       </PeachyTableRow>
     </PeachyTableHead>
@@ -16,14 +16,23 @@
     <PeachyTableBody>
       <PeachyTableRow>
         <PeachyTableCell>
-          Cell 1
+          Greta Thunberg
         </PeachyTableCell>
 
         <PeachyTableCell>
-          Cell 2
+          Famous climate change and indigenous people activist.
         </PeachyTableCell>
       </PeachyTableRow>
 
+      <PeachyTableRow>
+        <PeachyTableCell>
+          Marie Curie
+        </PeachyTableCell>
+
+        <PeachyTableCell>
+          Physicist and chemist - the first woman to win a Nobel price.
+        </PeachyTableCell>
+      </PeachyTableRow>
     </PeachyTableBody>
   </PeachyTable>
 </template>
@@ -53,8 +62,6 @@ table {
   border-spacing: 0;
   border: var(--border);
   border-radius: var(--border-radius);
-
-  overflow: hidden;
 }
 
 td,
@@ -89,11 +96,6 @@ tr:nth-child(even):not(:last-child) td {
 tr:nth-child(even):last-child td {
   border-block-start: var(--border);
   border-color: transparent;
-}
-
-td:first-child {
-  min-width: max-content;
-  white-space: nowrap;
 }
 
 td {

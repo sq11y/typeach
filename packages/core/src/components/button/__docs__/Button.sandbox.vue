@@ -9,7 +9,10 @@
 import { PeachyButton } from "@typeach/core";
 
 const onClick = () => {
-  console.log("Hello world.");
+  const quoteByJeanBaptisteAndréGodin =
+    "Créez toujours, au profit du peuple, les instruments de son bien-être, et vous aurez créé les instruments de sa puissance et de son émancipation.";
+
+  console.log(quoteByJeanBaptisteAndréGodin);
 };
 </script>
 

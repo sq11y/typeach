@@ -2,14 +2,13 @@
 <template>
   <PeachySwitchField v-model="modelValue">
     <PeachySwitchButton :disabled="disabled">
-
       <LockIcon
         v-if="disabled"
         aria-label="Locked"
         class="lock"
       />
 
-      Label
+      Universal health care
 
       <div class="switch">
         <PeachySwitchStateLabel class="switch__state-label" >
@@ -45,7 +44,7 @@ interface SwitchFieldProps {
 
 defineProps<SwitchFieldProps>();
 
-const modelValue = defineModel<boolean>({ default: false });
+const modelValue = defineModel<boolean>({ default: true });
 </script>
 
 <style lang="scss">
@@ -64,8 +63,10 @@ button[aria-checked] {
   position: relative;
   border: 0;
 
-  @include utils.space-between;
-  width: 15rem;
+  @include utils.center-flex(var(--spacing-l));
+  row-gap: var(--spacing-xs);
+  flex-wrap: wrap;
+  justify-content: center;
 
   background-color: transparent;
   color: var(--fg);
@@ -109,6 +110,7 @@ button[aria-checked] {
 }
 
 .switch {
+  min-width: max-content;
   @include utils.center-flex(var(--spacing-s));
 }
 

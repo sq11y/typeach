@@ -2,14 +2,14 @@
 <template>
   <PeachyDisclosure>
     <PeachyDisclosureButton>
-      Disclosure
+      {{ warByEdwinStarrLyricsQuestion }}
       <Cross />
     </PeachyDisclosureButton>
 
     <Transition>
       <PeachyDisclosurePanel class="panel">
         <div class="content">
-          Content.
+          {{ warByEdwinStarrLyricsAnswer }}
         </div>
       </PeachyDisclosurePanel>
     </Transition>
@@ -26,6 +26,9 @@ import {
 
 /* @ts-expect-error temporary */
 import Cross from "./icons/cross.svg?component";
+
+const warByEdwinStarrLyricsQuestion = "War, what is it good for?";
+const warByEdwinStarrLyricsAnswer = "Absolutely nothing.";
 </script>
 
 <style lang="scss">
@@ -40,11 +43,9 @@ import Cross from "./icons/cross.svg?component";
 }
 
 button {
-  width: 15rem;
   margin-block-end: var(--spacing-s);
 
-  @include utils.center-flex;
-  justify-content: space-between;
+  @include utils.space-between(var(--spacing-m));
 
   padding-block: var(--relative-spacing-s);
   padding-inline: var(--relative-spacing-l) var(--relative-spacing-m);
@@ -58,9 +59,6 @@ button {
 
   background-color: var(--blue-40);
   color: var(--blue-80);
-
-  font-size: var(--font-size-l);
-  line-height: var(--line-height-l);
 
   @include utils.transition("background-color, border-color");
 
@@ -85,6 +83,7 @@ button {
 
 button {
   svg {
+    margin-left: auto;
     height: var(--icon-size);
     transform: rotate(-45deg);
     @include utils.transition("transform");
@@ -98,6 +97,9 @@ button {
 .content {
   background-color: var(--blue-20);
   color: var(--blue-80);
+
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-s);
 
   /**
    * Invisible border to ensure the shape

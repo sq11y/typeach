@@ -1,11 +1,17 @@
+<!-- prettier-ignore -->
 <template>
-  <PeachyCopyButton v-slot="{ isCopying }" content="Hello world.">
+  <PeachyCopyButton
+    v-slot="{ isCopying }"
+    :content="excerptFromIfIMustDieByRefaatAlareer"
+  >
     {{ isCopying ? "Copied" : "Copy" }}
   </PeachyCopyButton>
 </template>
 
 <script lang="ts" setup>
 import { PeachyCopyButton } from "@typeach/core";
+
+const excerptFromIfIMustDieByRefaatAlareer = "If I must die, let it bring hope, let it be a tale";
 </script>
 
 <style lang="scss">
