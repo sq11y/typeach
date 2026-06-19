@@ -57,6 +57,11 @@ const code = computed(() => {
   border-radius: var(--border-radius);
 
   background-color: var(--grey-10);
+
+  pre:focus-visible {
+    outline-offset: -2px;
+    box-shadow: inset 0 0 0 6px var(--blue-30);
+  }
 }
 
 .code-block__toolbar {
@@ -65,17 +70,5 @@ const code = computed(() => {
 
   padding: var(--spacing-m);
   padding-block-end: 0;
-}
-
-pre {
-  padding: var(--spacing-xl);
-
-  font-size: var(--font-size-smaller);
-  line-height: var(--line-height-s);
-
-  &:focus-visible {
-    outline-offset: -2px;
-    box-shadow: inset 0 0 0 6px var(--blue-30);
-  }
 }
 </style>

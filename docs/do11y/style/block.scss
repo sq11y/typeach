@@ -93,3 +93,15 @@ h6 {
     margin-inline-start: 0;
   }
 }
+
+pre {
+  padding: var(--spacing-xl);
+
+  font-size: var(--font-size-smaller);
+  line-height: var(--line-height-s);
+}
+
+pre:not(.code-block pre) {
+  border: var(--invisible-border);
+  border-radius: var(--border-radius);
+}
