@@ -1,5 +1,5 @@
 <template>
-  <PeachyTable>
+  <PeachyTable :data-unresponsive="unresponsive">
     <PeachyTableHead>
       <PeachyTableRow>
         <PeachyTableHeadingCell v-for="(title, titleIndex) of titles" :key="titleIndex">
@@ -17,7 +17,7 @@
     </PeachyTableBody>
   </PeachyTable>
 
-  <div :class="c('list')">
+  <div :class="c('list')" :data-unresponsive="unresponsive">
     <dl v-for="(row, rowIndex) of rows" :key="rowIndex">
       <template v-for="(title, titleIndex) of smallTitles || titles" :key="titleIndex">
         <dt>{{ title }}</dt>
@@ -44,6 +44,7 @@ interface TableProps {
   titles: string[];
   smallTitles?: string[];
   rows?: T[];
+  unresponsive?: boolean;
 }
 
 interface TableSlots {
@@ -162,7 +163,7 @@ dl {
 }
 
 @media (width < 45rem) {
-  table {
+  table:not([data-unresponsive="true"]) {
     display: none;
   }
 }
@@ -171,5 +172,9 @@ dl {
   .table__list {
     display: none;
   }
+}
+
+.table__list[data-unresponsive="true"] {
+  display: none;
 }
 </style>
