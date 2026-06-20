@@ -1,8 +1,8 @@
 <template>
   <blockquote>
     <h1 class="tagline">
-      "The power of the Web is in its universality. Access by everyone regardless of disability is
-      an essential aspect"
+      “The power of the Web is in its universality. Access by everyone regardless of disability is
+      an essential aspect”
     </h1>
     <footer>
       -
