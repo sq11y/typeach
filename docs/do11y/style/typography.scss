@@ -15,8 +15,12 @@
   font-family: var(--font-family-heading);
 }
 
-:where(h1, h2, h3, h4, h5, h6) {
+:where(h1) {
   font-weight: var(--font-weight-medium);
+}
+
+:where(h2, h3, h4, h5, h6) {
+  font-weight: var(--font-weight-normal);
 }
 
 :where(strong) {
