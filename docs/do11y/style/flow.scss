@@ -1,6 +1,6 @@
 /* Heading after heading */
 :is(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6) {
-  margin-block-start: var(--relative-spacing-xl);
+  margin-block-start: var(--relative-spacing-l);
 }
 
 /* Large heading after content */
@@ -10,7 +10,7 @@
 
 /* Large heading after content */
 :not(h1, h2, h3, h4, h5, h6) + :is(h3) {
-  margin-block-start: var(--spacing-xxxxl);
+  margin-block-start: var(--spacing-xxxl);
 }
 
 /* Small heading after content */
@@ -18,20 +18,26 @@
   margin-block-start: var(--relative-spacing-xxl);
 }
 
-/* Content directly after content */
-/* prettier-ignore */
-:not(h1, h2, h3, h4, h5, h6) + :is(p, small, blockquote, table, .code-block, pre, ol, ul, br):is(article > *) {
-  margin-block-start: var(--relative-spacing-xl);
+/* Content after content */
+:not(h1, h2, h3, h4, h5, h6) + :is(p, small, blockquote, table, pre, ol, ul, br, .code-block) {
+  margin-block-start: var(--spacing-l);
 }
 
 /* Content after heading */
-:is(h1, h2, h3, h4, h5, h6) + :not(h1, h2, h3, h4, h5, h6),
-.table__list {
-  margin-block-start: var(--relative-spacing-xl);
+:is(h1, h2, h3, h4, h5, h6) + :not(h1, h2, h3, h4, h5, h6) {
+  margin-block-start: var(--relative-spacing-l);
 }
 
 /* Paragraph spacing */
 p + p,
 table div:has(p) + div {
+  margin-block-start: var(--relative-spacing-xl);
+}
+
+.table__list {
   margin-block-start: var(--relative-spacing-l);
+}
+
+article > p {
+  margin-inline-start: var(--spacing-xxs);
 }
