@@ -18,9 +18,13 @@
 
 <Colors :apca="apca" />
 
-## Variables
+## Values
 
-Every color comes with variables formatted as `--<color>-<value>`.
+All colors come with 11 values. The brightest value is `bg`, the darkest value is `fg` - and the values between them are numbers where the lower the value, the brighter the color.
+
+### Variables
+
+Every color value has an accompanying CSS variable. For example `--grey-bg`, `--pink-30` or `--brown-fg`.
 
 ```scss
 @use "@typeach/theme";
@@ -32,7 +36,11 @@ button {
 }
 ```
 
-The brightest value is `bg` and the darkest value is `fg` - the values between them are numbers where the lower the value, the brighter the color.
+### Options
+
+The CSS variable `--saturation` is available to modify the saturation of the colors, which defaults to `1`.
+
+You can pretty safely desaturate the colors, but if you are to increase the saturation - you have to manually check which combinations still have enough sufficient contrast.
 
 ## Accessibility
 
@@ -57,3 +65,8 @@ If the value for "Text" is labelled as "ui" it means the color should _only_ be 
 </figcaption>
 
 </figure>
+
+## Resources
+
+- [Perceptual Palettes](https://perceptualpalettes.alexdunn.au/) - “generate palettes with consistent luminance”.
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) - check the contrast for normal text, large text (`18.66px+`) and graphical elements.
