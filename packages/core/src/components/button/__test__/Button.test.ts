@@ -1,13 +1,10 @@
-import { test, expect } from "@playwright/experimental-ct-vue";
-
-import AxeBuilder from "@axe-core/playwright";
+import { expect } from "@playwright/experimental-ct-vue";
+import { test } from "../../../../playwright/extension";
 
 import ButtonTest from "./Button.test.vue";
 
-test("Renders accessibly", async ({ mount, page }) => {
+test("Renders accessibly", async ({ mount, a11y }) => {
   const component = await mount(ButtonTest);
   await expect(component).toContainText("Button");
-
-  const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
-  expect(accessibilityScanResults.violations).toEqual([]);
+  await a11y();
 });

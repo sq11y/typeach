@@ -1,14 +1,11 @@
-import { test, expect } from "@playwright/experimental-ct-vue";
-
-import AxeBuilder from "@axe-core/playwright";
+import { expect } from "@playwright/experimental-ct-vue";
+import { test } from "../../../../playwright/extension";
 
 import CopyButtonTest from "./CopyButton.test.vue";
 
-test("Renders accessibly", async ({ mount, page }) => {
+test("Renders accessibly", async ({ mount, a11y }) => {
   await mount(CopyButtonTest);
-
-  const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
-  expect(accessibilityScanResults.violations).toEqual([]);
+  await a11y();
 });
 
 test("Live region", async ({ mount, page }) => {

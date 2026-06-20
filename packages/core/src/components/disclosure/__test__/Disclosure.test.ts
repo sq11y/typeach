@@ -1,15 +1,12 @@
-import { test, expect } from "@playwright/experimental-ct-vue";
-
-import AxeBuilder from "@axe-core/playwright";
+import { expect } from "@playwright/experimental-ct-vue";
+import { test } from "../../../../playwright/extension";
 
 import DisclosureTest from "./Disclosure.test.vue";
 
-test("Renders accessibly", async ({ mount, page }) => {
+test("Renders accessibly", async ({ mount, page, a11y }) => {
   await mount(DisclosureTest);
   await expect(page.getByText("Content")).toHaveAttribute("hidden");
-
-  const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
-  expect(accessibilityScanResults.violations).toEqual([]);
+  await a11y();
 });
 
 test("Can toggle panel", async ({ mount, page }) => {

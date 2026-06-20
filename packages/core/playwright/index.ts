@@ -1,2 +1,1 @@
-/* eslint-disable-next-line */
-const i = 0;
+/* eslint-disable */
