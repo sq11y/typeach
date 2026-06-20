@@ -13,6 +13,7 @@
     <nav id="nav" :popover="isSmallScreen ? 'auto' : undefined" @click="button?.$el.click()">
       <RouterLink to="/p/components">Components</RouterLink>
       <RouterLink to="/p/colors">Colors</RouterLink>
+      <RouterLink to="/p/typography">Typography</RouterLink>
     </nav>
   </header>
 
@@ -61,7 +62,7 @@ import MenuIcon from "../icons/menu.svg?component";
 
 import "../style/index.scss";
 
-const isSmallScreen = useMediaQuery("(width <= 32rem)");
+const isSmallScreen = useMediaQuery("(width <= 38rem)");
 
 const button = useTemplateRef("button");
 </script>

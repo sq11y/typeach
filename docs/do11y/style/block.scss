@@ -115,3 +115,48 @@ pre:not(.code-block pre) {
     grid-template-columns: 1fr;
   }
 }
+
+ol,
+ul {
+  padding-inline-start: var(--spacing-xxxl);
+
+  li {
+    position: relative;
+  }
+
+  li::marker {
+    content: "";
+  }
+
+  li::before {
+    content: "";
+    position: absolute;
+
+    height: 0.8em;
+    aspect-ratio: 1;
+
+    inset-inline-start: -1.25em;
+    inset-block-start: 0.425em;
+
+    background-color: var(--pink-60);
+
+    /**
+    * Flower shape.
+    *
+    * Number of petals: 6
+    * Rotation: 4
+    *
+    * @see https://css-generators.com/flower-shapes/
+    */
+    --g: /33.334% 33.334% radial-gradient(#000 calc(71% - 1px), #0000 71%) no-repeat;
+
+    mask:
+      96.864% 67.429% var(--g),
+      58.338% 99.3% var(--g),
+      11.474% 81.871% var(--g),
+      3.136% 32.571% var(--g),
+      41.662% 0.7% var(--g),
+      88.526% 18.129% var(--g),
+      radial-gradient(100% 100%, #000 28.868%, #0000 calc(28.868% + 1px));
+  }
+}
