@@ -17,7 +17,7 @@
 }
 
 /**
-  * Avoid layoud shifts due to an
+  * Avoid layout shifts due to an
   * inconsistent scrollbar.
   */
 :where(html) {
