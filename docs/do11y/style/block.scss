@@ -86,7 +86,7 @@ h6 {
 
 @media (width < 38rem) {
   h1::before {
-    content: none;
+    display: none;
   }
 
   .description {
