@@ -40,7 +40,7 @@ button {
 
 The CSS variable `--saturation` is available to modify the saturation of the colors, which defaults to `1`.
 
-You can pretty safely desaturate the colors, but if you are to increase the saturation - you have to manually check which combinations still have enough sufficient contrast.
+You can pretty safely desaturate the colors, but if you are to increase the saturation - you have to manually check which combinations still have sufficient contrast.
 
 ## Accessibility
 
