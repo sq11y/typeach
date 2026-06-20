@@ -7,8 +7,6 @@ import { PeachySeparator } from "@typeach/core";
 </script>
 
 <style lang="scss">
-@use "@typeach/theme";
-
 :root {
   --border-shape: 1px solid;
   --border: var(--border-shape) var(--grey-40);

@@ -17,8 +17,6 @@ const onClick = () => {
 </script>
 
 <style lang="scss">
-@use "@typeach/theme";
-@use "@typeach/theme/reset";
 @use "@typeach/theme/utils";
 
 :root {

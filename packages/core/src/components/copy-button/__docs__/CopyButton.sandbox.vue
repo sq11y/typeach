@@ -15,8 +15,6 @@ const excerptFromIfIMustDieByRefaatAlareer = "If I must die, let it bring hope, 
 </script>
 
 <style lang="scss">
-@use "@typeach/theme";
-@use "@typeach/theme/reset";
 @use "@typeach/theme/utils";
 
 :root {
