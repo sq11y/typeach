@@ -5,13 +5,17 @@
     :disabled="disabled === 'without-focus' ? true : undefined"
     :type="type"
     @click="onClick"
+    @keydown="onKeyDown"
   >
     <slot />
   </button>
 </template>
 
 <script lang="ts" setup>
-import type { ButtonHTMLAttributes } from "vue";
+import { useTemplateRef, type ButtonHTMLAttributes } from "vue";
+import { useOptionalContext, provideElement } from "../../hooks";
+
+import { ToolbarKey } from "../toolbar";
 
 export interface ButtonProps {
   /**
@@ -51,6 +55,12 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 const emit = defineEmits<ButtonEmits>();
 
 defineSlots<ButtonSlots>();
+
+const element = useTemplateRef("element");
+
+const { onKeyDown } = useOptionalContext(ToolbarKey);
+
+provideElement("toolbar", element);
 
 const onClick = (event: MouseEvent) => {
   if (!props.disabled) {

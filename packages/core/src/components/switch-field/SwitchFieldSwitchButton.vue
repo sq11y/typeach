@@ -1,22 +1,22 @@
 <template>
-  <button
+  <PeachyButton
     :id="id"
     :aria-checked="modelValue"
     :aria-describedby="[errorIds, descriptionIds].flat().join(' ') || undefined"
     :aria-invalid="hasErrors ? true : undefined"
     :aria-labelledby="`${id}-label`"
-    :aria-disabled="disabled"
+    :disabled="disabled"
     role="switch"
-    type="button"
-    @click="onClick"
+    @click="modelValue = !modelValue"
   >
     <slot />
-  </button>
+  </PeachyButton>
 </template>
 
 <script lang="ts" setup>
 import { useSwitchField } from "./hooks";
 import { useField } from "../field/hooks";
+import { PeachyButton } from "../button";
 
 export interface SwitchFieldSwitchButtonProps {
   /**
@@ -32,17 +32,11 @@ export interface SwitchFieldSwitchButtonSlots {
   default: (data: void) => void;
 }
 
-const props = defineProps<SwitchFieldSwitchButtonProps>();
+defineProps<SwitchFieldSwitchButtonProps>();
 
 defineSlots<SwitchFieldSwitchButtonSlots>();
 
 const { modelValue } = useSwitchField();
 
 const { id, hasErrors, errorIds, descriptionIds } = useField();
-
-const onClick = () => {
-  if (!props.disabled) {
-    modelValue.value = !modelValue.value;
-  }
-};
 </script>

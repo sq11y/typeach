@@ -1,10 +1,15 @@
 <template>
-  <a :href="url" :download="filename || true">
+  <a ref="element" :href="url" :download="filename || true" @keydown="onKeyDown">
     <slot />
   </a>
 </template>
 
 <script lang="ts" setup>
+import { useTemplateRef } from "vue";
+import { useOptionalContext, provideElement } from "../../hooks";
+
+import { ToolbarKey } from "../toolbar";
+
 export interface DownloadLinkProps {
   /**
    * The url for the file to download,
@@ -29,4 +34,10 @@ export interface DownloadLinkSlots {
 defineProps<DownloadLinkProps>();
 
 defineSlots<DownloadLinkSlots>();
+
+const element = useTemplateRef("element");
+
+const { onKeyDown } = useOptionalContext(ToolbarKey);
+
+provideElement("toolbar", element);
 </script>
