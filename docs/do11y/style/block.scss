@@ -12,14 +12,14 @@ h3 {
 }
 
 h1:not(.tagline) {
-  width: fit-content;
+  inline-size: fit-content;
 
   border-radius: var(--border-radius);
 
   color: var(--pink-80);
 
   &::before {
-    width: 2.25em;
+    inline-size: 2.25em;
     aspect-ratio: 1;
 
     transform-origin: center;
@@ -65,7 +65,7 @@ h1:not(:has(+ .description)):not(.tagline) {
 }
 
 h3 {
-  max-width: fit-content;
+  max-inline-size: fit-content;
   padding-inline: var(--spacing-xxs);
 
   border-radius: var(--border-radius);
@@ -132,7 +132,7 @@ ul {
     content: "";
     position: absolute;
 
-    height: 0.8em;
+    block-size: 0.8em;
     aspect-ratio: 1;
 
     inset-inline-start: -1.25em;

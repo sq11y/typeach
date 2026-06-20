@@ -25,9 +25,9 @@
   text-size-adjust: none;
 }
 
-/* Take up the full height of the screen. */
+/* Take up the full block size of the screen. */
 :where(body) {
-  min-height: 100svh;
+  min-block-size: 100svh;
 }
 
 /* Ensure clickable targets are communicated. */

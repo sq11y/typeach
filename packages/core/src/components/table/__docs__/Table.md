@@ -27,7 +27,7 @@ description: "Showcase tabular data."
   {{ route?.meta.description }}
 </div>
 
-<TableSandbox title="Table" :height="tallTable ? '45rem' : '30rem'"  />
+<TableSandbox title="Table" :block-size="tallTable ? '45rem' : '30rem'"  />
 
 ## API reference
 

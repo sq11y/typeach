@@ -102,7 +102,7 @@ button[aria-checked] {
   top: calc(var(--icon-size) * -0.5);
   right: calc(var(--icon-size) * -0.6);
 
-  width: calc(var(--icon-size) + (2 * var(--spacing-xxs)));
+  inline-size: calc(var(--icon-size) + (2 * var(--spacing-xxs)));
   padding: var(--spacing-xxs);
   border-radius: 100%;
 
@@ -110,7 +110,7 @@ button[aria-checked] {
 }
 
 .switch {
-  min-width: max-content;
+  min-inline-size: max-content;
   @include utils.center-flex(var(--spacing-s));
 }
 
@@ -133,7 +133,7 @@ button[aria-checked] {
 .switch__toggle-indicator {
   scale: 1;
 
-  width: var(--icon-size);
+  inline-size: var(--icon-size);
   aspect-ratio: 1;
 
   border-radius: 100%;

@@ -11,13 +11,13 @@
 @import url("https://fonts.bunny.net/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap");
 
 html {
-  height: 100%;
+  block-size: 100%;
   scrollbar-gutter: stable;
 }
 
 body {
   margin: 0;
-  height: 100svh;
+  block-size: 100svh;
 
   display: grid;
   place-content: center;

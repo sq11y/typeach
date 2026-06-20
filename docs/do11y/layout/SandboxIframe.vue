@@ -24,11 +24,11 @@ import PaintBrushCheckedIcon from "../icons/paint-brush--checked.svg?component";
 
 interface Props extends SandboxIframeProps {
   title: string;
-  height?: `${string}rem`;
+  blockSize?: `${string}rem`;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  height: "17rem",
+  blockSize: "17rem",
 });
 
 const iframe = ref<HTMLIFrameElement>();
@@ -45,7 +45,7 @@ iframe {
   border-radius: var(--border-radius);
   border: var(--border);
 
-  width: 100%;
-  height: v-bind("props.height");
+  inline-size: 100%;
+  block-size: v-bind("props.blockSize");
 }
 </style>

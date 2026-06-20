@@ -34,7 +34,7 @@ const variables = computed(() => {
   overflow: hidden;
   padding-inline-start: 0;
 
-  width: calc(100% + var(--outdent));
+  inline-size: calc(100% + var(--outdent));
   transform: translateX(calc(var(--outdent) / 2 * -1));
 
   border: var(--border);
@@ -44,8 +44,8 @@ const variables = computed(() => {
 }
 
 .font-size {
-  width: 100%;
-  max-width: 100%;
+  inline-size: 100%;
+  max-inline-size: 100%;
 
   padding-inline: calc(var(--spacing-xl) + (var(--outdent) / 2));
 

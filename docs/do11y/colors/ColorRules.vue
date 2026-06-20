@@ -41,8 +41,8 @@ import { matchesForWCAG, matchesForAPCA } from "./color-matches";
   div {
     forced-color-adjust: none;
 
-    height: var(--icon-size);
-    width: calc(var(--icon-size) * 1.5);
+    block-size: var(--icon-size);
+    inline-size: calc(var(--icon-size) * 1.5);
 
     border: var(--border);
     border-radius: calc(var(--border-radius) / 2);

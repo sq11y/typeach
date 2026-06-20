@@ -81,7 +81,7 @@ th {
 }
 
 td:nth-child(2) {
-  max-width: 20rem;
+  max-inline-size: 20rem;
 }
 
 tr:nth-child(even) {

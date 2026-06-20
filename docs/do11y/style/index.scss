@@ -25,7 +25,6 @@ html {
 }
 
 body {
-  min-height: 100svh;
   @include utils.center-grid(var(--spacing-xxxxxl));
   grid-template-rows: auto auto 1fr;
 }
@@ -67,7 +66,7 @@ header > :first-child {
   overflow: hidden;
   scale: 1.5;
 
-  width: 3rem;
+  inline-size: 3rem;
 
   corner-shape: squircle;
   border-radius: 50%;
@@ -92,7 +91,7 @@ header nav {
 }
 
 main {
-  width: var(--article-inline-size);
+  inline-size: var(--article-inline-size);
 }
 
 body > footer {
@@ -116,6 +115,6 @@ a[href^="https://github.com"] {
 }
 
 svg {
-  width: var(--icon-size);
-  min-width: var(--icon-size);
+  inline-size: var(--icon-size);
+  min-inline-size: var(--icon-size);
 }

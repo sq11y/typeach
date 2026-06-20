@@ -16,8 +16,8 @@ export interface VisuallyHiddenSlots {
 defineSlots<VisuallyHiddenSlots>();
 
 const style = `
-  height: 1px;
-  width: 1px;
+  block-size: 1px;
+  inline-size: 1px;
 
   position: absolute;
   overflow: hidden;

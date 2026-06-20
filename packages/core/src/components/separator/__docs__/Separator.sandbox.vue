@@ -15,7 +15,7 @@ import { PeachySeparator } from "@typeach/core";
 }
 
 hr {
-  width: 15rem;
+  inline-size: 15rem;
 
   border: 0;
   border-block-start: var(--border);

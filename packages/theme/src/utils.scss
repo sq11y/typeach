@@ -6,8 +6,8 @@
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
 
-    height: 1px;
-    width: 1px;
+    block-size: 1px;
+    inline-size: 1px;
 
     overflow: hidden;
     position: absolute;
@@ -65,15 +65,15 @@
   flex: 0 0 auto;
 
   @if ($width) {
-    min-width: $width;
-    width: $width;
-    max-width: $width;
+    min-inline-size: $width;
+    inline-size: $width;
+    max-inline-size: $width;
   }
 
   @if ($height) {
-    min-height: $height;
-    height: $height;
-    max-height: $height;
+    min-block-size: $height;
+    block-size: $height;
+    max-block-size: $height;
   }
 }
 

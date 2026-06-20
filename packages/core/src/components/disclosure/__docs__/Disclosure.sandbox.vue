@@ -84,7 +84,7 @@ button {
 button {
   svg {
     margin-left: auto;
-    height: var(--icon-size);
+    block-size: var(--icon-size);
     transform: rotate(-45deg);
     @include utils.transition("transform");
   }
@@ -121,13 +121,13 @@ button {
 
 .panel {
   overflow-y: hidden;
-  max-height: 15rem;
+  max-block-size: 15rem;
 
-  @include utils.transition("max-height");
+  @include utils.transition("max-block-size");
 }
 
 .v-enter-from,
 .v-leave-to {
-  max-height: 0;
+  max-block-size: 0;
 }
 </style>

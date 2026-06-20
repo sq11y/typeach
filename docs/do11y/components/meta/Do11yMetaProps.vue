@@ -99,7 +99,7 @@ const sortedProps = computed(() => {
   gap: var(--spacing-xs);
 
   * {
-    min-width: max-content;
+    min-inline-size: max-content;
   }
 }
 

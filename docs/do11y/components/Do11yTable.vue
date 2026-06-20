@@ -86,7 +86,7 @@ th {
 }
 
 td:nth-child(2) {
-  max-width: 20rem;
+  max-inline-size: 20rem;
 }
 
 tr:nth-child(even) {
@@ -104,7 +104,7 @@ tr:nth-child(even):last-child td {
 }
 
 td:first-child {
-  min-width: max-content;
+  min-inline-size: max-content;
   white-space: nowrap;
 }
 
