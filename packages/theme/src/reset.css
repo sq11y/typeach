@@ -86,20 +86,27 @@
   overflow-wrap: break-word;
 }
 
-/* Avoid text overflows */
-:where(p, h1, h2, h3, h4, h5, h6) {
-  overflow-wrap: break-word;
-}
-
-/* Improve line wrapping for paragraphs */
-:where(p) {
+/* Improve line wrapping for paragraphs and avoid text overflows */
+:where(p, small, caption, figcaption, blockquote, li, .p) {
+  hyphens: auto;
   text-wrap: pretty;
-  max-width: 75ch;
+  overflow-wrap: break-word;
+
+  max-inline-size: min(75ch, 100%);
 }
 
-/* Improve line wrapping for headings */
-:where(h1, h2, h3, h4, h5, h6) {
+/* Improve line wrapping for headings and avoid text overflows */
+:where(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6) {
+  hyphens: auto;
   text-wrap: balance;
+  overflow-wrap: break-word;
+
+  max-inline-size: 100%;
+}
+
+/* Tabular numbers for tables */
+:where(table) {
+  font-variant-numeric: slashed-zero tabular-nums;
 }
 
 /* Enable keyword animations */

@@ -93,23 +93,8 @@
   line-height: var(--line-height-m);
 }
 
-:where(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6) {
-  hyphens: auto;
-  text-wrap: balance;
-}
-
-:where(p, small, caption, figcaption, blockquote, li, .p) {
-  hyphens: auto;
-  text-wrap: pretty;
-  max-width: 70ch;
-}
-
 :where(pre) {
   white-space: var(--code-white-space, pre-wrap);
-}
-
-:where(table) {
-  font-variant-numeric: slashed-zero tabular-nums;
 }
 
 :where(small, .small) {
