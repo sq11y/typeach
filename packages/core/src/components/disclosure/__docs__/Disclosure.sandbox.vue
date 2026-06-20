@@ -3,7 +3,7 @@
   <PeachyDisclosure>
     <PeachyDisclosureButton>
       {{ warByEdwinStarrLyricsQuestion }}
-      <Cross />
+      <Cross aria-hidden="true" />
     </PeachyDisclosureButton>
 
     <Transition>
