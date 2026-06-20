@@ -83,16 +83,12 @@
 /* Avoid text overflows */
 :where(pre) {
   white-space: pre-wrap;
-  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 /* Avoid text overflows */
 :where(p, h1, h2, h3, h4, h5, h6) {
   overflow-wrap: break-word;
-
-  @media (width < 28rem) {
-    word-break: break-all;
-  }
 }
 
 /* Improve line wrapping for paragraphs */
