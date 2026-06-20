@@ -107,6 +107,6 @@ const sortedProps = computed(() => {
   font-size: var(--font-size-s);
   line-height: var(--line-height-s);
 
-  color: var(--grey-60);
+  color: var(--grey-70);
 }
 </style>
