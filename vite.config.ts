@@ -52,6 +52,8 @@ export default defineConfig((env) => ({
       "typescript/no-require-imports": "error",
       "typescript/no-unnecessary-type-constraint": "error",
       "typescript/no-unsafe-function-type": "error",
+      "typescript/unbound-method": "off",
+      "typescript/no-redundant-type-constituents": "off",
 
       "vite-plus/prefer-vite-plus-imports": "error",
     },
