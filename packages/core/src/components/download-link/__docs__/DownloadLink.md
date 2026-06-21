@@ -13,10 +13,10 @@ description: "Download content."
   const route = useRoute();
 </script>
 
-# {{ route.meta.title }}
+# {{ route?.meta.title }}
 
 <div class="description">
-  {{ route.meta.description }}
+  {{ route?.meta.description }}
 </div>
 
 <DownloadLinkSandbox title="Download link" />

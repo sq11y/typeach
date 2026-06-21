@@ -13,10 +13,10 @@ description: "Group controls."
   const route = useRoute();
 </script>
 
-# {{ route.meta.title }}
+# {{ route?.meta.title }}
 
 <div class="description">
-  {{ route.meta.description }} 
+  {{ route?.meta.description }} 
 </div>
 
 <ToolbarSandbox title="Toolbar" block-size="36rem" />

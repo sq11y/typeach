@@ -13,10 +13,10 @@ description: "A line to separate content."
   const route = useRoute();
 </script>
 
-# {{ route.meta.title }}
+# {{ route?.meta.title }}
 
 <div class="description">
-  {{ route.meta.description }}
+  {{ route?.meta.description }}
 </div>
 
 <SeparatorSandbox title="Separator" />
