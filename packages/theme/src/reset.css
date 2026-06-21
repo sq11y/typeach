@@ -82,7 +82,7 @@
 
 /* Avoid text overflows */
 :where(pre) {
-  white-space: pre-wrap;
+  white-space: var(--code-white-space, pre-wrap);
   overflow-wrap: break-word;
 }
 
