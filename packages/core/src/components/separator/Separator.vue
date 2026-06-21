@@ -8,8 +8,6 @@ import type { Orientation } from "../../utils";
 export interface SeparatorProps {
   /**
    * The visual orientation of the separator.
-   *
-   * @default "horizontal"
    */
   orientation?: Orientation;
 }

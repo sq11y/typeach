@@ -16,8 +16,6 @@ import { DisclosureKey } from "./hooks";
 export interface DisclosureProps {
   /**
    * If a wrapper element should be rendered.
-   *
-   * @default undefined
    */
   render?: boolean;
 

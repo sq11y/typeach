@@ -20,8 +20,6 @@ import { ToolbarKey } from "../toolbar";
 export interface ButtonProps {
   /**
    * The `type` attribute for the button.
-   *
-   * @default "button"
    */
   type?: ButtonHTMLAttributes["type"];
 
