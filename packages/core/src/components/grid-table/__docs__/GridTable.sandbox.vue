@@ -3,8 +3,13 @@
   <PeachyGridTable>
     <PeachyTableHead>
       <PeachyGridTableRow>
-        <PeachyGridTableHeadingCell>Name</PeachyGridTableHeadingCell>
-        <PeachyGridTableHeadingCell>Description</PeachyGridTableHeadingCell>
+        <PeachyGridTableHeadingCell>
+          Name
+        </PeachyGridTableHeadingCell>
+
+        <PeachyGridTableHeadingCell>
+          Description
+        </PeachyGridTableHeadingCell>
       </PeachyGridTableRow>
     </PeachyTableHead>
 
