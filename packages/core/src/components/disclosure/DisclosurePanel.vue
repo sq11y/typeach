@@ -70,7 +70,6 @@ const hidden = computed(() => {
 });
 
 const onToggle = (event: ToggleEvent) => {
-  console.log("event", event);
   if (event.newState === "open") {
     open.value = true;
   } else {
