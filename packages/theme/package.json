@@ -1,7 +1,7 @@
 {
   "name": "@typeach/theme",
   "version": "0.0.1",
-  "description": "Theme for Typeach components.",
+  "description": "A theme for Typeach.",
   "keywords": [
     "accessibility",
     "scss",
