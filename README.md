@@ -1,4 +1,4 @@
-<img style="height: 5rem;" src="https://raw.githubusercontent.com/sq11y/typeach/refs/heads/main/docs/public/logo.webp" alt="Mascot" />
+<img height="80" src="https://raw.githubusercontent.com/sq11y/typeach/refs/heads/main/docs/public/logo.webp" alt="Mascot" />
 
 # Typeach
 
