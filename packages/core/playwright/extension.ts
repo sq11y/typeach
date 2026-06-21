@@ -8,7 +8,7 @@ type Fixtures = {
   /* prettier-ignore */
   rovingTabindex(direction: "horizontal" | "vertical", items: string[], edgeless?: boolean): Promise<void>;
   a11y(): Promise<void>;
-  getByExactText(text: string): Locator;
+  getByExactText(text: string): Promise<Locator>;
 };
 
 export const test = baseTest.extend<Fixtures>({
@@ -23,8 +23,16 @@ export const test = baseTest.extend<Fixtures>({
   },
 
   async getByExactText({ page }, use) {
-    await use((text) => {
-      return page.getByText(text, { exact: true }).first();
+    await use(async (text) => {
+      const element = page.getByText(text, { exact: true }).first();
+
+      const tagName = await element.evaluate((el) => el.tagName.toLowerCase());
+
+      const role = await element.getAttribute("role");
+
+      return tagName === "button" || tagName === "a" || role === "gridcell"
+        ? element
+        : element.locator("..");
     });
   },
 
@@ -36,13 +44,13 @@ export const test = baseTest.extend<Fixtures>({
 
         const key = direction === "horizontal" ? "ArrowRight" : "ArrowDown";
 
-        await getByExactText(item).click();
+        await (await getByExactText(item)).click();
         await page.keyboard.press(key);
 
         if (nextItem) {
-          await expect(getByExactText(nextItem)).toBeFocused();
+          await expect(await getByExactText(nextItem)).toBeFocused();
         } else if (!edgeless) {
-          await expect(getByExactText(item)).toBeFocused();
+          await expect(await getByExactText(item)).toBeFocused();
         }
       }
 
@@ -52,13 +60,13 @@ export const test = baseTest.extend<Fixtures>({
 
         const key = direction === "horizontal" ? "ArrowLeft" : "ArrowUp";
 
-        await getByExactText(item).click();
+        await (await getByExactText(item)).click();
         await page.keyboard.press(key);
 
         if (nextItem) {
-          await expect(getByExactText(nextItem)).toBeFocused();
+          await expect(await getByExactText(nextItem)).toBeFocused();
         } else if (!edgeless) {
-          await expect(getByExactText(item)).toBeFocused();
+          await expect(await getByExactText(item)).toBeFocused();
         }
       }
     });
