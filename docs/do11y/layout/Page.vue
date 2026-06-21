@@ -3,7 +3,7 @@
     <RouterLink to="/">
       <img class="logo" alt="Squirrel mascot" src="/logo.webp" />
 
-      <span>Typeach </span>
+      <span class="brand-name">Typeach </span>
     </RouterLink>
 
     <PeachyButton ref="button" v-if="isSmallScreen" command="toggle-popover" commandfor="nav">

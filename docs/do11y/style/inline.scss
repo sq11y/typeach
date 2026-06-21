@@ -1,6 +1,7 @@
 @use "@typeach/theme/utils";
 
-a {
+a,
+.brand-name {
   color: var(--blue-80);
 
   border-radius: var(--border-radius);

@@ -54,8 +54,11 @@ header {
 
 header > :first-child {
   @include utils.center-flex(var(--spacing-xl));
-
   text-decoration: none;
+}
+
+.brand-name {
+  color: inherit;
 
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-medium);
@@ -109,7 +112,12 @@ a[href^="https://github.com"] {
   display: inline-flex;
 }
 
-*:focus-visible {
+header > a:focus-visible {
+  outline: none;
+}
+
+*:focus-visible:not(header > a),
+header > a:focus-visible > .brand-name {
   outline: 2px solid var(--blue-80);
   box-shadow: 0 0 0 6px var(--blue-30);
 }
