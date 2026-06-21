@@ -1,4 +1,6 @@
-# <img style="block-size: 1.125em; aspect-ratio: 1; display: inline; vertical-align: text-bottom; margin-inline-end: 0.125em; border-radius: 4px;" src="https://raw.githubusercontent.com/sq11y/typeach/refs/heads/main/docs/public/logo.webp" alt="Mascot" /> Typeach
+<img style="height: 5rem;" src="https://raw.githubusercontent.com/sq11y/typeach/refs/heads/main/docs/public/logo.webp" alt="Mascot" />
+
+# Typeach
 
 An unstyled component library for Vue.
 
