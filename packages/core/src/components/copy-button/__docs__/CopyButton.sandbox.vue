@@ -4,7 +4,7 @@
     v-slot="{ isCopying }"
     :content="excerptFromIfIMustDieByRefaatAlareer"
   >
-    {{ isCopying ? "Copied" : "Copy" }}
+    {{ isCopying ? "Copied poem excerpt" : "Copy poem excerpt" }}
   </PeachyCopyButton>
 </template>
 
