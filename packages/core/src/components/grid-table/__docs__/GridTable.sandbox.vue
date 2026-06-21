@@ -16,7 +16,11 @@
     <PeachyTableBody>
       <PeachyGridTableRow>
         <PeachyGridTableCell @focus="() => gretaLink?.focus()">
-          <a ref="greta-link" href="https://en.wikipedia.org/wiki/Greta_Thunberg">
+          <a
+            ref="greta-link"
+            tabindex="-1"
+            href="https://en.wikipedia.org/wiki/Greta_Thunberg"
+          >
             Greta Thunberg
           </a>
         </PeachyGridTableCell>
@@ -28,7 +32,11 @@
 
       <PeachyGridTableRow>
         <PeachyGridTableCell @focus="() => marieLink?.focus()">
-          <a ref="marie-link" href="https://en.wikipedia.org/wiki/Marie_Curie">
+          <a
+            ref="marie-link"
+            tabindex="-1"
+            href="https://en.wikipedia.org/wiki/Marie_Curie"
+          >
             Marie Curie
           </a>
         </PeachyGridTableCell>
@@ -59,24 +67,27 @@ const marieLink = useTemplateRef("marie-link");
 </script>
 
 <style lang="scss">
-@use "@typeach/theme/utils";
-
 :root {
   --border-radius: 8px;
   --border-shape: 1px solid;
   --border: var(--border-shape) var(--grey-40);
   --invisible-border: var(--border-shape) transparent;
+
+  --font-weight-medium: 500;
 }
 
 table {
   border-spacing: 0;
   border: var(--border);
   border-radius: var(--border-radius);
+  overflow: hidden;
 }
 
-td,
-th {
+th,
+td {
+  max-inline-size: 20rem;
   padding: var(--spacing-l);
+
   text-align: start;
 }
 
@@ -90,8 +101,8 @@ th {
   font-weight: var(--font-weight-medium);
 }
 
-td:nth-child(2) {
-  max-inline-size: 20rem;
+td {
+  vertical-align: text-top;
 }
 
 tr:nth-child(even) {
@@ -106,25 +117,5 @@ tr:nth-child(even):not(:last-child) td {
 tr:nth-child(even):last-child td {
   border-block-start: var(--border);
   border-color: transparent;
-}
-
-td {
-  vertical-align: text-top;
-}
-
-a {
-  color: var(--blue-80);
-
-  border-radius: var(--border-radius);
-  corner-shape: squircle;
-
-  padding-inline: var(--relative-spacing-xs);
-  margin-inline: calc(var(--relative-spacing-xs) * -1);
-}
-
-*:focus-visible {
-  outline: 2px solid var(--blue-80);
-  box-shadow: 0 0 0 6px var(--blue-30);
-  isolation: isolate;
 }
 </style>

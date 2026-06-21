@@ -42,7 +42,7 @@ const warByEdwinStarrLyricsAnswer = "Absolutely nothing.";
   --icon-size: 1.25em;
 }
 
-button {
+button[aria-expanded] {
   margin-block-end: var(--spacing-s);
 
   @include utils.space-between(var(--spacing-m));
@@ -81,7 +81,7 @@ button {
   }
 }
 
-button {
+button[aria-expanded] {
   svg {
     margin-left: auto;
     block-size: var(--icon-size);

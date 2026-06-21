@@ -13,8 +13,6 @@ import DownloadIcon from "./icons/download.svg?component";
 </script>
 
 <style lang="scss">
-@use "@typeach/theme/utils";
-
 :root {
   --border-radius: 8px;
   --icon-size: 1.25em;

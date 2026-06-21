@@ -89,21 +89,24 @@ watch(date, (newDate) => {
   --border-shape: 1px solid;
   --border: var(--border-shape) var(--grey-40);
   --invisible-border: var(--border-shape) transparent;
+
+  --font-weight-medium: 500;
+}
+
+h2 {
+  margin-block-end: var(--spacing-s);
 }
 
 table {
-  margin-block-start: var(--spacing-s);
   border-spacing: 0;
   border: var(--border);
   border-radius: var(--border-radius);
-
-  font-size: var(--font-size-s);
-  line-height: var(--line-height-s);
+  overflow: hidden;
 }
 
-td,
-th {
-  text-align: center;
+th,
+td {
+  padding: var(--relative-spacing-xs);
 }
 
 th {
@@ -111,18 +114,17 @@ th {
   font-weight: var(--font-weight-medium);
 }
 
-tbody th:first-child,
+:where(th:first-child),
 td:first-child {
   background-color: var(--green-20);
   color: var(--green-80);
 }
 
-thead th:first-child,
-th {
+thead th {
   background-color: var(--grey-10);
 }
 
-th {
+th:not(tbody tr:last-child > th) {
   border-block-end: var(--border);
 }
 
@@ -141,21 +143,7 @@ th {
   }
 }
 
-*:focus-visible {
-  outline: 2px solid var(--blue-80);
-  box-shadow: 0 0 0 6px var(--blue-30);
-}
-
-td,
-th {
-  padding: var(--relative-spacing-xs);
-}
-
-th:first-child {
-  padding-inline: var(--relative-spacing-s);
-}
-
-td button {
+table button {
   --size: 2rem;
 
   padding: 0;
@@ -170,11 +158,18 @@ td button {
 
   &[aria-pressed="true"] {
     background-color: var(--pink-30);
+    outline: 2px solid var(--pink-30);
     color: var(--pink-70);
   }
 
   @media (width < 25rem) {
     --size: 1.5rem;
   }
+}
+
+*:focus-visible {
+  outline: 2px solid var(--blue-80);
+  box-shadow: 0 0 0 6px var(--blue-30);
+  isolation: isolate;
 }
 </style>

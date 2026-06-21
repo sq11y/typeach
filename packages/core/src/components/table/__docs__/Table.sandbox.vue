@@ -49,24 +49,27 @@ import {
 </script>
 
 <style lang="scss">
-@use "@typeach/theme/utils";
-
 :root {
   --border-radius: 8px;
   --border-shape: 1px solid;
   --border: var(--border-shape) var(--grey-40);
   --invisible-border: var(--border-shape) transparent;
+
+  --font-weight-medium: 500;
 }
 
 table {
   border-spacing: 0;
   border: var(--border);
   border-radius: var(--border-radius);
+  overflow: hidden;
 }
 
-td,
-th {
+th,
+td {
+  max-inline-size: 20rem;
   padding: var(--spacing-l);
+
   text-align: start;
 }
 
@@ -80,8 +83,8 @@ th {
   font-weight: var(--font-weight-medium);
 }
 
-td:nth-child(2) {
-  max-inline-size: 20rem;
+td {
+  vertical-align: text-top;
 }
 
 tr:nth-child(even) {
@@ -96,9 +99,5 @@ tr:nth-child(even):not(:last-child) td {
 tr:nth-child(even):last-child td {
   border-block-start: var(--border);
   border-color: transparent;
-}
-
-td {
-  vertical-align: text-top;
 }
 </style>

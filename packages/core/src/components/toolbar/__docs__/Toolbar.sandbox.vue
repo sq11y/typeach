@@ -11,15 +11,13 @@
     </PeachyButton>
   </PeachyToolbar>
 
-  <figure>
-    <div class="image-container">
-      <img
-        :id="id"
-        :src="haymarketAffairPoster"
-        alt="Zara Larsson wearing a sparkling pink top"
-      />
-    </div>
-  </figure>
+  <div class="image-container">
+    <img
+      :id="id"
+      :src="haymarketAffairPoster"
+      alt="Zara Larsson wearing a sparkling pink top"
+    />
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -82,23 +80,14 @@ img {
   flex-wrap: wrap;
 }
 
-figure {
+.image-container {
   margin-block-start: var(--spacing-l);
-
-  @include utils.vertical-flex(var(--spacing-xs));
-  align-items: center;
-
-  .image-container {
-    border-radius: var(--border-radius);
-  }
+  border-radius: var(--border-radius);
 
   img {
     width: 14rem;
     border-radius: inherit;
-  }
-
-  figcaption {
-    margin-block-start: var(--spacing-s);
+    margin-inline: auto;
   }
 }
 
@@ -145,5 +134,6 @@ a {
 *:focus-visible {
   outline: 2px solid var(--blue-80);
   box-shadow: 0 0 0 6px var(--blue-30);
+  isolation: isolate;
 }
 </style>
