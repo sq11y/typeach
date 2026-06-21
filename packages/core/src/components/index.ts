@@ -1,4 +1,5 @@
 export * from "./button";
+export * from "./calendar-table";
 export * from "./copy-button";
 export * from "./disclosure";
 export * from "./download-link";
