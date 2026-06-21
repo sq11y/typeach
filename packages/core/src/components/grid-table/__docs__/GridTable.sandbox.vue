@@ -19,6 +19,7 @@
           <a
             ref="greta-link"
             tabindex="-1"
+            target="_parent"
             href="https://en.wikipedia.org/wiki/Greta_Thunberg"
           >
             Greta Thunberg
@@ -35,6 +36,7 @@
           <a
             ref="marie-link"
             tabindex="-1"
+            target="_parent"
             href="https://en.wikipedia.org/wiki/Marie_Curie"
           >
             Marie Curie
