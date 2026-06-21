@@ -82,7 +82,6 @@ table {
   border-spacing: 0;
   border: var(--border);
   border-radius: var(--border-radius);
-  overflow: hidden;
 }
 
 th,
@@ -119,5 +118,37 @@ tr:nth-child(even):not(:last-child) td {
 tr:nth-child(even):last-child td {
   border-block-start: var(--border);
   border-color: transparent;
+}
+
+thead th:first-child {
+  border-start-start-radius: var(--border-radius);
+}
+
+thead th:last-child {
+  border-start-end-radius: var(--border-radius);
+}
+
+td:first-child {
+  border-end-start-radius: var(--border-radius);
+}
+
+td:last-child {
+  border-end-end-radius: var(--border-radius);
+}
+
+a {
+  color: var(--blue-80);
+
+  border-radius: var(--border-radius);
+  corner-shape: squircle;
+
+  padding-inline: var(--relative-spacing-xs);
+  margin-inline: calc(var(--relative-spacing-xs) * -1);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--blue-80);
+  box-shadow: 0 0 0 6px var(--blue-30);
+  isolation: isolate;
 }
 </style>
