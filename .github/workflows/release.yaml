@@ -41,6 +41,7 @@ jobs:
     if: needs.version-bumps.outputs.any_changed == 'true'
 
   release-core:
+    environment: npm
     name: "Release @typeach/core"
     runs-on: ubuntu-latest
     needs: [version-bumps, test]
@@ -54,6 +55,7 @@ jobs:
         run: cd packages/core && pnpm publish --access public
 
   release-theme:
+    environment: npm
     name: "Release @typeach/theme"
     runs-on: ubuntu-latest
     needs: [version-bumps]
