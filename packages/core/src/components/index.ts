@@ -8,5 +8,6 @@ export * from "./grid-table";
 export * from "./separator";
 export * from "./switch-field";
 export * from "./table";
+export * from "./tabs";
 export * from "./toolbar";
 export * from "./visually-hidden";

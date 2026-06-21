@@ -7,15 +7,15 @@ import AxeBuilder from "@axe-core/playwright";
 type Fixtures = {
   /* prettier-ignore */
   rovingTabindex(direction: "horizontal" | "vertical", items: string[], edgeless?: boolean): Promise<void>;
-  a11y(): Promise<void>;
+  a11y(disabledRules?: string[]): Promise<void>;
   getByExactText(text: string): Promise<Locator>;
 };
 
 export const test = baseTest.extend<Fixtures>({
   async a11y({ page }, use) {
-    await use(async () => {
+    await use(async (disabledRules = []) => {
       const accessibilityScanResults = await new AxeBuilder({ page })
-        .disableRules(["page-has-heading-one"])
+        .disableRules(["page-has-heading-one", ...disabledRules])
         .analyze();
 
       expect(accessibilityScanResults.violations).toEqual([]);
