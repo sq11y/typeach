@@ -1,7 +1,7 @@
 <!-- prettier-ignore -->
 <template>
   <PeachyButton @click="onClick">
-   Button
+    Log quote
   </PeachyButton>
 </template>
 
