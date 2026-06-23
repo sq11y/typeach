@@ -1,5 +1,5 @@
 <template>
-  <PeachyVisuallyHidden aria-live="polite">
+  <PeachyVisuallyHidden v-if="!preventAnnouncement" aria-live="polite">
     <slot v-if="isCopying" :is-copying="isCopying" />
   </PeachyVisuallyHidden>
 
@@ -20,6 +20,11 @@ export interface CopyButtonProps {
    * The content that is to be copied on click.
    */
   content?: ClipboardItem[] | ClipboardItem | string;
+
+  /**
+   * If the live region should be disabled. This should only be used if you already have accessible feedback for the button.
+   */
+  preventAnnouncement?: boolean;
 
   /**
    * The event triggered when copying - only fired when no content is provided.
