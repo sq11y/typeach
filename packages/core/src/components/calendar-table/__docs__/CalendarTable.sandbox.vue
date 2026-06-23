@@ -158,8 +158,11 @@ table button {
 
   &[aria-pressed="true"] {
     background-color: var(--pink-30);
-    outline: 2px solid var(--pink-30);
     color: var(--pink-70);
+
+    &:not(:focus-visible) {
+      outline: 2px solid var(--pink-30);
+    }
   }
 
   @media (width < 25rem) {
