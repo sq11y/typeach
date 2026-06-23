@@ -1,6 +1,6 @@
 <template>
   <PeachyDownloadLink url="/logo.webp" filename="Mascot.webp">
-    Download an image of our mascot.
+    Download an image of our mascot (33 KB)
     <DownloadIcon aria-hidden="true" />
   </PeachyDownloadLink>
 </template>
