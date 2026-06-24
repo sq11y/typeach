@@ -55,8 +55,8 @@ importers:
         specifier: ^1.61.0
         version: 1.61.0
       do11y:
-        specifier: ^0.5.13
-        version: 0.5.13(@vitejs/plugin-vue@6.0.7(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue-router@5.1.0(@vue/compiler-sfc@3.5.38)(pinia@3.0.4(typescript@6.0.3)(vue@3.5.38(typescript@6.0.3)))(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(vue-tsc@3.3.5(typescript@6.0.3))(vue@3.5.38(typescript@6.0.3))
+        specifier: ^0.5.14
+        version: 0.5.14(@types/markdown-it@14.1.2)(@vitejs/plugin-vue@6.0.7(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue-router@5.1.0(@vue/compiler-sfc@3.5.38)(pinia@3.0.4(typescript@6.0.3)(vue@3.5.38(typescript@6.0.3)))(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(vue-tsc@3.3.5(typescript@6.0.3))(vue@3.5.38(typescript@6.0.3))
       shiki:
         specifier: ^4.2.0
         version: 4.2.0
@@ -2001,8 +2001,8 @@ packages:
   devlop@1.1.0:
     resolution: {integrity: sha512-RWmIqhcFf1lRYBvNmr7qTNuyCt/7/ns2jbpp1+PalgE/rDQcBT0fioSMUpJ93irlUhC5hrg4cYqe6U+0ImW0rA==}
 
-  do11y@0.5.13:
-    resolution: {integrity: sha512-tm9rhP/SXRb6d/KNfg5wFuqA+7ujb5gAf80uCDCqNwGpzicAT/IveRt0rNV3OLmA3PVqLOxZ8J+wULM+VsJDyA==}
+  do11y@0.5.14:
+    resolution: {integrity: sha512-av5et55NjsO6h5LzoMoJ6na9BuWdrIZn0FPGpe3dHYcUvsD5KFON1yKKrY98ahCbDnbjG5onYKq2mo7iMTZqPA==}
     engines: {node: '>=24'}
     hasBin: true
     peerDependencies:
@@ -2229,6 +2229,9 @@ packages:
 
   html-void-elements@3.0.0:
     resolution: {integrity: sha512-bEqo66MRXsUGxWHV5IP0PUiAWwoEjba4VCzg0LjFJBpchPaTfyfCKTG6bc5F8ucKec3q5y6qOdGyYTSBEvhCrg==}
+
+  htmlparser2@8.0.2:
+    resolution: {integrity: sha512-GYdjWKDkbRLkZ5geuHs5NY1puJ+PXwP7+fHPRz06Eirsb9ugf6d8kkXav6ADhcODhFFPMIXyxkxSuMf3D6NCFA==}
 
   https-proxy-agent@5.0.1:
     resolution: {integrity: sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==}
@@ -2489,6 +2492,12 @@ packages:
     engines: {node: '>=6'}
     peerDependencies:
       markdown-it: '>= 9.0.0'
+
+  markdown-it-replace-link@1.2.2:
+    resolution: {integrity: sha512-JpeY+TMKqttF+tZQDmkFxXs/8PTohFvw4Z76h98O06ZEx66PNd1wMV0Odp094O/mvvf6iOnjdHpTKAfDUwhH1A==}
+    peerDependencies:
+      '@types/markdown-it': '*'
+      markdown-it: '*'
 
   markdown-it@14.2.0:
     resolution: {integrity: sha512-1TGiQiJVRQ3NPmZH6sx5Cfnmg6GQm9jvC1ch4TK511NjSJvjzKLzn5pPfZRNZkRPZP0HqCioSndqH8v2nRaWVQ==}
@@ -5080,7 +5089,7 @@ snapshots:
     dependencies:
       dequal: 2.0.3
 
-  do11y@0.5.13(@vitejs/plugin-vue@6.0.7(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue-router@5.1.0(@vue/compiler-sfc@3.5.38)(pinia@3.0.4(typescript@6.0.3)(vue@3.5.38(typescript@6.0.3)))(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(vue-tsc@3.3.5(typescript@6.0.3))(vue@3.5.38(typescript@6.0.3)):
+  do11y@0.5.14(@types/markdown-it@14.1.2)(@vitejs/plugin-vue@6.0.7(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue-router@5.1.0(@vue/compiler-sfc@3.5.38)(pinia@3.0.4(typescript@6.0.3)(vue@3.5.38(typescript@6.0.3)))(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(vue-tsc@3.3.5(typescript@6.0.3))(vue@3.5.38(typescript@6.0.3)):
     dependencies:
       '@mdit-vue/plugin-component': 3.0.2
       '@mdit-vue/plugin-frontmatter': 3.0.2
@@ -5091,6 +5100,7 @@ snapshots:
       jsdom: 29.1.1
       markdown-it: 14.2.0
       markdown-it-attrs: 4.5.0(markdown-it@14.2.0)
+      markdown-it-replace-link: 1.2.2(@types/markdown-it@14.1.2)(markdown-it@14.2.0)
       shiki: 4.2.0
       tinyglobby: 0.2.17
       v-custom-block: 1.0.67
@@ -5102,6 +5112,7 @@ snapshots:
       vue-tsc: 3.3.5(typescript@6.0.3)
     transitivePeerDependencies:
       - '@noble/hashes'
+      - '@types/markdown-it'
       - canvas
       - typescript
 
@@ -5355,6 +5366,14 @@ snapshots:
 
   html-void-elements@3.0.0: {}
 
+  htmlparser2@8.0.2:
+    dependencies:
+      domelementtype: 2.3.0
+      domhandler: 5.0.3
+      domutils: 3.2.2
+      entities: 4.5.0
+    optional: true
+
   https-proxy-agent@5.0.1:
     dependencies:
       agent-base: 6.0.2
@@ -5577,6 +5596,14 @@ snapshots:
   markdown-it-attrs@4.5.0(markdown-it@14.2.0):
     dependencies:
       markdown-it: 14.2.0
+
+  markdown-it-replace-link@1.2.2(@types/markdown-it@14.1.2)(markdown-it@14.2.0):
+    dependencies:
+      '@types/markdown-it': 14.1.2
+      markdown-it: 14.2.0
+    optionalDependencies:
+      dom-serializer: 2.0.0
+      htmlparser2: 8.0.2
 
   markdown-it@14.2.0:
     dependencies:
