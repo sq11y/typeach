@@ -4,7 +4,7 @@ import svg from "vite-svg-loader";
 
 /* @ts-expect-error due to mismatching types for vite and vite-plus */
 export default defineConfig((env) => ({
-  base: env.mode === "production" ? "/typeach/" : undefined,
+  base: env.command === "build" ? "/typeach/" : undefined,
 
   resolve: {
     dedupe: ["vue-router"],
