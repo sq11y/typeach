@@ -9,7 +9,7 @@ import { useField } from "./hooks";
 
 export interface FieldLabelSlots {
   /**
-   * The label's content - should include an accessible label.
+   * The label's content - should include an [accessible label](/p/labels).
    *
    * Some fields might have their own label where this one becomes incompatible - read the documentation for each field.
    */

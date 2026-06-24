@@ -49,7 +49,9 @@ export interface CalendarTableCellButtonEmits {
 
 export interface CalendarTableCellButtonSlots {
   /**
-   * The content of the button - should include an accessible label that ensures the full date is announced for screen readers.
+   * The content of the button - should include an [accessible label](/p/labels).
+   *
+   * The label should ensure the full date is announced for screen readers.
    */
   default: (data: void) => void;
 }

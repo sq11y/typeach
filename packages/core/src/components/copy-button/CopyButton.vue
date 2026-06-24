@@ -22,7 +22,7 @@ export interface CopyButtonProps {
   content?: ClipboardItem[] | ClipboardItem | string;
 
   /**
-   * If the live region should be disabled. This should only be used if you already have accessible feedback for the button.
+   * If the [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions) should be disabled. Should only be used if you already have accessible feedback for the button.
    */
   preventAnnouncement?: boolean;
 
@@ -41,9 +41,9 @@ export interface CopyButtonEmits {
 
 export interface CopyButtonSlots {
   /**
-   * The content of the button - should include an accessible label.
+   * The content of the button - should include an [accessible label](/p/labels).
    *
-   * The label should change when `isCopying` is `true` to let the user know the copy was successful.
+   * the label should change when `isCopying` is `true` to let the user know the copy was successful, unless you already have accessible feedback for the button then you should use `preventAnnouncement`.
    */
   default: (data: { isCopying: boolean }) => void;
 }

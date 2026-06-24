@@ -41,4 +41,4 @@ description: "Toggle content."
 
 ## Accessibility
 
-The disclosure button extends the <RouterLink to="/c/button">button component</RouterLink>, please refer to it's accessibility notes as they are still relevant here.
+The copy button extends the <RouterLink to="/c/button">button component</RouterLink>, please refer to it's accessibility notes.

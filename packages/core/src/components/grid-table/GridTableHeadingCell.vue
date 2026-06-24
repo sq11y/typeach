@@ -25,7 +25,7 @@ export interface GridTableHeadingCellProps {
 
 export interface GridTableHeadingCellSlots {
   /**
-   * Should contain an accessible label for the column.
+   * The content of the heading - should include an [accessible label](/p/labels).
    */
   default: (data: void) => void;
 }

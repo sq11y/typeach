@@ -27,7 +27,7 @@ export interface SwitchFieldSwitchButtonProps {
 
 export interface SwitchFieldSwitchButtonSlots {
   /**
-   * The content of the button.
+   * The content of the button - should include an [accessible label](/p/labels).
    */
   default: (data: void) => void;
 }

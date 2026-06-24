@@ -30,9 +30,3 @@ description: "Download content."
 ## Accessibility
 
 The link extends the [HTML a element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a), meaning it is part of the tab order and can be activated with <kbd>Enter</kbd>.
-
-### Labels
-
-The download link should have an accessible label. You can read more about accessible labels under the <RouterLink to="/c/button">button component</RouterLink>.
-
-It's great if you can give the user an idea of how long the download will take them - the easiest way to do this is to let them know the size of the content.
