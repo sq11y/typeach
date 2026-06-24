@@ -47,11 +47,13 @@ description: "Allow for an interactive table."
 
 ## Accessibility
 
-The grid table extends the [HTML table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table) with a grid role. When a cell gains focus - if it has a control inside of it, you should focus it.
+The grid table extends the [HTML table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table) with a grid role.
 
 ### Keyboard navigation
 
 Only one of the cells remain in the tab order - starting with the first cell and once the user navigates the table, the last focused cell will be in the tab order.
+
+When a cell with a control inside of it gains focus - you should move the focus to the control.
 
 | Key                               | Move to..                          |
 | --------------------------------- | ---------------------------------- |
