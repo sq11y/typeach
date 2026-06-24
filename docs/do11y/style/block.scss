@@ -160,3 +160,50 @@ ul {
       radial-gradient(100% 100%, #000 28.868%, #0000 calc(28.868% + 1px));
   }
 }
+
+table:not([class]) {
+  border-spacing: 0;
+  border: var(--border);
+  border-radius: var(--border-radius);
+
+  overflow: hidden;
+
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-s);
+
+  td,
+  th {
+    padding: var(--spacing-s) var(--spacing-m);
+    text-align: start;
+  }
+
+  th {
+    border-block-end: var(--invisible-border);
+
+    background-color: var(--green-20);
+    color: var(--green-80);
+
+    font-weight: var(--font-weight-medium);
+  }
+
+  td:nth-child(2) {
+    max-inline-size: 20rem;
+  }
+
+  tr:nth-child(even):not(:last-child) td {
+    border-block: var(--border);
+  }
+
+  tr:nth-child(even):last-child td {
+    border-block-start: var(--border);
+  }
+
+  td:first-child {
+    min-inline-size: max-content;
+    white-space: nowrap;
+  }
+
+  td {
+    vertical-align: text-top;
+  }
+}

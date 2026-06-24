@@ -1,5 +1,5 @@
 <template>
-  <PeachyTable :data-unresponsive="unresponsive">
+  <PeachyTable :class="c()" :data-unresponsive="unresponsive">
     <PeachyTableHead>
       <PeachyTableRow>
         <PeachyTableHeadingCell v-for="(title, titleIndex) of titles" :key="titleIndex">
@@ -61,55 +61,55 @@ const c = useBemClass("table");
 <style lang="scss">
 @use "@typeach/theme/utils";
 
-table {
+.table {
   border-spacing: 0;
   border: var(--border);
   border-radius: var(--border-radius);
 
   overflow: hidden;
-}
 
-td,
-th {
-  padding: var(--spacing-l);
-  text-align: start;
-}
+  td,
+  th {
+    padding: var(--spacing-l);
+    text-align: start;
+  }
 
-th {
-  border-block-end: var(--invisible-border);
-  padding-block: var(--spacing-m) var(--spacing-s);
+  th {
+    border-block-end: var(--invisible-border);
+    padding-block: var(--spacing-m) var(--spacing-s);
 
-  background-color: var(--green-20);
-  color: var(--green-80);
+    background-color: var(--green-20);
+    color: var(--green-80);
 
-  font-weight: var(--font-weight-medium);
-}
+    font-weight: var(--font-weight-medium);
+  }
 
-td:nth-child(2) {
-  max-inline-size: 20rem;
-}
+  td:nth-child(2) {
+    max-inline-size: 20rem;
+  }
 
-tr:nth-child(even) {
-  background-color: var(--grey-10);
-}
+  tr:nth-child(even) {
+    background-color: var(--grey-10);
+  }
 
-tr:nth-child(even):not(:last-child) td {
-  border-block: var(--border);
-  border-color: transparent;
-}
+  tr:nth-child(even):not(:last-child) td {
+    border-block: var(--border);
+    border-color: transparent;
+  }
 
-tr:nth-child(even):last-child td {
-  border-block-start: var(--border);
-  border-color: transparent;
-}
+  tr:nth-child(even):last-child td {
+    border-block-start: var(--border);
+    border-color: transparent;
+  }
 
-td:first-child {
-  min-inline-size: max-content;
-  white-space: nowrap;
-}
+  td:first-child {
+    min-inline-size: max-content;
+    white-space: nowrap;
+  }
 
-td {
-  vertical-align: text-top;
+  td {
+    vertical-align: text-top;
+  }
 }
 
 .table__list {
@@ -135,35 +135,35 @@ td {
     line-height: var(--line-height-l);
     font-weight: var(--font-weight-medium);
   }
-}
 
-dl {
-  &:not(:first-child) {
-    border-top: var(--border);
-  }
+  dl {
+    &:not(:first-child) {
+      border-top: var(--border);
+    }
 
-  dd,
-  dt {
-    padding-inline: var(--spacing-l);
-  }
+    dd,
+    dt {
+      padding-inline: var(--spacing-l);
+    }
 
-  dt {
-    margin-block-start: var(--spacing-s);
+    dt {
+      margin-block-start: var(--spacing-s);
 
-    font-weight: var(--font-weight-medium);
-  }
+      font-weight: var(--font-weight-medium);
+    }
 
-  dd:first-of-type + dt {
-    padding-block-start: var(--spacing-s);
-  }
+    dd:first-of-type + dt {
+      padding-block-start: var(--spacing-s);
+    }
 
-  dd:last-child {
-    padding-block-end: var(--spacing-l);
+    dd:last-child {
+      padding-block-end: var(--spacing-l);
+    }
   }
 }
 
 @media (width < 45rem) {
-  table:not([data-unresponsive="true"]) {
+  .table:not([data-unresponsive="true"]) {
     display: none;
   }
 }
