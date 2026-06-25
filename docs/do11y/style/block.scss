@@ -84,7 +84,7 @@ h6 {
   color: var(--brown-fg);
 }
 
-@media (width < 38rem) {
+@media (width < 42rem) {
   h1::before {
     display: none;
   }
