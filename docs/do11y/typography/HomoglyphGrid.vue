@@ -55,25 +55,26 @@ const typography = [
 const c = useBemClass("typography");
 </script>
 
-<style>
+<style lang="scss">
+@use "@typeach/theme/utils";
+
 .typography__graphic {
-  --card-height: 6.5rem;
+  height: 20rem;
 
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-rows: repeat(3, var(--card-height));
+  grid-template-rows: repeat(3, 1fr);
   gap: var(--spacing-s);
 
   user-select: none;
-  pointer-events: none;
 
   @media (width < 32rem) {
+    height: 18rem;
     gap: var(--spacing-xs);
-    --card-height: 5rem;
   }
 
   @media (width < 26rem) {
-    --card-height: 3.75rem;
+    height: 12rem;
   }
 
   > * {
@@ -81,10 +82,8 @@ const c = useBemClass("typography");
     border-radius: var(--border-radius);
     border: 1px solid transparent;
 
-    text-align: center;
-
     font-size: var(--font-size-l);
-    line-height: var(--card-height);
+    @include utils.center-content;
 
     background-color: var(--background);
     color: var(--color);
