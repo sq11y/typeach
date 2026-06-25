@@ -41,3 +41,19 @@ table div:has(p) + div {
 article > p {
   margin-inline-start: var(--spacing-xxs);
 }
+
+li + li:not([class]) {
+  margin-block-start: var(--relative-spacing-s);
+}
+
+@media (width < 50rem) {
+  /* Large heading after content */
+  :not(h1, h2, h3, h4, h5, h6) + :is(h1, h2) {
+    margin-block-start: var(--spacing-xxxl);
+  }
+
+  /* Large heading after content */
+  :not(h1, h2, h3, h4, h5, h6) + :is(h3) {
+    margin-block-start: var(--spacing-xxl);
+  }
+}

@@ -91,6 +91,11 @@ h6 {
 
   .description {
     margin-inline-start: 0;
+    margin-block-end: var(--spacing-xl);
+  }
+
+  h1:not(:has(+ .description)):not(.tagline) {
+    margin-block-end: var(--spacing-xl);
   }
 }
 
@@ -107,10 +112,14 @@ pre:not(.code-block pre) {
 }
 
 .two-columns {
+  overflow-x: scroll;
+
+  width: fit-content;
+  max-width: 100%;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-xl);
-  width: fit-content;
 
   margin-block-start: var(--spacing-l);
 

@@ -109,6 +109,10 @@ body > footer {
   color: var(--pink-80);
 
   border-block-start: var(--invisible-border);
+
+  @media (width <= 46rem) {
+    padding-block: var(--spacing-xl);
+  }
 }
 
 a[href^="https://github.com"] {
