@@ -27,7 +27,7 @@
 
 ### Variables
 
-Every spacing value has an accompanying CSS variable. For example `--spacing-xs`, `--relative-spacing-m` or `--spacing-xxl`.
+Every spacing step has an accompanying CSS variable. For example `--spacing-xs`, `--relative-spacing-m` or `--spacing-xxl`.
 
 ```scss
 @use "@typeach/theme";
