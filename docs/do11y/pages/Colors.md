@@ -1,6 +1,7 @@
 <script setup>
   import { ref } from 'vue';
 
+  import ColorsGraphic from '../colors/ColorsGraphic.vue';
   import Colors from '../colors/Colors.vue';
   import ColorRules from '../colors/ColorRules.vue';
   import Do11ySwitch from '../components/Do11ySwitch.vue';
@@ -16,9 +17,11 @@
   A simple color palette.
 </div>
 
-<Colors :apca="apca" />
+<ColorsGraphic />
 
 ## Values
+
+<Colors :apca="apca" />
 
 All colors come with 11 values. The brightest value is `bg`, the darkest value is `fg` - and the values between them are numbers where the lower the value, the brighter the color.
 
