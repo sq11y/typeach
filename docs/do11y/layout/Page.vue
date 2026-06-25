@@ -14,6 +14,7 @@
       <RouterLink to="/p/components">Components</RouterLink>
       <RouterLink to="/p/colors">Colors</RouterLink>
       <RouterLink to="/p/typography">Typography</RouterLink>
+      <RouterLink to="/p/spacing">Spacing</RouterLink>
     </nav>
   </header>
 
@@ -62,7 +63,7 @@ import MenuIcon from "../icons/menu.svg?component";
 
 import "../style/index.scss";
 
-const isSmallScreen = useMediaQuery("(width <= 38rem)");
+const isSmallScreen = useMediaQuery("(width <= 46rem)");
 
 const button = useTemplateRef("button");
 </script>

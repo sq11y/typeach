@@ -17,8 +17,8 @@
   --spacing-xl: #{spacing(8)}; // 32px
   --spacing-xxl: #{spacing(10)}; // 40px
   --spacing-xxxl: #{spacing(14)}; // 56px
-  --spacing-xxxxl: #{spacing(20)}; // 80px
-  --spacing-xxxxxl: #{spacing(26)}; // 104px
+  --spacing-xxxxl: #{spacing(18)}; // 72px
+  --spacing-xxxxxl: #{spacing(30)}; // 120px
 
   --relative-spacing-unit: 0.125em;
 
@@ -30,6 +30,6 @@
   --relative-spacing-xl: #{relative-spacing(8)}; // 16px
   --relative-spacing-xxl: #{relative-spacing(10)}; // 20px
   --relative-spacing-xxxl: #{relative-spacing(14)}; // 28px
-  --relative-spacing-xxxxl: #{relative-spacing(20)}; // 40px
-  --relative-spacing-xxxxxl: #{relative-spacing(26)}; // 52px
+  --relative-spacing-xxxxl: #{relative-spacing(18)}; // 36px
+  --relative-spacing-xxxxxl: #{relative-spacing(30)}; // 60px
 }

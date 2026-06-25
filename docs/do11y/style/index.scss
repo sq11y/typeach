@@ -47,7 +47,7 @@ header {
   background-color: var(--green-30);
   color: var(--green-80);
 
-  @media (width <= 38rem) {
+  @media (width <= 46rem) {
     margin-inline: auto calc(var(--inline-margin));
   }
 }

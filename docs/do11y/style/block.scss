@@ -110,6 +110,9 @@ pre:not(.code-block pre) {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-xl);
+  width: fit-content;
+
+  margin-block-start: var(--spacing-l);
 
   @media (width < 46rem) {
     grid-template-columns: 1fr;
