@@ -59,3 +59,7 @@ Only one of the cell buttons remain in the tab order - the focused date - which 
 | <kbd>Page down</kbd>                    | Forward a month.                      |
 | <kbd>Page up</kbd> + <kbd>Shift</kbd>   | Back a year.                          |
 | <kbd>Page down</kbd> + <kbd>Shift</kbd> | Forward a year.                       |
+
+## References
+
+Most of the calendar logic for this component comes from [wc-datepicker](https://github.com/Sqrrl/wc-datepicker) and [Tommy's inclusive datepicker](https://github.com/fymmot/inclusive-dates), please check those out!
