@@ -2,6 +2,7 @@
 title: "Switch Field"
 slug: "/f/switch-field"
 description: "Switch an option on or off."
+illustration: "switch-field.png"
 ---
 
 <script setup>

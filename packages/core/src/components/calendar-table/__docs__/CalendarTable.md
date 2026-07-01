@@ -2,6 +2,7 @@
 title: "Calendar table"
 slug: "/c/calendar-table"
 description: "A minimal calendar."
+illustration: "calendar-table.png"
 ---
 
 <script setup>

@@ -2,6 +2,7 @@
 title: "Separator"
 slug: "/c/separator"
 description: "A line to separate content."
+illustration: "separator.png"
 ---
 
 <script setup>

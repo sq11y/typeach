@@ -1,7 +1,12 @@
 <template>
   <nav :class="c()">
-    <ul>
-      <li v-for="component of components" :key="component.path">
+    <ul :class="c('list')">
+      <li v-for="component of components" :key="component.path" :class="c('list-item')">
+        <img
+          :src="`${$router.options.history.base || '/'}illustrations/${component.meta.illustration}`"
+          alt=""
+        />
+
         <div :class="c('description')">
           <router-link :to="component.path">
             {{ component.meta.title }}
@@ -16,6 +21,7 @@
 
 <script lang="ts" setup>
 import type { RouteRecordRaw } from "vue-router";
+import { useRouter } from "vue-router";
 
 import { useBemClass } from "@typeach/core";
 
@@ -31,37 +37,51 @@ interface ComponentGridProps {
 defineProps<ComponentGridProps>();
 
 const c = useBemClass("component-grid");
+
+const router = useRouter();
 </script>
 
 <style lang="scss">
 @use "@typeach/theme/utils";
 
-.component-grid {
-  ul {
-    list-style: none;
-    padding-inline-start: 0;
+.component-grid__list {
+  list-style: none;
+  padding-inline-start: 0;
 
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: var(--spacing-l);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: var(--spacing-l);
+}
+
+.component-grid__list-item {
+  position: relative;
+  overflow: hidden;
+
+  border-radius: var(--border-radius);
+  border: var(--border);
+  background-color: var(--grey-10);
+
+  a {
+    font-size: var(--font-size-l);
+    line-height: var(--line-height-l);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
   }
 
-  li {
-    position: relative;
-    overflow: hidden;
+  p {
+    margin-block-start: var(--spacing-xxs);
 
-    border-radius: var(--border-radius);
-    border: var(--invisible-border);
-    background-color: var(--grey-10);
+    font-size: var(--font-size-s);
+    line-height: var(--line-height-s);
+  }
 
-    a {
-      font-size: var(--font-size-l);
-      line-height: var(--line-height-l);
-    }
-
-    p {
-      margin-block-start: var(--spacing-xs);
-    }
+  img {
+    inline-size: 100%;
+    background-color: var(--bg);
   }
 }
 

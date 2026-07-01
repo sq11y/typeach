@@ -2,6 +2,7 @@
 title: "Grid table"
 slug: "/c/grid-table"
 description: "Allow for an interactive table."
+illustration: "grid-table.png"
 ---
 
 <script setup>

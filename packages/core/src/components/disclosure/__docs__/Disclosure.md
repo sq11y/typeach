@@ -2,6 +2,7 @@
 title: "Disclosure"
 slug: "/c/disclosure"
 description: "Toggle content."
+illustration: "disclosure.png"
 ---
 
 <script setup>

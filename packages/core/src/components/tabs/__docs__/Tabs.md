@@ -2,6 +2,7 @@
 title: "Tabs"
 slug: "/c/tabs"
 description: "Switch between content."
+illustration: "tabs.png"
 ---
 
 <script setup>

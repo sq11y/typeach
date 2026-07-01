@@ -2,6 +2,7 @@
 title: "Table"
 slug: "/c/table"
 description: "Showcase tabular data."
+illustration: "table.png"
 ---
 
 <script setup>

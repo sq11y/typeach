@@ -2,6 +2,7 @@
 title: "Copy button"
 slug: "/c/copy-button"
 description: "Copy content to clipboard."
+illustration: "copy-button.png"
 ---
 
 <script setup>
