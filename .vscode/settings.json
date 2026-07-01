@@ -5,8 +5,8 @@
 
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
-    "tsconfig.json": "tsconfig.*.jsonP, env.d.ts",
-    "vite.config.*": "vitest.config.*, cypress.config.*, playwright-ct.config.*",
+    "tsconfig.json": "tsconfig.*.json, env.d.ts",
+    "vite.config.*": "vitest.config.*, playwright-ct.config.*",
     "package.json": "pnpm*, eslint*, .oxlint*, .oxfmt*, stylelint*"
   },
 
