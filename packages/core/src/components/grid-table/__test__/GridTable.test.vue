@@ -45,7 +45,7 @@ th {
   vertical-align: middle;
 
   &:focus {
-    background-color: rgb(240, 240, 255);
+    background-color: rgb(240 240 255);
     outline: 4px solid darkblue;
   }
 }

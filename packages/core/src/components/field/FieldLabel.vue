@@ -1,4 +1,5 @@
 <template>
+  <!-- eslint-disable-next-line vuejs-accessibility/click-events-have-key-events vuejs-accessibility/label-has-for vuejs-accessibility/no-static-element-interactions -->
   <label :id="`${id}-label`" :for="id" @click="onClick">
     <slot />
   </label>

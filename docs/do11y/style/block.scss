@@ -23,8 +23,8 @@ h1:not(.tagline) {
     aspect-ratio: 1;
 
     transform-origin: center;
-    left: -0.75em;
-    top: -0.55em;
+    inset-inline-start: -0.75em;
+    inset-block-start: -0.55em;
 
     background-color: var(--pink-40);
 
@@ -36,6 +36,7 @@ h1:not(.tagline) {
       *
       * @see https://css-generators.com/flower-shapes/
       */
+    /* stylelint-disable scss/operator-no-unspaced */
     --g: /23.606% 23.606% radial-gradient(#000 calc(71% - 1px), #0000 71%) no-repeat;
 
     mask:
@@ -59,7 +60,7 @@ h1:not(:has(+ .description)):not(.tagline) {
 
 .description {
   margin-inline: 8.5rem var(--spacing-s);
-  margin-block: 0rem var(--spacing-xxxl);
+  margin-block: 0 var(--spacing-xxxl);
 
   color: var(--pink-80);
 }
@@ -112,10 +113,10 @@ pre:not(.code-block pre) {
 }
 
 .two-columns {
-  overflow-x: scroll;
+  overflow-inline: scroll;
 
-  width: fit-content;
-  max-width: 100%;
+  inline-size: fit-content;
+  max-inline-size: 100%;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -160,6 +161,7 @@ ul {
     *
     * @see https://css-generators.com/flower-shapes/
     */
+    /* stylelint-disable scss/operator-no-unspaced */
     --g: /33.334% 33.334% radial-gradient(#000 calc(71% - 1px), #0000 71%) no-repeat;
 
     mask:

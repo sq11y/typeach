@@ -2,10 +2,10 @@
 @use "@typeach/theme/reset";
 @use "@typeach/theme/utils";
 
-@use "./typography.scss";
-@use "./flow.scss";
-@use "./inline.scss";
-@use "./block.scss";
+@use "./typography";
+@use "./flow";
+@use "./inline";
+@use "./block";
 
 :root {
   --border-radius: 8px;
@@ -88,7 +88,7 @@ header nav {
     @include utils.vertical-flex(var(--spacing-m));
 
     margin-inline: auto calc(var(--inline-margin));
-    top: 6.25rem;
+    inset-block-start: 6.25rem;
 
     border: var(--border);
     border-radius: var(--border-radius);

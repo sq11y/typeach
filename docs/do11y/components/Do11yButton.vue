@@ -8,10 +8,16 @@
 import { PeachyButton, PeachySwitchButton, useBemClass } from "@typeach/core";
 
 interface ButtonProps {
+  /**
+   * The underlying component to use.
+   */
   type?: "button" | "switch-button";
 }
 
 interface ButtonSlots {
+  /**
+   * The content of the button - should include an accessible label.
+   */
   default: (data: void) => void;
 }
 

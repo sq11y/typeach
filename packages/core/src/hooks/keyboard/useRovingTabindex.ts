@@ -59,6 +59,9 @@ export const useRovingTabindex = (
 
         case "End":
           return moveToEdge("end");
+
+        default:
+          throw new Error(`Invalid event ${event.key}`);
       }
     },
   };

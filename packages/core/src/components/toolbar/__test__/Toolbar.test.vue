@@ -14,6 +14,9 @@ import { PeachyToolbar } from "../../toolbar";
 import { PeachyButton } from "../../button";
 
 interface ToolbarTestProps {
+  /**
+   * The orientation of the toolbar.
+   */
   orientation?: "vertical";
 }
 

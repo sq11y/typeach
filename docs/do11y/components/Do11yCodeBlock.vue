@@ -10,6 +10,7 @@
       <Do11yCopyButton :content="code" />
     </div>
 
+    <!-- eslint-disable-next-line vue/no-v-html -->
     <div v-html="highlightedCode" />
   </div>
 </template>
@@ -25,10 +26,16 @@ import TextWrapIcon from "../icons/text-wrap.svg?component";
 import TextWrapCheckIcon from "../icons/text-wrap--checked.svg?component";
 
 interface CodeBlockProps {
+  /**
+   * The HTMl for the code.
+   */
   highlightedCode: string;
 }
 
 interface CodeBlockSlots {
+  /**
+   * Additional controls for the code block.
+   */
   default: (data: void) => void;
 }
 

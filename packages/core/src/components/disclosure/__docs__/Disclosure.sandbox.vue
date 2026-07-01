@@ -83,7 +83,7 @@ button[aria-expanded] {
 
 button[aria-expanded] {
   svg {
-    margin-left: auto;
+    margin-inline-start: auto;
     block-size: var(--icon-size);
     transform: rotate(-45deg);
     @include utils.transition("transform");
@@ -120,7 +120,7 @@ button[aria-expanded] {
 }
 
 .panel {
-  overflow-y: hidden;
+  overflow-block: hidden;
   max-block-size: 15rem;
 
   @include utils.transition("max-block-size");

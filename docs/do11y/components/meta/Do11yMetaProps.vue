@@ -2,6 +2,7 @@
   <!-- Templates -->
 
   <DefineDescriptionTemplate v-slot="{ row }">
+    <!-- eslint-disable-next-line vue/no-v-html -->
     <div v-if="row.description" v-html="row.description" />
   </DefineDescriptionTemplate>
 
@@ -24,11 +25,11 @@
     :small-titles="['Prop', 'Type', 'Description', 'Necessity']"
     :rows="sortedProps"
   >
-    <template v-slot:prop="{ row }">
+    <template #prop="{ row }">
       {{ row.name }}
     </template>
 
-    <template v-slot:type="{ row }">
+    <template #type="{ row }">
       <div class="tags">
         <div v-for="(type, i) in splitTypes(row.type)" :key="i">
           <code>
@@ -38,16 +39,16 @@
       </div>
     </template>
 
-    <template v-slot:description-necessity="{ row }">
+    <template #description-necessity="{ row }">
       <ReuseDescriptionTemplate :row="row" />
       <ReuseNecessityTemplate :row="row" :small="true" />
     </template>
 
-    <template v-slot:description="{ row }">
+    <template #description="{ row }">
       <ReuseDescriptionTemplate :row="row" />
     </template>
 
-    <template v-slot:necessity="{ row }">
+    <template #necessity="{ row }">
       <ReuseNecessityTemplate :row="row" />
     </template>
   </Do11yTable>
@@ -62,6 +63,9 @@ import type { Meta } from "do11y";
 import Do11yTable from "../Do11yTable.vue";
 
 interface MetaProps {
+  /**
+   * The generated component meta.
+   */
   meta: Meta;
 }
 

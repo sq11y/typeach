@@ -1,5 +1,5 @@
 <template>
-  <component v-if="as" :is="as">
+  <component :is="as" v-if="as">
     <slot />
   </component>
 

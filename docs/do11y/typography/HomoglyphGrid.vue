@@ -1,9 +1,10 @@
 <template>
   <div :class="c('graphic')">
     <div
-      v-for="typographyExample of typography"
-      aria-hidden="true"
+      v-for="(typographyExample, i) of typography"
+      :key="i"
       :style="`--background: var(--${typographyExample.color}-30); --color: var(--${typographyExample.color}-70);`"
+      aria-hidden="true"
     >
       {{ typographyExample.text }}
     </div>
@@ -59,7 +60,7 @@ const c = useBemClass("typography");
 @use "@typeach/theme/utils";
 
 .typography__graphic {
-  height: 20rem;
+  block-size: 20rem;
 
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -69,12 +70,12 @@ const c = useBemClass("typography");
   user-select: none;
 
   @media (width < 32rem) {
-    height: 18rem;
+    block-size: 18rem;
     gap: var(--spacing-xs);
   }
 
   @media (width < 26rem) {
-    height: 12rem;
+    block-size: 12rem;
   }
 
   > * {

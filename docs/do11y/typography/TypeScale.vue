@@ -2,8 +2,9 @@
   <ol class="type-scale">
     <li
       v-for="size of scale"
-      class="font-size"
+      :key="size"
       :style="`--font-size: var(--font-size-${size}); --line-height: var(--line-height-${size}); `"
+      class="font-size"
     >
       {{ size }} ({{ variables[size] }})
     </li>

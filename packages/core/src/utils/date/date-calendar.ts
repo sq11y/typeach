@@ -1,5 +1,5 @@
 import { getWeekNumber } from "./date-format";
-import type { Week, Weekday } from "./date-types";
+import { Weekday, type Week } from "./date-types";
 
 import {
   getFirstDayOfMonth,
@@ -68,7 +68,7 @@ const beforeAndAfterMonth = (date: Date, startOfWeek: Weekday) => {
 
   const lastOfMonth = getLastDayOfMonth(date);
   const lastDayOfMonth = lastOfMonth.getDay() === 0 ? 7 : lastOfMonth.getDay();
-  const lastOfWeek = startOfWeek === 1 ? 7 : startOfWeek - 1;
+  const lastOfWeek = startOfWeek === Weekday.Monday ? 7 : startOfWeek - 1;
 
   const daysBefore: Date[] = [];
   const daysAfter: Date[] = [];

@@ -14,6 +14,9 @@ import CopyIcon from "../icons/clipboard.svg?component";
 import CopiedIcon from "../icons/clipboard--checked.svg?component";
 
 interface CopyButtonProps {
+  /**
+   * The content that is to be copied on click.
+   */
   content: string;
 }
 

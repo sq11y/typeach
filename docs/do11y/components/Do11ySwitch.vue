@@ -20,10 +20,16 @@ import { PeachySwitchField } from "@typeach/core";
 import Do11yButton from "./Do11yButton.vue";
 
 interface SwitchProps {
+  /**
+   * The icon to represent the switch.
+   */
   icon: Component;
 }
 
 interface SwitchSlots {
+  /**
+   * The switch label.
+   */
   default: (data: void) => void;
 }
 

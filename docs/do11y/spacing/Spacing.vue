@@ -26,6 +26,9 @@
 
 <script lang="ts" setup>
 export interface SpacingProps {
+  /**
+   * If the overview is for the relative scale.
+   */
   relative?: boolean;
 }
 
@@ -60,7 +63,7 @@ const getValue = (space: string) => {
 
 <style lang="scss">
 .spacing {
-  height: 1em;
+  block-size: 1em;
   background-color: var(--grey-70);
   border-radius: calc(var(--border-radius) / 2);
 }

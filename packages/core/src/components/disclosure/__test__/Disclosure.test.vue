@@ -12,7 +12,14 @@
 import { PeachyDisclosure, PeachyDisclosureButton, PeachyDisclosurePanel } from "@typeach/core";
 
 interface DisclosureTestProps {
+  /**
+   * If the disclosure should be disabled.
+   */
   disabled?: boolean;
+
+  /**
+   * If the panel should act as a popover.
+   */
   popover?: boolean;
 }
 

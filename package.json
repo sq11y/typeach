@@ -20,7 +20,8 @@
     "docs:preview": "do11y preview",
     "docs:build": "do11y build",
     "build": "vp run --filter './**' --filter '!.' build",
-    "prepare": "vp config"
+    "prepare": "vp config",
+    "lint": "pnpm eslint && pnpm stylelint '**/*.{css,scss,vue}'"
   },
   "dependencies": {
     "@typeach/core": "workspace:*",
@@ -34,7 +35,13 @@
   "devDependencies": {
     "@playwright/test": "^1.61.0",
     "do11y": "^0.5.14",
+    "eslint": "^10.6.0",
+    "eslint-config-sq11y": "^0.0.0",
+    "oxfmt": "^0.56.0",
+    "oxlint": "^1.71.0",
     "shiki": "^4.2.0",
+    "stylelint": "^17.14.0",
+    "stylelint-config-sq11y": "^0.0.2",
     "vite-plus": "catalog:",
     "vite-svg-loader": "^5.1.1"
   },

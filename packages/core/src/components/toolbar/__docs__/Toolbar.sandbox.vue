@@ -85,7 +85,7 @@ img {
   border-radius: var(--border-radius);
 
   img {
-    width: 14rem;
+    inline-size: 14rem;
     border-radius: inherit;
     margin-inline: auto;
   }

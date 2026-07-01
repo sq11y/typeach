@@ -17,16 +17,15 @@
   --font-size-scale: 1;
   --line-height-scale: 1;
 
-  /* Minimum font-size of 16px */
-  /* --font-size-scale: 1.0256410256; */
+  /* Scale for minimum font-size of 16px: 1.0256410256 */
 
   --font-size-xs: #{dynamic-font-size(0.975rem)};
   --line-height-xs: #{dynamic-line-height(1.7)};
 
-  --font-size-s: #{dynamic-font-size(1.12125rem)};
+  --font-size-s: #{dynamic-font-size(1.1213rem)};
   --line-height-s: #{dynamic-line-height(1.7)};
 
-  --font-size-m: #{dynamic-font-size(1.291875rem)};
+  --font-size-m: #{dynamic-font-size(1.2919rem)};
   --line-height-m: #{dynamic-line-height(1.625)};
 
   --font-size-l: #{dynamic-font-size(1.4625rem)};
@@ -41,7 +40,7 @@
   --font-size-xxxl: #{dynamic-font-size(2.4375rem)};
   --line-height-xxxl: #{dynamic-line-height(1.4)};
 
-  --font-size-xxxxl: #{dynamic-font-size(3.65625rem)};
+  --font-size-xxxxl: #{dynamic-font-size(3.6563rem)};
   --line-height-xxxxl: #{dynamic-line-height(1.35)};
 
   --font-size-xxxxxl: #{dynamic-font-size(5.3625rem)};

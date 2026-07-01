@@ -1,6 +1,6 @@
-@use "./colors.scss";
-@use "./spacing.scss";
-@use "./typography.scss";
+@use "./colors";
+@use "./spacing";
+@use "./typography";
 
 :root {
   --pill-border-radius: 999rem;

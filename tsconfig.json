@@ -5,7 +5,8 @@
     "./docs/**/*",
     "./docs/**/*.vue",
     "./packages/**/__docs__/*",
-    "./packages/**/__docs__/*.vue"
+    "./packages/**/__docs__/*.vue",
+    "vite.config.ts"
   ],
 
   "compilerOptions": {

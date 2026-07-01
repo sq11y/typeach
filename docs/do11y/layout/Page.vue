@@ -6,11 +6,11 @@
       <span class="brand-name">Typeach </span>
     </RouterLink>
 
-    <PeachyButton ref="button" v-if="isSmallScreen" command="toggle-popover" commandfor="nav">
+    <PeachyButton v-if="isSmallScreen" ref="button" command="toggle-popover" commandfor="nav">
       <MenuIcon aria-label="Navigation" />
     </PeachyButton>
 
-    <nav id="nav" :popover="isSmallScreen ? 'auto' : undefined" @click="button?.$el.click()">
+    <nav id="nav" ref="popover" :popover="isSmallScreen ? 'auto' : undefined">
       <RouterLink to="/p/components">Components</RouterLink>
       <RouterLink to="/p/colors">Colors</RouterLink>
       <RouterLink to="/p/typography">Typography</RouterLink>
@@ -55,6 +55,7 @@
 import { useTemplateRef } from "vue";
 
 import { useMediaQuery } from "@vueuse/core";
+import { useRouter } from "vue-router";
 
 import { PeachyButton } from "@typeach/core";
 
@@ -65,7 +66,15 @@ import "../style/index.scss";
 
 const isSmallScreen = useMediaQuery("(width <= 46rem)");
 
-const button = useTemplateRef("button");
+const popover = useTemplateRef("popover");
+
+const router = useRouter();
+
+router.beforeEach(() => {
+  if (isSmallScreen.value) {
+    popover.value?.hidePopover();
+  }
+});
 </script>
 
 <style lang="scss">

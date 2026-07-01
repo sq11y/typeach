@@ -11,6 +11,9 @@ import Do11yComponentMetaProps from "./Do11yMetaProps.vue";
 import Do11yComponentMetaGrid from "./Do11yMetaGrid.vue";
 
 interface MetaProps {
+  /**
+   * The generated component meta.
+   */
   meta: Meta;
 }
 

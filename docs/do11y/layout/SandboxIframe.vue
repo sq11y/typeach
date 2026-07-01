@@ -23,7 +23,14 @@ import PaintBrushUncheckedIcon from "../icons/paint-brush--unchecked.svg?compone
 import PaintBrushCheckedIcon from "../icons/paint-brush--checked.svg?component";
 
 interface Props extends SandboxIframeProps {
+  /**
+   * The component name.
+   */
   title: string;
+
+  /**
+   * Preferred block size.
+   */
   blockSize?: `${string}rem`;
 }
 

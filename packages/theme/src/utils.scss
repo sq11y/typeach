@@ -3,7 +3,6 @@
 
 @mixin visually-hidden {
   &:not(:focus):not(:focus-within) {
-    clip: rect(0 0 0 0);
     clip-path: inset(50%);
 
     block-size: 1px;
@@ -64,13 +63,13 @@
   aspect-ratio: 1;
   flex: 0 0 auto;
 
-  @if ($width) {
+  @if $width {
     min-inline-size: $width;
     inline-size: $width;
     max-inline-size: $width;
   }
 
-  @if ($height) {
+  @if $height {
     min-block-size: $height;
     block-size: $height;
     max-block-size: $height;

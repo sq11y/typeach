@@ -7,6 +7,7 @@
         {{ slot.name }}
       </h5>
 
+      <!-- eslint-disable-next-line vue/no-v-html -->
       <div :class="c('description')" v-html="slot.description" />
 
       <code v-if="slot.type !== 'void'">{{ slot.type }}</code>
@@ -20,8 +21,19 @@ import { useBemClass } from "@typeach/core";
 import type { Meta } from "do11y";
 
 export interface MetaProps {
+  /**
+   * The section title.
+   */
   title: string;
+
+  /**
+   * The emits or slots.
+   */
   meta: Meta["slots"] | Meta["events"];
+
+  /**
+   * If this section is for events.
+   */
   events?: boolean;
 }
 
@@ -73,8 +85,8 @@ const c = useBemClass("meta-grid");
   &::before {
     position: absolute;
     content: "@" / "";
-    bottom: -0.4em;
-    right: -0.1em;
+    inset-block-end: -0.4em;
+    inset-inline-end: -0.1em;
 
     font-size: 9rem;
     font-weight: var(--font-weight-bold);

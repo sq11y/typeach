@@ -95,7 +95,7 @@ export const getPreviousYear = (date: Date): Date => {
 export const getFirstDayOfWeek = (date: Date, startOfWeek: Weekday): Date => {
   const updatedDate = new Date(date);
 
-  const weekday = updatedDate.getDay();
+  const weekday: Weekday = updatedDate.getDay();
 
   const diff = weekday >= startOfWeek ? weekday - startOfWeek : 6 - weekday;
 

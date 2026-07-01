@@ -20,6 +20,9 @@ import type { RouteRecordRaw } from "vue-router";
 import { useBemClass } from "@typeach/core";
 
 interface ComponentGridProps {
+  /**
+   * The component routes.
+   */
   components: (Omit<RouteRecordRaw, "meta"> & {
     meta: Exclude<RouteRecordRaw["meta"], undefined>;
   })[];
@@ -54,12 +57,6 @@ const c = useBemClass("component-grid");
     a {
       font-size: var(--font-size-l);
       line-height: var(--line-height-l);
-
-      &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-      }
     }
 
     p {

@@ -6,6 +6,7 @@
     "EditorConfig.EditorConfig",
     "oxc.oxc-vscode",
     "antfu.pnpm-catalog-lens",
-    "vunguyentuan.vscode-css-variables"
+    "vunguyentuan.vscode-css-variables",
+    "stylelint.vscode-stylelint"
   ]
 }

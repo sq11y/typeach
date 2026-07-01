@@ -4,14 +4,14 @@
     :rows="apca ? matchesForAPCA : matchesForWCAG"
     unresponsive
   >
-    <template v-slot:background="{ row }">
+    <template #background="{ row }">
       <div class="color-rule">
         <div :style="`--color: var(--grey-${row.bg});`" />
         {{ row.bg }}
       </div>
     </template>
 
-    <template v-slot:text="{ row }">
+    <template #text="{ row }">
       <div class="color-rule">
         <div v-if="row.fg !== 'ui'" :style="`--color: var(--grey-${row.fg});`" />
         {{ typeof row.fg === "string" ? row.fg : row.fg <= 50 ? `<=${row.fg}` : `>=${row.fg}` }}
@@ -24,6 +24,9 @@
 import Do11yTable from "../components/Do11yTable.vue";
 
 interface ColorRulesProps {
+  /**
+   * If the color matches should pass APCA.
+   */
   apca?: boolean;
 }
 

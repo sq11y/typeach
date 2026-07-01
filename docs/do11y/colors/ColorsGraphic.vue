@@ -1,6 +1,11 @@
 <template>
   <div :class="c('graphic')">
-    <div v-for="color of colors" aria-hidden="true" :style="`--background: var(--${color}-30);`" />
+    <div
+      v-for="color of colors"
+      :key="color"
+      :style="`--background: var(--${color}-30);`"
+      aria-hidden="true"
+    />
   </div>
 </template>
 
@@ -16,19 +21,19 @@ const c = useBemClass("colors");
 @use "@typeach/theme/utils";
 
 .colors__graphic {
-  height: 20rem;
+  block-size: 20rem;
 
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   gap: var(--spacing-xs);
 
   @media (width < 32rem) {
-    height: 18rem;
+    block-size: 18rem;
     gap: var(--spacing-xxs);
   }
 
   @media (width < 26rem) {
-    height: 12rem;
+    block-size: 12rem;
   }
 
   > * {

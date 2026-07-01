@@ -60,7 +60,7 @@ const values = ["Tasks", "Events"];
    * of the tab is defined in `forced-colors` mode.
    */
   border: var(--invisible-border);
-  border-bottom: 0;
+  border-block-end: 0;
 
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 
@@ -95,7 +95,7 @@ const values = ["Tasks", "Events"];
 }
 
 [role="tabpanel"] {
-  width: 15rem;
+  inline-size: 15rem;
   padding: var(--spacing-m) var(--spacing-l);
 
   border: var(--border);

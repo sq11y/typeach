@@ -1,7 +1,12 @@
 <template>
   <div :class="c('graphic')">
-    <div :class="c('row')" v-for="row of rows">
-      <div v-for="color of row" aria-hidden="true" :style="`--background: var(--${color}-30);`" />
+    <div v-for="(row, i) of rows" :key="i" :class="c('row')">
+      <div
+        v-for="color of row"
+        :key="color"
+        :style="`--background: var(--${color}-30);`"
+        aria-hidden="true"
+      />
     </div>
   </div>
 </template>
@@ -19,19 +24,19 @@ const c = useBemClass("spacing");
 
 <style>
 .spacing__graphic {
-  height: 20rem;
+  block-size: 20rem;
 
   display: grid;
   grid-template-rows: 1fr 1fr;
   gap: var(--spacing-m);
 
   @media (width < 32rem) {
-    height: 18rem;
+    block-size: 18rem;
     gap: var(--spacing-s);
   }
 
   @media (width < 26rem) {
-    height: 12rem;
+    block-size: 12rem;
   }
 }
 

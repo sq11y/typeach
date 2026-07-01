@@ -41,9 +41,26 @@ import {
 } from "@typeach/core";
 
 interface TableProps {
+  /**
+   * The columns.
+   */
   titles: string[];
+
+  /**
+   * The columns on small screens.
+   */
   smallTitles?: string[];
+
+  /**
+   * The rows.
+   */
   rows?: T[];
+
+  /**
+   * If the table should be unresponsive.
+   *
+   * This means it will not switch into a definition list on smaller screens.
+   */
   unresponsive?: boolean;
 }
 
@@ -138,7 +155,7 @@ const c = useBemClass("table");
 
   dl {
     &:not(:first-child) {
-      border-top: var(--border);
+      border-block-start: var(--border);
     }
 
     dd,

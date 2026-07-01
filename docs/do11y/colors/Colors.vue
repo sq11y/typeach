@@ -1,6 +1,6 @@
 <template>
   <div :class="c()">
-    <div v-for="color of colors" :class="c('color')">
+    <div v-for="color of colors" :key="color" :class="c('color')">
       <section tabindex="0" :class="c('palette')" :aria-labelledby="`color-${color}`">
         <div :id="`color-${color}`" :style="`color: var(--${color}-80);`">
           {{ color.charAt(0).toUpperCase() + color.slice(1) }}
@@ -14,8 +14,8 @@
           {{ match.fg === "ui" ? "" : match.bg }}
 
           <ImageIcon
-            aria-label="ui"
             v-if="match.fg === 'ui'"
+            aria-label="ui"
             :style="`color: var(--${color}-10)`"
           />
         </div>
@@ -32,6 +32,9 @@ import { matchesForWCAG, matchesForAPCA } from "./color-matches";
 import ImageIcon from "../icons/image.svg?component";
 
 interface ColorRulesProps {
+  /**
+   * If the color matches should pass APCA.
+   */
   apca?: boolean;
 }
 
@@ -64,15 +67,15 @@ const c = useBemClass("colors");
 }
 
 .colors__color {
-  width: 100%;
+  inline-size: 100%;
 }
 
 .colors__palette {
-  width: 100%;
+  inline-size: 100%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 
-  overflow-x: auto;
+  overflow-inline: auto;
   scrollbar-width: none;
 
   border-radius: var(--border-radius);
@@ -91,7 +94,7 @@ const c = useBemClass("colors");
   }
 
   > *:first-child {
-    width: 6.5rem;
+    inline-size: 6.5rem;
     padding-inline-end: calc(var(--spacing-s) + 0.5rem);
     justify-content: end;
     font-family: var(--font-family-heading);

@@ -16,7 +16,14 @@
 import { PeachyTabs, PeachyTabsList, PeachyTabsButton, PeachyTabsPanel } from "@typeach/core";
 
 export interface TabsTestProps {
+  /**
+   * If selection should follow focus.
+   */
   selectionFollowsFocus?: boolean;
+
+  /**
+   * The orientation of the tabs.
+   */
   orientation?: "vertical";
 }
 
@@ -28,7 +35,7 @@ const values = ["Tasks", "Events", "Notes", "Photos"] as const;
 <style scoped>
 [role="tablist"] {
   display: flex;
-  flex-wrap: none;
+  flex-wrap: nowrap;
 }
 
 [role="tablist"][aria-orientation="vertical"] {

@@ -39,6 +39,9 @@ import {
 import LockIcon from "./icons/lock.svg?component";
 
 interface SwitchFieldProps {
+  /**
+   * If the switch button should be disabled or not.
+   */
   disabled?: boolean;
 }
 
@@ -61,7 +64,6 @@ const modelValue = defineModel<boolean>({ default: true });
 
 button[aria-checked] {
   position: relative;
-  border: 0;
 
   @include utils.center-flex(var(--spacing-l));
   row-gap: var(--spacing-xs);
@@ -99,8 +101,8 @@ button[aria-checked] {
 .lock {
   position: absolute;
 
-  top: calc(var(--icon-size) * -0.5);
-  right: calc(var(--icon-size) * -0.6);
+  inset-block: calc(var(--icon-size) * -0.5);
+  inset-inline-end: calc(var(--icon-size) * -0.6);
 
   inline-size: calc(var(--icon-size) + (2 * var(--spacing-xxs)));
   padding: var(--spacing-xxs);
