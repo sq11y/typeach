@@ -3,7 +3,7 @@
     <ul :class="c('list')">
       <li v-for="component of components" :key="component.path" :class="c('list-item')">
         <img
-          :src="`${$router.options.history.base || '/'}illustrations/${component.meta.illustration}`"
+          :src="`${router.options.history.base}/illustrations/${component.meta.illustration}`"
           alt=""
         />
 
