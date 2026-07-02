@@ -44,6 +44,7 @@ Depending on the x-height of the font you choose, you _most likely_ will want to
 
 ### Fonts
 
+- [Bunny Fonts](https://fonts.bunny.net/about) - an open-source, privacy-first alternative to Google Fonts
 - [Badass Libre Fonts by Womxn](https://www.design-research.be/by-womxn/) - a collection of typefaces created by womxn.
 - [Protest Fonts](https://genderfailpress.info/PROTEST-FONTS) - “fonts based on protest signs from queer and trans projects, the protests for black lives since the Stonewall Riots of 1969 to the present”.
 - [Font Friday](https://pimpmytype.com/fontfriday/) - every friday Oliver Schöndorfer reviews a free font.
