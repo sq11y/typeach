@@ -18,22 +18,25 @@
 <style lang="scss">
 @use "@typeach/theme/utils";
 
+main:has(.tagline) {
+  align-self: stretch;
+  @include utils.center-content;
+}
+
 .tagline {
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-xxxxl);
   line-height: var(--line-height-xxxxl);
+  text-align: center;
 
   @media (width < 32rem) {
-    text-align: center;
     font-size: var(--font-size-xxxl);
     line-height: var(--line-height-xxxl);
   }
 }
 
 blockquote footer {
-  text-align: end;
-  font-size: var(--font-size-l);
-  line-height: var(--line-height-l);
+  text-align: center;
 }
 </style>
