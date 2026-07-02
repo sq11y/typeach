@@ -61,6 +61,15 @@ const router = useRouter();
   border: var(--border);
   background-color: var(--grey-10);
 
+  &:hover {
+    border-color: var(--green-70);
+    background-color: var(--green-20);
+
+    a {
+      color: var(--green-80);
+    }
+  }
+
   a {
     font-size: var(--font-size-l);
     line-height: var(--line-height-l);
