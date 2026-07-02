@@ -14,7 +14,7 @@
 # Colors
 
 <div class="description">
-  A simple color palette.
+  An accessible color palette.
 </div>
 
 <ColorsGraphic />

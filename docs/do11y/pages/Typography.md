@@ -6,7 +6,7 @@
 # Typography
 
 <div class="description">
-A simple type system.
+A dramatic type scale.
 </div>
 
 <HomoglyphGrid />
