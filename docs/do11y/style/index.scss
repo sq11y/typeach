@@ -40,7 +40,7 @@ header {
   inset-block-start: var(--spacing-xl);
   margin-inline: auto;
 
-  @include utils.center-flex(var(--spacing-m));
+  @include utils.center-flex(var(--spacing-l));
 
   padding-inline-end: var(--spacing-l);
   padding-block: var(--spacing-xxs);
@@ -57,7 +57,7 @@ header {
 }
 
 header > :first-child {
-  @include utils.center-flex(var(--spacing-xl));
+  @include utils.center-flex(var(--spacing-l));
   text-decoration: none;
 }
 
