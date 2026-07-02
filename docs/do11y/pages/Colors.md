@@ -43,7 +43,7 @@ button {
 
 The CSS variable `--saturation` is available to modify the saturation of the colors, which defaults to `1`.
 
-You can pretty safely desaturate the colors, but if you are to increase the saturation - you have to manually check which combinations still have sufficient contrast.
+You can pretty safely desaturate the colors, but if you are to increase the saturation - you should manually check which combinations still have sufficient contrast.
 
 ## Accessibility
 
@@ -61,7 +61,7 @@ APCA
 
 The table showcases the values you can combine to pass {{ apca ? 'APCA' : 'WCAG AA' }}.
 
-These rules work for each color - but if you need to combine colors (e.g. blue and orange), you have to [manually check the contrast](https://webaim.org/resources/contrastchecker/).
+These rules work for each color - but if you need to combine different colors (e.g. blue and orange), you have to [manually check the contrast](https://webaim.org/resources/contrastchecker/).
 
 If the value for "Text" is labelled as "ui" it means the color should _only_ be used for graphical elements, not for text.
 
