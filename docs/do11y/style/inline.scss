@@ -1,4 +1,5 @@
 @use "@typeach/theme/utils";
+@use "./mixins";
 
 a {
   color: var(--blue-80);
@@ -8,6 +9,10 @@ a {
 
   padding-inline: var(--relative-spacing-xs);
   margin-inline: calc(var(--relative-spacing-xs) * -1);
+}
+
+*:focus-visible:not(.no-focus) {
+  @include mixins.focus-visible;
 }
 
 .required-tag,

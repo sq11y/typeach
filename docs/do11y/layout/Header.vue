@@ -1,6 +1,6 @@
 <template>
   <header>
-    <RouterLink to="/" class="logo">
+    <RouterLink to="/" class="logo no-focus">
       <img alt="Squirrel mascot" src="/logo.webp" />
 
       <span>Typeach</span>
@@ -44,6 +44,7 @@ router.beforeEach(() => {
 
 <style lang="scss" scoped>
 @use "@typeach/theme/utils";
+@use "../style/mixins";
 
 header {
   position: sticky;
@@ -72,13 +73,21 @@ header {
 a {
   color: inherit;
 
-  &:hover {
+  &:hover:not(.logo) {
     background-color: var(--green-40);
   }
 }
 
+.logo:focus-visible {
+  outline: none;
+
+  img {
+    @include mixins.focus-visible;
+  }
+}
+
 .logo {
-  @include utils.center-flex(var(--spacing-xl));
+  @include utils.center-flex(var(--spacing-l));
   text-decoration: none;
 
   img {

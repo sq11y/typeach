@@ -1,0 +1,5 @@
+@mixin focus-visible {
+  outline: 2px solid var(--blue-80);
+  box-shadow: 0 0 0 6px var(--blue-30);
+  isolation: isolate;
+}
