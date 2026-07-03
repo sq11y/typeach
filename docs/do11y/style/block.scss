@@ -54,10 +54,6 @@ h1:not(.tagline) {
   }
 }
 
-h1:not(:has(+ .description)):not(.tagline) {
-  margin-block-end: var(--spacing-xxxxl);
-}
-
 .description {
   margin-inline: 8.5rem var(--spacing-s);
   margin-block: 0 var(--spacing-xxxl);
@@ -92,10 +88,6 @@ h6 {
 
   .description {
     margin-inline-start: 0;
-    margin-block-end: var(--spacing-xl);
-  }
-
-  h1:not(:has(+ .description)):not(.tagline) {
     margin-block-end: var(--spacing-xl);
   }
 }
