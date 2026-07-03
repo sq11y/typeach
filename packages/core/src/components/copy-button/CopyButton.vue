@@ -41,7 +41,7 @@ export interface CopyButtonEmits {
 
 export interface CopyButtonSlots {
   /**
-   * The content of the button - should include an [accessible label](/p/labels).
+   * The content of the button - should include an [accessible label](/p/accessible-labels).
    *
    * the label should change when `isCopying` is `true` to let the user know the copy was successful, unless you already have accessible feedback for the button then you should use `preventAnnouncement`.
    */

@@ -26,7 +26,7 @@ export interface DownloadLinkProps {
 
 export interface DownloadLinkSlots {
   /**
-   * The content of the link - should include an [accessible label](/p/labels).
+   * The content of the link - should include an [accessible label](/p/accessible-labels).
    *
    * It's great if you can give a hint as to how long the download will take - the easiest way to do this is to include the size of the file.
    */

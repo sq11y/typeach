@@ -49,7 +49,7 @@ export interface CalendarTableCellButtonEmits {
 
 export interface CalendarTableCellButtonSlots {
   /**
-   * The content of the button - should include an [accessible label](/p/labels).
+   * The content of the button - should include an [accessible label](/p/accessible-labels).
    *
    * The label should ensure the full date is announced for screen readers.
    */
