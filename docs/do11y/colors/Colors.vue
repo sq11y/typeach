@@ -84,7 +84,7 @@ const c = useBemClass("colors");
     @include utils.center-content;
     padding: var(--spacing-s);
 
-    &:first-child {
+    &:nth-child(2) {
       border-radius: var(--border-radius) 0 0 var(--border-radius);
     }
 
@@ -94,9 +94,12 @@ const c = useBemClass("colors");
   }
 
   > *:first-child {
+    forced-color-adjust: auto;
+
     inline-size: 6.5rem;
-    padding-inline-end: calc(var(--spacing-s) + 0.5rem);
     justify-content: end;
+    padding-inline-end: calc(var(--spacing-s) + 0.5rem);
+
     font-family: var(--font-family-heading);
   }
 }

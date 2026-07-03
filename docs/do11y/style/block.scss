@@ -1,3 +1,5 @@
+/* stylelint-disable scss/operator-no-unspaced */
+
 @use "@typeach/theme/utils";
 
 h1:not(.tagline),
@@ -36,7 +38,6 @@ h1:not(.tagline) {
       *
       * @see https://css-generators.com/flower-shapes/
       */
-    /* stylelint-disable scss/operator-no-unspaced */
     --g: /23.606% 23.606% radial-gradient(#000 calc(71% - 1px), #0000 71%) no-repeat;
 
     mask:
@@ -97,11 +98,11 @@ pre {
 
   font-size: var(--font-size-smaller);
   line-height: var(--line-height-s);
-}
 
-pre:not(.code-block pre) {
-  border: var(--invisible-border);
-  border-radius: var(--border-radius);
+  &:not(.code-block pre) {
+    border-radius: var(--border-radius);
+    border: var(--invisible-border);
+  }
 }
 
 .two-columns {
@@ -144,13 +145,13 @@ ul {
     background-color: var(--pink-60);
 
     /**
-    * Flower shape.
-    *
-    * Number of petals: 6
-    * Rotation: 4
-    *
-    * @see https://css-generators.com/flower-shapes/
-    */
+      * Flower shape.
+      *
+      * Number of petals: 6
+      * Rotation: 4
+      *
+      * @see https://css-generators.com/flower-shapes/
+      */
     --g: /33.334% 33.334% radial-gradient(#000 calc(71% - 1px), #0000 71%) no-repeat;
 
     mask:
