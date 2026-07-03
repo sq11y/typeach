@@ -33,99 +33,11 @@ body {
   }
 }
 
-header {
-  position: sticky;
-  z-index: 5;
-
-  inset-block-start: var(--spacing-xl);
-  margin-inline: auto;
-
-  @include utils.center-flex(var(--spacing-l));
-
-  padding-inline-end: var(--spacing-l);
-  padding-block: var(--spacing-xxs);
-
-  border-radius: var(--border-radius);
-  border: var(--invisible-border);
-
-  background-color: var(--green-30);
-  color: var(--green-80);
-
-  @media (width <= 46rem) {
-    margin-inline: auto calc(var(--inline-margin));
-  }
-}
-
-header > :first-child {
-  @include utils.center-flex(var(--spacing-l));
-  text-decoration: none;
-}
-
-.brand-name {
-  color: inherit;
-
-  font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-bigger);
-}
-
-.logo {
-  overflow: hidden;
-  scale: 1.5;
-
-  inline-size: 3rem;
-
-  corner-shape: squircle;
-  border-radius: 50%;
-}
-
-header nav {
-  &:not([popover]) {
-    @include utils.center-flex(var(--spacing-m));
-  }
-
-  &:popover-open {
-    @include utils.vertical-flex(var(--spacing-m));
-
-    margin-inline: auto calc(var(--inline-margin));
-    inset-block-start: 6.25rem;
-
-    border: var(--border);
-    border-radius: var(--border-radius);
-
-    padding: var(--spacing-m);
-  }
-}
-
 main {
   inline-size: var(--article-inline-size);
 }
 
-body > footer {
-  padding-inline: var(--inline-margin);
-  padding-block: var(--spacing-xxxl);
-
-  background-color: var(--pink-20);
-  color: var(--pink-80);
-
-  border-block-start: var(--invisible-border);
-
-  @media (width <= 46rem) {
-    padding-block: var(--spacing-xl);
-  }
-}
-
-a[href^="https://github.com"] {
-  @include utils.center-flex(var(--spacing-xs));
-  display: inline-flex;
-}
-
-header > a:focus-visible {
-  outline: none;
-}
-
-*:focus-visible:not(header > a),
-header > a:focus-visible > .brand-name {
+*:focus-visible {
   outline: 2px solid var(--blue-80);
   box-shadow: 0 0 0 6px var(--blue-30);
   isolation: isolate;
