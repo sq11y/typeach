@@ -29,6 +29,7 @@ main:has(.tagline) {
   font-size: var(--font-size-xxxxl);
   line-height: var(--line-height-xxxxl);
   text-align: center;
+  text-wrap: pretty;
 
   @media (width < 32rem) {
     font-size: var(--font-size-xxxl);
