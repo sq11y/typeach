@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.61.0",
-    "do11y": "^0.5.14",
+    "do11y": "^0.6.0",
     "eslint": "^10.6.0",
     "eslint-config-sq11y": "^0.0.0",
     "oxfmt": "^0.56.0",

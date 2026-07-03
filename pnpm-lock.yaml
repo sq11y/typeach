@@ -55,8 +55,8 @@ importers:
         specifier: ^1.61.0
         version: 1.61.0
       do11y:
-        specifier: ^0.5.14
-        version: 0.5.14(@types/markdown-it@14.1.2)(@vitejs/plugin-vue@6.0.7(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue-router@5.1.0(@vue/compiler-sfc@3.5.38)(pinia@3.0.4(typescript@6.0.3)(vue@3.5.38(typescript@6.0.3)))(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(vue-tsc@3.3.5(typescript@6.0.3))(vue@3.5.38(typescript@6.0.3))
+        specifier: ^0.6.0
+        version: 0.6.0(@types/markdown-it@14.1.2)(@vitejs/plugin-vue@6.0.7(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue-router@5.1.0(@vue/compiler-sfc@3.5.38)(pinia@3.0.4(typescript@6.0.3)(vue@3.5.38(typescript@6.0.3)))(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(vue-tsc@3.3.5(typescript@6.0.3))(vue@3.5.38(typescript@6.0.3))
       eslint:
         specifier: ^10.6.0
         version: 10.6.0(jiti@2.7.0)
@@ -2529,8 +2529,8 @@ packages:
   devlop@1.1.0:
     resolution: {integrity: sha512-RWmIqhcFf1lRYBvNmr7qTNuyCt/7/ns2jbpp1+PalgE/rDQcBT0fioSMUpJ93irlUhC5hrg4cYqe6U+0ImW0rA==}
 
-  do11y@0.5.14:
-    resolution: {integrity: sha512-av5et55NjsO6h5LzoMoJ6na9BuWdrIZn0FPGpe3dHYcUvsD5KFON1yKKrY98ahCbDnbjG5onYKq2mo7iMTZqPA==}
+  do11y@0.6.0:
+    resolution: {integrity: sha512-R9hVOdaTKDVqfGGJfSZdpGGjstNAc38tGXw4Om7NBhXihKZtNUFWNqPuC2nMeFMsJTLHc1zDRoDPDElCEsTH6A==}
     engines: {node: '>=24'}
     hasBin: true
     peerDependencies:
@@ -6628,13 +6628,14 @@ snapshots:
     dependencies:
       dequal: 2.0.3
 
-  do11y@0.5.14(@types/markdown-it@14.1.2)(@vitejs/plugin-vue@6.0.7(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue-router@5.1.0(@vue/compiler-sfc@3.5.38)(pinia@3.0.4(typescript@6.0.3)(vue@3.5.38(typescript@6.0.3)))(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(vue-tsc@3.3.5(typescript@6.0.3))(vue@3.5.38(typescript@6.0.3)):
+  do11y@0.6.0(@types/markdown-it@14.1.2)(@vitejs/plugin-vue@6.0.7(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue-router@5.1.0(@vue/compiler-sfc@3.5.38)(pinia@3.0.4(typescript@6.0.3)(vue@3.5.38(typescript@6.0.3)))(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(vue-tsc@3.3.5(typescript@6.0.3))(vue@3.5.38(typescript@6.0.3)):
     dependencies:
       '@mdit-vue/plugin-component': 3.0.2
       '@mdit-vue/plugin-frontmatter': 3.0.2
       '@mdit-vue/plugin-sfc': 3.0.2
       '@shikijs/transformers': 4.2.0
       '@vitejs/plugin-vue': 6.0.7(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3))
+      change-case: 5.4.4
       front-matter: 4.0.2
       jsdom: 29.1.1
       markdown-it: 14.2.0
