@@ -1,7 +1,7 @@
 <template>
   <h1 id="components-heading">Components</h1>
 
-  <div class="description">The core components.</div>
+  <div class="description">A couple core components.</div>
 
   <Do11yComponentGrid aria-labelledby="components-heading" :components="componentRoutes" />
 
