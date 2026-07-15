@@ -98,5 +98,10 @@ const router = useRouter();
 
 .component-grid__description {
   padding: var(--spacing-l);
+
+  p {
+    /* stylelint-disable */
+    margin-block-start: var(--spacing-xs) !important;
+  }
 }
 </style>
