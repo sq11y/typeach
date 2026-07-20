@@ -2,8 +2,7 @@
 
 @use "@typeach/theme/utils";
 
-h1:not(.tagline),
-h3 {
+h1:not(.tagline) {
   position: relative;
 
   &::before {
@@ -60,26 +59,6 @@ h1:not(.tagline) {
   margin-block: 0 var(--spacing-xxxl);
 
   color: var(--pink-80);
-}
-
-h3 {
-  max-inline-size: fit-content;
-  padding-inline: var(--spacing-xxs);
-
-  border-radius: var(--border-radius);
-  border: var(--invisible-border);
-
-  color: var(--brown-80);
-  background-color: var(--brown-20);
-
-  text-box-trim: trim-both;
-}
-
-h3,
-h4,
-h5,
-h6 {
-  color: var(--brown-fg);
 }
 
 @media (width < 42rem) {
