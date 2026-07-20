@@ -5,7 +5,7 @@ import { watchImmediate } from "@vueuse/core";
 export const useThemeSettingsStore = defineStore("theme-settings", () => {
   const saturation = ref(1);
 
-  const wrapCode = ref(true);
+  const wrapCode = ref(false);
 
   const setCssVariable = (variable: string, value: string) => {
     document.documentElement.style.setProperty(`--${variable}`, value);
