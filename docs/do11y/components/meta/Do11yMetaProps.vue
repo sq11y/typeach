@@ -3,17 +3,17 @@
 
   <DefineDescriptionTemplate v-slot="{ row }">
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div v-if="row.description" v-html="row.description" />
+    <p v-if="row.description" v-html="row.description" />
   </DefineDescriptionTemplate>
 
   <DefineNecessityTemplate v-slot="{ row, small }">
-    <div :class="small ? 'small-faded-text' : ''">
+    <component :is="small ? 'small' : 'p'">
       <span v-if="row.required" class="required-tag">Required</span>
 
       <template v-else>
         Optional, defaults to <code class="neutral"> {{ row.default ?? "undefined" }} </code>.
       </template>
-    </div>
+    </component>
   </DefineNecessityTemplate>
 
   <!-- Templates end -->

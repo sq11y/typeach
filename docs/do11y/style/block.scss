@@ -55,6 +55,8 @@ h1:not(.tagline) {
 }
 
 .description {
+  font-size: var(--font-size-bigger);
+
   margin-inline: 8.5rem var(--spacing-s);
   margin-block: 0 var(--spacing-xxxl);
 
@@ -101,8 +103,6 @@ pre {
 
 ol,
 ul {
-  padding-inline-start: var(--spacing-xxxl);
-
   li {
     position: relative;
   }

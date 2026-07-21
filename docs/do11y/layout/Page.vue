@@ -2,7 +2,7 @@
   <Header />
 
   <main>
-    <article>
+    <article class="prose">
       <RouterView />
     </article>
   </main>

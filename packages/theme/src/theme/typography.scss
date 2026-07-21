@@ -1,11 +1,3 @@
-@function dynamic-font-size($font-size) {
-  @return calc(var(--font-size-scale, 1) * #{$font-size});
-}
-
-@function dynamic-line-height($line-height) {
-  @return calc(var(--line-height-scale, 1) * #{$line-height});
-}
-
 :root {
   --letter-spacing: normal;
   --word-spacing: normal;
@@ -16,45 +8,39 @@
 
   --font-size-scale: 1;
   --line-height-scale: 1;
+  --prose-flow-scale: 1;
 
-  /* Scale for minimum font-size of 16px: 1.0256410256 */
+  --font-size-xs: calc(var(--font-size-scale) * 0.875rem);
+  --line-height-xs: calc(var(--line-height-scale) * 1.7);
 
-  --font-size-xs: #{dynamic-font-size(0.975rem)};
-  --line-height-xs: #{dynamic-line-height(1.7)};
+  --font-size-s: calc(var(--font-size-scale) * 1rem);
+  --line-height-s: calc(var(--line-height-scale) * 1.65);
 
-  --font-size-s: #{dynamic-font-size(1.1213rem)};
-  --line-height-s: #{dynamic-line-height(1.65)};
+  --font-size-m: calc(var(--font-size-scale) * 1.125rem);
+  --line-height-m: calc(var(--line-height-scale) * 1.625);
 
-  --font-size-m: #{dynamic-font-size(1.2919rem)};
-  --line-height-m: #{dynamic-line-height(1.625)};
+  --font-size-l: calc(var(--font-size-scale) * 1.325rem);
+  --line-height-l: calc(var(--line-height-scale) * 1.6);
 
-  --font-size-l: #{dynamic-font-size(1.4625rem)};
-  --line-height-l: #{dynamic-line-height(1.6)};
+  --font-size-xl: calc(var(--font-size-scale) * 1.5rem);
+  --line-height-xl: calc(var(--line-height-scale) * 1.45);
 
-  --font-size-xl: #{dynamic-font-size(1.56rem)};
-  --line-height-xl: #{dynamic-line-height(1.45)};
+  --font-size-xxl: calc(var(--font-size-scale) * 1.825rem);
+  --line-height-xxl: calc(var(--line-height-scale) * 1.45);
 
-  --font-size-xxl: #{dynamic-font-size(1.95rem)};
-  --line-height-xxl: #{dynamic-line-height(1.45)};
+  --font-size-xxxl: calc(var(--font-size-scale) * 2.325rem);
+  --line-height-xxxl: calc(var(--line-height-scale) * 1.4);
 
-  --font-size-xxxl: #{dynamic-font-size(2.4375rem)};
-  --line-height-xxxl: #{dynamic-line-height(1.4)};
+  --font-size-xxxxl: calc(var(--font-size-scale) * 3.275rem);
+  --line-height-xxxxl: calc(var(--line-height-scale) * 1.35);
 
-  --font-size-xxxxl: #{dynamic-font-size(3.6563rem)};
-  --line-height-xxxxl: #{dynamic-line-height(1.35)};
-
-  --font-size-xxxxxl: #{dynamic-font-size(5.3625rem)};
-  --line-height-xxxxxl: #{dynamic-line-height(1.2)};
+  --font-size-xxxxxl: calc(var(--font-size-scale) * 5.25rem);
+  --line-height-xxxxxl: calc(var(--line-height-scale) * 1.2);
 }
 
 :where(html) {
   letter-spacing: var(--letter-spacing, normal);
   word-spacing: var(--word-spacing, normal);
-}
-
-:where(body) {
-  font-size: var(--font-size-m);
-  line-height: var(--line-height-m);
 }
 
 :where(h1, .h1) {
@@ -92,10 +78,97 @@
   line-height: var(--line-height-m);
 }
 
-:where(pre) {
+:where(pre, .pre) {
   white-space: var(--code-white-space, pre-wrap);
 }
 
 :where(small, .small) {
   font-size: var(--font-size-smaller);
+}
+
+:where(.big) {
+  font-size: var(--font-size-bigger);
+}
+
+.prose {
+  :where(* + h2) {
+    margin-block-start: calc(var(--prose-flow-scale) * 1.575em);
+  }
+
+  :where(* + h3),
+  :where(* + h4) {
+    margin-block-start: calc(var(--prose-flow-scale) * 1.125em);
+  }
+
+  :where(* + h5) {
+    margin-block-start: calc(var(--prose-flow-scale) * 0.985em);
+  }
+
+  :where(* + h6) {
+    margin-block-start: calc(var(--prose-flow-scale) * 0.915em);
+  }
+
+  :where(h1 + *),
+  :where(h2 + *),
+  :where(h3 + *),
+  :where(h4 + *),
+  :where(h5 + *),
+  :where(h6 + *) {
+    margin-block-start: calc(var(--prose-flow-scale) * 1.265em);
+  }
+
+  :where(h1 + h2),
+  :where(h2 + h3) {
+    margin-block-start: calc(var(--prose-flow-scale) * 0.42em);
+  }
+
+  :where(h3 + h4),
+  :where(h4 + h5),
+  :where(h5 + h6) {
+    margin-block-start: calc(var(--prose-flow-scale) * 0.59em);
+  }
+
+  :where(* + p),
+  :where(* + small) {
+    margin-block-start: calc(var(--prose-flow-scale) * 1.125em);
+    display: block;
+  }
+
+  :where(p + *),
+  :where(small + *) {
+    margin-block-start: calc(var(--prose-flow-scale) * 1.4em);
+  }
+
+  :where(:is(small, p) + :is(small, p)) {
+    margin-block-start: calc(var(--prose-flow-scale) * 1.125em);
+  }
+
+  :where(ul, ol) {
+    padding-inline-start: 0;
+    margin-inline-start: calc(var(--prose-flow-scale) * 2.4em);
+  }
+
+  :where(li + li) {
+    margin-block-start: calc(var(--prose-flow-scale) * 0.5em);
+  }
+
+  :where(li > ul, li > ol) {
+    margin-block: calc(var(--prose-flow-scale) * 0.7em);
+  }
+
+  :where(li > p) {
+    margin-block-start: calc(var(--prose-flow-scale) * 0.525em);
+  }
+
+  :where([id]) {
+    scroll-margin-block-start: calc(var(--prose-flow-scale) * 1.125em);
+  }
+
+  :where(hr:not([aria-orientation="vertical"])) {
+    margin-block: calc(var(--prose-flow-scale) * 2.8em);
+  }
+
+  :where(hr[aria-orientation="vertical"]) {
+    margin-inline: calc(var(--prose-flow-scale) * 2.8em);
+  }
 }

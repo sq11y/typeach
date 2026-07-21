@@ -53,12 +53,12 @@ header {
   inset-block-start: var(--spacing-xl);
   margin-inline: auto;
 
-  @include utils.center-flex(var(--spacing-l));
+  @include utils.center-flex(var(--spacing-xl));
 
-  padding-inline-end: var(--spacing-l);
-  padding-block: var(--spacing-xxs);
+  padding-inline: var(--spacing-l);
+  padding-block: var(--spacing-xs);
 
-  border-radius: var(--border-radius);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
   border: var(--invisible-border);
 
   background-color: var(--green-30);
@@ -87,12 +87,16 @@ a {
 }
 
 .logo {
+  --logo-size: 4.25rem;
+
   @include utils.center-flex(var(--spacing-l));
   text-decoration: none;
 
   img {
-    scale: 1.5;
-    block-size: 3rem;
+    position: absolute;
+
+    block-size: var(--logo-size);
+    inset-inline-start: calc(var(--logo-size) * -1 + calc(var(--logo-size) * 0.15));
 
     border-radius: var(--border-radius);
 

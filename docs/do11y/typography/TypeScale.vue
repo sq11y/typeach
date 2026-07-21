@@ -33,7 +33,7 @@ const variables = computed(() => {
 
   list-style: none;
   overflow: hidden;
-  padding-inline-start: 0;
+  margin-inline-start: 0;
 
   inline-size: calc(100% + var(--outdent));
   transform: translateX(calc(var(--outdent) / 2 * -1));
