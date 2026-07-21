@@ -36,6 +36,18 @@ The CSS variables `--font-size-scale` and `--line-height-scale` are available to
 
 Depending on the x-height of the font you choose, you _most likely_ will want to modify the scale for line heights. If you want the smallest font size to start at `1rem` - you can set the scale for font size to `1.0256410256`.
 
+## Prose
+
+The typography styles come with the `prose` utility class which can be used to add a nice flow to longer texts; It's used for this article!
+
+```html
+<article class="prose">
+  <!-- Content -->
+</article>
+```
+
+The CSS variable `--prose-flow-scale` is available to modify the scale, which defaults to `1`.
+
 ## Resources
 
 - [The ideal line length & line height in web design](https://pimpmytype.com/line-length-line-height/)
