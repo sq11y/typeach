@@ -46,7 +46,7 @@ const router = useRouter();
 
 .component-grid__list {
   list-style: none;
-  padding-inline-start: 0;
+  margin-inline-start: 0;
 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
