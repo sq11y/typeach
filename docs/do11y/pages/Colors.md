@@ -41,9 +41,7 @@ button {
 
 ### Options
 
-The CSS variable `--saturation` is available to modify the saturation of the colors, which defaults to `1`.
-
-You can pretty safely desaturate the colors, but if you are to increase the saturation - you should manually check which combinations still have sufficient contrast.
+The CSS variable `--saturation` is available to modify the saturation of the colors, which defaults to `1`. You can pretty safely desaturate the colors, but if you are to increase the saturation - you should manually check which combinations still have sufficient contrast.
 
 ## Accessibility
 
@@ -56,8 +54,6 @@ You can pretty safely desaturate the colors, but if you are to increase the satu
 <Do11ySwitch v-model="apca" :icon="ApcaIcon">
 APCA
 </Do11ySwitch>
-
-<br />
 
 The table showcases the values you can combine to pass {{ apca ? 'APCA' : 'WCAG AA' }}.
 
