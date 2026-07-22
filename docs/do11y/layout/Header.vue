@@ -74,6 +74,8 @@ a {
   color: inherit;
   text-decoration: none;
 
+  @include utils.transition("background-color");
+
   &:hover:not(.logo) {
     background-color: var(--green-40);
   }
