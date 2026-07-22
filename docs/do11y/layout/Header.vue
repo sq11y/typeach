@@ -72,6 +72,7 @@ header {
 
 a {
   color: inherit;
+  text-decoration: none;
 
   &:hover:not(.logo) {
     background-color: var(--green-40);
