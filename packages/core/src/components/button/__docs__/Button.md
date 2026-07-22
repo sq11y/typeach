@@ -36,8 +36,6 @@ The button remains tabbable even when disabled, using `aria-disabled`. If you ne
 
 ### Avoid disabled buttons
 
-A disabled button can cause confusion as to why it has been disabled. If you must disable it, use supporting text (that stays visible when relevant, not just a tooltip!) to explain _why_ it's disabled.
+A disabled button can cause confusion as to why it has been disabled and how to enable it. Usually the more user-friendly alternative is to keep the button active and display an error message when the user clicks it. No guesswork.
 
-Another point to consider - disabled controls are exempt from the WCAG requirement for sufficient contrast, so they are often difficult to read.
-
-Usually the more user-friendly alternative is to keep the button active, and display an error message when the user clicks it. No guesswork.
+If you must disable it - use supporting text (that stays visible when relevant, not just a tooltip!) to explain _why_ it's disabled, and if possible, ensure it has sufficient contrast. While WCAG does not require this for disabled controls, it is important to note that in a lot of cases a user not being able to _see_ the disabled control makes for a very confusing UI.
