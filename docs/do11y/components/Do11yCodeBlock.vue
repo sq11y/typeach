@@ -78,11 +78,6 @@ const code = computed(() => {
     position: relative;
   }
 
-  pre:focus-visible {
-    outline-offset: -2px;
-    box-shadow: inset 0 0 0 6px var(--blue-30);
-  }
-
   [aria-hidden="true"] pre {
     max-block-size: 20rem;
 
