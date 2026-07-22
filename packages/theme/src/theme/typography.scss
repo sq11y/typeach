@@ -116,10 +116,13 @@
   :where(h1 + *),
   :where(h2 + *),
   :where(h3 + *),
-  :where(h4 + *),
+  :where(h4 + *) {
+    margin-block-start: calc(var(--prose-flow-scale) * 1.125em);
+  }
+
   :where(h5 + *),
   :where(h6 + *) {
-    margin-block-start: calc(var(--prose-flow-scale) * 1.125em);
+    margin-block-start: calc(var(--prose-flow-scale) * 0.875em);
   }
 
   :where(h1 + h2),

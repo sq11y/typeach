@@ -49,6 +49,7 @@ const c = useBemClass("meta-grid");
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-l);
+  margin-block-start: var(--spacing-l);
 
   @media screen and (width <= 40rem) {
     grid-template-columns: 1fr;
@@ -66,7 +67,11 @@ const c = useBemClass("meta-grid");
 }
 
 .meta-grid__description {
-  margin-block: var(--spacing-s);
+  margin-block-start: var(--spacing-s);
+
+  &:has(+ *) {
+    margin-block-end: var(--spacing-s);
+  }
 }
 
 .meta-grid:not(.meta-grid--events) .meta-grid__item {
