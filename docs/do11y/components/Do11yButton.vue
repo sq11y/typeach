@@ -43,7 +43,7 @@ button:not([commandfor="nav"]) {
   gap: var(--relative-spacing-s);
 
   padding-block: var(--relative-spacing-xs);
-  padding-inline: var(--relative-spacing-l);
+  padding-inline: var(--relative-spacing-l) calc(var(--relative-spacing-l) * 0.875);
 
   border: var(--border);
   border-radius: var(--border-radius);
