@@ -1,5 +1,5 @@
 <template>
-  <PeachyCopyButton v-slot="{ isCopying }" :content="content">
+  <PeachyCopyButton v-slot="{ isCopying }" :content="content" class="button">
     {{ isCopying ? "Copied" : "Copy" }}
 
     <CopiedIcon v-if="isCopying" />

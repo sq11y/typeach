@@ -1,5 +1,5 @@
 <template>
-  <component :is="components[type]" :class="c()">
+  <component :is="components[type]" :class="c({ grey })">
     <slot />
   </component>
 </template>
@@ -12,6 +12,11 @@ interface ButtonProps {
    * The underlying component to use.
    */
   type?: "button" | "switch-button";
+
+  /**
+   * If the button should be grey.
+   */
+  grey?: boolean;
 }
 
 interface ButtonSlots {
@@ -23,6 +28,7 @@ interface ButtonSlots {
 
 withDefaults(defineProps<ButtonProps>(), {
   type: "button",
+  grey: false,
 });
 
 defineSlots<ButtonSlots>();
@@ -38,7 +44,7 @@ const components = {
 <style lang="scss">
 @use "@typeach/theme/utils";
 
-button:not([commandfor="nav"]) {
+.button {
   @include utils.center-flex;
   gap: var(--relative-spacing-s);
 
@@ -51,7 +57,7 @@ button:not([commandfor="nav"]) {
   background-color: var(--bg);
   color: var(--grey-70);
 
-  @include utils.transition("background-color, border-color");
+  @include utils.transition("color, background-color, border-color");
 
   @include utils.enabled {
     cursor: pointer;
@@ -68,6 +74,28 @@ button:not([commandfor="nav"]) {
 
   @include utils.disabled {
     background-color: var(--grey-20);
+  }
+}
+
+.button--grey {
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-s);
+
+  background-color: var(--grey-30);
+  border-color: var(--grey-30);
+
+  @include utils.enabled {
+    &:active {
+      background-color: var(--grey-50);
+      border-color: var(--grey-50);
+      color: var(--grey-80);
+    }
+
+    @include utils.hover {
+      background-color: var(--grey-40);
+      border-color: var(--grey-40);
+      color: var(--grey-80);
+    }
   }
 }
 </style>

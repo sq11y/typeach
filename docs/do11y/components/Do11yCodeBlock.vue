@@ -11,16 +11,21 @@
     </div>
 
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div v-html="highlightedCode" />
+    <div :aria-hidden="!showCode" v-html="modifiedHighlightedCode" />
+
+    <Do11yButton v-if="!showCode" :class="c('toggle-button')" grey @click="showCode = true">
+      View code
+    </Do11yButton>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useBemClass, useThemeSettingsStore } from "@typeach/core";
 
 import Do11ySwitch from "./Do11ySwitch.vue";
 import Do11yCopyButton from "./Do11yCopyButton.vue";
+import Do11yButton from "./Do11yButton.vue";
 
 import TextWrapIcon from "../icons/text-wrap.svg?component";
 import TextWrapCheckIcon from "../icons/text-wrap--checked.svg?component";
@@ -47,6 +52,10 @@ const c = useBemClass("code-block");
 
 const themeSettings = useThemeSettingsStore();
 
+const showCode = ref(false);
+
+const modifiedHighlightedCode = computed(() => props.highlightedCode.replace(`tabindex="0"`, ""));
+
 const code = computed(() => {
   const element = document.createElement("div");
   element.innerHTML = props.highlightedCode;
@@ -59,23 +68,47 @@ const code = computed(() => {
 
 .code-block {
   overflow: hidden;
+  position: relative;
 
   border: var(--invisible-border);
   border-radius: var(--border-radius);
 
-  background-color: var(--grey-10);
+  pre {
+    z-index: -1;
+    position: relative;
+  }
 
   pre:focus-visible {
     outline-offset: -2px;
     box-shadow: inset 0 0 0 6px var(--blue-30);
   }
+
+  [aria-hidden="true"] pre {
+    max-block-size: 20rem;
+
+    &::before {
+      position: absolute;
+      content: "";
+      inset: 0;
+
+      background: linear-gradient(180deg, transparent, var(--grey-10));
+    }
+  }
 }
 
 .code-block__toolbar {
+  background-color: var(--grey-10);
+
   @include utils.center-flex(var(--spacing-xs));
   justify-content: end;
 
   padding: var(--spacing-m);
   padding-block-end: 0;
+}
+
+.code-block__toggle-button {
+  position: absolute;
+  inset-block-end: var(--spacing-l);
+  justify-self: center;
 }
 </style>
