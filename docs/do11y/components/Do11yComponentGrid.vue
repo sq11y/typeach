@@ -61,6 +61,8 @@ const router = useRouter();
   border: var(--border);
   background-color: var(--grey-10);
 
+  margin-block-start: 0;
+
   @media (hover: hover) {
     &:hover {
       border-color: var(--green-70);
