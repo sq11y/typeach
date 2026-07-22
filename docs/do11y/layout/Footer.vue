@@ -50,6 +50,8 @@ footer {
 a {
   color: inherit;
 
+  @include utils.transition("background-color");
+
   &:hover {
     background-color: var(--pink-30);
   }
