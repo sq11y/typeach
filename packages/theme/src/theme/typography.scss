@@ -100,6 +100,11 @@
     margin-block-start: calc(var(--prose-flow-scale) * 1.125em);
   }
 
+  :where(*:not(:is(p, small)) + h3),
+  :where(*:not(:is(p, small)) + h4) {
+    margin-block-start: calc(var(--prose-flow-scale) * 1.35em);
+  }
+
   :where(* + h5) {
     margin-block-start: calc(var(--prose-flow-scale) * 0.985em);
   }
@@ -114,7 +119,7 @@
   :where(h4 + *),
   :where(h5 + *),
   :where(h6 + *) {
-    margin-block-start: calc(var(--prose-flow-scale) * 1.265em);
+    margin-block-start: calc(var(--prose-flow-scale) * 1.125em);
   }
 
   :where(h1 + h2),
