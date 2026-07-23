@@ -34,7 +34,7 @@ button {
 
 The CSS variables `--font-size-scale` and `--line-height-scale` are available to modify the scale for the font sizes or line heights, both default to `1`.
 
-Depending on the x-height of the font you choose, you _most likely_ will want to modify the scale for line heights. If you want the smallest font size to start at `1rem` - you can set the scale for font size to `1.0256410256`.
+Depending on the x-height of the font you choose, you _most likely_ will want to modify the scale for line heights.
 
 ## Prose
 
