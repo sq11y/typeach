@@ -98,6 +98,7 @@ const router = useRouter();
     inline-size: 100%;
     block-size: auto;
     background-color: var(--bg);
+    border-block-end: var(--invisible-border);
   }
 }
 
