@@ -50,6 +50,8 @@ illustration: "grid-table.png"
 
 The grid table extends the [HTML table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table) with a grid role.
 
+Unless the table has a decent amount of rows in which most cells are interactive - you should consider using a simple <RouterLink to="/c/table">Table</RouterLink> instead.
+
 ### Keyboard navigation
 
 Only one of the cells remain in the tab order - starting with the first cell and once the user navigates the table, the last focused cell will be in the tab order.

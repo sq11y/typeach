@@ -59,3 +59,5 @@ illustration: "table.png"
 ## Accessibility
 
 The table extends the [HTML table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table).
+
+If the table has a decent amount of rows in which most cells are interactive - you should consider using a <RouterLink to="/c/grid-table">Grid Table</RouterLink> instead.
