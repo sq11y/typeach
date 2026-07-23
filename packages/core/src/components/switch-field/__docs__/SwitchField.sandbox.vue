@@ -12,7 +12,7 @@
 
       <div class="switch">
         <PeachySwitchStateLabel class="switch__state-label" >
-          Off
+          No
         </PeachySwitchStateLabel>
 
         <div class="switch__toggle">
@@ -20,7 +20,7 @@
         </div>
 
         <PeachySwitchStateLabel class="switch__state-label">
-          On
+          Yes
         </PeachySwitchStateLabel>
       </div>
     </PeachySwitchButton>
@@ -89,6 +89,10 @@ button[aria-checked] {
     &:hover .switch__toggle {
       border-color: var(--grey-60);
     }
+
+    &:active .switch__toggle {
+      background-color: var(--grey-50);
+    }
   }
 
   @include utils.disabled {
@@ -117,8 +121,8 @@ button[aria-checked] {
 }
 
 .switch__state-label {
-  font-size: var(--font-size-s);
-  line-height: var(--line-height-s);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
 }
 
 .switch__toggle {
@@ -133,15 +137,13 @@ button[aria-checked] {
 }
 
 .switch__toggle-indicator {
-  scale: 1;
-
-  inline-size: var(--icon-size);
+  inline-size: 1em;
   aspect-ratio: 1;
 
   border-radius: 100%;
   border: var(--invisible-border);
 
-  background-color: var(--grey-50);
+  background-color: var(--grey-60);
 
   @include utils.transition("scale, background-color");
 }
@@ -149,17 +151,20 @@ button[aria-checked] {
 button[aria-checked="true"] {
   .switch__toggle {
     padding-inline: var(--relative-spacing-xl) 0.0125em;
-    background-color: var(--green-30);
+    background-color: var(--green-40);
   }
 
   .switch__toggle-indicator {
-    scale: 0.825;
     background-color: var(--green-70);
   }
 
   @include utils.enabled {
     &:hover .switch__toggle {
       border-color: var(--green-60);
+    }
+
+    &:active .switch__toggle {
+      background-color: var(--green-50);
     }
   }
 }
