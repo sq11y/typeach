@@ -17,6 +17,13 @@ export default {
     const Do11yMeta = (await import("./components/meta/Do11yMeta.vue")).default;
     app.component("Do11yMeta", Do11yMeta);
 
+    const description = document.createElement("meta");
+
+    description.name = "description";
+    description.content = "Component library for Vue.";
+
+    document.head.appendChild(description);
+
     router.beforeEach((to) => {
       if (to.meta.title) {
         document.title = `${to.meta.title as string} | Typeach`;
