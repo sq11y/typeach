@@ -74,7 +74,7 @@ a {
 
   @include utils.transition("background-color");
 
-  &:hover:not(.logo) {
+  @include utils.hover {
     background-color: var(--green-40);
   }
 }

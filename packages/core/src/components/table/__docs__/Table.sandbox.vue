@@ -49,6 +49,8 @@ import {
 </script>
 
 <style lang="scss">
+/* ===== Variables ===== */
+
 :root {
   --border-radius: 8px;
   --border-shape: 1px solid;
@@ -58,12 +60,46 @@ import {
   --font-weight-medium: 500;
 }
 
+/* ===== Table borders ===== */
+
 table {
   border-spacing: 0;
   border: var(--border);
   border-radius: var(--border-radius);
-  overflow: hidden;
 }
+
+/**
+ * Inner borders for forced colors mode to separate rows
+ * when they are no longer different colors.
+ */
+
+tr:nth-child(even):not(:last-child) td {
+  border-block: var(--border);
+  border-color: transparent;
+}
+
+tr:nth-child(even):last-child td {
+  border-block-start: var(--border);
+  border-color: transparent;
+}
+
+thead th:first-child {
+  border-start-start-radius: var(--border-radius);
+}
+
+thead th:last-child {
+  border-start-end-radius: var(--border-radius);
+}
+
+td:first-child {
+  border-end-start-radius: var(--border-radius);
+}
+
+td:last-child {
+  border-end-end-radius: var(--border-radius);
+}
+
+/* ===== Table ===== */
 
 th,
 td {
@@ -89,15 +125,5 @@ td {
 
 tr:nth-child(even) {
   background-color: var(--grey-10);
-}
-
-tr:nth-child(even):not(:last-child) td {
-  border-block: var(--border);
-  border-color: transparent;
-}
-
-tr:nth-child(even):last-child td {
-  border-block-start: var(--border);
-  border-color: transparent;
 }
 </style>

@@ -53,6 +53,8 @@ const modelValue = defineModel<boolean>({ default: true });
 <style lang="scss">
 @use "@typeach/theme/utils";
 
+/* ===== Variables ===== */
+
 :root {
   --border-radius: 8px;
   --border-shape: 1px solid;
@@ -61,6 +63,8 @@ const modelValue = defineModel<boolean>({ default: true });
 
   --icon-size: 1.25em;
 }
+
+/* ===== Container ===== */
 
 button[aria-checked] {
   position: relative;
@@ -78,42 +82,22 @@ button[aria-checked] {
   border-radius: var(--border-radius);
   border: var(--border);
 
-  &:focus-visible {
-    outline: 2px solid var(--blue-80);
-    box-shadow: 0 0 0 6px var(--blue-30);
-  }
-
   @include utils.enabled {
     cursor: pointer;
 
-    &:hover .switch__toggle {
-      border-color: var(--grey-60);
+    @include utils.hover {
+      .switch__toggle {
+        border-color: var(--grey-60);
+      }
     }
 
     &:active .switch__toggle {
       background-color: var(--grey-50);
     }
   }
-
-  @include utils.disabled {
-    .switch {
-      filter: grayscale(100%);
-    }
-  }
 }
 
-.lock {
-  position: absolute;
-
-  inset-block: calc(var(--icon-size) * -0.5);
-  inset-inline-end: calc(var(--icon-size) * -0.6);
-
-  inline-size: calc(var(--icon-size) + (2 * var(--spacing-xxs)));
-  padding: var(--spacing-xxs);
-  border-radius: 100%;
-
-  background-color: var(--bg);
-}
+/* ===== Switch layout ===== */
 
 .switch {
   min-inline-size: max-content;
@@ -124,6 +108,8 @@ button[aria-checked] {
   font-size: var(--font-size-xs);
   line-height: var(--line-height-xs);
 }
+
+/* ===== Toggle ===== */
 
 .switch__toggle {
   padding-inline: 0.0125em var(--relative-spacing-xl);
@@ -159,13 +145,46 @@ button[aria-checked="true"] {
   }
 
   @include utils.enabled {
-    &:hover .switch__toggle {
-      border-color: var(--green-60);
+    @include utils.hover {
+      .switch__toggle {
+        border-color: var(--green-60);
+      }
     }
 
     &:active .switch__toggle {
       background-color: var(--green-50);
     }
   }
+}
+
+/* ===== Disabled ===== */
+
+button[aria-checked] {
+  @include utils.disabled {
+    .switch {
+      filter: grayscale(100%);
+    }
+  }
+}
+
+.lock {
+  position: absolute;
+
+  inset-block: calc(var(--icon-size) * -0.5);
+  inset-inline-end: calc(var(--icon-size) * -0.6);
+
+  inline-size: calc(var(--icon-size) + (2 * var(--spacing-xxs)));
+  padding: var(--spacing-xxs);
+  border-radius: 100%;
+
+  background-color: var(--bg);
+}
+
+/* ===== Focus indicators ===== */
+
+*:focus-visible {
+  outline: 2px solid var(--blue-80);
+  box-shadow: 0 0 0 6px var(--blue-30);
+  isolation: isolate;
 }
 </style>

@@ -68,11 +68,15 @@ img {
 <style lang="scss">
 @use "@typeach/theme/utils";
 
+/* ===== Variables ===== */
+
 :root {
   --border-radius: 8px;
   --border-shape: 1px solid;
   --border: var(--border-shape) var(--grey-40);
 }
+
+/* ===== Toolbar ===== */
 
 [role="toolbar"] {
   @include utils.center-flex(var(--spacing-xs));
@@ -80,16 +84,7 @@ img {
   flex-wrap: wrap;
 }
 
-.image-container {
-  margin-block-start: var(--spacing-l);
-  border-radius: var(--border-radius);
-
-  img {
-    inline-size: 14rem;
-    border-radius: inherit;
-    margin-inline: auto;
-  }
-}
+/* ===== Toolbar button ===== */
 
 button {
   padding-block: var(--relative-spacing-xs);
@@ -117,7 +112,9 @@ button {
   }
 
   @include utils.disabled {
-    background-color: var(--grey-20);
+    background-color: var(--grey-50);
+    border-color: var(--grey-50);
+    color: var(--grey-80);
 
     @media (forced-colors: active) {
       color: GrayText;
@@ -126,15 +123,20 @@ button {
   }
 }
 
-a {
-  color: var(--blue-80);
+/* ===== Image ===== */
 
+.image-container {
+  margin-block-start: var(--spacing-l);
   border-radius: var(--border-radius);
-  corner-shape: squircle;
 
-  padding-inline: var(--relative-spacing-xs);
-  margin-inline: calc(var(--relative-spacing-xs) * -1);
+  img {
+    inline-size: 14rem;
+    border-radius: inherit;
+    margin-inline: auto;
+  }
 }
+
+/* ===== Focus indicators ===== */
 
 *:focus-visible {
   outline: 2px solid var(--blue-80);

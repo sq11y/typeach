@@ -69,6 +69,8 @@ const marieLink = useTemplateRef("marie-link");
 </script>
 
 <style lang="scss">
+/* ===== Variables ===== */
+
 :root {
   --border-radius: 8px;
   --border-shape: 1px solid;
@@ -78,37 +80,18 @@ const marieLink = useTemplateRef("marie-link");
   --font-weight-medium: 500;
 }
 
+/* ===== Table borders ===== */
+
 table {
   border-spacing: 0;
   border: var(--border);
   border-radius: var(--border-radius);
 }
 
-th,
-td {
-  max-inline-size: 20rem;
-  padding: var(--spacing-l);
-
-  text-align: start;
-}
-
-th {
-  border-block-end: var(--invisible-border);
-  padding-block: var(--spacing-m) var(--spacing-s);
-
-  background-color: var(--green-20);
-  color: var(--green-80);
-
-  font-weight: var(--font-weight-medium);
-}
-
-td {
-  vertical-align: text-top;
-}
-
-tr:nth-child(even) {
-  background-color: var(--grey-10);
-}
+/**
+ * Inner borders for forced colors mode to separate rows
+ * when they are no longer different colors.
+ */
 
 tr:nth-child(even):not(:last-child) td {
   border-block: var(--border);
@@ -136,6 +119,36 @@ td:last-child {
   border-end-end-radius: var(--border-radius);
 }
 
+/* ===== Table ===== */
+
+th,
+td {
+  max-inline-size: 20rem;
+  padding: var(--spacing-l);
+
+  text-align: start;
+}
+
+th {
+  border-block-end: var(--invisible-border);
+  padding-block: var(--spacing-m) var(--spacing-s);
+
+  background-color: var(--green-20);
+  color: var(--green-80);
+
+  font-weight: var(--font-weight-medium);
+}
+
+td {
+  vertical-align: text-top;
+}
+
+tr:nth-child(even) {
+  background-color: var(--grey-10);
+}
+
+/* ===== Links ===== */
+
 a {
   color: var(--blue-80);
 
@@ -145,6 +158,8 @@ a {
   padding-inline: var(--relative-spacing-xs);
   margin-inline: calc(var(--relative-spacing-xs) * -1);
 }
+
+/* ===== Focus indicators ===== */
 
 *:focus-visible {
   outline: 2px solid var(--blue-80);

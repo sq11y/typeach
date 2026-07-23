@@ -52,7 +52,7 @@ a {
 
   @include utils.transition("background-color");
 
-  &:hover {
+  @include utils.hover {
     background-color: var(--pink-30);
   }
 }

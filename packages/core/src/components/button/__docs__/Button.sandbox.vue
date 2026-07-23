@@ -19,9 +19,13 @@ const onClick = () => {
 <style lang="scss">
 @use "@typeach/theme/utils";
 
+/* ===== Variables ===== */
+
 :root {
   --border-shape: 1px solid;
 }
+
+/* ===== Button ===== */
 
 button {
   padding-block: var(--relative-spacing-s);
@@ -37,11 +41,6 @@ button {
   line-height: var(--line-height-l);
 
   @include utils.transition("background-color, border-color");
-
-  &:focus-visible {
-    outline: 2px solid var(--blue-80);
-    box-shadow: 0 0 0 6px var(--blue-30);
-  }
 
   @include utils.enabled {
     cursor: pointer;
@@ -60,6 +59,19 @@ button {
     background-color: var(--grey-50);
     border-color: var(--grey-50);
     color: var(--grey-80);
+
+    @media (forced-colors: active) {
+      color: GrayText;
+      border-color: GrayText;
+    }
   }
+}
+
+/* ===== Focus indicators ===== */
+
+*:focus-visible {
+  outline: 2px solid var(--blue-80);
+  box-shadow: 0 0 0 6px var(--blue-30);
+  isolation: isolate;
 }
 </style>

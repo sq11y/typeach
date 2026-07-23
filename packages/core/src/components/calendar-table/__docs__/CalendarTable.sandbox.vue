@@ -104,6 +104,8 @@ watch(date, (newDate) => {
 <style lang="scss">
 @use "@typeach/theme/utils";
 
+/* ===== Variables ===== */
+
 :root {
   --border-radius: 8px;
   --border-shape: 1px solid;
@@ -114,6 +116,8 @@ watch(date, (newDate) => {
 
   --icon-size: 1.25em;
 }
+
+/* ===== Header ===== */
 
 header {
   @include utils.center-flex;
@@ -137,7 +141,7 @@ h2 {
   @include utils.transition("background-color, color, scale");
 
   @include utils.enabled {
-    &:hover {
+    @include utils.hover {
       background-color: var(--pink-30);
       color: var(--pink-70);
     }
@@ -152,12 +156,33 @@ h2 {
   inline-size: calc(var(--icon-size) * 1.125);
 }
 
+/* ===== Table borders ===== */
+
 table {
   border-spacing: 0;
   border: var(--border);
   border-radius: var(--border-radius);
   overflow: hidden;
 }
+
+th:not(tbody tr:last-child > th) {
+  border-block-end: var(--border);
+}
+
+tr:nth-child(even):not(:last-child) td {
+  border-block: var(--border);
+}
+
+tr:nth-child(even):last-child td {
+  border-block-start: var(--border);
+}
+
+td:not(:last-child),
+th:not(:last-child) {
+  border-inline-end: var(--border);
+}
+
+/* ===== Table ===== */
 
 th,
 td {
@@ -180,27 +205,10 @@ thead th {
   color: inherit;
 }
 
-th:not(tbody tr:last-child > th) {
-  border-block-end: var(--border);
-}
+/* ===== Dates ===== */
 
-tr:nth-child(even):not(:last-child) td {
-  border-block: var(--border);
-}
-
-tr:nth-child(even):last-child td {
-  border-block-start: var(--border);
-}
-
-td,
-th {
-  &:not(:last-child) {
-    border-inline-end: var(--border);
-  }
-}
-
-table button {
-  --size: 2rem;
+button[aria-pressed] {
+  --size: 1.75rem;
 
   padding: 0;
 
@@ -221,34 +229,39 @@ table button {
   @media (width < 25rem) {
     --size: 1.5rem;
   }
-}
 
-table button:active {
-  scale: 1.1;
-}
-
-table button[aria-pressed="false"] {
   @include utils.enabled {
-    &:hover {
+    &:active {
+      scale: 1.1;
+    }
+  }
+
+  @include utils.disabled {
+    opacity: 0.475;
+  }
+}
+
+button[aria-pressed="false"] {
+  @include utils.enabled {
+    @include utils.hover {
       background-color: var(--grey-30);
     }
   }
 }
 
-table button[aria-pressed="true"] {
+button[aria-pressed="true"] {
+  border: var(--invisible-border);
   background-color: var(--pink-30);
   color: var(--pink-80);
 
   @include utils.enabled {
-    &:hover {
+    @include utils.hover {
       background-color: var(--pink-40);
     }
   }
-
-  @media (forced-colors: active) {
-    border: var(--invisible-border);
-  }
 }
+
+/* ===== Focus indicators ===== */
 
 *:focus-visible {
   outline: 2px solid var(--blue-80);

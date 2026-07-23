@@ -13,10 +13,14 @@ import DownloadIcon from "./icons/download.svg?component";
 </script>
 
 <style lang="scss">
+/* ===== Variables ===== */
+
 :root {
   --border-radius: 8px;
   --icon-size: 1.25em;
 }
+
+/* ===== Link & Icon ===== */
 
 a[download] {
   color: var(--blue-80);
@@ -27,11 +31,6 @@ a[download] {
   padding-inline: var(--relative-spacing-xs);
   margin-inline: calc(var(--relative-spacing-xs) * -1);
 
-  &:focus-visible {
-    outline: 2px solid var(--blue-80);
-    box-shadow: 0 0 0 6px var(--blue-30);
-  }
-
   svg {
     display: inline;
     vertical-align: text-bottom;
@@ -39,5 +38,13 @@ a[download] {
 
     block-size: var(--icon-size);
   }
+}
+
+/* ===== Focus indicators ===== */
+
+*:focus-visible {
+  outline: 2px solid var(--blue-80);
+  box-shadow: 0 0 0 6px var(--blue-30);
+  isolation: isolate;
 }
 </style>

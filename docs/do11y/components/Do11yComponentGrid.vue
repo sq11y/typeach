@@ -65,14 +65,12 @@ const router = useRouter();
 
   margin-block-start: 0;
 
-  @media (hover: hover) {
-    &:hover {
-      border-color: var(--green-70);
-      background-color: var(--green-20);
+  @include utils.hover {
+    border-color: var(--green-70);
+    background-color: var(--green-20);
 
-      a {
-        color: var(--green-80);
-      }
+    a {
+      color: var(--green-80);
     }
   }
 

@@ -34,6 +34,8 @@ const warByEdwinStarrLyricsAnswer = "Absolutely nothing.";
 <style lang="scss">
 @use "@typeach/theme/utils";
 
+/* ===== Variables ===== */
+
 :root {
   --border-radius: 8px;
   --border-shape: 1px solid;
@@ -41,6 +43,8 @@ const warByEdwinStarrLyricsAnswer = "Absolutely nothing.";
 
   --icon-size: 1.25em;
 }
+
+/* ===== Button ===== */
 
 button[aria-expanded] {
   margin-block-end: var(--spacing-s);
@@ -62,11 +66,6 @@ button[aria-expanded] {
 
   @include utils.transition("background-color, border-color");
 
-  &:focus-visible {
-    outline: 2px solid var(--blue-80);
-    box-shadow: 0 0 0 6px var(--blue-30);
-  }
-
   @include utils.enabled {
     cursor: pointer;
 
@@ -79,7 +78,20 @@ button[aria-expanded] {
       border-color: var(--blue-70);
     }
   }
+
+  @include utils.disabled {
+    background-color: var(--grey-50);
+    border-color: var(--grey-50);
+    color: var(--grey-80);
+
+    @media (forced-colors: active) {
+      color: GrayText;
+      border-color: GrayText;
+    }
+  }
 }
+
+/* ===== Toggle icon ===== */
 
 button[aria-expanded] {
   svg {
@@ -93,6 +105,8 @@ button[aria-expanded] {
     transform: rotate(0deg);
   }
 }
+
+/* ===== Panel ===== */
 
 .content {
   background-color: var(--blue-20);
@@ -119,6 +133,8 @@ button[aria-expanded] {
   padding-inline: var(--relative-spacing-l) var(--relative-spacing-m);
 }
 
+/* ===== Panel transition ===== */
+
 .panel {
   overflow-block: hidden;
   max-block-size: 15rem;
@@ -129,5 +145,13 @@ button[aria-expanded] {
 .v-enter-from,
 .v-leave-to {
   max-block-size: 0;
+}
+
+/* ===== Focus indicators ===== */
+
+*:focus-visible {
+  outline: 2px solid var(--blue-80);
+  box-shadow: 0 0 0 6px var(--blue-30);
+  isolation: isolate;
 }
 </style>

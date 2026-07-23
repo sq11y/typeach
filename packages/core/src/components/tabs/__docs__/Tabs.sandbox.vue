@@ -36,12 +36,16 @@ const values = ["Sea", "Ocean"];
 <style lang="scss">
 @use "@typeach/theme/utils";
 
+/* ===== Variables ===== */
+
 :root {
   --border-radius: 8px;
   --border-shape: 1px solid;
   --border: var(--border-shape) var(--grey-40);
   --invisible-border: var(--border-shape) transparent;
 }
+
+/* ===== Tabs ===== */
 
 [role="tablist"] {
   @include utils.center-flex(var(--spacing-xs));
@@ -97,6 +101,8 @@ const values = ["Sea", "Ocean"];
   }
 }
 
+/* ===== Tab panel ===== */
+
 [role="tabpanel"] {
   inline-size: 15rem;
   padding: var(--spacing-s) var(--spacing-m);
@@ -108,6 +114,8 @@ const values = ["Sea", "Ocean"];
 
   margin-block-start: var(--spacing-m);
 }
+
+/* ===== Focus indicators ===== */
 
 *:focus-visible {
   outline: 2px solid var(--blue-80);
