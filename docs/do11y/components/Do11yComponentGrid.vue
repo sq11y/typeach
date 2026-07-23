@@ -3,6 +3,8 @@
     <ul :class="c('list')">
       <li v-for="component of components" :key="component.path" :class="c('list-item')">
         <img
+          width="500"
+          height="281"
           :src="`${router.options.history.base}/illustrations/${component.meta.illustration}`"
           alt=""
         />
@@ -94,6 +96,7 @@ const router = useRouter();
 
   img {
     inline-size: 100%;
+    block-size: auto;
     background-color: var(--bg);
   }
 }
