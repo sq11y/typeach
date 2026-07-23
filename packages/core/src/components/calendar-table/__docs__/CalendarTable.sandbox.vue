@@ -124,11 +124,38 @@ h2 {
   flex-grow: 1;
 }
 
+.navigation-button {
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+
+  border-radius: 100%;
+  aspect-ratio: 1;
+
+  padding: var(--spacing-xxs);
+
+  @include utils.transition("background-color, color, scale");
+
+  @include utils.enabled {
+    &:hover {
+      background-color: var(--pink-30);
+      color: var(--pink-70);
+    }
+
+    &:active {
+      scale: 1.1;
+    }
+  }
+}
+
+.navigation-button svg {
+  inline-size: calc(var(--icon-size) * 1.125);
+}
+
 table {
   border-spacing: 0;
   border: var(--border);
   border-radius: var(--border-radius);
-  overflow: hidden;
 }
 
 th,
@@ -141,14 +168,15 @@ th {
   font-weight: var(--font-weight-medium);
 }
 
-:where(th:first-child),
+th,
 td:first-child {
   background-color: var(--green-20);
-  color: var(--green-80);
+  color: var(--green-70);
 }
 
 thead th {
   background-color: var(--grey-10);
+  color: inherit;
 }
 
 th:not(tbody tr:last-child > th) {
@@ -176,21 +204,14 @@ table button {
   padding: 0;
 
   border-radius: 100%;
-  border: 0;
+  border: var(--invisible-border);
 
   background-color: transparent;
   color: inherit;
 
   @include utils.square(var(--size));
 
-  &[aria-pressed="true"] {
-    background-color: var(--pink-30);
-    color: var(--pink-70);
-
-    &:not(:focus-visible) {
-      outline: 2px solid var(--pink-30);
-    }
-  }
+  @include utils.transition("background-color, color, scale");
 
   &[data-current-month="false"] {
     display: none;
@@ -201,30 +222,27 @@ table button {
   }
 }
 
-.navigation-button {
-  color: inherit;
-  background-color: transparent;
-  border: 0;
+table button:active {
+  scale: 1.1;
+}
 
-  border-radius: 100%;
-  aspect-ratio: 1;
-
-  padding: var(--spacing-xxs);
-
-  @include utils.transition("background-color, color, scale");
-
-  &:hover {
-    background-color: var(--pink-30);
-    color: var(--pink-70);
-  }
-
-  &:active {
-    scale: 1.1;
+table button[aria-pressed="false"] {
+  @include utils.enabled {
+    &:hover {
+      background-color: var(--grey-30);
+    }
   }
 }
 
-.navigation-button svg {
-  inline-size: calc(var(--icon-size) * 1.125);
+table button[aria-pressed="true"] {
+  background-color: var(--pink-30);
+  color: var(--pink-80);
+
+  @include utils.enabled {
+    &:hover {
+      background-color: var(--pink-40);
+    }
+  }
 }
 
 *:focus-visible {
