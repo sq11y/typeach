@@ -1,7 +1,7 @@
 ---
 title: "Download link"
 slug: "/c/download-link"
-description: "Download content."
+description: "Downloads content."
 illustration: "download-link.png"
 ---
 

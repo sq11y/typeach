@@ -1,7 +1,7 @@
 ---
 title: "Toolbar"
 slug: "/c/toolbar"
-description: "Group controls."
+description: "Groups controls."
 illustration: "toolbar.png"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Separator"
 slug: "/c/separator"
-description: "A line to separate content."
+description: "Separates content."
 illustration: "separator.png"
 ---
 

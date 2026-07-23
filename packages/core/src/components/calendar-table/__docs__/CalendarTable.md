@@ -1,7 +1,7 @@
 ---
 title: "Calendar table"
 slug: "/c/calendar-table"
-description: "A minimal calendar."
+description: "Displays a month."
 illustration: "calendar-table.png"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Tabs"
 slug: "/c/tabs"
-description: "Switch between content."
+description: "Switches between content."
 illustration: "tabs.png"
 ---
 

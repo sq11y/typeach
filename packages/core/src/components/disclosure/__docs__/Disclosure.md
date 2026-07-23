@@ -1,7 +1,7 @@
 ---
 title: "Disclosure"
 slug: "/c/disclosure"
-description: "Toggle content."
+description: "Toggles content."
 illustration: "disclosure.png"
 ---
 

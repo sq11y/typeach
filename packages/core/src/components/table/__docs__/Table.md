@@ -1,7 +1,7 @@
 ---
 title: "Table"
 slug: "/c/table"
-description: "Showcase tabular data."
+description: "Showcases tabular data."
 illustration: "table.png"
 ---
 

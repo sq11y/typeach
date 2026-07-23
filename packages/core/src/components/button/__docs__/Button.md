@@ -1,7 +1,7 @@
 ---
 title: "Button"
 slug: "/c/button"
-description: "Trigger an action."
+description: "Triggers an action."
 illustration: "button.png"
 ---
 
