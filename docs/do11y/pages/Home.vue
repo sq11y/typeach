@@ -1,4 +1,8 @@
 <template>
+  <PeachyVisuallyHidden>
+    <h1>Typeach - component library for Vue.</h1>
+  </PeachyVisuallyHidden>
+
   <blockquote>
     <h1 class="tagline">
       “The power of the Web is in its universality. Access by everyone regardless of disability is
@@ -14,6 +18,10 @@
     </footer>
   </blockquote>
 </template>
+
+<script setup lang="ts">
+import { PeachyVisuallyHidden } from "@typeach/core";
+</script>
 
 <style lang="scss">
 @use "@typeach/theme/utils";
