@@ -55,7 +55,7 @@ const components = {
   border-radius: var(--border-radius);
 
   background-color: var(--bg);
-  color: var(--grey-70);
+  color: var(--grey-80);
 
   @include utils.transition("color, background-color, border-color");
 
