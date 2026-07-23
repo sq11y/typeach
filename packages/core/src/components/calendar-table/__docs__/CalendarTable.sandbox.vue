@@ -1,8 +1,20 @@
 <template>
-  <h2 class="h4">
-    {{ month.name }}
-    {{ year }}
-  </h2>
+  <header>
+    <h2 class="h4">
+      {{ month.name }}
+      {{ year }}
+    </h2>
+
+    <PeachyButton class="navigation-button" @click="focusedDate = getPreviousMonth(focusedDate)">
+      <Chevron style="rotate: 180deg" />
+      <PeachyVisuallyHidden>Previous month</PeachyVisuallyHidden>
+    </PeachyButton>
+
+    <PeachyButton class="navigation-button" @click="focusedDate = getNextMonth(focusedDate)">
+      <Chevron />
+      <PeachyVisuallyHidden>Next month</PeachyVisuallyHidden>
+    </PeachyButton>
+  </header>
 
   <PeachyCalendarTable v-model="focusedDate">
     <PeachyTableHead>
@@ -60,13 +72,19 @@ import {
   PeachyTableHeadingCell,
   PeachyTableBody,
   PeachyTableRow,
+  PeachyButton,
   useCalendar,
   formatDate,
   getWeekdays,
+  getNextMonth,
+  getPreviousMonth,
   isSameDate,
   isSameMonth,
   Weekday,
 } from "@typeach/core";
+
+/* @ts-expect-error temporary */
+import Chevron from "./icons/chevron.svg?component";
 
 const focusedDate = ref(new Date("6/28/1969"));
 
@@ -93,10 +111,17 @@ watch(date, (newDate) => {
   --invisible-border: var(--border-shape) transparent;
 
   --font-weight-medium: 500;
+
+  --icon-size: 1.25em;
+}
+
+header {
+  @include utils.center-flex;
+  margin-block-end: var(--spacing-s);
 }
 
 h2 {
-  margin-block-end: var(--spacing-s);
+  flex-grow: 1;
 }
 
 table {
@@ -174,6 +199,32 @@ table button {
   @media (width < 25rem) {
     --size: 1.5rem;
   }
+}
+
+.navigation-button {
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+
+  border-radius: 100%;
+  aspect-ratio: 1;
+
+  padding: var(--spacing-xxs);
+
+  @include utils.transition("background-color, color, scale");
+
+  &:hover {
+    background-color: var(--pink-30);
+    color: var(--pink-70);
+  }
+
+  &:active {
+    scale: 1.1;
+  }
+}
+
+.navigation-button svg {
+  inline-size: calc(var(--icon-size) * 1.125);
 }
 
 *:focus-visible {
