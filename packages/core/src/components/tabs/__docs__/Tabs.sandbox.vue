@@ -16,7 +16,7 @@
       :key="value"
       :value="value.toLowerCase()"
     >
-      A list of {{ value.toLowerCase() }}
+      {{ value }} panel
     </PeachyTabsPanel>
   </PeachyTabs>
 </template>
@@ -30,7 +30,7 @@ import {
   PeachyTabsPanel
 } from "@typeach/core";
 
-const values = ["Tasks", "Events"];
+const values = ["Sea", "Ocean"];
 </script>
 
 <style lang="scss">
@@ -39,8 +39,7 @@ const values = ["Tasks", "Events"];
 :root {
   --border-radius: 8px;
   --border-shape: 1px solid;
-  --border-color: var(--grey-60);
-  --border: var(--border-shape) var(--border-color);
+  --border: var(--border-shape) var(--grey-40);
   --invisible-border: var(--border-shape) transparent;
 }
 
@@ -49,58 +48,65 @@ const values = ["Tasks", "Events"];
 }
 
 [role="tab"] {
-  font-size: var(--font-size-m);
-  line-height: var(--line-height-m);
-
-  padding-block: var(--relative-spacing-s) var(--relative-spacing-xs);
-  padding-inline: var(--relative-spacing-xl);
+  padding: var(--relative-spacing-xxs) var(--relative-spacing-xl);
 
   /**
    * Hidden border to ensure the shape
    * of the tab is defined in `forced-colors` mode.
    */
   border: var(--invisible-border);
-  border-block-end: 0;
+  border-radius: var(--border-radius);
 
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
-
-  background-color: var(--grey-10);
-  color: var(--grey-70);
+  background-color: transparent;
 
   @include utils.transition("background-color, color, border-color");
 
   @include utils.enabled {
     cursor: pointer;
+  }
+}
 
+[role="tab"][aria-selected="false"] {
+  text-decoration: underline;
+
+  @include utils.enabled {
     &:active {
-      background-color: var(--grey-10);
-      border-color: var(--grey-60);
+      background-color: var(--grey-30);
+      border-color: var(--grey-30);
     }
 
     @include utils.hover {
-      background-color: var(--brown-20);
-      color: var(--brown-70);
+      border-color: var(--grey-70);
     }
   }
 }
 
 [role="tab"][aria-selected="true"] {
-  border-color: var(--border-color);
+  background-color: var(--turquoise-40);
+  color: var(--turquoise-80);
 
-  padding-block-end: calc(var(--relative-spacing-xs) + 1px);
-  margin-block-end: -1px;
+  @include utils.enabled {
+    &:active {
+      background-color: var(--turquoise-50);
+      border-color: var(--turquoise-70);
+    }
 
-  background-color: var(--bg);
-  color: var(--fg);
+    @include utils.hover {
+      border-color: var(--turquoise-70);
+    }
+  }
 }
 
 [role="tabpanel"] {
   inline-size: 15rem;
-  padding: var(--spacing-m) var(--spacing-l);
+  padding: var(--spacing-s) var(--spacing-m);
 
-  border: var(--border);
+  background-color: var(--grey-10);
+
+  border: var(--invisible-border);
   border-radius: var(--border-radius);
-  border-start-start-radius: 0;
+
+  margin-block-start: var(--spacing-m);
 }
 
 *:focus-visible {
