@@ -12,9 +12,7 @@
 
     <nav id="nav" ref="popover" :popover="isSmallScreen ? 'auto' : undefined">
       <RouterLink to="/p/components">Components</RouterLink>
-      <RouterLink to="/p/colors">Colors</RouterLink>
-      <RouterLink to="/p/typography">Typography</RouterLink>
-      <RouterLink to="/p/spacing">Spacing</RouterLink>
+      <RouterLink to="/p/theme">Theme</RouterLink>
     </nav>
   </header>
 </template>
@@ -29,7 +27,7 @@ import { PeachyButton } from "@typeach/core";
 
 import MenuIcon from "../icons/menu.svg?component";
 
-const isSmallScreen = useMediaQuery("(width <= 46rem)");
+const isSmallScreen = useMediaQuery("(width <= 36rem)");
 
 const popover = useTemplateRef("popover");
 
@@ -64,7 +62,7 @@ header {
   background-color: var(--green-30);
   color: var(--green-80);
 
-  @media (width <= 46rem) {
+  @media (width <= 36rem) {
     margin-inline: auto calc(var(--inline-margin));
     gap: var(--spacing-m);
   }
