@@ -31,6 +31,7 @@
           <PeachyCalendarTableCellButton
             :date="day"
             :selected="date && isSameDate(date, day)"
+            :data-current-month="isSameMonth(focusedDate, day)"
             @click="date = day"
           >
             <span aria-hidden="true">
@@ -63,6 +64,7 @@ import {
   formatDate,
   getWeekdays,
   isSameDate,
+  isSameMonth,
   Weekday,
 } from "@typeach/core";
 
@@ -163,6 +165,10 @@ table button {
     &:not(:focus-visible) {
       outline: 2px solid var(--pink-30);
     }
+  }
+
+  &[data-current-month="false"] {
+    display: none;
   }
 
   @media (width < 25rem) {

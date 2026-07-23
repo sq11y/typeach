@@ -39,3 +39,10 @@ export const isSameDate = (comparerDate: Date, compareeDate: Date) =>
   comparerDate.getFullYear() === compareeDate.getFullYear() &&
   comparerDate.getMonth() === compareeDate.getMonth() &&
   comparerDate.getDate() === compareeDate.getDate();
+
+/**
+ * Check if two dates are within the same month.
+ */
+export const isSameMonth = (comparerDate: Date, compareeDate: Date) =>
+  comparerDate.getFullYear() === compareeDate.getFullYear() &&
+  comparerDate.getMonth() === compareeDate.getMonth();
