@@ -156,6 +156,7 @@ table {
   border-spacing: 0;
   border: var(--border);
   border-radius: var(--border-radius);
+  overflow: hidden;
 }
 
 th,
@@ -204,7 +205,7 @@ table button {
   padding: 0;
 
   border-radius: 100%;
-  border: var(--invisible-border);
+  border: 0;
 
   background-color: transparent;
   color: inherit;
@@ -242,6 +243,10 @@ table button[aria-pressed="true"] {
     &:hover {
       background-color: var(--pink-40);
     }
+  }
+
+  @media (forced-colors: active) {
+    border: var(--invisible-border);
   }
 }
 
