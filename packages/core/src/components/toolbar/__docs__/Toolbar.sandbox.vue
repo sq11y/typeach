@@ -118,6 +118,11 @@ button {
 
   @include utils.disabled {
     background-color: var(--grey-20);
+
+    @media (forced-colors: active) {
+      color: GrayText;
+      border-color: GrayText;
+    }
   }
 }
 
