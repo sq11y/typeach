@@ -11,16 +11,24 @@
     </div>
 
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div :aria-hidden="!showCode" v-html="modifiedHighlightedCode" />
+    <div :id="id" :aria-hidden="!showCode" v-html="modifiedHighlightedCode" />
 
-    <Do11yButton v-if="!showCode" :class="c('toggle-button')" grey @click="showCode = true">
-      View code
+    <Do11yButton
+      :class="c('toggle-button')"
+      :aria-controls="id"
+      :aria-expanded="showCode"
+      grey
+      @click="showCode = !showCode"
+    >
+      {{ showCode ? "Hide" : "Show" }} code
+
+      <component :is="showCode ? CaretDownUp : CaretUpDown" aria-hidden="true" />
     </Do11yButton>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from "vue";
+import { computed, ref, useId } from "vue";
 import { useBemClass, useThemeSettingsStore } from "@typeach/core";
 
 import Do11ySwitch from "./Do11ySwitch.vue";
@@ -29,6 +37,9 @@ import Do11yButton from "./Do11yButton.vue";
 
 import TextWrapIcon from "../icons/text-wrap.svg?component";
 import TextWrapCheckIcon from "../icons/text-wrap--checked.svg?component";
+
+import CaretUpDown from "../icons/caret-up-down.svg?component";
+import CaretDownUp from "../icons/caret-down-up.svg?component";
 
 interface CodeBlockProps {
   /**
@@ -49,6 +60,8 @@ const props = defineProps<CodeBlockProps>();
 defineSlots<CodeBlockSlots>();
 
 const c = useBemClass("code-block");
+
+const id = useId();
 
 const themeSettings = useThemeSettingsStore();
 
