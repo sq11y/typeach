@@ -3,9 +3,7 @@
 
   <div :class="c({ events })">
     <div v-for="slot of meta" :key="slot.name" :class="c('item')">
-      <h5>
-        {{ slot.name }}
-      </h5>
+      <h5 v-if="events">{{ events ? "@" : "" }}{{ slot.name }}</h5>
 
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div :class="c('description')" v-html="slot.description" />
@@ -67,7 +65,9 @@ const c = useBemClass("meta-grid");
 }
 
 .meta-grid__description {
-  margin-block-start: var(--spacing-s);
+  &:is(h5 + *) {
+    margin-block-start: var(--spacing-s);
+  }
 
   &:has(+ *) {
     margin-block-end: var(--spacing-s);

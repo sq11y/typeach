@@ -1,6 +1,6 @@
 <template>
   <Do11yComponentMetaProps v-if="meta.props.length" :meta="meta" />
-  <Do11yComponentMetaGrid v-if="meta.slots.length" :meta="meta.slots" title="Slots" />
+  <Do11yComponentMetaGrid v-if="meta.slots.length" :meta="meta.slots" title="Slot" />
   <Do11yComponentMetaGrid v-if="meta.events.length" :meta="meta.events" title="Events" events />
 </template>
 
