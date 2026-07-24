@@ -24,7 +24,7 @@ illustration: "calendar-table.png"
 
 <CalendarTableSandbox title="Calendar table" block-size="35rem" />
 
-## API reference
+## API
 
 ### Table
 

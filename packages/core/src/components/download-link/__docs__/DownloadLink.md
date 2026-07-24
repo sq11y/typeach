@@ -22,7 +22,7 @@ illustration: "download-link.png"
 
 <DownloadLinkSandbox title="Download link" />
 
-## API reference
+## API
 
 ### Download link
 

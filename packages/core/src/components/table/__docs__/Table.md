@@ -30,7 +30,7 @@ illustration: "table.png"
 
 <TableSandbox title="Table" :block-size="tallTable ? '45rem' : '30rem'"  />
 
-## API reference
+## API
 
 ### Table
 

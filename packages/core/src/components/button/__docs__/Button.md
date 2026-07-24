@@ -22,7 +22,7 @@ illustration: "button.png"
 
 <ButtonSandbox title="Button" />
 
-## API reference
+## API
 
 ### Button
 

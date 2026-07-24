@@ -28,7 +28,7 @@ illustration: "grid-table.png"
 
 <GridTableSandbox title="Grid table" :block-size="tallTable ? '45rem' : '30rem'"  />
 
-## API reference
+## API
 
 ### Table
 
