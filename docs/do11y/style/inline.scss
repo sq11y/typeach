@@ -19,11 +19,9 @@ a {
 code:not(pre code),
 kbd {
   display: inline-block;
-  min-inline-size: fit-content;
 
   border-radius: var(--border-radius);
   padding-inline: var(--relative-spacing-s);
-  line-height: 1.4;
 
   margin-inline: 1px;
 }
