@@ -1,5 +1,5 @@
 <template>
-  <PeachyTable :class="c()" :data-unresponsive="unresponsive">
+  <PeachyTable v-if="isBigScreen || unresponsive" :class="c()">
     <PeachyTableHead>
       <PeachyTableRow>
         <PeachyTableHeadingCell v-for="(title, titleIndex) of titles" :key="titleIndex">
@@ -17,7 +17,7 @@
     </PeachyTableBody>
   </PeachyTable>
 
-  <div :class="c('list')" :data-unresponsive="unresponsive">
+  <div v-else :class="c('list')">
     <dl v-for="(row, rowIndex) of rows" :key="rowIndex">
       <template v-for="(title, titleIndex) of smallTitles || titles" :key="titleIndex">
         <dt>{{ title }}</dt>
@@ -28,6 +28,8 @@
 </template>
 
 <script lang="ts" setup generic="T">
+import { useMediaQuery } from "@vueuse/core";
+
 import { kebabCase } from "change-case";
 
 import {
@@ -73,6 +75,8 @@ defineProps<TableProps>();
 defineSlots<TableSlots>();
 
 const c = useBemClass("table");
+
+const isBigScreen = useMediaQuery("(width >= 45rem)");
 </script>
 
 <style lang="scss">
@@ -177,21 +181,5 @@ const c = useBemClass("table");
       padding-block-end: var(--spacing-l);
     }
   }
-}
-
-@media (width < 45rem) {
-  .table:not([data-unresponsive="true"]) {
-    display: none;
-  }
-}
-
-@media (width >= 45rem) {
-  .table__list {
-    display: none;
-  }
-}
-
-.table__list[data-unresponsive="true"] {
-  display: none;
 }
 </style>
