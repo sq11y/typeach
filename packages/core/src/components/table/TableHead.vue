@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 export interface TableHeadSlots {
   /**
-   * Should only contain valid children for the `thead` element.
+   * The content of the table head should only contain valid children for the [HTML thead element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/thead).
    */
   default: (data: void) => void;
 }

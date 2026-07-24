@@ -14,7 +14,7 @@ export interface TableHeadingCellProps {
 
 export interface TableHeadingCellSlots {
   /**
-   * The content of the heading - should include an [accessible label](/p/accessible-labels).
+   * The content of the heading should include an [accessible label](/p/accessible-labels).
    */
   default: (data: void) => void;
 }

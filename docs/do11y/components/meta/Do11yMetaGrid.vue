@@ -10,7 +10,7 @@
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div :class="c('description')" v-html="slot.description" />
 
-      <code v-if="slot.type !== 'void'">{{ slot.type }}</code>
+      <code v-if="slot.type !== 'void' && slot.type !== '[]'">{{ slot.type }}</code>
     </div>
   </div>
 </template>

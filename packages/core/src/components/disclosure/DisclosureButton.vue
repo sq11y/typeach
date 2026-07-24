@@ -21,7 +21,7 @@ export interface DisclosureButtonProps extends Omit<ButtonProps, "type"> {}
 
 export interface DisclosureButtonSlots {
   /**
-   * The content of the button - should include an [accessible label](/p/accessible-labels).
+   * The content of the button should include an [accessible label](/p/accessible-labels).
    */
   default: (data: void) => void;
 }

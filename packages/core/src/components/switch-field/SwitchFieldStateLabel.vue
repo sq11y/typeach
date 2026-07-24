@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 export interface SwitchFieldStateLabelSlots {
   /**
-   * The label's content. Will be hidden with `aria-hidden`.
+   * The label's content which will be hidden with `aria-hidden`.
    */
   default: (data: void) => void;
 }

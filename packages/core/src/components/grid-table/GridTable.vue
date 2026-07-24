@@ -13,8 +13,7 @@ import PeachyTable from "../table/Table.vue";
 
 export interface GridTableSlots {
   /**
-   * The content of the table.
-   * Should only contain valid children for the `table` element.
+   * The content of the table should only contain valid children for the [ARIA grid role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role).
    */
   default: (data: void) => void;
 }

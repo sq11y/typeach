@@ -7,8 +7,7 @@
 <script lang="ts" setup>
 export interface TableBodySlots {
   /**
-   * The rows of the table.
-   * Should only contain valid children for the `tbody` element.
+   * The content of the table body should only contain valid children for the [HTML tbody element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/tbody).
    */
   default: (data: void) => void;
 }
