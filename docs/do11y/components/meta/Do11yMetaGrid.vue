@@ -1,5 +1,5 @@
 <template>
-  <h4>{{ title }}</h4>
+  <h4 v-if="title">{{ title }}</h4>
 
   <div :class="c({ events })">
     <div v-for="slot of meta" :key="slot.name" :class="c('item')">
@@ -24,7 +24,7 @@ export interface MetaProps {
   /**
    * The section title.
    */
-  title: string;
+  title?: string;
 
   /**
    * The emits or slots.
