@@ -8,7 +8,9 @@
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div :class="c('description')" v-html="slot.description" />
 
-      <code v-if="slot.type !== 'void' && slot.type !== '[]'">{{ slot.type }}</code>
+      <p v-if="slot.type !== 'void' && slot.type !== '[]'">
+        <code>{{ slot.type }}</code>
+      </p>
     </div>
   </div>
 </template>
@@ -47,7 +49,6 @@ const c = useBemClass("meta-grid");
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-l);
-  margin-block-start: var(--spacing-l);
 
   @media screen and (width <= 40rem) {
     grid-template-columns: 1fr;
@@ -62,16 +63,6 @@ const c = useBemClass("meta-grid");
 
   border: var(--invisible-border);
   border-radius: var(--border-radius);
-}
-
-.meta-grid__description {
-  &:is(h5 + *) {
-    margin-block-start: var(--spacing-s);
-  }
-
-  &:has(+ *) {
-    margin-block-end: var(--spacing-s);
-  }
 }
 
 .meta-grid:not(.meta-grid--events) .meta-grid__item {
