@@ -88,16 +88,19 @@
 
 /* Improve line wrapping for paragraphs and avoid text overflows */
 :where(p, small, caption, figcaption, blockquote, li, .p) {
-  hyphens: auto;
   text-wrap: pretty;
   overflow-wrap: break-word;
 
-  max-inline-size: min(75ch, 100%);
+  max-inline-size: min(80ch, 100%);
+}
+
+/* Make small similar in behaviour to p tags */
+:where(small) {
+  display: block;
 }
 
 /* Improve line wrapping for headings and avoid text overflows */
 :where(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6) {
-  hyphens: auto;
   text-wrap: balance;
   overflow-wrap: break-word;
 

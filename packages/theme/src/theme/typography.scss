@@ -139,7 +139,6 @@
   :where(* + p),
   :where(* + small) {
     margin-block-start: calc(var(--prose-flow-scale) * 1.125em);
-    display: block;
   }
 
   :where(p + *),
@@ -166,10 +165,6 @@
 
   :where(li > p) {
     margin-block-start: calc(var(--prose-flow-scale) * 0.525em);
-  }
-
-  :where([id]) {
-    scroll-margin-block-start: calc(var(--prose-flow-scale) * 1.125em);
   }
 
   :where(hr:not([aria-orientation="vertical"])) {
