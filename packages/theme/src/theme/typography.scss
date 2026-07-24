@@ -156,7 +156,7 @@
   }
 
   :where(li + li) {
-    margin-block-start: calc(var(--prose-flow-scale) * 0.5em);
+    margin-block-start: calc(var(--prose-flow-scale) * 0.375em);
   }
 
   :where(li > ul, li > ol) {
@@ -164,7 +164,7 @@
   }
 
   :where(li > p) {
-    margin-block-start: calc(var(--prose-flow-scale) * 0.525em);
+    margin-block-start: calc(var(--prose-flow-scale) * 0.325em);
   }
 
   :where(hr:not([aria-orientation="vertical"])) {
