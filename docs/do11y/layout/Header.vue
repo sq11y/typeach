@@ -125,8 +125,12 @@ a {
 }
 
 button[commandfor="nav"] {
+  anchor-name: --nav-button;
+
   border: 0;
+  border-radius: var(--border-radius);
   padding: 0;
+
   background-color: transparent;
   color: inherit;
 }
@@ -137,10 +141,12 @@ nav {
   }
 
   &:popover-open {
-    @include utils.vertical-flex(var(--spacing-m));
+    position-anchor: --nav-button;
+    position-area: bottom center;
+    margin-block-start: var(--spacing-s);
+    justify-self: end;
 
-    margin-inline: auto calc(var(--inline-margin));
-    inset-block-start: 6.25rem;
+    @include utils.vertical-flex(var(--spacing-xs));
 
     border: var(--border);
     border-radius: var(--border-radius);
