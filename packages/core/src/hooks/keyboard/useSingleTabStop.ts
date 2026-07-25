@@ -11,6 +11,11 @@ export interface SingleTabStop extends NavigableElements {
    * Move directly to the element.
    */
   moveTo(element: HTMLElement): void;
+
+  /**
+   * Get the currently tab stop.
+   */
+  getCurrentTabStop(): HTMLElement | undefined;
 }
 
 export const useSingleTabStop = (getElements: Elements["getElements"]): SingleTabStop => {
@@ -49,5 +54,9 @@ export const useSingleTabStop = (getElements: Elements["getElements"]): SingleTa
     moveTo,
     moveRelatively,
     moveToEdge,
+
+    getCurrentTabStop() {
+      return getElements().find((element) => element.matches(":focus") || element.tabIndex === 0);
+    },
   };
 };

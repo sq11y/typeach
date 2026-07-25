@@ -14,19 +14,19 @@ export interface RovingTabindex extends SingleTabStop {
   onKeyDown(event: KeyboardEvent): void;
 }
 
-/* prettier-ignore */
-export const RovingTabindexKey: InjectionKey<Pick<RovingTabindex, "onKeyDown">> = Symbol("roving-tabindex");
+export const RovingTabindexKey: InjectionKey<RovingTabindex> = Symbol("roving-tabindex");
 
 export const useRovingTabindex = (
   orientation: MaybeRefOrGetter<Orientation>,
   getElements: Elements["getElements"],
 ): RovingTabindex => {
-  const { moveTo, moveRelatively, moveToEdge } = useSingleTabStop(getElements);
+  const { moveTo, moveRelatively, moveToEdge, getCurrentTabStop } = useSingleTabStop(getElements);
 
   return {
     moveTo,
     moveRelatively,
     moveToEdge,
+    getCurrentTabStop,
 
     onKeyDown(event: KeyboardEvent) {
       const vertical = toValue(orientation) === "vertical";
@@ -61,7 +61,7 @@ export const useRovingTabindex = (
           return moveToEdge("end");
 
         default:
-          throw new Error(`Invalid event ${event.key}`);
+          return;
       }
     },
   };
