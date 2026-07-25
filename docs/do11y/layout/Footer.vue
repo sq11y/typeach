@@ -34,6 +34,8 @@ import GithubIcon from "../icons/github.svg?component";
 @use "@typeach/theme/utils";
 
 footer {
+  z-index: 3;
+
   padding-inline: var(--inline-margin);
   padding-block: var(--spacing-xxxl);
 

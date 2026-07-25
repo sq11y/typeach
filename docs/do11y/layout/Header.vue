@@ -1,4 +1,6 @@
 <template>
+  <TableOfContent v-if="isLargeScreen && isComponentPage" />
+
   <header>
     <RouterLink to="/" class="logo no-focus">
       <img alt="Squirrel mascot" src="/logo.webp" />
@@ -18,20 +20,28 @@
 </template>
 
 <script lang="ts" setup>
-import { useTemplateRef } from "vue";
+import { computed, useTemplateRef } from "vue";
 
 import { useMediaQuery } from "@vueuse/core";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 import { PeachyButton } from "@typeach/core";
 
-import MenuIcon from "../icons/menu.svg?component";
+import TableOfContent from "./TableOfContent.vue";
 
-const isSmallScreen = useMediaQuery("(width <= 36rem)");
+import MenuIcon from "../icons/menu.svg?component";
 
 const popover = useTemplateRef("popover");
 
 const router = useRouter();
+
+const route = useRoute();
+
+const isComponentPage = computed(() => route.path.startsWith("/c") || route.path.startsWith("/f"));
+
+const isLargeScreen = useMediaQuery("(width >= 80rem)");
+
+const isSmallScreen = useMediaQuery("(width <= 36rem)");
 
 router.beforeEach(() => {
   if (isSmallScreen.value) {
@@ -122,7 +132,7 @@ button[commandfor="nav"] {
 }
 
 nav {
-  &:not([popover]) {
+  &:not([popover]):not([class]) {
     @include utils.center-flex(var(--spacing-m));
   }
 
