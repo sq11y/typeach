@@ -45,3 +45,12 @@ export const isFocusedHtmlElement = (el: MaybeHtmlElement): boolean => {
 export const isFocusedRovingTabindexElement = (el: HTMLElement): boolean => {
   return isFocusedHtmlElement(el) || el.getAttribute("tabindex") === "0";
 };
+
+/**
+ * Sort elements by the order they appear in the DOM.
+ */
+export const sortElementsByAppearance = (elements: HTMLElement[]): HTMLElement[] => {
+  return [...elements].sort((a, b) => {
+    return a === b ? 0 : a.compareDocumentPosition(b) & 2 ? 1 : -1;
+  });
+};

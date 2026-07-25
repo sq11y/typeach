@@ -11,7 +11,7 @@ import {
   type ComputedRef,
 } from "vue";
 
-import { isDisabledElement, type ElementRef } from "../utils";
+import { isDisabledElement, sortElementsByAppearance, type ElementRef } from "../utils";
 
 export interface Elements {
   /**
@@ -56,7 +56,9 @@ export const useElements = (key: string, parent?: ElementRef): Elements => {
     provide(`${key}-elements`, context);
   }
 
-  const elements = computed(() => Array.from(context.items.value.values()));
+  const elements = computed(() => {
+    return sortElementsByAppearance(Array.from(context.items.value.values()));
+  });
 
   const getElements = (includeDisabledItems: boolean = true) => {
     const parentElement = context.parent.value;
@@ -67,9 +69,11 @@ export const useElements = (key: string, parent?: ElementRef): Elements => {
 
     const order = Array.from(parentElement?.querySelectorAll(`[data-elements-${key}="true"]`));
 
-    return Array.from(context.items.value.values())
+    const filteredElements = Array.from(context.items.value.values())
       .sort((a, b) => order.indexOf(a) - order.indexOf(b))
       .filter((i) => includeDisabledItems || !isDisabledElement(i));
+
+    return sortElementsByAppearance(filteredElements);
   };
 
   return {
