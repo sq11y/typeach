@@ -5,9 +5,20 @@ import type { Locator } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
 type Fixtures = {
+  /**
+   * Runs keyboard navigation tests for roving tabindex.
+   */
   /* prettier-ignore */
   rovingTabindex(direction: "horizontal" | "vertical", items: string[], edgeless?: boolean): Promise<void>;
+
+  /**
+   * Runs axe-core tests.
+   */
   a11y(disabledRules?: string[]): Promise<void>;
+
+  /**
+   * Gets the closest focusable element by text.
+   */
   getByExactText(text: string): Promise<Locator>;
 };
 
