@@ -40,7 +40,7 @@ illustration: "calendar-table.png"
 
 ## Accessibility
 
-The calendar table extends the [HTML table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table) with a grid role. Every cell has a button inside of it with the attribute `aria-pressed` used to indicate when a date is selected.
+The calendar table extends the [HTML table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table) with an [ARIA grid role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role). Every cell has a button inside of it with the attribute `aria-pressed` used to indicate when a date is selected.
 
 ### Keyboard navigation
 

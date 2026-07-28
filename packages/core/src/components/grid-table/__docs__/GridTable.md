@@ -48,7 +48,7 @@ illustration: "grid-table.png"
 
 ## Accessibility
 
-The grid table extends the [HTML table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table) with a grid role.
+The grid table extends the [HTML table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table) with an [ARIA grid role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role).
 
 Unless the table has a decent amount of rows in which most cells are interactive - you should consider using a simple <RouterLink to="/c/table">Table</RouterLink> instead.
 
