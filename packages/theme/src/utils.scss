@@ -90,7 +90,8 @@
 
 @mixin enabled {
   &:enabled:not([aria-disabled="true"]),
-  &[aria-disabled="false"]:not(:disabled) {
+  &[aria-disabled="false"]:not(:disabled),
+  &:not(:disabled):not([aria-disabled="true"]) {
     @content;
   }
 }
