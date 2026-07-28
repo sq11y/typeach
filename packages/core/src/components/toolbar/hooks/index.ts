@@ -1,3 +1,4 @@
-import type { RovingTabindexKey } from "../../../hooks";
+import type { InjectionKey } from "vue";
+import type { RovingTabindex } from "../../../hooks";
 
-export const ToolbarKey: typeof RovingTabindexKey = Symbol("toolbar");
+export const ToolbarKey: InjectionKey<Pick<RovingTabindex, "onKeyDown">> = Symbol("toolbar");
