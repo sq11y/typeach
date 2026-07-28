@@ -5,6 +5,7 @@ export * from "./disclosure";
 export * from "./download-link";
 export * from "./field";
 export * from "./grid-table";
+export * from "./listbox-field";
 export * from "./separator";
 export * from "./switch-field";
 export * from "./table";

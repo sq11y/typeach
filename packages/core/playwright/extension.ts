@@ -41,7 +41,7 @@ export const test = baseTest.extend<Fixtures>({
 
       const role = await element.getAttribute("role");
 
-      return tagName === "button" || tagName === "a" || role === "gridcell"
+      return tagName === "button" || tagName === "a" || role === "gridcell" || role === "option"
         ? element
         : element.locator("..");
     });
