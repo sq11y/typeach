@@ -112,6 +112,7 @@ watch(date, (newDate) => {
   --border: var(--border-shape) var(--grey-40);
   --invisible-border: var(--border-shape) transparent;
 
+  --font-weight-normal: 400;
   --font-weight-medium: 500;
 
   --icon-size: 1.25em;
@@ -189,20 +190,20 @@ td {
   padding: var(--relative-spacing-xs);
 }
 
-th {
-  color: var(--grey-70);
-  font-weight: var(--font-weight-medium);
-}
-
-th,
+tbody th,
 td:first-child {
-  background-color: var(--green-20);
-  color: var(--green-70);
+  background-color: var(--green-10);
+  color: var(--green-80);
 }
 
 thead th {
+  color: var(--grey-70);
   background-color: var(--grey-10);
-  color: inherit;
+  font-weight: var(--font-weight-medium);
+}
+
+tbody th {
+  font-weight: var(--font-weight-normal);
 }
 
 /* ===== Dates ===== */
@@ -244,7 +245,7 @@ button[aria-pressed] {
 button[aria-pressed="false"] {
   @include utils.enabled {
     @include utils.hover {
-      background-color: var(--grey-30);
+      background-color: var(--grey-20);
     }
   }
 }
