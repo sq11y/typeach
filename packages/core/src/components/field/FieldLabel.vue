@@ -14,7 +14,7 @@ export interface FieldLabelSlots {
    *
    * Some fields might have their own label where this one becomes incompatible - read the documentation for each field.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 defineSlots<FieldLabelSlots>();

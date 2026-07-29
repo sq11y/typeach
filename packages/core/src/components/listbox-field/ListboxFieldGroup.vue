@@ -12,7 +12,7 @@ export interface ListboxFieldGroupSlots {
   /**
    * The title and options.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 defineSlots<ListboxFieldGroupSlots>();

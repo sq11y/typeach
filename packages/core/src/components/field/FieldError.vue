@@ -13,7 +13,7 @@ export interface FieldErrorSlots {
   /**
    * The relevant help text for the error.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 defineSlots<FieldErrorSlots>();

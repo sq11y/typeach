@@ -42,7 +42,7 @@ export interface ButtonSlots {
   /**
    * The content of the button should include an [accessible label](/p/accessible-labels).
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 const props = withDefaults(defineProps<ButtonProps>(), {

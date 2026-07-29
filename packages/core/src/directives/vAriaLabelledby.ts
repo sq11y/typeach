@@ -58,7 +58,7 @@ const createLabelElement = (text: string, id: string) => {
   const label = document.createElement("span");
 
   label.innerText = text;
-  label.id = `${id}`;
+  label.id = id;
   label.hidden = true;
 
   document.documentElement.appendChild(label);

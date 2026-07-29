@@ -38,7 +38,7 @@ export interface ListboxFieldOptionSlots {
   /**
    * The content of the option should include an [accessible label](/p/accessible-labels).
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 const props = withDefaults(defineProps<ListboxFieldOptionProps>(), {
@@ -62,7 +62,7 @@ const onClick = () => {
   }
 
   if (!modelValue.value.includes(props.value)) {
-    modelValue.value = multiselect ? [...modelValue.value, props.value] : [props.value];
+    modelValue.value = multiselect.value ? [...modelValue.value, props.value] : [props.value];
   } else {
     modelValue.value = modelValue.value.filter((v) => v !== props.value);
   }
@@ -74,7 +74,7 @@ const onEnter = () => {
   }
 
   if (!modelValue.value.includes(props.value)) {
-    modelValue.value = multiselect ? [...modelValue.value, props.value] : [props.value];
+    modelValue.value = multiselect.value ? [...modelValue.value, props.value] : [props.value];
   }
 };
 </script>

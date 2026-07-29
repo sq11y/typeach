@@ -1,14 +1,14 @@
 <!-- prettier-ignore -->
 <template>
   <footer>
-    <a href="https://github.com/sq11y/typeach">Contribute on Github <GithubIcon /></a>
+    <a href="https://github.com/sq11y/typeach">Contribute on Github <GithubSvg aria-hidden="true" /></a>
     <br />
     <br />
 
     Designed, written and coded with <strong>love</strong> by <em>people</em>.
     <br />
 
-    Documented with <a href="https://github.com/sq11y/do11y">Do11y <GithubIcon /></a>
+    Documented with <a href="https://github.com/sq11y/do11y">Do11y <GithubSvg aria-label="Github" /></a>
     <br />
     <br />
 
@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts" setup>
-import GithubIcon from "../icons/github.svg?component";
+import GithubSvg from "../icons/github.svg?component";
 </script>
 
 <style lang="scss" scoped>

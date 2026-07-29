@@ -3,7 +3,7 @@
     <div :class="c('toolbar')">
       <slot />
 
-      <Do11ySwitch v-model="themeSettings.wrapCode" :icon="true ? TextWrapCheckIcon : TextWrapIcon">
+      <Do11ySwitch v-model="themeSettings.wrapCode" :icon="true ? TextWrapCheckSvg : TextWrapSvg">
         Wrap
       </Do11ySwitch>
 
@@ -22,7 +22,7 @@
     >
       {{ showCode ? "Hide" : "Show" }} code
 
-      <component :is="showCode ? CaretDownUp : CaretUpDown" aria-hidden="true" />
+      <component :is="showCode ? CaretDownUpSvg : CaretUpDownSvg" aria-hidden="true" />
     </Do11yButton>
   </div>
 </template>
@@ -35,11 +35,11 @@ import Do11ySwitch from "./Do11ySwitch.vue";
 import Do11yCopyButton from "./Do11yCopyButton.vue";
 import Do11yButton from "./Do11yButton.vue";
 
-import TextWrapIcon from "../icons/text-wrap.svg?component";
-import TextWrapCheckIcon from "../icons/text-wrap--checked.svg?component";
+import TextWrapSvg from "../icons/text-wrap.svg?component";
+import TextWrapCheckSvg from "../icons/text-wrap--checked.svg?component";
 
-import CaretUpDown from "../icons/caret-up-down.svg?component";
-import CaretDownUp from "../icons/caret-down-up.svg?component";
+import CaretUpDownSvg from "../icons/caret-up-down.svg?component";
+import CaretDownUpSvg from "../icons/caret-down-up.svg?component";
 
 interface CodeBlockProps {
   /**
@@ -52,7 +52,7 @@ interface CodeBlockSlots {
   /**
    * Additional controls for the code block.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 const props = defineProps<CodeBlockProps>();

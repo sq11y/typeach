@@ -11,7 +11,7 @@ export interface CalendarTableCellSlots {
   /**
    * The content of the cell.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 defineSlots<CalendarTableCellSlots>();

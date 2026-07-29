@@ -4,17 +4,17 @@
   <div class="description"><code>pnpm i @typeach/theme</code></div>
 
   <RouterLink to="/p/colors">
-    <h2>Colors <ArrowRight aria-hidden="true" /></h2>
+    <h2>Colors <ArrowRightSvg aria-hidden="true" /></h2>
     <ColorsGraphic />
   </RouterLink>
 
   <RouterLink to="/p/typography">
-    <h2>Typography <ArrowRight aria-hidden="true" /></h2>
+    <h2>Typography <ArrowRightSvg aria-hidden="true" /></h2>
     <TypographyGraphic />
   </RouterLink>
 
   <RouterLink to="/p/spacing">
-    <h2>Spacing <ArrowRight aria-hidden="true" /></h2>
+    <h2>Spacing <ArrowRightSvg aria-hidden="true" /></h2>
     <SpacingGraphic />
   </RouterLink>
 </template>
@@ -24,7 +24,7 @@ import ColorsGraphic from "../colors/ColorsGraphic.vue";
 import TypographyGraphic from "../typography/HomoglyphGrid.vue";
 import SpacingGraphic from "../spacing/SpacingGraphic.vue";
 
-import ArrowRight from "../icons/arrow-right.svg?component";
+import ArrowRightSvg from "../icons/arrow-right.svg?component";
 </script>
 
 <style lang="scss" scoped>

@@ -30,7 +30,7 @@ export interface DownloadLinkSlots {
    *
    * The label should give a hint as to how long the download will take - the easiest way to do this is to include the size of the file.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 defineProps<DownloadLinkProps>();

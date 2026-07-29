@@ -3,7 +3,7 @@
   <PeachyDisclosure>
     <PeachyDisclosureButton>
       {{ warByEdwinStarrLyricsQuestion }}
-      <Cross aria-hidden="true" />
+      <CrossSvg aria-hidden="true" />
     </PeachyDisclosureButton>
 
     <Transition>
@@ -24,8 +24,8 @@ import {
   PeachyDisclosurePanel
 } from "@typeach/core";
 
-/* @ts-expect-error temporary */
-import Cross from "./icons/cross.svg?component";
+/* @ts-expect-error due to mixed up types */
+import CrossSvg from "./icons/cross.svg?component";
 
 const warByEdwinStarrLyricsQuestion = "War, what is it good for?";
 const warByEdwinStarrLyricsAnswer = "Absolutely nothing.";

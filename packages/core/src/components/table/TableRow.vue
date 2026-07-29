@@ -9,7 +9,7 @@ export interface TableRowSlots {
   /**
    * The content of the table row should only contain valid children for the [HTML tr element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/tr).
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 defineSlots<TableRowSlots>();

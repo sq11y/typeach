@@ -2,7 +2,7 @@
 <template>
   <PeachySwitchField v-model="modelValue">
     <PeachySwitchButton :disabled="disabled">
-      <LockIcon
+      <LockSvg
         v-if="disabled"
         aria-label="Locked"
         class="lock"
@@ -11,7 +11,7 @@
       Universal health care
 
       <div class="switch">
-        <PeachySwitchStateLabel class="switch__state-label" >
+        <PeachySwitchStateLabel class="switch__state-label">
           No
         </PeachySwitchStateLabel>
 
@@ -35,8 +35,8 @@ import {
   PeachySwitchStateLabel
 } from "@typeach/core";
 
-/* @ts-expect-error @TODO */
-import LockIcon from "./icons/lock.svg?component";
+/* @ts-expect-error due to mixed up types */
+import LockSvg from "./icons/lock.svg?component";
 
 interface SwitchFieldProps {
   /**

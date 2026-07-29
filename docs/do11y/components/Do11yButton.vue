@@ -23,7 +23,7 @@ interface ButtonSlots {
   /**
    * The content of the button - should include an accessible label.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 withDefaults(defineProps<ButtonProps>(), {

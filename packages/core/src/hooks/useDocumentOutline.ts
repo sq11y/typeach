@@ -3,7 +3,7 @@ import { useMutationObserver } from "@vueuse/core";
 
 export interface Outline {
   heading: HTMLHeadingElement;
-  children: Outline[];
+  children?: Outline[];
   level: number;
 }
 
@@ -12,7 +12,7 @@ export interface Outline {
  * headings on the page.
  */
 export const useDocumentOutline = <T = Outline>(
-  map: (heading: HTMLHeadingElement, level: number) => T,
+  map?: (heading: HTMLHeadingElement, level: number) => T,
 ) => {
   const headings = ref<HTMLHeadingElement[]>([]);
 
@@ -42,7 +42,7 @@ export const useDocumentOutline = <T = Outline>(
       if (stack.length === 0) {
         outline.push(node);
       } else {
-        stack[stack.length - 1]?.children.push(node);
+        stack[stack.length - 1]?.children?.push(node);
       }
 
       stack.push(node);

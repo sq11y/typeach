@@ -13,7 +13,7 @@ export interface ListboxFieldGroupTitleSlots {
   /**
    * The content of the group title should include an [accessible label](/p/accessible-labels).
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 defineSlots<ListboxFieldGroupTitleSlots>();

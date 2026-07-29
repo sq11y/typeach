@@ -27,5 +27,5 @@ export const isRepeatingCharacter = (string: string, character: string): boolean
  * `startsWith` a search.
  */
 export const startsWith = (string: string, search: string): boolean => {
-  return !!string?.trim().toLowerCase().startsWith(search.trim().toLowerCase());
+  return string.trim().toLowerCase().startsWith(search.trim().toLowerCase());
 };

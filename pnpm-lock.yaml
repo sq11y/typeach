@@ -61,8 +61,8 @@ importers:
         specifier: ^10.6.0
         version: 10.6.0(jiti@2.7.0)
       eslint-config-sq11y:
-        specifier: ^0.0.0
-        version: 0.0.0(@typescript-eslint/parser@8.62.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.6.0(jiti@2.7.0))(globals@17.7.0)(oxfmt@0.56.0(vite-plus@0.2.1(@types/node@24.13.2)(jiti@2.7.0)(jsdom@29.1.1)(sass@1.101.0)(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(yaml@2.9.0)))(oxlint@1.71.0(oxlint-tsgolint@0.23.0)(vite-plus@0.2.1(@types/node@24.13.2)(jiti@2.7.0)(jsdom@29.1.1)(sass@1.101.0)(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(yaml@2.9.0)))(typescript@6.0.3)(vue-eslint-parser@10.4.1(eslint@10.6.0(jiti@2.7.0)))
+        specifier: ^0.0.3
+        version: 0.0.3(@typescript-eslint/parser@8.62.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.6.0(jiti@2.7.0))(globals@17.7.0)(oxfmt@0.56.0(vite-plus@0.2.1(@types/node@24.13.2)(jiti@2.7.0)(jsdom@29.1.1)(sass@1.101.0)(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(yaml@2.9.0)))(oxlint@1.71.0(oxlint-tsgolint@0.23.0)(vite-plus@0.2.1(@types/node@24.13.2)(jiti@2.7.0)(jsdom@29.1.1)(sass@1.101.0)(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(yaml@2.9.0)))(typescript@6.0.3)(vue-eslint-parser@10.4.1(eslint@10.6.0(jiti@2.7.0)))
       oxfmt:
         specifier: ^0.56.0
         version: 0.56.0(vite-plus@0.2.1(@types/node@24.13.2)(jiti@2.7.0)(jsdom@29.1.1)(sass@1.101.0)(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(yaml@2.9.0))
@@ -2632,8 +2632,8 @@ packages:
     peerDependencies:
       eslint: '>=7.0.0'
 
-  eslint-config-sq11y@0.0.0:
-    resolution: {integrity: sha512-e1tlfw91YAYWMoD/yir+lVFZxlbMYnV5nNOu0Xw3Ee21aSsbCx+KXIM7QPHNiV0duPD5ci+Gz8ZndGucC5AX1w==}
+  eslint-config-sq11y@0.0.3:
+    resolution: {integrity: sha512-67uRziOEYykt2SnMWpNxEs2l9SbySpswmfG7d7e2gaJLmtJtM1Oztb3Ij9zopxapJB9lQxKOcZ5CjI0aFgQvNw==}
     engines: {node: '>=24.18.0'}
     peerDependencies:
       eslint: ^10.5.0
@@ -6758,7 +6758,7 @@ snapshots:
     dependencies:
       eslint: 10.6.0(jiti@2.7.0)
 
-  eslint-config-sq11y@0.0.0(@typescript-eslint/parser@8.62.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.6.0(jiti@2.7.0))(globals@17.7.0)(oxfmt@0.56.0(vite-plus@0.2.1(@types/node@24.13.2)(jiti@2.7.0)(jsdom@29.1.1)(sass@1.101.0)(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(yaml@2.9.0)))(oxlint@1.71.0(oxlint-tsgolint@0.23.0)(vite-plus@0.2.1(@types/node@24.13.2)(jiti@2.7.0)(jsdom@29.1.1)(sass@1.101.0)(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(yaml@2.9.0)))(typescript@6.0.3)(vue-eslint-parser@10.4.1(eslint@10.6.0(jiti@2.7.0))):
+  eslint-config-sq11y@0.0.3(@typescript-eslint/parser@8.62.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.6.0(jiti@2.7.0))(globals@17.7.0)(oxfmt@0.56.0(vite-plus@0.2.1(@types/node@24.13.2)(jiti@2.7.0)(jsdom@29.1.1)(sass@1.101.0)(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(yaml@2.9.0)))(oxlint@1.71.0(oxlint-tsgolint@0.23.0)(vite-plus@0.2.1(@types/node@24.13.2)(jiti@2.7.0)(jsdom@29.1.1)(sass@1.101.0)(typescript@6.0.3)(vite@8.0.12(@types/node@24.13.2)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0))(yaml@2.9.0)))(typescript@6.0.3)(vue-eslint-parser@10.4.1(eslint@10.6.0(jiti@2.7.0))):
     dependencies:
       '@eslint/js': 10.0.1(eslint@10.6.0(jiti@2.7.0))
       '@stylistic/eslint-plugin': 5.10.0(eslint@10.6.0(jiti@2.7.0))

@@ -13,11 +13,7 @@
         >
           {{ match.fg === "ui" ? "" : match.bg }}
 
-          <ImageIcon
-            v-if="match.fg === 'ui'"
-            aria-label="ui"
-            :style="`color: var(--${color}-10)`"
-          />
+          <ImageSvg v-if="match.fg === 'ui'" aria-label="ui" :style="`color: var(--${color}-10)`" />
         </div>
       </section>
     </div>
@@ -29,7 +25,7 @@ import { useBemClass } from "@typeach/core";
 
 import { matchesForWCAG, matchesForAPCA } from "./color-matches";
 
-import ImageIcon from "../icons/image.svg?component";
+import ImageSvg from "../icons/image.svg?component";
 
 interface ColorRulesProps {
   /**

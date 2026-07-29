@@ -15,7 +15,7 @@ export interface SwitchFieldSlots {
   /**
    * The related switch and field sub-components.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 /**

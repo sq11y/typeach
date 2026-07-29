@@ -35,7 +35,7 @@ export interface ToolbarSlots {
    *   - DownloadLink
    *   - SwitchField
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 const props = withDefaults(defineProps<ToolbarProps>(), {

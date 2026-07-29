@@ -1,15 +1,15 @@
 <template>
   <PeachyDownloadLink url="/logo.webp" filename="Mascot.webp">
     Download an image of our mascot (33 KB)
-    <DownloadIcon aria-hidden="true" />
+    <DownloadSvg aria-hidden="true" />
   </PeachyDownloadLink>
 </template>
 
 <script setup lang="ts">
 import { PeachyDownloadLink } from "@typeach/core";
 
-/* @ts-expect-error temporary */
-import DownloadIcon from "./icons/download.svg?component";
+/* @ts-expect-error due to mixed up types */
+import DownloadSvg from "./icons/download.svg?component";
 </script>
 
 <style lang="scss">

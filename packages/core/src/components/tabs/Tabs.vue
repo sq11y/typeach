@@ -23,7 +23,7 @@ export interface TabsSlots {
   /**
    * The tabs list and panels.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 defineProps<TabsProps>();

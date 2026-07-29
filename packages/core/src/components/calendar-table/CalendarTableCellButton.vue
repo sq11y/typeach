@@ -53,7 +53,7 @@ export interface CalendarTableCellButtonSlots {
    *
    * The label should ensure the full date is announced for screen readers.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 const props = defineProps<CalendarTableCellButtonProps>();

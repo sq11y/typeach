@@ -10,7 +10,7 @@ export interface VisuallyHiddenSlots {
    * The visually hidden content.
    * Should not include interactive elements.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 defineSlots<VisuallyHiddenSlots>();

@@ -30,7 +30,7 @@ interface SwitchSlots {
   /**
    * The switch label.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 defineProps<SwitchProps>();

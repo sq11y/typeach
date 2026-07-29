@@ -48,7 +48,7 @@ export interface ListboxFieldInputSlots {
   /**
    * The groups and/or options.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 const props = withDefaults(defineProps<ListboxFieldInputProps>(), {

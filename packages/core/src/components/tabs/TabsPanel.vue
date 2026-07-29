@@ -34,7 +34,7 @@ export interface TabsPanelSlots {
   /**
    * The content of the panel.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 const props = withDefaults(defineProps<TabsPanelProps>(), {

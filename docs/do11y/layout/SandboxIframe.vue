@@ -4,7 +4,7 @@
   <Do11yCodeBlock :highlighted-code="showStyles ? highlightedSource : highlightedStylelessSource">
     <Do11ySwitch
       v-model="showStyles"
-      :icon="showStyles ? PaintBrushCheckedIcon : PaintBrushUncheckedIcon"
+      :icon="showStyles ? PaintBrushCheckedSvg : PaintBrushUncheckedSvg"
     >
       Styles
     </Do11ySwitch>
@@ -19,8 +19,8 @@ import type { SandboxIframeProps } from "do11y";
 import Do11yCodeBlock from "../components/Do11yCodeBlock.vue";
 import Do11ySwitch from "../components/Do11ySwitch.vue";
 
-import PaintBrushUncheckedIcon from "../icons/paint-brush--unchecked.svg?component";
-import PaintBrushCheckedIcon from "../icons/paint-brush--checked.svg?component";
+import PaintBrushUncheckedSvg from "../icons/paint-brush--unchecked.svg?component";
+import PaintBrushCheckedSvg from "../icons/paint-brush--checked.svg?component";
 
 interface Props extends SandboxIframeProps {
   /**

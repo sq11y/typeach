@@ -46,7 +46,7 @@ export interface DisclosurePanelSlots {
   /**
    * The content of the panel.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 const props = withDefaults(defineProps<DisclosurePanelProps>(), {

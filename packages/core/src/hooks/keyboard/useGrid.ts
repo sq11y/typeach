@@ -49,14 +49,14 @@ export const useGrid = (getElements: Elements["getElements"]): Grid => {
       switch (event.key) {
         case "ArrowLeft":
           if (!firstCell?.isSameNode(cell)) {
-            moveRelatively?.(-1);
+            moveRelatively(-1);
           }
 
           break;
 
         case "ArrowRight":
           if (!lastCell?.isSameNode(cell)) {
-            moveRelatively?.(1);
+            moveRelatively(1);
           }
 
           break;
@@ -68,10 +68,10 @@ export const useGrid = (getElements: Elements["getElements"]): Grid => {
           return moveRelatively(row.length);
 
         case "PageUp":
-          return moveRelatively?.(row.length * -10);
+          return moveRelatively(row.length * -10);
 
         case "PageDown":
-          return moveRelatively?.(row.length * 10);
+          return moveRelatively(row.length * 10);
 
         case "Home":
           if (event.ctrlKey) {

@@ -32,7 +32,7 @@ export interface TabsListSlots {
   /**
    * The tabs buttons.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 const props = withDefaults(defineProps<TabsListProps>(), {
@@ -50,7 +50,7 @@ const { getElements } = useElements("tabs-list", element);
 const { onKeyDown } = useRovingTabindex(orientation, getElements);
 
 provide(TabListKey, {
-  selectionFollowsFocus: computed(() => !!props.selectionFollowsFocus),
+  selectionFollowsFocus: computed(() => props.selectionFollowsFocus),
   onKeyDown,
 });
 </script>

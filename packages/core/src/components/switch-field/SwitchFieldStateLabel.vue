@@ -9,7 +9,7 @@ export interface SwitchFieldStateLabelSlots {
   /**
    * The label's content which will be hidden with `aria-hidden`.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 defineSlots<SwitchFieldStateLabelSlots>();

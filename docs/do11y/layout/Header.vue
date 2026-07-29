@@ -9,7 +9,7 @@
     </RouterLink>
 
     <PeachyButton v-if="isSmallScreen" ref="button" command="toggle-popover" commandfor="nav">
-      <MenuIcon aria-label="Navigation" />
+      <MenuSvg aria-label="Navigation" />
     </PeachyButton>
 
     <nav id="nav" ref="popover" :popover="isSmallScreen ? 'auto' : undefined">
@@ -29,7 +29,7 @@ import { PeachyButton } from "@typeach/core";
 
 import TableOfContent from "./TableOfContent.vue";
 
-import MenuIcon from "../icons/menu.svg?component";
+import MenuSvg from "../icons/menu.svg?component";
 
 const popover = useTemplateRef("popover");
 

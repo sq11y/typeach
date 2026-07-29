@@ -6,12 +6,12 @@
     </h2>
 
     <PeachyButton class="navigation-button" @click="focusedDate = getPreviousMonth(focusedDate)">
-      <Chevron style="rotate: 180deg" />
+      <ChevronSvg aria-hidden="true" style="rotate: 180deg" />
       <PeachyVisuallyHidden>Previous month</PeachyVisuallyHidden>
     </PeachyButton>
 
     <PeachyButton class="navigation-button" @click="focusedDate = getNextMonth(focusedDate)">
-      <Chevron />
+      <ChevronSvg aria-hidden="true" />
       <PeachyVisuallyHidden>Next month</PeachyVisuallyHidden>
     </PeachyButton>
   </header>
@@ -83,8 +83,8 @@ import {
   Weekday,
 } from "@typeach/core";
 
-/* @ts-expect-error temporary */
-import Chevron from "./icons/chevron.svg?component";
+/* @ts-expect-error due to mixed up types */
+import ChevronSvg from "./icons/chevron.svg?component";
 
 const focusedDate = ref(new Date("6/28/1969"));
 
@@ -95,6 +95,7 @@ const weekdays = getWeekdays(Weekday.Monday);
 const { year, month, weeks } = useCalendar(focusedDate, Weekday.Monday, "en");
 
 watch(date, (newDate) => {
+  /* eslint-disable-next-line */
   if (newDate) {
     focusedDate.value = newDate;
   }

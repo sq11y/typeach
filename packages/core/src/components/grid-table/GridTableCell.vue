@@ -28,7 +28,7 @@ export interface GridTableCellSlots {
   /**
    * The content of the cell.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 defineProps<GridTableCellProps>();

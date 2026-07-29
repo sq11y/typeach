@@ -17,7 +17,7 @@ export interface TableCellSlots {
   /**
    * The content of the cell.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 defineProps<TableCellProps>();

@@ -38,7 +38,7 @@ export interface DisclosureSlots {
   /**
    * The associated button and panel.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 /**
@@ -57,8 +57,8 @@ const panelId = shareId(defaultId);
 provide(DisclosureKey, {
   panelId,
 
-  disabled: computed(() => !!props.disabled),
-  popover: computed(() => !!props.popover),
+  disabled: computed(() => props.disabled),
+  popover: computed(() => props.popover),
 
   open: computed({
     get() {

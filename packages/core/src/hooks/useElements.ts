@@ -67,7 +67,7 @@ export const useElements = (key: string, parent?: ElementRef): Elements => {
       return [];
     }
 
-    const order = Array.from(parentElement?.querySelectorAll(`[data-elements-${key}="true"]`));
+    const order = Array.from(parentElement.querySelectorAll(`[data-elements-${key}="true"]`));
 
     const filteredElements = Array.from(context.items.value.values())
       .sort((a, b) => order.indexOf(a) - order.indexOf(b))

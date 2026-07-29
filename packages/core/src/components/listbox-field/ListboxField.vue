@@ -13,7 +13,7 @@ export interface ListboxFieldSlots {
   /**
    * The related listbox and field sub-components.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 defineSlots<ListboxFieldSlots>();

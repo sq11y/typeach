@@ -15,7 +15,7 @@ export interface GridTableSlots {
   /**
    * The content of the table should only contain valid children for the [ARIA grid role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role).
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 defineSlots<GridTableSlots>();

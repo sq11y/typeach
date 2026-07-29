@@ -7,24 +7,24 @@
       v-model="value"
       multiselect
     >
-      <PeachyListboxOption value="devi-vishwakumar">Devi Vishwakumar <HeartIcon aria-hidden="true" /></PeachyListboxOption>
-      <PeachyListboxOption value="jinx">Jinx <HeartIcon aria-hidden="true" /></PeachyListboxOption>
+      <PeachyListboxOption value="devi-vishwakumar">Devi Vishwakumar <HeartSvg aria-hidden="true" /></PeachyListboxOption>
+      <PeachyListboxOption value="jinx">Jinx <HeartSvg aria-hidden="true" /></PeachyListboxOption>
 
       <PeachyListboxGroup>
         <PeachyListboxGroupTitle>Grey's Anatomy</PeachyListboxGroupTitle>
 
-        <PeachyListboxOption value="christina-yang">Christina Yang <HeartIcon aria-hidden="true" /></PeachyListboxOption>
-        <PeachyListboxOption value="izzie-stevens">Izzie Stevens <HeartIcon aria-hidden="true" /></PeachyListboxOption>
-        <PeachyListboxOption value="meredith-grey">Meredith Grey <HeartIcon aria-hidden="true" /></PeachyListboxOption>
-        <PeachyListboxOption value="miranda-bailey">Miranda Bailey <HeartIcon aria-hidden="true" /></PeachyListboxOption>
+        <PeachyListboxOption value="christina-yang">Christina Yang <HeartSvg aria-hidden="true" /></PeachyListboxOption>
+        <PeachyListboxOption value="izzie-stevens">Izzie Stevens <HeartSvg aria-hidden="true" /></PeachyListboxOption>
+        <PeachyListboxOption value="meredith-grey">Meredith Grey <HeartSvg aria-hidden="true" /></PeachyListboxOption>
+        <PeachyListboxOption value="miranda-bailey">Miranda Bailey <HeartSvg aria-hidden="true" /></PeachyListboxOption>
       </PeachyListboxGroup>
 
       <PeachyListboxGroup>
         <PeachyListboxGroupTitle>One Tree Hill</PeachyListboxGroupTitle>
 
-        <PeachyListboxOption disabled value="peyton-sawyer">Peyton Sawyer <HeartIcon aria-hidden="true" /></PeachyListboxOption>
-        <PeachyListboxOption value="brooke-davis">Brooke Davis <HeartIcon aria-hidden="true" /></PeachyListboxOption>
-        <PeachyListboxOption value="haley-scott">Haley Scott <HeartIcon aria-hidden="true" /></PeachyListboxOption>
+        <PeachyListboxOption disabled value="peyton-sawyer">Peyton Sawyer <HeartSvg aria-hidden="true" /></PeachyListboxOption>
+        <PeachyListboxOption value="brooke-davis">Brooke Davis <HeartSvg aria-hidden="true" /></PeachyListboxOption>
+        <PeachyListboxOption value="haley-scott">Haley Scott <HeartSvg aria-hidden="true" /></PeachyListboxOption>
       </PeachyListboxGroup>
     </PeachyListboxInput>
   </PeachyListboxField>
@@ -42,8 +42,8 @@ import {
   PeachyListboxGroupTitle,
 } from "@typeach/core";
 
-/* @ts-expect-error temporary */
-import HeartIcon from "./icons/heart.svg?component";
+/* @ts-expect-error due to mixed up types */
+import HeartSvg from "./icons/heart.svg?component";
 
 const value = ref(["devi-vishwakumar", "jinx", "christina-yang", "brooke-davis"]);
 </script>

@@ -13,7 +13,7 @@ export interface FieldDescriptionSlots {
   /**
    * The description for the field.
    */
-  default: (data: void) => void;
+  default: () => void;
 }
 
 defineSlots<FieldDescriptionSlots>();
