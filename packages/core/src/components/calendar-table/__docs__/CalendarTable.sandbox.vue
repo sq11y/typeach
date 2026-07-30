@@ -61,7 +61,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from "vue";
+import { ref } from "vue";
 
 import {
   PeachyCalendarTable,
@@ -93,13 +93,6 @@ const date = ref<Date>(new Date("6/28/1969"));
 const weekdays = getWeekdays(Weekday.Monday);
 
 const { year, month, weeks } = useCalendar(focusedDate, Weekday.Monday, "en");
-
-watch(date, (newDate) => {
-  /* eslint-disable-next-line */
-  if (newDate) {
-    focusedDate.value = newDate;
-  }
-});
 </script>
 
 <style lang="scss">
