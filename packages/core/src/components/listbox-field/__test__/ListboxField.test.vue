@@ -2,7 +2,7 @@
   <PeachyListboxField>
     <PeachyFieldLabel>Fruits</PeachyFieldLabel>
 
-    <PeachyListboxInput v-model="value" multiselect class="peachy-listbox-field__input">
+    <PeachyListboxInput v-model="value" multiselect>
       <PeachyListboxOption value="1">1</PeachyListboxOption>
       <PeachyListboxOption value="2">2</PeachyListboxOption>
 
