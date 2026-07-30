@@ -107,7 +107,7 @@ const code = computed(() => {
 .code-block__toolbar {
   background-color: var(--grey-10);
 
-  @include utils.center-flex(var(--spacing-xs));
+  @include utils.dock(var(--spacing-xs));
   justify-content: end;
 
   padding: var(--spacing-m);

@@ -39,7 +39,7 @@ import { matchesForWCAG, matchesForAPCA } from "./color-matches";
 @use "@typeach/theme/utils";
 
 .color-rule {
-  @include utils.center-flex(var(--spacing-s));
+  @include utils.dock(var(--spacing-s));
 
   div {
     forced-color-adjust: none;

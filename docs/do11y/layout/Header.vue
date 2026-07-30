@@ -61,7 +61,7 @@ header {
   inset-block-start: var(--spacing-xl);
   margin-inline: auto;
 
-  @include utils.center-flex(var(--spacing-xl));
+  @include utils.dock(var(--spacing-xl));
 
   padding-inline: var(--spacing-l);
   padding-block: var(--spacing-xs);
@@ -100,7 +100,7 @@ a {
 .logo {
   --logo-size: 4.25rem;
 
-  @include utils.center-flex(var(--spacing-l));
+  @include utils.dock(var(--spacing-l));
   text-decoration: none;
 
   img {
@@ -137,7 +137,7 @@ button[commandfor="nav"] {
 
 nav {
   &:not([popover]):not([class]) {
-    @include utils.center-flex(var(--spacing-m));
+    @include utils.dock(var(--spacing-m));
   }
 
   &:popover-open {

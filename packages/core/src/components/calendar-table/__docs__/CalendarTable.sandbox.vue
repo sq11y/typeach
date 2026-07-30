@@ -114,7 +114,7 @@ const { year, month, weeks } = useCalendar(focusedDate, Weekday.Monday, "en");
 /* ===== Header ===== */
 
 header {
-  @include utils.center-flex;
+  @include utils.dock;
   margin-block-end: var(--spacing-s);
 }
 

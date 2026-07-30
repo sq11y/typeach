@@ -79,9 +79,8 @@ img {
 /* ===== Toolbar ===== */
 
 [role="toolbar"] {
-  @include utils.center-flex(var(--spacing-xs));
+  @include utils.dock(var(--spacing-xs));
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 /* ===== Toolbar button ===== */

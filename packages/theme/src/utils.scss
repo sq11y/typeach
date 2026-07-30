@@ -28,7 +28,7 @@
   }
 }
 
-@mixin center-flex($gap: false) {
+@mixin dock($gap: false) {
   display: flex;
   align-items: center;
   flex-wrap: wrap;

@@ -60,7 +60,7 @@ a {
 }
 
 a[href^="https://github.com"] {
-  @include utils.center-flex(var(--spacing-xs));
+  @include utils.dock(var(--spacing-xs));
   display: inline-flex;
 }
 </style>

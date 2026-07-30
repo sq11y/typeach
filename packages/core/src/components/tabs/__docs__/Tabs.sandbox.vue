@@ -48,7 +48,7 @@ const values = ["Sea", "Ocean"];
 /* ===== Tabs ===== */
 
 [role="tablist"] {
-  @include utils.center-flex(var(--spacing-xs));
+  @include utils.dock(var(--spacing-xs));
 }
 
 [role="tab"] {

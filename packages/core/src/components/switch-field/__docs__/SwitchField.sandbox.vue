@@ -68,9 +68,7 @@ const modelValue = defineModel<boolean>({ default: true });
 button[aria-checked] {
   position: relative;
 
-  @include utils.center-flex(var(--spacing-l));
-  row-gap: var(--spacing-xs);
-  flex-wrap: wrap;
+  @include utils.dock(var(--spacing-xs) var(--spacing-l));
   justify-content: center;
 
   background-color: transparent;
@@ -100,7 +98,7 @@ button[aria-checked] {
 
 .switch {
   min-inline-size: max-content;
-  @include utils.center-flex(var(--spacing-s));
+  @include utils.dock(var(--spacing-s));
 }
 
 .switch__state-label {

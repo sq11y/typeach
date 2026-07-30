@@ -45,8 +45,7 @@ const components = {
 @use "@typeach/theme/utils";
 
 .button {
-  @include utils.center-flex;
-  gap: var(--relative-spacing-s);
+  @include utils.dock(var(--relative-spacing-s));
 
   padding-block: var(--relative-spacing-xs);
   padding-inline: var(--relative-spacing-l) calc(var(--relative-spacing-l) * 0.875);
