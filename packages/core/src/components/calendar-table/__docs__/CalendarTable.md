@@ -46,7 +46,7 @@ The calendar table extends the [HTML table element](https://developer.mozilla.or
 
 Only one of the cell buttons remain in the tab order - the focused date - which will update as the user navigates.
 
-| Key                                     | Move..                                |
+| Key                                     | Moves..                               |
 | --------------------------------------- | ------------------------------------- |
 | <kbd>Arrow right</kbd>                  | To the next date.                     |
 | <kbd>Arrow left</kbd>                   | To the previous date.                 |

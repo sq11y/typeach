@@ -58,7 +58,7 @@ Only one of the cells remain in the tab order - starting with the first cell and
 
 When a cell with a control inside of it gains focus - you should move the focus to the control.
 
-| Key                               | Move to..                          |
+| Key                               | Moves to..                         |
 | --------------------------------- | ---------------------------------- |
 | <kbd>Arrow right</kbd>            | The previous cell in the row.      |
 | <kbd>Arrow left</kbd>             | The next cell in the row.          |
