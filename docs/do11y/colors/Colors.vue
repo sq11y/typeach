@@ -77,7 +77,7 @@ const c = useBemClass("colors");
   border-radius: var(--border-radius);
 
   > * {
-    @include utils.center-content;
+    @include utils.center;
     padding: var(--spacing-s);
 
     &:nth-child(2) {

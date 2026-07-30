@@ -28,7 +28,7 @@ import { PeachyVisuallyHidden } from "@typeach/core";
 
 main:has(.tagline) {
   align-self: stretch;
-  @include utils.center-content;
+  @include utils.center;
 }
 
 .tagline {

@@ -14,13 +14,9 @@
   }
 }
 
-@mixin center-content {
+@mixin center($gap: false) {
   display: grid;
   place-content: center;
-}
-
-@mixin center-grid($gap: false) {
-  display: grid;
   justify-items: center;
 
   @if $gap {

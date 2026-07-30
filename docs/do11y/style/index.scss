@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  @include utils.center-grid(var(--spacing-xxxxxl));
+  @include utils.center(var(--spacing-xxxxxl));
   grid-template-rows: auto 1fr auto;
 
   @media (width <= 46rem) {

@@ -83,11 +83,12 @@ const c = useBemClass("typography");
     border-radius: var(--border-radius);
     border: 1px solid transparent;
 
-    font-size: var(--font-size-l);
-    @include utils.center-content;
+    @include utils.center;
 
     background-color: var(--background);
     color: var(--color);
+
+    font-size: var(--font-size-l);
 
     @media (width < 32rem) {
       font-size: var(--font-size-m);
