@@ -92,7 +92,7 @@ label {
 [role="listbox"] {
   min-inline-size: max-content;
 
-  @include utils.vertical-flex;
+  @include utils.stack;
 
   border: var(--border);
 }

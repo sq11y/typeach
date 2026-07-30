@@ -146,7 +146,7 @@ nav {
     margin-block-start: var(--spacing-s);
     justify-self: end;
 
-    @include utils.vertical-flex(var(--spacing-xs));
+    @include utils.stack(var(--spacing-xs));
 
     border: var(--border);
     border-radius: var(--border-radius);

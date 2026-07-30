@@ -38,7 +38,7 @@
   }
 }
 
-@mixin vertical-flex($gap: false) {
+@mixin stack($gap: false) {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
