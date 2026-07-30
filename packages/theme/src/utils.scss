@@ -54,20 +54,20 @@
   justify-content: space-between;
 }
 
-@mixin square($width: auto, $height: $width) {
+@mixin square($size: auto) {
   aspect-ratio: 1;
   flex: 0 0 auto;
 
-  @if $width {
-    min-inline-size: $width;
-    inline-size: $width;
-    max-inline-size: $width;
+  @if $size {
+    min-inline-size: $size;
+    inline-size: $size;
+    max-inline-size: $size;
   }
 
-  @if $height {
-    min-block-size: $height;
-    block-size: $height;
-    max-block-size: $height;
+  @if $size {
+    min-block-size: $size;
+    block-size: $size;
+    max-block-size: $size;
   }
 }
 
