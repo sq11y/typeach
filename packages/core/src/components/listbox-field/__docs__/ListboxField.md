@@ -25,7 +25,7 @@ illustration: "listbox-field.png"
   {{ route?.meta.description }}
 </div>
 
-<ListboxFieldSandbox title="Listbox" block-size="40rem" />
+<ListboxFieldSandbox title="Listbox field" block-size="40rem" />
 
 ## API
 

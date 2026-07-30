@@ -23,7 +23,7 @@ illustration: "switch-field.png"
   {{ route?.meta.description }}
 </div>
 
-<SwitchFieldSandbox title="Button" />
+<SwitchFieldSandbox title="Switch Field" />
 
 ## API
 
