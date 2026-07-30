@@ -60,7 +60,7 @@ defineSlots<ListboxFieldInputSlots>();
 /**
  * The currently selected values.
  */
-const modelValue = defineModel<string[]>({ default: [] });
+const modelValue = defineModel<string[]>({ default: () => [] });
 
 const { id, hasErrors, errorIds, descriptionIds } = useField();
 

@@ -34,7 +34,7 @@ defineSlots<CalendarTableSlots>();
 /**
  * The focused date.
  */
-const focusedDate = defineModel<Date>({ default: new Date() });
+const focusedDate = defineModel<Date>({ default: () => new Date() });
 
 const mounted = useMounted();
 
