@@ -55,7 +55,7 @@ The listbox extends a generic element with an [ARIA listbox role](https://develo
 
 ### Keyboard navigation
 
-Only one of the options remain in the tab order - starting with the first enabled option and then it switched to the last option the user navigated to.
+Only one of the options remain in the tab order - starting with the first enabled option and then it switches to the last option the user navigated to.
 
 If the listbox is horizontal <kbd>Arrow down</kbd> is replaced with <kbd>Arrow right</kbd>
 and <kbd>Arrow up</kbd> with <kbd>Arrow left</kbd>.

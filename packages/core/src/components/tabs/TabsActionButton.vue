@@ -29,7 +29,7 @@ export interface TabsActionButtonEmits {
 
 export interface TabsActionButtonSlots {
   /**
-   * The content of the button should include an [accessible label](/p/accessible-labels).
+   * The content of the button should include an [accessible label](/p/accessible-labels) that makes it clear which tab it is related to.
    */
   default: () => void;
 }
