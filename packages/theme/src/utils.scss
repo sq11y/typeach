@@ -50,13 +50,8 @@
 }
 
 @mixin space-between($gap: false) {
-  display: flex;
-  align-items: center;
+  @include dock($gap);
   justify-content: space-between;
-
-  @if $gap {
-    gap: $gap;
-  }
 }
 
 @mixin square($width: auto, $height: $width) {
