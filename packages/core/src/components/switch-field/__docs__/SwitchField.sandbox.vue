@@ -35,7 +35,6 @@ import {
   PeachySwitchStateLabel
 } from "@typeach/core";
 
-/* @ts-expect-error due to mixed up types */
 import LockSvg from "./icons/lock.svg?component";
 
 interface SwitchFieldProps {

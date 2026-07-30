@@ -83,7 +83,6 @@ import {
   Weekday,
 } from "@typeach/core";
 
-/* @ts-expect-error due to mixed up types */
 import ChevronSvg from "./icons/chevron.svg?component";
 
 const focusedDate = ref(new Date("6/28/1969"));

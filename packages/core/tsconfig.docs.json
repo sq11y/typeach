@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.app.json",
+  "include": ["src/**/__docs__/*"],
+  "exclude": [],
+
+  "compilerOptions": {
+    "types": ["vite-svg-loader"]
+  }
+}

@@ -24,7 +24,6 @@ import {
   PeachyDisclosurePanel
 } from "@typeach/core";
 
-/* @ts-expect-error due to mixed up types */
 import CrossSvg from "./icons/cross.svg?component";
 
 const warByEdwinStarrLyricsQuestion = "War, what is it good for?";

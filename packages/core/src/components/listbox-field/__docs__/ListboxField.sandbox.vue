@@ -42,7 +42,6 @@ import {
   PeachyListboxGroupTitle,
 } from "@typeach/core";
 
-/* @ts-expect-error due to mixed up types */
 import HeartSvg from "./icons/heart.svg?component";
 
 const value = ref(["devi-vishwakumar", "jinx", "christina-yang", "brooke-davis"]);

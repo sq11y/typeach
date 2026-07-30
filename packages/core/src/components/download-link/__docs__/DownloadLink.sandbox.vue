@@ -8,7 +8,6 @@
 <script setup lang="ts">
 import { PeachyDownloadLink } from "@typeach/core";
 
-/* @ts-expect-error due to mixed up types */
 import DownloadSvg from "./icons/download.svg?component";
 </script>
 
