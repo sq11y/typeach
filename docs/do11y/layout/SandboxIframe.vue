@@ -38,8 +38,6 @@ const props = withDefaults(defineProps<Props>(), {
   blockSize: "17rem",
 });
 
-const iframe = ref<HTMLIFrameElement>();
-
 const frameId = useId();
 
 const showStyles = ref(false);
