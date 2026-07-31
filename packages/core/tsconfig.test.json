@@ -1,5 +1,11 @@
 {
   "extends": "./tsconfig.app.json",
-  "include": ["src/**/__test__/*", "playwright/**/*"],
-  "exclude": []
+  "include": ["env.d.ts", "src/**/__test__/*", "playwright/**/*"],
+  "exclude": ["src/**/__docs__/*"],
+
+  "compilerOptions": {
+    "paths": {
+      "@typeach/core": ["./src/index.ts"]
+    }
+  }
 }
