@@ -2,7 +2,7 @@
 
 @use "@typeach/theme/utils";
 
-h1:not(.tagline) {
+h1:not(.home__title) {
   position: relative;
 
   &::before {
@@ -12,7 +12,7 @@ h1:not(.tagline) {
   }
 }
 
-h1:not(.tagline) {
+h1:not(.home__title) {
   inline-size: fit-content;
 
   border-radius: var(--border-radius);

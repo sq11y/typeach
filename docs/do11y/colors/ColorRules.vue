@@ -5,14 +5,14 @@
     unresponsive
   >
     <template #background="{ row }">
-      <div class="color-rule">
+      <div :class="c('rule')">
         <div :style="`--color: var(--grey-${row.bg});`" />
         {{ row.bg }}
       </div>
     </template>
 
     <template #text="{ row }">
-      <div class="color-rule">
+      <div :class="c('rule')">
         <div v-if="row.fg !== 'ui'" :style="`--color: var(--grey-${row.fg});`" />
         {{ typeof row.fg === "string" ? row.fg : row.fg <= 50 ? `<=${row.fg}` : `>=${row.fg}` }}
       </div>
@@ -21,6 +21,10 @@
 </template>
 
 <script lang="ts" setup>
+import { useBemClass } from "@typeach/core";
+
+import { matchesForWCAG, matchesForAPCA } from "./color-matches";
+
 import Do11yTable from "../components/Do11yTable.vue";
 
 interface ColorRulesProps {
@@ -32,13 +36,13 @@ interface ColorRulesProps {
 
 defineProps<ColorRulesProps>();
 
-import { matchesForWCAG, matchesForAPCA } from "./color-matches";
+const c = useBemClass("color-rules");
 </script>
 
 <style lang="scss">
 @use "@typeach/theme/utils";
 
-.color-rule {
+.color-rules__rule {
   @include utils.dock(var(--spacing-s));
 
   div {
@@ -62,11 +66,11 @@ import { matchesForWCAG, matchesForAPCA } from "./color-matches";
   }
 }
 
-table:has(.color-rule) {
+table:has(.color-rules__rule) {
   font-family: var(--font-family-mono);
 }
 
-td:has(.color-rule) {
+td:has(.color-rules__rule) {
   padding-block: var(--spacing-m);
 }
 </style>

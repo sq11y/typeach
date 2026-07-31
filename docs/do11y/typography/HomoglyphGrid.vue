@@ -1,5 +1,5 @@
 <template>
-  <div :class="c('graphic')">
+  <div :class="c()">
     <div
       v-for="(typographyExample, i) of typography"
       :key="i"
@@ -13,6 +13,8 @@
 
 <script lang="ts" setup>
 import { useBemClass } from "@typeach/core";
+
+const c = useBemClass("homoglyph-grid");
 
 const typography = [
   {
@@ -52,14 +54,12 @@ const typography = [
     color: "orange",
   },
 ];
-
-const c = useBemClass("typography");
 </script>
 
 <style lang="scss">
 @use "@typeach/theme/utils";
 
-.typography__graphic {
+.homoglyph-grid {
   block-size: 20rem;
 
   display: grid;

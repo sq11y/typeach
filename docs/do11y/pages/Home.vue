@@ -4,7 +4,7 @@
   </PeachyVisuallyHidden>
 
   <blockquote>
-    <h1 class="tagline">
+    <h1 :class="c('title')">
       “The power of the Web is in its universality. Access by everyone regardless of disability is
       an essential aspect”
     </h1>
@@ -20,18 +20,20 @@
 </template>
 
 <script setup lang="ts">
-import { PeachyVisuallyHidden } from "@typeach/core";
+import { PeachyVisuallyHidden, useBemClass } from "@typeach/core";
+
+const c = useBemClass("home");
 </script>
 
 <style lang="scss">
 @use "@typeach/theme/utils";
 
-main:has(.tagline) {
+main:has(.home__title) {
   align-self: stretch;
   @include utils.center;
 }
 
-.tagline {
+.home__title {
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-xxxxl);

@@ -1,10 +1,10 @@
 <template>
-  <ol class="type-scale">
+  <ol :class="c()">
     <li
       v-for="size of scale"
       :key="size"
       :style="`--font-size: var(--font-size-${size}); --line-height: var(--line-height-${size}); `"
-      class="font-size"
+      :class="c('font-size')"
     >
       {{ size }} ({{ variables[size] }})
     </li>
@@ -13,6 +13,9 @@
 <script lang="ts" setup>
 import { computed } from "vue";
 import { useCssVar } from "@vueuse/core";
+import { useBemClass } from "@typeach/core";
+
+const c = useBemClass("type-scale");
 
 const scale = ["xxxxxl", "xxxxl", "xxxl", "xxl", "xl", "l", "m", "s", "xs"] as const;
 
@@ -44,7 +47,7 @@ const variables = computed(() => {
   overflow-wrap: break-word;
 }
 
-.font-size {
+.type-scale__font-size {
   inline-size: 100%;
   max-inline-size: 100%;
 

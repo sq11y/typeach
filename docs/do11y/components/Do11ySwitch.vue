@@ -3,10 +3,8 @@
     <Do11yButton type="switch-button" v-bind="$attrs">
       <slot />
 
-      <div class="switch">
-        <div class="indicator">
-          <component :is="icon" />
-        </div>
+      <div :class="c()">
+        <component :is="icon" />
       </div>
     </Do11yButton>
   </PeachySwitchField>
@@ -15,7 +13,7 @@
 <script lang="ts" setup>
 import type { Component } from "vue";
 
-import { PeachySwitchField } from "@typeach/core";
+import { PeachySwitchField, useBemClass } from "@typeach/core";
 
 import Do11yButton from "./Do11yButton.vue";
 
@@ -38,6 +36,8 @@ defineProps<SwitchProps>();
 defineSlots<SwitchSlots>();
 
 const modelValue = defineModel<boolean>({ required: true });
+
+const c = useBemClass("switch");
 </script>
 
 <style lang="scss">

@@ -11,7 +11,7 @@
       <span v-if="row.required" class="required-tag">Required</span>
 
       <template v-else>
-        Optional, defaults to <code class="neutral"> {{ row.default ?? "undefined" }} </code>.
+        Optional, defaults to <code> {{ row.default ?? "undefined" }} </code>.
       </template>
     </component>
   </DefineNecessityTemplate>
@@ -103,12 +103,5 @@ const sortedProps = computed(() => {
   * {
     min-inline-size: max-content;
   }
-}
-
-.small-faded-text {
-  font-size: var(--font-size-s);
-  line-height: var(--line-height-s);
-
-  color: var(--grey-70);
 }
 </style>

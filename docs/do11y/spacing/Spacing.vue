@@ -14,7 +14,7 @@
 
         <td>
           <div
-            class="spacing"
+            :class="c()"
             :style="`width: ${relative ? `var(--relative-spacing-${space})` : `var(--spacing-${space})`}`"
           />
         </td>
@@ -25,12 +25,16 @@
 </template>
 
 <script lang="ts" setup>
+import { useBemClass } from "@typeach/core";
+
 export interface SpacingProps {
   /**
    * If the overview is for the relative scale.
    */
   relative?: boolean;
 }
+
+const c = useBemClass("spacing");
 
 const props = defineProps<SpacingProps>();
 

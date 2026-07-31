@@ -1,5 +1,5 @@
 <template>
-  <div :class="c('graphic')">
+  <div :class="c()">
     <div
       v-for="color of colors"
       :key="color"
@@ -14,13 +14,13 @@ import { useBemClass } from "@typeach/core";
 
 const colors = ["brown", "red", "orange", "yellow", "green", "turquoise", "blue", "purple", "pink"];
 
-const c = useBemClass("colors");
+const c = useBemClass("colors-graphic");
 </script>
 
 <style lang="scss">
 @use "@typeach/theme/utils";
 
-.colors__graphic {
+.colors-graphic {
   block-size: 20rem;
 
   display: grid;

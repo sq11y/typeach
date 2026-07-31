@@ -1,5 +1,5 @@
 <template>
-  <div :class="c('graphic')">
+  <div :class="c()">
     <div v-for="(row, i) of rows" :key="i" :class="c('row')">
       <div
         v-for="color of row"
@@ -14,16 +14,16 @@
 <script lang="ts" setup>
 import { useBemClass } from "@typeach/core";
 
+const c = useBemClass("spacing-graphic");
+
 const rows = [
   ["red", "yellow", "blue"],
   ["green", "brown", "purple"],
 ];
-
-const c = useBemClass("spacing");
 </script>
 
 <style>
-.spacing__graphic {
+.spacing-graphic {
   block-size: 20rem;
 
   display: grid;
@@ -40,7 +40,7 @@ const c = useBemClass("spacing");
   }
 }
 
-.spacing__row {
+.spacing-graphic__row {
   display: grid;
   grid-template-columns: 2fr 3fr 4fr;
   gap: var(--spacing-m);
