@@ -1,8 +1,7 @@
-import { defineConfig } from "vite-plus";
+import { defineConfig, type Plugin } from "vite-plus";
 
 import svg from "vite-svg-loader";
 
-/* @ts-expect-error due to mismatching types for vite and vite-plus */
 export default defineConfig((env) => ({
   base: env.command === "build" ? "/typeach/" : undefined,
 
@@ -10,7 +9,7 @@ export default defineConfig((env) => ({
     dedupe: ["vue-router"],
   },
 
-  plugins: [svg()],
+  plugins: [svg() as Plugin],
 
   staged: {
     "*": "vp check --fix",
