@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 
-import { vAriaLabelledby } from "../";
+import { vAriaLabelledby } from "@typeach/core";
 
 const label = ref<string | undefined>("A label");
 </script>

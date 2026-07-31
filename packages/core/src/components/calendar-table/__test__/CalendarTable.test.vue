@@ -50,20 +50,21 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 
-import { PeachyCalendarTable, PeachyCalendarTableCell, PeachyCalendarTableCellButton } from "../";
-
 import {
+  PeachyVisuallyHidden,
+  PeachyCalendarTable,
+  PeachyCalendarTableCell,
+  PeachyCalendarTableCellButton,
   PeachyTableHead,
   PeachyTableHeadingCell,
   PeachyTableBody,
   PeachyTableRow,
-} from "../../table";
-
-import { formatDate, getWeekdays, isSameDate, Weekday } from "../../../utils";
-
-import { useCalendar } from "../../../hooks";
-
-import { PeachyVisuallyHidden } from "../../";
+  useCalendar,
+  formatDate,
+  getWeekdays,
+  isSameDate,
+  Weekday,
+} from "@typeach/core";
 
 const focusedDate = ref(new Date("12/14/2025"));
 

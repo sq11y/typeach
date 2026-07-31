@@ -21,14 +21,14 @@
 </template>
 
 <script lang="ts" setup>
-import { PeachyTableHead, PeachyTableBody } from "../../table";
-
 import {
+  PeachyTableHead,
+  PeachyTableBody,
   PeachyGridTable,
   PeachyGridTableCell,
   PeachyGridTableHeadingCell,
   PeachyGridTableRow,
-} from "../";
+} from "@typeach/core";
 </script>
 
 <style>

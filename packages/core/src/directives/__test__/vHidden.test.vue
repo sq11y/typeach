@@ -10,7 +10,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 
-import { vHidden } from "../";
+import { vHidden } from "@typeach/core";
 
 const hide = ref<boolean | "until-found">(true);
 </script>
