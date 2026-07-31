@@ -20,12 +20,20 @@ export const useRovingTabindex = (
   orientation: MaybeRefOrGetter<Orientation>,
   getElements: Elements["getElements"],
 ): RovingTabindex => {
-  const { moveTo, moveRelatively, moveToEdge, getCurrentTabStop } = useSingleTabStop(getElements);
+  /* prettier-ignore */
+  const {
+    moveTo,
+    moveRelatively,
+    moveToEdge,
+    moveByPages,
+    getCurrentTabStop
+  } = useSingleTabStop(getElements);
 
   return {
     moveTo,
     moveRelatively,
     moveToEdge,
+    moveByPages,
     getCurrentTabStop,
 
     onKeyDown(event: KeyboardEvent) {

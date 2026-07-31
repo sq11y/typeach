@@ -44,7 +44,7 @@ export const useSingleTabStop = (getElements: Elements["getElements"]): SingleTa
     updateTabindex(focusedElement || firstElement, newElements);
   });
 
-  const { moveRelatively, moveToEdge } = useNavigableElements({
+  const { moveRelatively, moveToEdge, moveByPages } = useNavigableElements({
     getElements,
     isMovedTo: isFocusedRovingTabindexElement,
     moveTo,
@@ -54,6 +54,7 @@ export const useSingleTabStop = (getElements: Elements["getElements"]): SingleTa
     moveTo,
     moveRelatively,
     moveToEdge,
+    moveByPages,
 
     getCurrentTabStop() {
       return getElements().find((element) => element.matches(":focus") || element.tabIndex === 0);

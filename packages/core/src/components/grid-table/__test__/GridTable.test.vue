@@ -11,7 +11,7 @@
 
     <PeachyTableBody>
       <PeachyGridTableRow v-for="i of 10" :key="i">
-        <PeachyGridTableCell>{{ `A${i}` }}</PeachyGridTableCell>
+        <PeachyGridTableCell heading>{{ `A${i}` }}</PeachyGridTableCell>
         <PeachyGridTableCell>{{ `B${i}` }}</PeachyGridTableCell>
         <PeachyGridTableCell>{{ `C${i}` }}</PeachyGridTableCell>
         <PeachyGridTableCell>{{ `D${i}` }}</PeachyGridTableCell>

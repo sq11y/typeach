@@ -16,8 +16,8 @@ test("Calendar grid", async ({ page, mount, getByExactText, rovingTabindex }) =>
     .map((_, i) => `${i + 1}`);
 
   await getByExactText("December 2025");
-  await rovingTabindex("horizontal", dates, true);
-  await rovingTabindex("vertical", ["31", "7", "14", "21"], true);
+  await rovingTabindex("horizontal", dates, true, true);
+  await rovingTabindex("vertical", ["31", "7", "14", "21"], true, true);
   await (await getByExactText("7")).click();
 
   /* Jump month with {PageDown} and {PageUp} */

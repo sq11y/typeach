@@ -17,7 +17,7 @@ export interface Grid {
 export const GridKey: InjectionKey<Grid> = Symbol("grid");
 
 export const useGrid = (getElements: Elements["getElements"]): Grid => {
-  const { moveRelatively, moveToEdge, moveTo } = useSingleTabStop(getElements);
+  const { moveRelatively, moveToEdge, moveTo, moveByPages } = useSingleTabStop(getElements);
 
   return {
     onKeyDown(rowId, event) {
@@ -62,16 +62,16 @@ export const useGrid = (getElements: Elements["getElements"]): Grid => {
           break;
 
         case "ArrowUp":
-          return moveRelatively(row.length * -1);
+          return moveByPages(-1, row.length);
 
         case "ArrowDown":
-          return moveRelatively(row.length);
+          return moveByPages(1, row.length);
 
         case "PageUp":
-          return moveRelatively(row.length * -10);
+          return moveByPages(-9, row.length);
 
         case "PageDown":
-          return moveRelatively(row.length * 10);
+          return moveByPages(9, row.length);
 
         case "Home":
           if (event.ctrlKey) {

@@ -48,7 +48,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from "vue";
+import { ref } from "vue";
 
 import { PeachyCalendarTable, PeachyCalendarTableCell, PeachyCalendarTableCellButton } from "../";
 
@@ -72,12 +72,6 @@ const date = ref<Date>();
 const weekdays = getWeekdays(Weekday.Monday);
 
 const { year, month, weeks } = useCalendar(focusedDate, Weekday.Monday, "en");
-
-watch(date, (newDate) => {
-  if (newDate) {
-    focusedDate.value = newDate;
-  }
-});
 </script>
 
 <style>

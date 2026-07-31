@@ -9,7 +9,7 @@ type Fixtures = {
    * Runs keyboard navigation tests for roving tabindex.
    */
   /* prettier-ignore */
-  rovingTabindex(direction: "horizontal" | "vertical", items: string[], edgeless?: boolean): Promise<void>;
+  rovingTabindex(direction: "horizontal" | "vertical", items: string[], edgeless?: boolean, withoutPagination?: boolean): Promise<void>;
 
   /**
    * Runs axe-core tests.
@@ -48,7 +48,7 @@ export const test = baseTest.extend<Fixtures>({
   },
 
   async rovingTabindex({ page, getByExactText }, use) {
-    await use(async (direction, items, edgeless) => {
+    await use(async (direction, items, edgeless, withoutPagination) => {
       for (let i = 0; i < items.length; i++) {
         const item = items[i]!;
         const nextItem = items[i + 1];
@@ -79,6 +79,15 @@ export const test = baseTest.extend<Fixtures>({
         } else if (!edgeless) {
           await expect(await getByExactText(item)).toBeFocused();
         }
+      }
+
+      if (!withoutPagination) {
+        await (await getByExactText(items[0]!)).click();
+        await page.keyboard.press("PageDown");
+        await expect(await getByExactText(items.at(-2)!)).toBeFocused();
+
+        await page.keyboard.press("PageUp");
+        await expect(await getByExactText(items[0]!)).toBeFocused();
       }
     });
   },

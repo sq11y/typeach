@@ -3,19 +3,20 @@
     <PeachyFieldLabel>Fruits</PeachyFieldLabel>
 
     <PeachyListboxInput v-model="value" multiselect>
-      <PeachyListboxOption value="1">1</PeachyListboxOption>
-      <PeachyListboxOption value="2">2</PeachyListboxOption>
+      <template v-for="(item, i) of items" :key="item">
+        <PeachyListboxOption v-if="i <= 4" :value="item">
+          {{ item }}
+        </PeachyListboxOption>
+      </template>
 
       <PeachyListboxGroup>
-        <PeachyListboxGroupTitle>First group</PeachyListboxGroupTitle>
-        <PeachyListboxOption value="3">3</PeachyListboxOption>
-        <PeachyListboxOption value="4">4</PeachyListboxOption>
-      </PeachyListboxGroup>
+        <PeachyListboxGroupTitle>Group</PeachyListboxGroupTitle>
 
-      <PeachyListboxGroup>
-        <PeachyListboxGroupTitle>Second group</PeachyListboxGroupTitle>
-        <PeachyListboxOption value="5">5</PeachyListboxOption>
-        <PeachyListboxOption value="6">6</PeachyListboxOption>
+        <template v-for="(item, i) of items" :key="item">
+          <PeachyListboxOption v-if="i > 4" :value="item">
+            {{ item }}
+          </PeachyListboxOption>
+        </template>
       </PeachyListboxGroup>
     </PeachyListboxInput>
   </PeachyListboxField>
@@ -32,6 +33,15 @@ import {
   PeachyFieldLabel,
   PeachyListboxGroupTitle,
 } from "@typeach/core";
+
+interface ListboxFieldTestProps {
+  /**
+   * The mock data.
+   */
+  items: string[];
+}
+
+defineProps<ListboxFieldTestProps>();
 
 const value = ref(["vegetable"]);
 </script>

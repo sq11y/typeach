@@ -1,13 +1,13 @@
 <template>
   <PeachyTabs>
     <PeachyTabsList :selection-follows-focus="selectionFollowsFocus" :orientation="orientation">
-      <PeachyTabsButton v-for="value of values" :key="value" :value="value.toLowerCase()">
-        {{ value }}
+      <PeachyTabsButton v-for="item of items" :key="item" :value="item">
+        {{ item }}
       </PeachyTabsButton>
     </PeachyTabsList>
 
-    <PeachyTabsPanel v-for="value of values" :key="value" :value="value.toLowerCase()">
-      A list of {{ value.toLowerCase() }}
+    <PeachyTabsPanel v-for="item of items" :key="item" :value="item">
+      Panel for {{ item }}
     </PeachyTabsPanel>
   </PeachyTabs>
 </template>
@@ -25,11 +25,14 @@ export interface TabsTestProps {
    * The orientation of the tabs.
    */
   orientation?: "vertical";
+
+  /**
+   * The mock data.
+   */
+  items: string[];
 }
 
 defineProps<TabsTestProps>();
-
-const values = ["Tasks", "Events", "Notes", "Photos"] as const;
 </script>
 
 <style scoped>
