@@ -66,10 +66,6 @@ const c = useBemClass("color-rules");
   }
 }
 
-table:has(.color-rules__rule) {
-  font-family: var(--font-family-mono);
-}
-
 td:has(.color-rules__rule) {
   padding-block: var(--spacing-m);
 }
