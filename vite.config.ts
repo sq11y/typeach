@@ -35,29 +35,6 @@ export default defineConfig((env) => ({
       builtin: true,
     },
 
-    rules: {
-      "no-dupe-keys": "off",
-      "no-func-assign": "off",
-      "no-unreachable": "off",
-      "no-var": "error",
-
-      "prefer-const": "error",
-      "prefer-rest-params": "error",
-      "prefer-spread": "error",
-      "prefer-destructuring": "error",
-
-      "typescript/ban-ts-comment": "error",
-      "typescript/no-explicit-any": "error",
-      "typescript/no-namespace": "error",
-      "typescript/no-require-imports": "error",
-      "typescript/no-unnecessary-type-constraint": "error",
-      "typescript/no-unsafe-function-type": "error",
-      "typescript/unbound-method": "off",
-      "typescript/no-redundant-type-constituents": "off",
-
-      "vite-plus/prefer-vite-plus-imports": "error",
-    },
-
     jsPlugins: [
       {
         name: "vite-plus",
