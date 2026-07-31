@@ -6,6 +6,7 @@
     "oxc.oxc-vscode",
     "antfu.pnpm-catalog-lens",
     "vunguyentuan.vscode-css-variables",
-    "stylelint.vscode-stylelint"
+    "stylelint.vscode-stylelint",
+    "ms-playwright.playwright"
   ]
 }
