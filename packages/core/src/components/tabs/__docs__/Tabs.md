@@ -64,9 +64,11 @@ and <kbd>Arrow left</kbd> with <kbd>Arrow up</kbd>.
 
 <br />
 
-| Key                    | Action                     |
-| ---------------------- | -------------------------- |
-| <kbd>Arrow left</kbd>  | Moves to the previous tab. |
-| <kbd>Arrow right</kbd> | Moves to the next tab.     |
-| <kbd>Home</kbd>        | Moves to the first tab.    |
-| <kbd>End</kbd>         | Moves to the last tab.     |
+| Key                    | Action                                                                        |
+| ---------------------- | ----------------------------------------------------------------------------- |
+| <kbd>Arrow left</kbd>  | Moves to the previous tab.                                                    |
+| <kbd>Arrow right</kbd> | Moves to the next tab.                                                        |
+| <kbd>PageUp</kbd>      | Moves to the 10th tab before. If there isn't one - it moves to the first tab. |
+| <kbd>PageDown</kbd>    | Moves to the 10th tab after. If there isn't one - it moves to the last tab.   |
+| <kbd>Home</kbd>        | Moves to the first tab.                                                       |
+| <kbd>End</kbd>         | Moves to the last tab.                                                        |

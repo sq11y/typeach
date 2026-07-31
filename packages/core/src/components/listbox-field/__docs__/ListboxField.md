@@ -62,13 +62,15 @@ and <kbd>Arrow up</kbd> with <kbd>Arrow left</kbd>.
 
 <br />
 
-| Key                   | Action                        |
-| --------------------- | ----------------------------- |
-| <kbd>Arrow up</kbd>   | Moves to the previous option. |
-| <kbd>Arrow down</kbd> | Moves to the next option.     |
-| <kbd>Home</kbd>       | Moves to the first option.    |
-| <kbd>End</kbd>        | Moves to the last option.     |
-| <kbd>Space</kbd>      | Toggles the current option.   |
+| Key                   | Action                                                                              |
+| --------------------- | ----------------------------------------------------------------------------------- |
+| <kbd>Arrow up</kbd>   | Moves to the previous option.                                                       |
+| <kbd>Arrow down</kbd> | Moves to the next option.                                                           |
+| <kbd>PageUp</kbd>     | Moves to the 10th option before. If there isn't one - it moves to the first option. |
+| <kbd>PageDown</kbd>   | Moves to the 10th option after. If there isn't one - it moves to the last option.   |
+| <kbd>Home</kbd>       | Moves to the first option.                                                          |
+| <kbd>End</kbd>        | Moves to the last option.                                                           |
+| <kbd>Space</kbd>      | Toggles the current option.                                                         |
 
 There are some additional shortcuts available for multiselect.
 

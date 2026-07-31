@@ -39,9 +39,11 @@ and <kbd>Arrow up</kbd> with <kbd>Arrow left</kbd>.
 
 <br />
 
-| Key                   | Action                         |
-| --------------------- | ------------------------------ |
-| <kbd>Arrow up</kbd>   | Moves to the previous control. |
-| <kbd>Arrow down</kbd> | Moves to the next control.     |
-| <kbd>Home</kbd>       | Moves to the first control.    |
-| <kbd>End</kbd>        | Moves to the last control.     |
+| Key                   | Action                                                                                 |
+| --------------------- | -------------------------------------------------------------------------------------- |
+| <kbd>Arrow up</kbd>   | Moves to the previous control.                                                         |
+| <kbd>Arrow down</kbd> | Moves to the next control.                                                             |
+| <kbd>PageUp</kbd>     | Moves to the 10th controls before. If there isn't one - it moves to the first control. |
+| <kbd>PageDown</kbd>   | Moves to the 10th controls after. If there isn't one - it moves to the last control.   |
+| <kbd>Home</kbd>       | Moves to the first control.                                                            |
+| <kbd>End</kbd>        | Moves to the last control.                                                             |
