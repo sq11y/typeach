@@ -28,12 +28,12 @@ export interface ToolbarSlots {
   /**
    * The toolbar controls.
    *
-   * The following elements will be included in the keyboard navigation:
-   *   - Button
-   *   - CopyButton
-   *   - Disclosure
-   *   - DownloadLink
-   *   - SwitchField
+   * The following components will be included in the keyboard navigation:
+   *  - Button
+   *    - CopyButton
+   *    - DisclosureButton
+   *    - SwitchFieldButton
+   *  - DownloadLink
    */
   default: () => void;
 }
@@ -50,9 +50,10 @@ const element = useTemplateRef("element");
 
 const { getElements } = useElements("toolbar", element);
 
-const { onKeyDown } = useRovingTabindex(orientation, getElements);
+const { onKeyDown, moveTo } = useRovingTabindex(orientation, getElements);
 
 provide(ToolbarKey, {
   onKeyDown,
+  moveTo,
 });
 </script>

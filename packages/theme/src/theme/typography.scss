@@ -160,7 +160,8 @@
   }
 
   :where(li > ul, li > ol) {
-    margin-block: calc(var(--prose-flow-scale) * 0.7em);
+    margin-block: calc(var(--prose-flow-scale) * 0.275em) calc(var(--prose-flow-scale) * 0.5em);
+    margin-inline-start: calc(var(--prose-flow-scale) * 1.75em);
   }
 
   :where(li > p) {

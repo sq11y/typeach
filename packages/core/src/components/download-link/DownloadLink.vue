@@ -1,5 +1,11 @@
 <template>
-  <a ref="element" :href="url" :download="filename || true" @keydown="onKeyDown">
+  <a
+    ref="element"
+    :href="url"
+    :download="filename || true"
+    @keydown="onKeyDown"
+    @click="moveTo?.(element!)"
+  >
     <slot />
   </a>
 </template>
@@ -39,7 +45,7 @@ defineSlots<DownloadLinkSlots>();
 
 const element = useTemplateRef("element");
 
-const { onKeyDown } = useOptionalContext(ToolbarKey);
+const { onKeyDown, moveTo } = useOptionalContext(ToolbarKey);
 
 provideElement("toolbar", element);
 </script>
