@@ -34,8 +34,6 @@ main:has(.home__title) {
 }
 
 .home__title {
-  font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-bold);
   font-size: var(--font-size-xxxxl);
   line-height: var(--line-height-xxxxl);
   text-align: center;
