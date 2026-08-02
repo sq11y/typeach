@@ -30,12 +30,13 @@
     "test": "playwright test -c playwright-ct.config.ts"
   },
   "dependencies": {
-    "@axe-core/playwright": "^4.12.1",
     "@vueuse/core": "catalog:",
     "change-case": "catalog:"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
     "@playwright/experimental-ct-vue": "^1.62.0",
+    "@playwright/test": "^1.62.0",
     "@tsconfig/node24": "^24.0.4",
     "@types/node": "catalog:",
     "@vitejs/plugin-vue": "^6.0.8",

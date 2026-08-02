@@ -33,7 +33,6 @@
     "vue-router": "catalog:"
   },
   "devDependencies": {
-    "@playwright/test": "^1.62.0",
     "do11y": "^0.6.1",
     "eslint": "^10.8.0",
     "eslint-config-sq11y": "^0.0.4",
