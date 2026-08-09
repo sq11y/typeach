@@ -1,6 +1,6 @@
 import { toValue, type InjectionKey, type MaybeRefOrGetter, type Ref } from "vue";
 
-import { isDisabledElement, type Orientation } from "../../utils";
+import { isDisabledElement, isHtmlElement, type Orientation } from "../../utils";
 
 import type { Elements } from "../useElements";
 
@@ -78,16 +78,34 @@ export const useListbox = (
     }
   };
 
+  const mapValues = (elements = getElements()) => {
+    return elements
+      .map((element) => element.getAttribute("data-value"))
+      .filter((value): value is string => !!value);
+  };
+
   return {
     moveTo,
 
-    onSpace(value) {
+    onSpace(value, event) {
+      if (isHtmlElement(event.target) && isDisabledElement(event.target)) {
+        return;
+      }
+
       /* `Shift` + `Space` is ignored for multiselect */
 
       if (modelValue.value.includes(value)) {
         modelValue.value = modelValue.value.filter((v) => v !== value);
+      } else if (toValue(multiselect)) {
+        modelValue.value = [...modelValue.value, value];
       } else {
-        modelValue.value = toValue(multiselect) ? [...modelValue.value, value] : [value];
+        const disabledElements = getElements().filter((element) => isDisabledElement(element));
+
+        const disabledValues = mapValues(disabledElements);
+
+        if (!modelValue.value.length || !disabledValues.includes(modelValue.value[0]!)) {
+          modelValue.value = [value];
+        }
       }
     },
 
@@ -101,9 +119,27 @@ export const useListbox = (
       if (event.ctrlKey && event.key === "a") {
         event.preventDefault();
 
-        return (modelValue.value = getElements(false)
-          .map((element) => element.getAttribute("data-value"))
-          .filter((value): value is string => !!value));
+        const elements = getElements();
+
+        const values = mapValues(elements);
+
+        const disabledValues = mapValues(elements.filter((element) => isDisabledElement(element)));
+
+        const allOptionsAreSelected = values
+          .filter((value) => !disabledValues.includes(value))
+          .every((value) => modelValue.value.includes(value));
+
+        if (allOptionsAreSelected) {
+          /* Deselect values, unless selected and disabled */
+          return (modelValue.value = modelValue.value.filter((value) => {
+            return disabledValues.includes(value);
+          }));
+        }
+
+        /* Select values, unless disabled and deselected */
+        return (modelValue.value = values.filter((value) => {
+          return disabledValues.includes(value) ? modelValue.value.includes(value) : true;
+        }));
       }
 
       if (!event.shiftKey) {
