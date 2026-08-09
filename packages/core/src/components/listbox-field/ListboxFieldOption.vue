@@ -11,7 +11,7 @@
     @keydown.space.prevent="disabled ? undefined : onSpace(value, $event)"
     @keydown="onKeyDown(value, $event)"
   >
-    <slot />
+    <slot :selected="modelValue.includes(value)" />
   </div>
 </template>
 
@@ -38,7 +38,7 @@ export interface ListboxFieldOptionSlots {
   /**
    * The content of the option should include an [accessible label](/p/accessible-labels).
    */
-  default: () => void;
+  default: (data: { selected: boolean }) => void;
 }
 
 const props = withDefaults(defineProps<ListboxFieldOptionProps>(), {

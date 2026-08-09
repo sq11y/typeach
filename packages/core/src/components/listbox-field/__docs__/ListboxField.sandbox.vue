@@ -8,10 +8,9 @@
       multiselect
     >
       <PeachyListboxOption value="devi-vishwakumar">Devi Vishwakumar <HeartSvg aria-hidden="true" /></PeachyListboxOption>
-      <PeachyListboxOption value="jinx">Jinx <HeartSvg aria-hidden="true" /></PeachyListboxOption>
 
       <PeachyListboxGroup>
-        <PeachyListboxGroupTitle>Grey's Anatomy</PeachyListboxGroupTitle>
+        <PeachyListboxGroupTitle class="group-title">Grey's Anatomy</PeachyListboxGroupTitle>
 
         <PeachyListboxOption value="christina-yang">Christina Yang <HeartSvg aria-hidden="true" /></PeachyListboxOption>
         <PeachyListboxOption value="izzie-stevens">Izzie Stevens <HeartSvg aria-hidden="true" /></PeachyListboxOption>
@@ -20,7 +19,7 @@
       </PeachyListboxGroup>
 
       <PeachyListboxGroup>
-        <PeachyListboxGroupTitle>One Tree Hill</PeachyListboxGroupTitle>
+        <PeachyListboxGroupTitle class="group-title">One Tree Hill</PeachyListboxGroupTitle>
 
         <PeachyListboxOption disabled value="peyton-sawyer">Peyton Sawyer <HeartSvg aria-hidden="true" /></PeachyListboxOption>
         <PeachyListboxOption value="brooke-davis">Brooke Davis <HeartSvg aria-hidden="true" /></PeachyListboxOption>
@@ -44,7 +43,7 @@ import {
 
 import HeartSvg from "./icons/heart.svg?component";
 
-const value = ref(["devi-vishwakumar", "jinx", "christina-yang", "brooke-davis"]);
+const value = ref(["devi-vishwakumar", "christina-yang", "brooke-davis"]);
 </script>
 
 <style lang="scss">
@@ -103,12 +102,12 @@ label {
 
 /* ===== Options and group titles ===== */
 
-[role="presentation"],
+.group-title,
 [role="option"] {
   padding: var(--spacing-xxs) var(--spacing-s);
 }
 
-[role="presentation"] {
+.group-title {
   font-size: var(--font-size-s);
   line-height: var(--line-height-s);
   color: var(--grey-70);
