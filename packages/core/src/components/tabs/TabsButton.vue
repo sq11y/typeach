@@ -2,14 +2,15 @@
   <button
     :id="id"
     ref="element"
+    :aria-disabled="disabled === true ? true : undefined"
     :aria-selected="selectedPanel === value"
     :aria-controls="ids.get(`${props.value}-panel`)"
     type="button"
     role="tab"
-    @click="selectedPanel = value"
     @focus="selectionFollowsFocus ? (selectedPanel = value) : undefined"
-    @keydown.delete="emit('delete')"
+    @keydown.delete="onDelete"
     @keydown="onKeyDown"
+    @click="onClick"
   >
     <slot />
   </button>
@@ -32,11 +33,16 @@ export interface TabsButtonProps {
    * The id for the element.
    */
   id?: string;
+
+  /**
+   * If the button should be disabled.
+   */
+  disabled?: boolean;
 }
 
 export interface TabsButtonEmits {
   /**
-   * Triggered when the `delete` key is pressed.
+   * Triggered when the `delete` key is pressed - only fired if the button is enabled.
    */
   delete: [];
 }
@@ -65,6 +71,18 @@ const { selectedPanel, ids } = useContext(TabKey);
 useSharedDynamicIds(ids, `${props.value}-button`, () => props.id);
 
 const { onKeyDown, selectionFollowsFocus } = useContext(TabListKey);
+
+const onClick = () => {
+  if (!props.disabled) {
+    selectedPanel.value = props.value;
+  }
+};
+
+const onDelete = () => {
+  if (!props.disabled) {
+    emit("delete");
+  }
+};
 
 onBeforeMount(() => {
   if (!selectedPanel.value) {

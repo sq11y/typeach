@@ -2,8 +2,10 @@
   <button
     ref="button"
     :tabindex="selectedPanel === value ? 0 : -1"
+    :aria-disabled="disabled === true ? true : undefined"
+    :disabled="disabled === 'without-focus' ? true : undefined"
     type="button"
-    @click="emit('click', $event)"
+    @click="onClick"
   >
     <slot />
   </button>
@@ -18,6 +20,13 @@ export interface TabsActionButtonProps {
    * The value for the accompanying panel.
    */
   value: string | number;
+
+  /**
+   * If the button should be disabled.
+   *
+   * If you want the disabled button to be taken out of the tab order even when the associated tab is active, you can set this to `"without-focus"`.
+   */
+  disabled?: boolean | "without-focus";
 }
 
 export interface TabsActionButtonEmits {
@@ -34,11 +43,17 @@ export interface TabsActionButtonSlots {
   default: () => void;
 }
 
-defineProps<TabsActionButtonProps>();
+const props = defineProps<TabsActionButtonProps>();
 
 const emit = defineEmits<TabsActionButtonEmits>();
 
 defineSlots<TabsActionButtonSlots>();
 
 const { selectedPanel } = useContext(TabKey);
+
+const onClick = (event: MouseEvent) => {
+  if (!props.disabled) {
+    emit("click", event);
+  }
+};
 </script>

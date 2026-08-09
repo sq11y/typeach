@@ -51,13 +51,11 @@ illustration: "tabs.png"
 
 ## Accessibility
 
-The tabslist extends a generic element with an [ARIA tablist role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role), where every tab is a [HTML button element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button) extended with the [ARIA tab role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role).
-
-Every panel is a generic element with the [ARIA tabpanel role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role).
+The tabslist extends a generic element with an [ARIA tablist role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role), where every tab is a [HTML button element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button) extended with the [ARIA tab role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role). Each panel is a generic element with the [ARIA tabpanel role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role).
 
 ### Keyboard navigation
 
-Only one of the tabs remain in the tab order - starting with the first enabled tab and then it switches to the last tab the user navigated to. As for the action buttons, the ones associated with the currently active tab are kept in the tab order while the others are removed.
+Only one of the tabs remain in the tab order - starting with the first enabled tab and then it switches to the last tab the user navigated to. As for the action buttons, the ones associated with the currently active tab are kept in the tab order, unless explicitly disabled with `without-focus`, while the others are removed.
 
 If the tabslist is horizontal <kbd>Arrow right</kbd> is replaced with <kbd>Arrow down</kbd>
 and <kbd>Arrow left</kbd> with <kbd>Arrow up</kbd>.
