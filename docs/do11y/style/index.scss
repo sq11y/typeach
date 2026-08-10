@@ -12,10 +12,15 @@
   --border: var(--border-shape) var(--grey-40);
   --invisible-border: var(--border-shape) transparent;
 
-  --article-inline-size: min(calc(100svw - 2rem), 55rem);
+  --inline-margin-min: 6rem;
+  --article-inline-size: min(calc(100svw - var(--inline-margin-min)), 55rem);
   --inline-margin: calc((100svw - var(--article-inline-size)) / 2);
 
   --icon-size: 1.25em;
+
+  @media (width < 42rem) {
+    --inline-margin-min: 2rem;
+  }
 }
 
 html {
@@ -27,7 +32,7 @@ body {
   @include utils.center(var(--spacing-xxxxxl));
   grid-template-rows: auto 1fr auto;
 
-  @media (width <= 46rem) {
+  @media (width <= 60rem) {
     gap: var(--spacing-xxxxl);
   }
 }
