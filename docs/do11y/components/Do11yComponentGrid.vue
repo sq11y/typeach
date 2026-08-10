@@ -1,7 +1,12 @@
 <template>
   <nav :class="c()">
     <ul :class="c('list')">
-      <li v-for="component of components" :key="component.path" :class="c('list-item')">
+      <li
+        v-for="component of components"
+        :key="component.path"
+        :class="c('list-item')"
+        :style="`--c-color: var(--${component.meta.color}-80); --c-background-color: var(--${component.meta.color}-30); --c-border-color: var(--${component.meta.color}-60);`"
+      >
         <img
           width="500"
           height="281"
@@ -65,18 +70,24 @@ const router = useRouter();
 
   margin-block-start: 0;
 
+  @include utils.transition(border-color, background-color);
+
   @include utils.hover {
-    border-color: var(--green-70);
-    background-color: var(--green-20);
+    border-color: var(--c-border-color);
+    background-color: var(--c-background-color);
 
     a {
-      color: var(--green-80);
+      color: var(--c-color);
     }
   }
 
   a {
+    color: inherit;
+
     font-size: var(--font-size-l);
     line-height: var(--line-height-l);
+
+    @include utils.transition(color);
 
     &::before {
       content: "";

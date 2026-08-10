@@ -3,6 +3,7 @@ title: "Table"
 slug: "/c/table"
 description: "Showcases tabular data."
 illustration: "table.png"
+color: "green"
 ---
 
 <script setup>

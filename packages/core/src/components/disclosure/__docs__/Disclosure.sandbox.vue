@@ -57,11 +57,11 @@ button[aria-expanded] {
    * Hidden border to ensure the shape
    * of the button is defined in `forced-colors` mode.
    */
-  border: var(--border-shape) var(--blue-40);
+  border: var(--border-shape) var(--turquoise-40);
   border-radius: var(--border-radius);
 
-  background-color: var(--blue-40);
-  color: var(--blue-80);
+  background-color: var(--turquoise-40);
+  color: var(--turquoise-80);
 
   @include utils.transition("background-color, border-color");
 
@@ -69,12 +69,12 @@ button[aria-expanded] {
     cursor: pointer;
 
     &:active {
-      background-color: var(--blue-50);
-      border-color: var(--blue-70);
+      background-color: var(--turquoise-50);
+      border-color: var(--turquoise-70);
     }
 
     @include utils.hover {
-      border-color: var(--blue-70);
+      border-color: var(--turquoise-70);
     }
   }
 
@@ -108,8 +108,8 @@ button[aria-expanded] {
 /* ===== Panel ===== */
 
 .content {
-  background-color: var(--blue-20);
-  color: var(--blue-80);
+  background-color: var(--turquoise-20);
+  color: var(--turquoise-80);
 
   font-size: var(--font-size-s);
   line-height: var(--line-height-s);
@@ -149,8 +149,8 @@ button[aria-expanded] {
 /* ===== Focus indicators ===== */
 
 *:focus-visible {
-  outline: 2px solid var(--blue-80);
-  box-shadow: 0 0 0 6px var(--blue-30);
+  outline: 2px solid var(--turquoise-80);
+  box-shadow: 0 0 0 6px var(--turquoise-30);
   isolation: isolate;
 }
 </style>

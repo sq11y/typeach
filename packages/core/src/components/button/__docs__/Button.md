@@ -3,6 +3,7 @@ title: "Button"
 slug: "/c/button"
 description: "Triggers an action."
 illustration: "button.png"
+color: "pink"
 ---
 
 <script setup>

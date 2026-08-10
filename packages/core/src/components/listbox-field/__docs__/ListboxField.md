@@ -3,6 +3,7 @@ title: "Listbox Field"
 slug: "/f/listbox-field"
 description: "Allows for picking options from a list."
 illustration: "listbox-field.png"
+color: "pink"
 ---
 
 <script setup>

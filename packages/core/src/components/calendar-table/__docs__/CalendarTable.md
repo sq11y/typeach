@@ -3,6 +3,7 @@ title: "Calendar table"
 slug: "/c/calendar-table"
 description: "Displays a month."
 illustration: "calendar-table.png"
+color: "green"
 ---
 
 <script setup>

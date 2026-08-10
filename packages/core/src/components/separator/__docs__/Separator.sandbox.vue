@@ -11,7 +11,6 @@ import { PeachySeparator } from "@typeach/core";
 
 :root {
   --border-shape: 1px solid;
-  --border: var(--border-shape) var(--grey-40);
 }
 
 /* ===== Separator ===== */
@@ -20,13 +19,13 @@ hr[aria-orientation="horizontal"] {
   inline-size: 15rem;
 
   border: 0;
-  border-block-start: var(--border);
+  border-block-start: var(--border-shape) var(--brown-60);
 }
 
 hr[aria-orientation="vertical"] {
   block-size: 15rem;
 
   border: 0;
-  border-inline-start: var(--border);
+  border-inline-start: var(--border-shape) var(--brown-60);
 }
 </style>

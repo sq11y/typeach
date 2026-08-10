@@ -3,6 +3,7 @@ title: "Tabs"
 slug: "/c/tabs"
 description: "Switches between content."
 illustration: "tabs.png"
+color: "turquoise"
 ---
 
 <script setup>

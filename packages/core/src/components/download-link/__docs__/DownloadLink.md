@@ -3,6 +3,7 @@ title: "Download link"
 slug: "/c/download-link"
 description: "Downloads content."
 illustration: "download-link.png"
+color: "blue"
 ---
 
 <script setup>

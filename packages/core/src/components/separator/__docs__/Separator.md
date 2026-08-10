@@ -3,6 +3,7 @@ title: "Separator"
 slug: "/c/separator"
 description: "Separates content."
 illustration: "separator.png"
+color: "brown"
 ---
 
 <script setup>

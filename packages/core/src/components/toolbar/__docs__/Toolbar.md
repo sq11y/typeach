@@ -3,6 +3,7 @@ title: "Toolbar"
 slug: "/c/toolbar"
 description: "Groups controls."
 illustration: "toolbar.png"
+color: "brown"
 ---
 
 <script setup>
