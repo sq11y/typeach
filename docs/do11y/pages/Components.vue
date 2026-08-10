@@ -3,11 +3,10 @@
 
   <div class="description"><code>pnpm i @typeach/core</code></div>
 
-  <Do11yComponentGrid aria-labelledby="components-heading" :components="componentRoutes" />
-
-  <h2 id="fields-heading">Fields</h2>
-
-  <Do11yComponentGrid aria-labelledby="fields-heading" :components="fieldsRoutes" />
+  <Do11yComponentGrid
+    aria-labelledby="components-heading"
+    :components="[...componentRoutes, ...fieldsRoutes]"
+  />
 </template>
 
 <script lang="ts" setup>
