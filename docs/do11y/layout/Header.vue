@@ -1,6 +1,4 @@
 <template>
-  <TableOfContent v-if="isLargeScreen && isComponentPage" />
-
   <header>
     <RouterLink to="/" class="logo no-focus">
       <img alt="Squirrel mascot" src="/logo.webp" />
@@ -17,6 +15,8 @@
       <RouterLink to="/p/theme">Theme</RouterLink>
     </nav>
   </header>
+
+  <TableOfContent v-if="isLargeScreen && isComponentPage" />
 </template>
 
 <script lang="ts" setup>
