@@ -1,47 +1,26 @@
 <template>
-  <h1>Theme</h1>
+  <h1 id="theme-heading">Theme</h1>
 
   <div class="description"><code>pnpm i @typeach/theme</code></div>
 
-  <RouterLink to="/p/colors">
-    <h2>Colors <ArrowRightSvg aria-hidden="true" /></h2>
-    <ColorsGraphic />
-  </RouterLink>
-
-  <RouterLink to="/p/typography">
-    <h2>Typography <ArrowRightSvg aria-hidden="true" /></h2>
-    <TypographyGraphic />
-  </RouterLink>
-
-  <RouterLink to="/p/spacing">
-    <h2>Spacing <ArrowRightSvg aria-hidden="true" /></h2>
-    <SpacingGraphic />
-  </RouterLink>
+  <Do11yComponentGrid aria-labelledby="theme-heading" :components="pages" />
 </template>
 
 <script lang="ts" setup>
-import ColorsGraphic from "../colors/ColorsGraphic.vue";
-import TypographyGraphic from "../typography/HomoglyphGrid.vue";
-import SpacingGraphic from "../spacing/SpacingGraphic.vue";
+import Do11yComponentGrid from "../components/Do11yComponentGrid.vue";
 
-import ArrowRightSvg from "../icons/arrow-right.svg?component";
+const pages = [
+  {
+    path: "/p/colors",
+    meta: { title: "Colors", illustration: "colors.png", color: "pink" },
+  },
+  {
+    path: "/p/typography",
+    meta: { title: "Typography", illustration: "typography.png", color: "green" },
+  },
+  {
+    path: "/p/spacing",
+    meta: { title: "Spacing", illustration: "spacing.png", color: "blue" },
+  },
+];
 </script>
-
-<style lang="scss" scoped>
-@use "@typeach/theme/utils";
-
-h2 {
-  @include utils.space-between;
-  --icon-size: 0.875em;
-}
-
-a {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-}
-
-a:not(:first-of-type) {
-  margin-block-start: calc(var(--prose-flow-scale) * 3em);
-}
-</style>
