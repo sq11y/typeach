@@ -1,22 +1,21 @@
-<!-- prettier-ignore -->
 <template>
-  <PeachyTabs>
+  <PeachyTabs as="div" class="tabs">
     <PeachyTabsList>
       <PeachyTabsButton
-        v-for="value of values"
-        :key="value"
-        :value="value.toLowerCase()"
+        v-for="quote of quotesFromUltraProcessedPeopleByChrisVanTulleken"
+        :key="quote.title"
+        :value="quote.title"
       >
-        {{ value }}
+        {{ quote.title }}
       </PeachyTabsButton>
     </PeachyTabsList>
 
     <PeachyTabsPanel
-      v-for="value of values"
-      :key="value"
-      :value="value.toLowerCase()"
+      v-for="quote of quotesFromUltraProcessedPeopleByChrisVanTulleken"
+      :key="quote.title"
+      :value="quote.title"
     >
-      {{ value }} panel
+      "{{ quote.quote }}"
     </PeachyTabsPanel>
   </PeachyTabs>
 </template>
@@ -30,7 +29,17 @@ import {
   PeachyTabsPanel
 } from "@typeach/core";
 
-const values = ["Sea", "Ocean"];
+/* prettier-ignore */
+const quotesFromUltraProcessedPeopleByChrisVanTulleken = [
+  {
+    title: "Lunch",
+    quote: "Here is the inexorable logic of all industrial food: to reduce the time workers require for a meal.",
+  },
+  {
+    title: "Growth",
+    quote: "A food that is consumed less will never sell as well as a food that's consumed more.",
+  },
+];
 </script>
 
 <style lang="scss">
@@ -46,6 +55,10 @@ const values = ["Sea", "Ocean"];
 }
 
 /* ===== Tabs ===== */
+
+.tabs {
+  min-block-size: 14rem;
+}
 
 [role="tablist"] {
   @include utils.dock(var(--spacing-xs));

@@ -26,7 +26,7 @@ color: "turquoise"
   {{ route?.meta.description }}
 </div>
 
-<TabsSandbox title="Tabs" />
+<TabsSandbox title="Tabs" block-size="22rem" />
 
 ## API
 
