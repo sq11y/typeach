@@ -1,8 +1,4 @@
 <template>
-  <PeachyVisuallyHidden>
-    <h1>Typeach - component library for Vue.</h1>
-  </PeachyVisuallyHidden>
-
   <blockquote>
     <h1 :class="c('title')">
       “The power of the Web is in its universality. Access by everyone regardless of disability is
@@ -20,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { PeachyVisuallyHidden, useBemClass } from "@typeach/core";
+import { useBemClass } from "@typeach/core";
 
 const c = useBemClass("home");
 </script>
