@@ -103,12 +103,14 @@ pre {
 
 ol,
 ul {
+  list-style: none;
+
   li {
     position: relative;
   }
 
   li::marker {
-    content: "";
+    content: none;
   }
 
   li::before {
