@@ -33,7 +33,7 @@
     "vue-router": "catalog:"
   },
   "devDependencies": {
-    "do11y": "^0.6.1",
+    "do11y": "^0.6.3",
     "eslint": "^10.8.0",
     "eslint-config-sq11y": "^0.0.4",
     "oxfmt": "^0.61.0",
