@@ -61,7 +61,7 @@ header {
   inset-block-start: var(--spacing-xl);
   margin-inline: auto;
 
-  @include utils.dock(var(--spacing-xl));
+  @include utils.dock(var(--spacing-m));
 
   padding-inline: var(--spacing-l);
   padding-block: var(--spacing-xs);
@@ -74,7 +74,6 @@ header {
 
   @media (width <= 36rem) {
     margin-inline: auto calc(var(--inline-margin));
-    gap: var(--spacing-m);
   }
 }
 
@@ -101,7 +100,6 @@ a {
   --logo-size: 4.25rem;
 
   @include utils.dock(var(--spacing-l));
-  text-decoration: none;
 
   img {
     position: absolute;
