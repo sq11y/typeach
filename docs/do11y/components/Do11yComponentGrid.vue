@@ -5,7 +5,12 @@
         v-for="component of components"
         :key="component.path"
         :class="c('list-item')"
-        :style="`--c-color: var(--${component.meta.color}-80); --c-background-color: var(--${component.meta.color}-30); --c-border-color: var(--${component.meta.color}-60);`"
+        :style="`
+          --c-color: var(--${component.meta.color}-80);
+          --c-background-color: var(--${component.meta.color}-30);
+          --c-pale-background-color: var(--${component.meta.color}-10);
+          --c-border-color: var(--${component.meta.color}-60);
+        `"
       >
         <img
           width="500"
@@ -50,6 +55,7 @@ const router = useRouter();
 
 <style lang="scss">
 @use "@typeach/theme/utils";
+@use "../style/mixins";
 
 .component-grid__list {
   list-style: none;
@@ -66,7 +72,9 @@ const router = useRouter();
 
   border-radius: var(--border-radius);
   border: var(--border);
-  background-color: var(--grey-10);
+
+  background-color: var(--c-pale-background-color);
+  color: var(--c-color);
 
   margin-block-start: 0;
 
@@ -75,10 +83,10 @@ const router = useRouter();
   @include utils.hover {
     border-color: var(--c-border-color);
     background-color: var(--c-background-color);
+  }
 
-    a {
-      color: var(--c-color);
-    }
+  &:has(:focus-visible) {
+    @include mixins.focus-visible;
   }
 
   a {
@@ -93,6 +101,11 @@ const router = useRouter();
       content: "";
       position: absolute;
       inset: 0;
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: none;
     }
   }
 
