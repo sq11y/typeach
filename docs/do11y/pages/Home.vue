@@ -2,16 +2,12 @@
   <blockquote>
     <h1 :class="c('title')">
       “The power of the Web is in its universality. Access by everyone regardless of disability is
-      an essential aspect”
+      an essential aspect.”
     </h1>
-    <footer>
-      -
-      <!-- prettier-ignore -->
-      <cite>
-        Tim Berners-Lee,
-        <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/">W3C</a> Director and inventor of the World Wide Web
-      </cite>
-    </footer>
+
+    <cite :class="c('cite')">
+      - Tim Berners-Lee, W3C Director and inventor of the World Wide Web
+    </cite>
   </blockquote>
 </template>
 
@@ -22,18 +18,22 @@ const c = useBemClass("home");
 </script>
 
 <style lang="scss">
-@use "@typeach/theme/utils";
+html:has(.home__title) {
+  background-color: var(--pink-bg);
+}
 
 main:has(.home__title) {
-  align-self: stretch;
-  @include utils.center;
+  place-content: center;
 }
 
 .home__title {
+  margin-block-end: var(--spacing-xs);
+
   font-size: var(--font-size-xxxxl);
   line-height: var(--line-height-xxxxl);
-  text-align: center;
   text-wrap: pretty;
+
+  color: var(--pink-80);
 
   @media (width < 32rem) {
     font-size: var(--font-size-xxxl);
@@ -41,7 +41,10 @@ main:has(.home__title) {
   }
 }
 
-blockquote footer {
-  text-align: center;
+.home__cite {
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-s);
+
+  color: var(--pink-80);
 }
 </style>
