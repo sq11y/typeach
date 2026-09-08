@@ -28,12 +28,12 @@ export interface ToolbarSlots {
   /**
    * The toolbar controls.
    *
-   * The following components will be included in the keyboard navigation:
-   *  - Button
-   *    - CopyButton
-   *    - DisclosureButton
-   *    - SwitchFieldButton
-   *  - DownloadLink
+   * The following components will be included in the keyboard navigation by default:
+   *  - [Button](/c/button)
+   *    - [CopyButton](/c/copy-button)
+   *    - [DisclosureButton](/c/disclosure)
+   *    - [SwitchFieldButton](/f/switch-field)
+   *  - [DownloadLink](/c/download-link)
    */
   default: () => void;
 }

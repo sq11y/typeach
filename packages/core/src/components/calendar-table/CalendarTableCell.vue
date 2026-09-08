@@ -9,7 +9,7 @@ import PeachyTableCell from "../table/TableCell.vue";
 
 export interface CalendarTableCellSlots {
   /**
-   * The content of the cell.
+   * The content of the cell should include a single `CellButton`.
    */
   default: () => void;
 }

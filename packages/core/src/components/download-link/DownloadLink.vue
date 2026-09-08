@@ -35,6 +35,8 @@ export interface DownloadLinkSlots {
    * The content of the link should include an [accessible label](/p/accessible-labels).
    *
    * The label should give a hint as to how long the download will take - the easiest way to do this is to include the size of the file.
+   *
+   * Also keep in mind that a link should not include [interactive elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#interactive_content).
    */
   default: () => void;
 }

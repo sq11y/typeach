@@ -43,7 +43,9 @@ export interface CopyButtonSlots {
   /**
    * The content of the button should include an [accessible label](/p/accessible-labels).
    *
-   * The label should change when `isCopying` is `true` to let the user know the copy was successful, unless you already have accessible feedback in which case you should use `preventAnnouncement`.
+   * The label should let the user know the copy was successful when `isCopying` is `true` - unless you already provide feedback, in which case you should set `preventAnnouncement`.
+   *
+   * Also keep in mind that a button should only contain [phrasing content](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#phrasing_content).
    */
   default: (data: { isCopying: boolean }) => void;
 }
