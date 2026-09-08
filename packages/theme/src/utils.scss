@@ -94,9 +94,7 @@
 }
 
 @mixin enabled {
-  &:enabled:not([aria-disabled="true"]),
-  &[aria-disabled="false"]:not(:disabled),
-  &:not(:disabled):not([aria-disabled="true"]) {
+  &:not(:disabled, [aria-disabled="true"]) {
     @content;
   }
 }
