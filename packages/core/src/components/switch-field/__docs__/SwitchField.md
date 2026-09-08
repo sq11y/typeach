@@ -1,7 +1,7 @@
 ---
 title: "Switch Field"
 slug: "/f/switch-field"
-description: "Switches an option on or off."
+description: "Toggles an option."
 illustration: "switch-field.png"
 color: "green"
 ---

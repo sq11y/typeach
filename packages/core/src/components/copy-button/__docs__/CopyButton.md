@@ -1,7 +1,7 @@
 ---
 title: "Copy button"
 slug: "/c/copy-button"
-description: "Copies content to the clipboard."
+description: "Copies content."
 illustration: "copy-button.png"
 color: "pink"
 ---

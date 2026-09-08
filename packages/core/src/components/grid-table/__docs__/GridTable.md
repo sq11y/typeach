@@ -1,7 +1,7 @@
 ---
 title: "Grid table"
 slug: "/c/grid-table"
-description: "Allows for an interactive table."
+description: "An interactive table."
 illustration: "grid-table.png"
 color: "green"
 ---
