@@ -4,16 +4,17 @@
     :id="panelId"
     ref="element"
     v-hidden="hidden"
-    :popover="disabled || !popover ? undefined : 'auto'"
+    :popover="!popover ? undefined : 'auto'"
     @beforematch="open = true"
     @toggle="onToggle"
+    @command="onCommand"
   >
     <slot />
   </component>
 </template>
 
 <script lang="ts" setup>
-import { computed, useTemplateRef } from "vue";
+import { computed } from "vue";
 
 import { vHidden } from "../../directives";
 
@@ -56,21 +57,21 @@ const props = withDefaults(defineProps<DisclosurePanelProps>(), {
 
 defineSlots<DisclosurePanelSlots>();
 
-const { panelId, disabled, popover, open } = useContext(DisclosureKey);
+const { panelId, popover, open } = useContext(DisclosureKey);
 
 useSharedId(panelId, () => props.id);
-
-const element = useTemplateRef<HTMLElement>("element");
 
 const hidden = computed(() => {
   return open.value ? undefined : props.hideFromSearch ? true : "until-found";
 });
 
 const onToggle = (event: ToggleEvent) => {
-  if (event.newState === "open") {
-    open.value = true;
-  } else {
-    open.value = false;
+  open.value = event.newState === "open";
+};
+
+const onCommand = (event: CommandEvent) => {
+  if (event.command === "--toggle-disclosure") {
+    open.value = !open.value;
   }
 };
 </script>

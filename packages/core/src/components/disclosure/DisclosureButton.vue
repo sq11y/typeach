@@ -34,18 +34,8 @@ defineSlots<DisclosureButtonSlots>();
 
 const { panelId, open, disabled: disclosureDisabled, popover } = useContext(DisclosureKey);
 
-const conditionalProps = computed(() => {
-  if (popover.value) {
-    return {
-      command: "toggle-popover",
-      commandfor: panelId.value,
-    };
-  } else {
-    return {
-      onClick() {
-        open.value = !open.value;
-      },
-    };
-  }
-});
+const conditionalProps = computed(() => ({
+  command: popover.value ? "toggle-popover" : "--toggle-disclosure",
+  commandfor: panelId.value,
+}));
 </script>
