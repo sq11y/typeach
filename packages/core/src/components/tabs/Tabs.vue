@@ -10,7 +10,7 @@
 import { provide } from "vue";
 
 import { TabKey } from "./hooks";
-import { shareDynamicIds } from "../../hooks";
+import { useSharedIds } from "../../hooks";
 
 export interface TabsProps {
   /**
@@ -35,10 +35,10 @@ defineSlots<TabsSlots>();
  */
 const selectedPanel = defineModel<string>();
 
-const ids = shareDynamicIds();
+const sharedIds = useSharedIds();
 
 provide(TabKey, {
-  ids,
+  sharedIds,
   selectedPanel,
 });
 </script>

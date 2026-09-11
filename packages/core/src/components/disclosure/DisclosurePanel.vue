@@ -1,7 +1,7 @@
 <template>
   <component
     :is="as"
-    :id="panelId"
+    :id="id"
     ref="element"
     v-hidden="hidden"
     :popover="!popover ? undefined : 'auto'"
@@ -14,11 +14,11 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from "vue";
+import { computed, useId } from "vue";
 
 import { vHidden } from "../../directives";
 
-import { useContext, useSharedId } from "../../hooks";
+import { useContext, shareId } from "../../hooks";
 
 import { DisclosureKey } from "./hooks";
 
@@ -52,14 +52,14 @@ export interface DisclosurePanelSlots {
 
 const props = withDefaults(defineProps<DisclosurePanelProps>(), {
   as: "div",
-  id: undefined,
+  id: () => useId(),
 });
 
 defineSlots<DisclosurePanelSlots>();
 
-const { panelId, popover, open } = useContext(DisclosureKey);
+const { sharedIds, popover, open } = useContext(DisclosureKey);
 
-useSharedId(panelId, () => props.id);
+shareId(sharedIds, "panel", () => props.id);
 
 const hidden = computed(() => {
   return open.value ? undefined : props.hideFromSearch ? true : "until-found";

@@ -3,7 +3,7 @@ import type { ComputedRef, InjectionKey, Ref } from "vue";
 import type { RovingTabindex, SharedIds } from "../../../hooks";
 
 export interface TabContext {
-  ids: SharedIds;
+  sharedIds: SharedIds;
   selectedPanel: Ref<number | string | undefined>;
 }
 

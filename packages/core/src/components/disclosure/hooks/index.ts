@@ -1,10 +1,10 @@
 import type { ComputedRef, InjectionKey, WritableComputedRef } from "vue";
-import type { SharedId } from "../../../hooks/useId";
+import type { SharedIds } from "../../../hooks/useId";
 
 export interface Disclosure {
   disabled: ComputedRef<boolean>;
   popover: ComputedRef<boolean>;
-  panelId: SharedId;
+  sharedIds: SharedIds;
   open: WritableComputedRef<boolean>;
 }
 

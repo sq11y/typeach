@@ -3,7 +3,7 @@
     v-if="isSelected"
     :id="id"
     ref="button"
-    :aria-labelledby="ids.get(`${props.value}-button`)"
+    :aria-labelledby="sharedIds.get(`${props.value}-button`)"
     tabindex="-1"
     role="tabpanel"
   >
@@ -14,7 +14,7 @@
 <script lang="ts" setup>
 import { computed, useId } from "vue";
 
-import { useContext, useSharedDynamicIds } from "../../hooks";
+import { useContext, shareId } from "../../hooks";
 
 import { TabKey } from "./hooks";
 
@@ -38,14 +38,14 @@ export interface TabsPanelSlots {
 }
 
 const props = withDefaults(defineProps<TabsPanelProps>(), {
-  id: (props) => `${useId()}-${props.value}-panel`,
+  id: () => useId(),
 });
 
 defineSlots<TabsPanelSlots>();
 
-const { selectedPanel, ids } = useContext(TabKey);
+const { selectedPanel, sharedIds } = useContext(TabKey);
 
-useSharedDynamicIds(ids, `${props.value}-panel`, () => props.id);
+shareId(sharedIds, `${props.value}-panel`, () => props.id);
 
 const isSelected = computed(() => selectedPanel.value === props.value);
 </script>

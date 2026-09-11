@@ -9,9 +9,9 @@ test("Renders accessibly", async ({ page, mount, a11y }) => {
   await mount(TabsTest, { props: { items } });
   await a11y(["aria-required-children"]);
 
-  await expect(page.locator("#v-0-1-button")).toHaveAttribute("aria-controls", "v-12-1-panel");
-  await expect(page.locator("#v-12-1-panel")).toHaveAttribute("aria-labelledby", "v-0-1-button");
-  await expect(page.locator("#v-0-1-button")).toHaveAttribute("aria-selected", "true");
+  await expect(page.locator("#v-0")).toHaveAttribute("aria-controls", "v-24");
+  await expect(page.locator("#v-24")).toHaveAttribute("aria-labelledby", "v-0");
+  await expect(page.locator("#v-0")).toHaveAttribute("aria-selected", "true");
 });
 
 test("Roving tabindex - horizontal", async ({ mount, rovingTabindex }) => {

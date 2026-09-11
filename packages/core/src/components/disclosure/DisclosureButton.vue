@@ -2,7 +2,7 @@
   <PeachyButton
     v-if="!disclosureDisabled"
     :aria-expanded="open"
-    :aria-controls="panelId"
+    :aria-controls="sharedIds.get('panel')"
     :disabled="disabled"
     v-bind="conditionalProps"
   >
@@ -32,10 +32,10 @@ defineProps<DisclosureButtonProps>();
 
 defineSlots<DisclosureButtonSlots>();
 
-const { panelId, open, disabled: disclosureDisabled, popover } = useContext(DisclosureKey);
+const { sharedIds, open, disabled: disclosureDisabled, popover } = useContext(DisclosureKey);
 
 const conditionalProps = computed(() => ({
   command: popover.value ? "toggle-popover" : "--toggle-disclosure",
-  commandfor: panelId.value,
+  commandfor: sharedIds.get("panel"),
 }));
 </script>

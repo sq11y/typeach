@@ -4,7 +4,7 @@
     ref="element"
     :aria-disabled="disabled === true ? true : undefined"
     :aria-selected="selectedPanel === value"
-    :aria-controls="ids.get(`${props.value}-panel`)"
+    :aria-controls="sharedIds.get(`${props.value}-panel`)"
     type="button"
     role="tab"
     @focus="selectionFollowsFocus ? (selectedPanel = value) : undefined"
@@ -19,7 +19,7 @@
 <script lang="ts" setup>
 import { onBeforeMount, useId, useTemplateRef } from "vue";
 
-import { provideElement, useContext, useSharedDynamicIds } from "../../hooks";
+import { provideElement, shareId, useContext } from "../../hooks";
 
 import { TabKey, TabListKey } from "./hooks";
 
@@ -57,7 +57,7 @@ export interface TabsButtonSlots {
 }
 
 const props = withDefaults(defineProps<TabsButtonProps>(), {
-  id: (props) => `${useId()}-${props.value}-button`,
+  id: () => useId(),
 });
 
 const element = useTemplateRef("element");
@@ -68,9 +68,9 @@ const emit = defineEmits<TabsButtonEmits>();
 
 defineSlots<TabsButtonSlots>();
 
-const { selectedPanel, ids } = useContext(TabKey);
+const { selectedPanel, sharedIds } = useContext(TabKey);
 
-useSharedDynamicIds(ids, `${props.value}-button`, () => props.id);
+shareId(sharedIds, `${props.value}-button`, () => props.id);
 
 const { onKeyDown, selectionFollowsFocus } = useContext(TabListKey);
 

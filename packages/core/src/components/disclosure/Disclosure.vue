@@ -7,9 +7,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, provide, useId } from "vue";
+import { computed, provide } from "vue";
 
-import { shareId } from "../../hooks";
+import { useSharedIds } from "../../hooks";
 
 import { DisclosureKey } from "./hooks";
 
@@ -48,12 +48,10 @@ const props = defineProps<DisclosureProps>();
 
 defineSlots<DisclosureSlots>();
 
-const defaultId = useId();
-
-const panelId = shareId(defaultId);
+const sharedIds = useSharedIds();
 
 provide(DisclosureKey, {
-  panelId,
+  sharedIds,
 
   disabled: computed(() => props.disabled),
   popover: computed(() => props.popover),

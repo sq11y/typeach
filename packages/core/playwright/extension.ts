@@ -9,7 +9,7 @@ type Fixtures = {
    * Runs keyboard navigation tests for roving tabindex.
    */
   /* prettier-ignore */
-  rovingTabindex(direction: "horizontal" | "vertical", items: string[], edgeless?: boolean, withoutPagination?: boolean): Promise<void>;
+  rovingTabindex( direction: "horizontal" | "vertical", items: string[], edgeless?: boolean, withoutPagination?: boolean): Promise<void>;
 
   /**
    * Runs axe-core tests.
