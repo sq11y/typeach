@@ -4,7 +4,7 @@
       <div
         v-for="color of row"
         :key="color"
-        :style="`--background: var(--${color}-30);`"
+        :style="`--background: var(--${color}-20);`"
         aria-hidden="true"
       />
     </div>
@@ -24,7 +24,7 @@ const rows = [
 
 <style>
 .spacing-graphic {
-  block-size: 20rem;
+  block-size: var(--graphic-block-size, 20rem);
 
   display: grid;
   grid-template-rows: 1fr 1fr;

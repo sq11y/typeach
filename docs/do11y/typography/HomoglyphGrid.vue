@@ -3,7 +3,7 @@
     <div
       v-for="(typographyExample, i) of typography"
       :key="i"
-      :style="`--background: var(--${typographyExample.color}-30); --color: var(--${typographyExample.color}-70);`"
+      :style="`--background: var(--${typographyExample.color}-20); --color: var(--${typographyExample.color}-70);`"
       aria-hidden="true"
     >
       {{ typographyExample.text }}
@@ -60,7 +60,7 @@ const typography = [
 @use "@typeach/theme/utils";
 
 .homoglyph-grid {
-  block-size: 20rem;
+  block-size: var(--graphic-block-size, 20rem);
 
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -68,6 +68,8 @@ const typography = [
   gap: var(--spacing-s);
 
   user-select: none;
+
+  container-type: inline-size;
 
   @media (width < 32rem) {
     block-size: 18rem;
@@ -90,11 +92,11 @@ const typography = [
 
     font-size: var(--font-size-l);
 
-    @media (width < 32rem) {
+    @container (width < 32rem) {
       font-size: var(--font-size-m);
     }
 
-    @media (width < 26rem) {
+    @container (width < 26rem) {
       font-size: var(--font-size-s);
     }
   }
