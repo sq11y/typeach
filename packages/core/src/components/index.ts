@@ -1,6 +1,7 @@
 export * from "./button";
 export * from "./calendar-table";
 export * from "./copy-button";
+export * from "./dialog";
 export * from "./disclosure";
 export * from "./download-link";
 export * from "./field";
