@@ -34,6 +34,7 @@ export interface ToolbarSlots {
    *    - [DisclosureButton](/c/disclosure)
    *    - [SwitchFieldButton](/f/switch-field)
    *  - [DownloadLink](/c/download-link)
+   *  - [Link](/c/link)
    */
   default: () => void;
 }

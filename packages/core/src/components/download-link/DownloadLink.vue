@@ -1,21 +1,11 @@
 <template>
-  <a
-    ref="element"
-    :href="url"
-    :download="filename || true"
-    @keydown="onKeyDown"
-    @click="moveTo?.(element!)"
-  >
+  <PeachyLink :url="url" :download="filename || true">
     <slot />
-  </a>
+  </PeachyLink>
 </template>
 
 <script lang="ts" setup>
-import { useTemplateRef } from "vue";
-
-import { optionalInject, provideElement } from "../../hooks";
-
-import { ToolbarContextKey } from "../toolbar";
+import { PeachyLink } from "../link";
 
 export interface DownloadLinkProps {
   /**
@@ -45,10 +35,4 @@ export interface DownloadLinkSlots {
 defineProps<DownloadLinkProps>();
 
 defineSlots<DownloadLinkSlots>();
-
-const element = useTemplateRef("element");
-
-const { onKeyDown, moveTo } = optionalInject(ToolbarContextKey);
-
-provideElement("toolbar", element);
 </script>
