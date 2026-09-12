@@ -21,9 +21,10 @@
       <PeachyListboxGroup>
         <PeachyListboxGroupTitle class="group-title">One Tree Hill</PeachyListboxGroupTitle>
 
-        <PeachyListboxOption disabled value="peyton-sawyer">Peyton Sawyer <HeartSvg aria-hidden="true" /></PeachyListboxOption>
+        <PeachyListboxOption value="quinn-james">Quinn James <HeartSvg aria-hidden="true" /></PeachyListboxOption>
         <PeachyListboxOption value="brooke-davis">Brooke Davis <HeartSvg aria-hidden="true" /></PeachyListboxOption>
         <PeachyListboxOption value="haley-scott">Haley Scott <HeartSvg aria-hidden="true" /></PeachyListboxOption>
+        <PeachyListboxOption disabled value="peyton-sawyer">Peyton Sawyer <HeartSvg aria-hidden="true" /></PeachyListboxOption>
       </PeachyListboxGroup>
     </PeachyListboxInput>
   </PeachyListboxField>
@@ -58,7 +59,7 @@ const value = ref(["devi-vishwakumar", "christina-yang", "brooke-davis"]);
 
   --font-weight-medium: 500;
 
-  --icon-size: 1.25em;
+  --icon-size: 1em;
 }
 
 /* ===== Label ===== */
@@ -124,12 +125,12 @@ label {
 }
 
 [role="option"][aria-selected="true"] {
-  background-color: var(--pink-30);
+  background-color: var(--pink-20);
   color: var(--pink-80);
 
   @include utils.enabled {
     @include utils.hover {
-      background-color: var(--pink-40);
+      background-color: var(--pink-30);
     }
   }
 }
@@ -137,7 +138,7 @@ label {
 [role="option"][aria-selected="false"] {
   @include utils.enabled {
     @include utils.hover {
-      background-color: var(--grey-20);
+      background-color: var(--grey-10);
     }
   }
 }
@@ -146,8 +147,8 @@ label {
 
 [role="option"] {
   @include utils.disabled {
-    background-color: var(--grey-50);
-    color: var(--grey-80);
+    background-color: var(--grey-30);
+    color: var(--grey-70);
 
     @media (forced-colors: active) {
       color: GrayText;
