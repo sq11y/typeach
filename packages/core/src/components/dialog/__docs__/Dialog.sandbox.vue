@@ -2,13 +2,12 @@
 <template>
   <PeachyDialog modal>
     <PeachyDialogButton>
-       Preview the Queer map
+      Preview the Queer map
     </PeachyDialogButton>
 
     <PeachyDialogPanel light-dismiss>
-      
       <div class="dialog__header">
-        <PeachyDialogHeading level="2"> 
+        <PeachyDialogHeading :level="2"> 
           Queering the Map
         </PeachyDialogHeading>
 
