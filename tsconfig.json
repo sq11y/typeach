@@ -1,12 +1,13 @@
 {
   "extends": "./packages/core/tsconfig.app.json",
+  "exclude": ["**/__test__/*"],
 
   "include": [
     "./env.d.ts",
     "./docs/**/*",
     "./docs/**/*.vue",
-    "./packages/**/__docs__/*",
-    "./packages/**/__docs__/*.vue",
+    "./packages/**/*",
+    "./packages/**.vue",
     "vite.config.ts"
   ]
 }
