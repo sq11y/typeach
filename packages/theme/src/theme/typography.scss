@@ -17,7 +17,7 @@
   --line-height-s: calc(var(--line-height-scale) * 1.65);
 
   --font-size-m: calc(var(--font-size-scale) * 1.125rem);
-  --line-height-m: calc(var(--line-height-scale) * 1.625);
+  --line-height-m: calc(var(--line-height-scale) * 1.65);
 
   --font-size-l: calc(var(--font-size-scale) * 1.325rem);
   --line-height-l: calc(var(--line-height-scale) * 1.6);
@@ -98,11 +98,6 @@
   :where(* + h3),
   :where(* + h4) {
     margin-block-start: calc(var(--prose-flow-scale) * 1.125em);
-  }
-
-  :where(*:not(:is(p, small)) + h3),
-  :where(*:not(:is(p, small)) + h4) {
-    margin-block-start: calc(var(--prose-flow-scale) * 1.35em);
   }
 
   :where(* + h5) {
