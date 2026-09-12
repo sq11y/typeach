@@ -17,7 +17,7 @@ test("Can toggle panel", async ({ mount, page }) => {
   await expect(page.getByText("Content")).not.toHaveAttribute("hidden");
 });
 
-test("Can be disables", async ({ mount, page }) => {
+test("Can be disabled", async ({ mount, page }) => {
   await mount(DisclosureTest, {
     props: { disabled: true },
   });
