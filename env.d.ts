@@ -1,3 +1,4 @@
+/// <reference types="do11y/types" />
 /// <reference types="vite-svg-loader" />
 /// <reference types="vite/client" />
 

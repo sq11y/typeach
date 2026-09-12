@@ -8,9 +8,5 @@
     "./packages/**/__docs__/*",
     "./packages/**/__docs__/*.vue",
     "vite.config.ts"
-  ],
-
-  "compilerOptions": {
-    "types": ["do11y/types", "vite-svg-loader"]
-  }
+  ]
 }
