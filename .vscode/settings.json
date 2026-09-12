@@ -9,7 +9,7 @@
 
   "explorer.fileNesting.patterns": {
     "tsconfig.json": "tsconfig.*.json, env.d.ts",
-    "vite.config.*": "vitest.config.*, playwright-ct.config.*",
-    "package.json": "pnpm*, eslint*, .oxlint*, .oxfmt*, stylelint*"
+    "vite.config.*": "vitest.config.*, playwright-ct.config.*, eslint*, .oxlint*, .oxfmt*, stylelint*",
+    "package.json": "pnpm*"
   }
 }
