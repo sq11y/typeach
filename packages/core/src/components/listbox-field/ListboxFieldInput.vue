@@ -2,7 +2,7 @@
   <div
     :id="id"
     ref="element"
-    :aria-labelledby="`${id}-label`"
+    :aria-labelledby="sharedIds.get('label')"
     :aria-describedby="[errorIds, descriptionIds].flat().join(' ')"
     :aria-invalid="hasErrors"
     :aria-multiselectable="multiselect"
@@ -14,8 +14,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useTemplateRef, computed, inject, provide } from "vue";
-import { useElements, useListbox } from "../../hooks";
+import { useTemplateRef, computed, inject, provide, useId } from "vue";
+import { shareId, useElements, useListbox } from "../../hooks";
 
 import type { Orientation } from "../../utils";
 
@@ -41,6 +41,13 @@ export interface ListboxFieldInputProps {
    * keyboard shortcuts.
    */
   orientation?: Orientation;
+
+  /**
+   * The id for the element.
+   *
+   * @default useId()
+   */
+  id?: string;
 }
 
 export interface ListboxFieldInputSlots {
@@ -52,6 +59,7 @@ export interface ListboxFieldInputSlots {
 
 const props = withDefaults(defineProps<ListboxFieldInputProps>(), {
   orientation: "vertical",
+  id: () => useId(),
 });
 
 defineSlots<ListboxFieldInputSlots>();
@@ -61,7 +69,9 @@ defineSlots<ListboxFieldInputSlots>();
  */
 const modelValue = defineModel<string[]>({ default: () => [] });
 
-const { id, hasErrors, errorIds, descriptionIds } = inject(FieldContextKey)!;
+const { sharedIds, hasErrors, errorIds, descriptionIds } = inject(FieldContextKey)!;
+
+shareId(sharedIds, "input", () => props.id);
 
 const element = useTemplateRef("element");
 

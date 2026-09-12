@@ -9,6 +9,15 @@ import { useId, useTemplateRef } from "vue";
 
 import { provideElement } from "../../hooks";
 
+export interface FieldErrorProps {
+  /**
+   * The id for the element.
+   *
+   * @default useId()
+   */
+  id?: string;
+}
+
 export interface FieldErrorSlots {
   /**
    * The relevant help text for the error.
@@ -16,9 +25,11 @@ export interface FieldErrorSlots {
   default: () => void;
 }
 
-defineSlots<FieldErrorSlots>();
+withDefaults(defineProps<FieldErrorProps>(), {
+  id: () => useId(),
+});
 
-const id = useId();
+defineSlots<FieldErrorSlots>();
 
 const element = useTemplateRef("element");
 

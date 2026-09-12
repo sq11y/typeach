@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { provide, useId, useTemplateRef } from "vue";
+import { provide, useTemplateRef } from "vue";
 
 import { SwitchFieldContextKey } from "./hooks";
 
@@ -25,14 +25,11 @@ const modelValue = defineModel<boolean>({ default: false });
 
 defineSlots<SwitchFieldSlots>();
 
-const id = useId();
-
 const element = useTemplateRef("element");
 
-provideField(id, element);
+provideField(element);
 
 provide(SwitchFieldContextKey, {
-  id,
   modelValue,
 });
 </script>

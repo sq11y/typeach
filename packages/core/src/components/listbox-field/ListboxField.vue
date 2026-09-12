@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useId, useTemplateRef } from "vue";
+import { useTemplateRef } from "vue";
 
 import { provideField } from "../field/hooks";
 
@@ -18,9 +18,7 @@ export interface ListboxFieldSlots {
 
 defineSlots<ListboxFieldSlots>();
 
-const id = useId();
-
 const element = useTemplateRef("element");
 
-provideField(id, element);
+provideField(element);
 </script>

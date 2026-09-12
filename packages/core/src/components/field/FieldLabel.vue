@@ -1,14 +1,25 @@
 <template>
   <!-- eslint-disable-next-line vuejs-accessibility/click-events-have-key-events vuejs-accessibility/label-has-for vuejs-accessibility/no-static-element-interactions -->
-  <label :id="`${id}-label`" :for="id" @click="onClick">
+  <label :id="id" :for="sharedIds.get('input')" @click="onClick">
     <slot />
   </label>
 </template>
 
 <script lang="ts" setup>
-import { inject } from "vue";
+import { inject, useId } from "vue";
+
+import { shareId } from "../../hooks";
 
 import { FieldContextKey } from "./hooks";
+
+export interface FieldLabelProps {
+  /**
+   * The id for the element.
+   *
+   * @default useId()
+   */
+  id?: string;
+}
 
 export interface FieldLabelSlots {
   /**
@@ -19,11 +30,17 @@ export interface FieldLabelSlots {
   default: () => void;
 }
 
+const props = withDefaults(defineProps<FieldLabelProps>(), {
+  id: () => useId(),
+});
+
 defineSlots<FieldLabelSlots>();
 
-const { id } = inject(FieldContextKey)!;
+const { sharedIds } = inject(FieldContextKey)!;
+
+shareId(sharedIds, "label", () => props.id);
 
 const onClick = () => {
-  document.getElementById(id)?.focus();
+  document.getElementById(sharedIds.get("input"))?.focus();
 };
 </script>

@@ -9,6 +9,15 @@ import { useId, useTemplateRef } from "vue";
 
 import { provideElement } from "../../hooks";
 
+export interface FieldDescriptionProps {
+  /**
+   * The id for the element.
+   *
+   * @default useId()
+   */
+  id?: string;
+}
+
 export interface FieldDescriptionSlots {
   /**
    * The description for the field.
@@ -16,9 +25,11 @@ export interface FieldDescriptionSlots {
   default: () => void;
 }
 
-defineSlots<FieldDescriptionSlots>();
+withDefaults(defineProps<FieldDescriptionProps>(), {
+  id: () => useId(),
+});
 
-const id = useId();
+defineSlots<FieldDescriptionSlots>();
 
 const element = useTemplateRef("element");
 
