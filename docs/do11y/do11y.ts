@@ -17,6 +17,9 @@ export default {
     const Do11yMeta = (await import("./components/meta/Do11yMeta.vue")).default;
     app.component("Do11yMeta", Do11yMeta);
 
+    const Do11yDoDont = (await import("./components/Do11yDoDont.vue")).default;
+    app.component("Do11yDoDont", Do11yDoDont);
+
     const description = document.createElement("meta");
 
     description.name = "description";

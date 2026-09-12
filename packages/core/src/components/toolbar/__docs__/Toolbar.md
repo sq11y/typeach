@@ -23,6 +23,18 @@ color: "brown"
 
 <ToolbarSandbox title="Toolbar" block-size="36rem" />
 
+## Guidelines
+
+<Do11yDoDont do-title="Use when.." dont-title="Avoid when..">
+
+<template v-slot:do>
+
+- You want to purposefully group controls together.
+
+</template>
+
+</Do11yDoDont>
+
 ## API
 
 <Do11yMeta :meta="ToolbarMeta" />

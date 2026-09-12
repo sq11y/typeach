@@ -28,6 +28,26 @@ color: "turquoise"
 
 <TabsSandbox title="Tabs" block-size="22rem" />
 
+## Guidelines
+
+<Do11yDoDont do-title="Use when.." dont-title="Avoid when..">
+
+<template v-slot:do>
+
+- You want sub-pages without loading a new page.
+- You want to split the page into sections.
+
+</template>
+
+<template v-slot:dont>
+
+- You want to hide information that is only relevant to some users, use [Disclosure](/c/disclosure).
+- Part of a step-by-step process.
+
+</template>
+
+</Do11yDoDont>
+
 ## API
 
 ### Tabs

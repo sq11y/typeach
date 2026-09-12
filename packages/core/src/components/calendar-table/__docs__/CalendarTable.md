@@ -25,6 +25,18 @@ color: "green"
 
 <CalendarTableSandbox title="Calendar table" block-size="35rem" />
 
+## Guidelines
+
+<Do11yDoDont do-title="Use when.." dont-title="Avoid when..">
+
+<template v-slot:do>
+
+- You need a simple calendar - no events associated with each date.
+
+</template>
+
+</Do11yDoDont>
+
 ## API
 
 ### Table

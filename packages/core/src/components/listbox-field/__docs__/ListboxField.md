@@ -28,6 +28,28 @@ color: "pink"
 
 <ListboxFieldSandbox title="Listbox field" block-size="40rem" />
 
+## Guidelines
+
+<Do11yDoDont do-title="Use when.." dont-title="Avoid when..">
+
+<template v-slot:do>
+
+- The user is going to pick one or more options from a big list.
+- Typeahead and extensive keyboard navgiation might be beneficial.
+- Making an input to let users categorize their selection. <em>Example to come!</em>
+
+</template>
+
+<template v-slot:dont>
+
+- You only want the typeahead and extensive keyboard navgiation, use a select.
+- It would be better for the user to _search_ through the options, use a combobox.
+- There are very few options, use a radio or a group of checkboxes.
+
+</template>
+
+</Do11yDoDont>
+
 ## API
 
 ### Field

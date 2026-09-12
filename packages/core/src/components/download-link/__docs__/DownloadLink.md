@@ -23,6 +23,24 @@ color: "blue"
 
 <DownloadLinkSandbox title="Download link" />
 
+## Guidelines
+
+<Do11yDoDont do-title="Use when.." dont-title="Avoid when..">
+
+<template v-slot:do>
+
+- Downloading content instantly.
+
+</template>
+
+<template v-slot:dont>
+
+- Downloading content with a significant loading time, use [Button](/c/button).
+
+</template>
+
+</Do11yDoDont>
+
 ## API
 
 ### Download link
