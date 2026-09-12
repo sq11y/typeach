@@ -152,7 +152,7 @@
 
   :where(ul, ol) {
     padding-inline-start: 0;
-    margin-inline-start: calc(var(--prose-flow-scale) * 2.4em);
+    margin-inline-start: calc(var(--prose-flow-scale) * 2em);
   }
 
   :where(li + li) {
