@@ -11,7 +11,7 @@ import { computed, provide } from "vue";
 
 import { useSharedIds } from "../../hooks";
 
-import { DisclosureKey } from "./hooks";
+import { DisclosureContextKey } from "./hooks";
 
 export interface DisclosureProps {
   /**
@@ -50,7 +50,7 @@ defineSlots<DisclosureSlots>();
 
 const sharedIds = useSharedIds();
 
-provide(DisclosureKey, {
+provide(DisclosureContextKey, {
   sharedIds,
 
   disabled: computed(() => props.disabled),

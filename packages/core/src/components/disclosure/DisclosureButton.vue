@@ -11,11 +11,11 @@
 </template>
 
 <script lang="ts" setup>
-import { useContext } from "../../hooks";
-import { DisclosureKey } from "./hooks";
+import { computed, inject } from "vue";
+
+import { DisclosureContextKey } from "./hooks";
 
 import { PeachyButton, type ButtonProps } from "../button";
-import { computed } from "vue";
 
 export interface DisclosureButtonProps extends Omit<ButtonProps, "type"> {}
 
@@ -32,7 +32,7 @@ defineProps<DisclosureButtonProps>();
 
 defineSlots<DisclosureButtonSlots>();
 
-const { sharedIds, open, disabled: disclosureDisabled, popover } = useContext(DisclosureKey);
+const { sharedIds, open, disabled: disclosureDisabled, popover } = inject(DisclosureContextKey)!;
 
 const conditionalProps = computed(() => ({
   command: popover.value ? "toggle-popover" : "--toggle-disclosure",

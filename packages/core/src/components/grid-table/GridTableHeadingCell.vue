@@ -11,10 +11,9 @@
 
 <script lang="ts" setup>
 import { useTemplateRef } from "vue";
-
 import { useGridTableCell } from "./hooks";
 
-import PeachyTableHeadingCell from "../table/TableHeadingCell.vue";
+import { PeachyTableHeadingCell } from "../table";
 
 export interface GridTableHeadingCellProps {
   /**

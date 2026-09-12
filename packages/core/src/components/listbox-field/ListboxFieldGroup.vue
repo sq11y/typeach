@@ -6,7 +6,8 @@
 
 <script lang="ts" setup>
 import { provide, useId } from "vue";
-import { ListboxFieldGroupInjectionKey } from "./hooks";
+
+import { ListboxFieldGroupContextKey } from "./hooks";
 
 export interface ListboxFieldGroupSlots {
   /**
@@ -19,5 +20,5 @@ defineSlots<ListboxFieldGroupSlots>();
 
 const id = useId();
 
-provide(ListboxFieldGroupInjectionKey, id);
+provide(ListboxFieldGroupContextKey, id);
 </script>

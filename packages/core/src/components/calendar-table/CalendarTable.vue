@@ -6,12 +6,11 @@
 
 <script setup lang="ts">
 import { computed, provide } from "vue";
-
 import { useMounted } from "@vueuse/core";
 
-import { PeachyTable } from "../table";
+import { CalendarTableContextKey } from "./hooks";
 
-import { CalendarTableKey } from "./hooks";
+import { PeachyTable } from "../table";
 
 export interface CalendarTableProps {
   /**
@@ -38,7 +37,7 @@ const focusedDate = defineModel<Date>({ default: () => new Date() });
 
 const mounted = useMounted();
 
-provide(CalendarTableKey, {
+provide(CalendarTableContextKey, {
   focusedDate,
   allowFocus: computed(() => props.autoFocus || mounted.value),
 });

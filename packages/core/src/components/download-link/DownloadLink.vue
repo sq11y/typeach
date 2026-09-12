@@ -12,9 +12,10 @@
 
 <script lang="ts" setup>
 import { useTemplateRef } from "vue";
-import { useOptionalContext, provideElement } from "../../hooks";
 
-import { ToolbarKey } from "../toolbar";
+import { optionalInject, provideElement } from "../../hooks";
+
+import { ToolbarContextKey } from "../toolbar";
 
 export interface DownloadLinkProps {
   /**
@@ -47,7 +48,7 @@ defineSlots<DownloadLinkSlots>();
 
 const element = useTemplateRef("element");
 
-const { onKeyDown, moveTo } = useOptionalContext(ToolbarKey);
+const { onKeyDown, moveTo } = optionalInject(ToolbarContextKey);
 
 provideElement("toolbar", element);
 </script>

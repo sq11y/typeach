@@ -5,11 +5,10 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, provide, useTemplateRef } from "vue";
+import { useTemplateRef, computed, provide } from "vue";
+import { useElements, useGrid, GridKey } from "../../hooks";
 
-import { GridKey, useElements, useGrid } from "../../hooks";
-
-import PeachyTable from "../table/Table.vue";
+import { PeachyTable } from "../table";
 
 export interface GridTableSlots {
   /**

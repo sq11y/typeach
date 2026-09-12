@@ -16,11 +16,11 @@
 </template>
 
 <script lang="ts" setup>
-import { useTemplateRef } from "vue";
+import { inject, useTemplateRef } from "vue";
 
-import { provideElement, useContext } from "../../hooks";
+import { provideElement } from "../../hooks";
 
-import { ListboxFieldInjectionKey } from "./hooks";
+import { ListboxFieldContextKey } from "./hooks";
 
 export interface ListboxFieldOptionProps {
   /**
@@ -51,8 +51,7 @@ const element = useTemplateRef("element");
 
 provideElement("listbox", element);
 
-const { onKeyDown, onSpace, moveTo, modelValue, multiselect } =
-  useContext(ListboxFieldInjectionKey);
+const { onKeyDown, onSpace, moveTo, modelValue, multiselect } = inject(ListboxFieldContextKey)!;
 
 const onClick = () => {
   moveTo(element.value!);

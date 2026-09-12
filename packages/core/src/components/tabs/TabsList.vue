@@ -5,12 +5,12 @@
 </template>
 
 <script lang="ts" setup>
-import { toRefs, useTemplateRef, provide, computed } from "vue";
+import { useTemplateRef, toRefs, provide, computed } from "vue";
+import { useElements, useRovingTabindex } from "../../hooks";
 
 import type { Orientation } from "../../utils";
 
-import { useElements, useRovingTabindex } from "../../hooks";
-import { TabListKey } from "./hooks";
+import { TabListContextKey } from "./hooks";
 
 export interface TabsListProps {
   /**
@@ -49,7 +49,7 @@ const { getElements } = useElements("tabs-list", element);
 
 const { onKeyDown } = useRovingTabindex(orientation, getElements);
 
-provide(TabListKey, {
+provide(TabListContextKey, {
   selectionFollowsFocus: computed(() => props.selectionFollowsFocus),
   onKeyDown,
 });

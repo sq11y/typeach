@@ -14,8 +14,11 @@
 </template>
 
 <script lang="ts" setup>
-import { useSwitchField } from "./hooks";
-import { useField } from "../field/hooks";
+import { inject } from "vue";
+
+import { FieldContextKey } from "../field/hooks";
+import { SwitchFieldContextKey } from "./hooks";
+
 import { PeachyButton } from "../button";
 
 export interface SwitchFieldSwitchButtonProps {
@@ -36,7 +39,7 @@ defineProps<SwitchFieldSwitchButtonProps>();
 
 defineSlots<SwitchFieldSwitchButtonSlots>();
 
-const { modelValue } = useSwitchField();
+const { modelValue } = inject(SwitchFieldContextKey)!;
 
-const { id, hasErrors, errorIds, descriptionIds } = useField();
+const { id, hasErrors, errorIds, descriptionIds } = inject(FieldContextKey)!;
 </script>

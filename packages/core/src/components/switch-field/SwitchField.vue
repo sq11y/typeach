@@ -7,9 +7,9 @@
 <script lang="ts" setup>
 import { provide, useId, useTemplateRef } from "vue";
 
-import { useFieldProvider } from "../field/hooks";
+import { SwitchFieldContextKey } from "./hooks";
 
-import { SwitchFieldInjectionKey } from "./hooks";
+import { provideField } from "../field/hooks";
 
 export interface SwitchFieldSlots {
   /**
@@ -29,9 +29,9 @@ const id = useId();
 
 const element = useTemplateRef("element");
 
-useFieldProvider(id, element);
+provideField(id, element);
 
-provide(SwitchFieldInjectionKey, {
+provide(SwitchFieldContextKey, {
   id,
   modelValue,
 });

@@ -12,8 +12,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useContext } from "../../hooks";
-import { TabKey } from "./hooks";
+import { inject } from "vue";
+
+import { TabContextKey } from "./hooks";
 
 export interface TabsActionButtonProps {
   /**
@@ -51,7 +52,7 @@ const emit = defineEmits<TabsActionButtonEmits>();
 
 defineSlots<TabsActionButtonSlots>();
 
-const { selectedPanel } = useContext(TabKey);
+const { selectedPanel } = inject(TabContextKey)!;
 
 const onClick = (event: MouseEvent) => {
   if (!props.disabled) {

@@ -5,12 +5,12 @@
 </template>
 
 <script lang="ts" setup>
-import { provide, toRefs, useTemplateRef } from "vue";
-
+import { useTemplateRef, provide, toRefs } from "vue";
 import { useElements, useRovingTabindex } from "../../hooks/";
 
 import type { Orientation } from "../../utils";
-import { ToolbarKey } from "./hooks";
+
+import { ToolbarContextKey } from "./hooks";
 
 export interface ToolbarProps {
   /**
@@ -52,7 +52,7 @@ const { getElements } = useElements("toolbar", element);
 
 const { onKeyDown, moveTo } = useRovingTabindex(orientation, getElements);
 
-provide(ToolbarKey, {
+provide(ToolbarContextKey, {
   onKeyDown,
   moveTo,
 });

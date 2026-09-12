@@ -13,9 +13,10 @@
 
 <script lang="ts" setup>
 import { useTemplateRef, type ButtonHTMLAttributes } from "vue";
-import { useOptionalContext, provideElement } from "../../hooks";
 
-import { ToolbarKey } from "../toolbar";
+import { optionalInject, provideElement } from "../../hooks";
+
+import { ToolbarContextKey } from "../toolbar";
 
 export interface ButtonProps {
   /**
@@ -58,7 +59,7 @@ defineSlots<ButtonSlots>();
 
 const element = useTemplateRef("element");
 
-const { onKeyDown, moveTo } = useOptionalContext(ToolbarKey);
+const { onKeyDown, moveTo } = optionalInject(ToolbarContextKey);
 
 provideElement("toolbar", element);
 

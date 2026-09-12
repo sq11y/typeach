@@ -14,14 +14,14 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, useTemplateRef, nextTick } from "vue";
+import { computed, useTemplateRef, nextTick, inject } from "vue";
+import { watchImmediate } from "@vueuse/core";
 
 import { isSameDate } from "../../utils";
 
-import { useCalendarGrid, useContext } from "../../hooks";
+import { useCalendarGrid } from "../../hooks";
 
-import { CalendarTableKey } from "./hooks";
-import { watchImmediate } from "@vueuse/core";
+import { CalendarTableContextKey } from "./hooks";
 
 export interface CalendarTableCellButtonProps {
   /**
@@ -64,7 +64,7 @@ defineSlots<CalendarTableCellButtonSlots>();
 
 const element = useTemplateRef("element");
 
-const { focusedDate, allowFocus } = useContext(CalendarTableKey);
+const { focusedDate, allowFocus } = inject(CalendarTableContextKey)!;
 
 const { onKeyDown } = useCalendarGrid(focusedDate);
 

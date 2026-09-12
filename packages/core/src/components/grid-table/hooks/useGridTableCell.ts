@@ -1,17 +1,17 @@
-import { computed, type TemplateRef } from "vue";
+import { computed, inject, type TemplateRef } from "vue";
 import { GridRowIdKey } from ".";
-import { GridKey, provideElement, useContext } from "../../../hooks";
+import { GridKey, provideElement } from "../../../hooks";
 
 export const useGridTableCell = (node: TemplateRef<{ $el: HTMLElement }>) => {
   const element = computed<HTMLElement | undefined>(() => node.value?.$el);
 
-  const rowId = useContext(GridRowIdKey);
+  const rowId = inject(GridRowIdKey)!;
 
   provideElement("table", element);
 
   provideElement(rowId, element);
 
-  const { onKeyDown } = useContext(GridKey);
+  const { onKeyDown } = inject(GridKey)!;
 
   return {
     onKeyDown,

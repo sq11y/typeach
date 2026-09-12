@@ -9,8 +9,8 @@ test("Renders accessibly", async ({ page, mount, a11y }) => {
   await mount(TabsTest, { props: { items } });
   await a11y(["aria-required-children"]);
 
-  await expect(page.locator("#v-0")).toHaveAttribute("aria-controls", "v-24");
-  await expect(page.locator("#v-24")).toHaveAttribute("aria-labelledby", "v-0");
+  await expect(page.locator("#v-0")).toHaveAttribute("aria-controls", "v-12");
+  await expect(page.locator("#v-12")).toHaveAttribute("aria-labelledby", "v-0");
   await expect(page.locator("#v-0")).toHaveAttribute("aria-selected", "true");
 });
 

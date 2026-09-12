@@ -14,14 +14,13 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, provide, useTemplateRef } from "vue";
+import { useTemplateRef, computed, inject, provide } from "vue";
+import { useElements, useListbox } from "../../hooks";
 
 import type { Orientation } from "../../utils";
 
-import { useElements, useListbox } from "../../hooks";
-import { useField } from "../field/hooks";
-
-import { ListboxFieldInjectionKey } from "./hooks";
+import { ListboxFieldContextKey } from "./hooks";
+import { FieldContextKey } from "../field/hooks";
 
 export interface ListboxFieldInputProps {
   /**
@@ -62,7 +61,7 @@ defineSlots<ListboxFieldInputSlots>();
  */
 const modelValue = defineModel<string[]>({ default: () => [] });
 
-const { id, hasErrors, errorIds, descriptionIds } = useField();
+const { id, hasErrors, errorIds, descriptionIds } = inject(FieldContextKey)!;
 
 const element = useTemplateRef("element");
 
@@ -75,7 +74,7 @@ const { onKeyDown, onSpace, moveTo } = useListbox(
   getElements,
 );
 
-provide(ListboxFieldInjectionKey, {
+provide(ListboxFieldContextKey, {
   onKeyDown,
   onSpace,
   moveTo,

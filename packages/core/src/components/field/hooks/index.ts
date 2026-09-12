@@ -1,6 +1,6 @@
-import { computed, type ComputedRef, type InjectionKey, type TemplateRef } from "vue";
+import { computed, provide, type ComputedRef, type InjectionKey, type TemplateRef } from "vue";
 
-import { useElements, useContext, useContextProvider } from "../../../hooks";
+import { useElements } from "../../../hooks";
 
 export interface FieldContext {
   id: string;
@@ -9,15 +9,9 @@ export interface FieldContext {
   descriptionIds: ComputedRef<string[]>;
 }
 
-export interface FieldGroupContext {
-  id: string;
-}
+export const FieldContextKey: InjectionKey<FieldContext> = Symbol("field");
 
-export const FieldGroupKey: InjectionKey<FieldGroupContext> = Symbol("field-group");
-
-export const FieldInjectionKey: InjectionKey<FieldContext> = Symbol("field");
-
-export const useFieldProvider = (
+export const provideField = (
   id: string,
   list?: TemplateRef<HTMLElement> | ComputedRef<HTMLElement | undefined>,
 ) => {
@@ -26,7 +20,7 @@ export const useFieldProvider = (
 
   const getElementIds = (array: HTMLElement[]) => array.filter((i) => i.id).map((i) => i.id);
 
-  return useContextProvider(FieldInjectionKey, {
+  return provide(FieldContextKey, {
     id,
 
     hasErrors: computed(() => errorElements.value.length > 0),
@@ -34,5 +28,3 @@ export const useFieldProvider = (
     descriptionIds: computed(() => getElementIds(descriptionElements.value)),
   });
 };
-
-export const useField = () => useContext(FieldInjectionKey);

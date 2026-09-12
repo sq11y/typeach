@@ -12,11 +12,11 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, useId } from "vue";
+import { computed, inject, useId } from "vue";
 
-import { useContext, shareId } from "../../hooks";
+import { shareId } from "../../hooks";
 
-import { TabKey } from "./hooks";
+import { TabContextKey } from "./hooks";
 
 export interface TabsPanelProps {
   /**
@@ -43,7 +43,7 @@ const props = withDefaults(defineProps<TabsPanelProps>(), {
 
 defineSlots<TabsPanelSlots>();
 
-const { selectedPanel, sharedIds } = useContext(TabKey);
+const { selectedPanel, sharedIds } = inject(TabContextKey)!;
 
 shareId(sharedIds, `${props.value}-panel`, () => props.id);
 

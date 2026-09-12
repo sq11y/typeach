@@ -9,7 +9,7 @@ import { provide, useId } from "vue";
 
 import { GridRowIdKey } from "./hooks";
 
-import PeachyTableRow from "../table/TableRow.vue";
+import { PeachyTableRow } from "../table";
 
 export interface GridTableRowSlots {
   /**

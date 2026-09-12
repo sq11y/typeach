@@ -17,11 +17,11 @@
 </template>
 
 <script lang="ts" setup>
-import { onBeforeMount, useId, useTemplateRef } from "vue";
+import { inject, onBeforeMount, useId, useTemplateRef } from "vue";
 
-import { provideElement, shareId, useContext } from "../../hooks";
+import { provideElement, shareId } from "../../hooks";
 
-import { TabKey, TabListKey } from "./hooks";
+import { TabContextKey, TabListContextKey } from "./hooks";
 
 export interface TabsButtonProps {
   /**
@@ -68,11 +68,11 @@ const emit = defineEmits<TabsButtonEmits>();
 
 defineSlots<TabsButtonSlots>();
 
-const { selectedPanel, sharedIds } = useContext(TabKey);
+const { selectedPanel, sharedIds } = inject(TabContextKey)!;
 
 shareId(sharedIds, `${props.value}-button`, () => props.id);
 
-const { onKeyDown, selectionFollowsFocus } = useContext(TabListKey);
+const { onKeyDown, selectionFollowsFocus } = inject(TabListContextKey)!;
 
 const onClick = () => {
   if (!props.disabled) {

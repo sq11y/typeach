@@ -6,6 +6,6 @@ export interface ListboxFieldContext extends Listbox {
   multiselect: ComputedRef<boolean>;
 }
 
-export const ListboxFieldInjectionKey: InjectionKey<ListboxFieldContext> = Symbol("listbox-field");
+export const ListboxFieldContextKey: InjectionKey<ListboxFieldContext> = Symbol("listbox-field");
 
-export const ListboxFieldGroupInjectionKey: InjectionKey<string> = Symbol("listbox-field-group");
+export const ListboxFieldGroupContextKey: InjectionKey<string> = Symbol("listbox-field-group");

@@ -51,7 +51,7 @@ and <kbd>Arrow up</kbd> with <kbd>Arrow left</kbd>.
 
 ## Adding custom controls
 
-To add a custom control to a toolbar use `provideElement("toolbar", element)` to include it in the roving tabindex - then use `useOptionalContext(ToolbarKey)` to access the necessary keyboard bindings and the ability to move focus to the control (which you should do when it is interacted with).
+To add a custom control to a toolbar use `provideElement("toolbar", element)` to include it in the roving tabindex - then use `optionalInject(ToolbarContextKey)` to access the necessary keyboard bindings and the ability to move focus to the control (which you should do when it is interacted with).
 
 The tabindex will automatically update so that the most recently interacted with element remains in the tab order.
 
@@ -70,7 +70,7 @@ The tabindex will automatically update so that the most recently interacted with
 
 <script lang="ts" setup>
 import { useTemplateRef } from "vue";
-import { useOptionalContext, provideElement, ToolbarKey } from "@typeach/core";
+import { optionalInject, provideElement, ToolbarContextKey } from "@typeach/core";
 
 export interface ButtonEmits {
   click: [MouseEvent];
@@ -86,7 +86,7 @@ defineSlots<ButtonSlots>();
 
 const element = useTemplateRef("element");
 
-const { onKeyDown, moveTo } = useOptionalContext(ToolbarKey);
+const { onKeyDown, moveTo } = optionalInject(ToolbarContextKey);
 
 provideElement("toolbar", element);
 

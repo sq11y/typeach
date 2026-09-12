@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useContext } from "../../hooks";
+import { inject } from "vue";
 
-import { ListboxFieldGroupInjectionKey } from "./hooks";
+import { ListboxFieldGroupContextKey } from "./hooks";
 
 export interface ListboxFieldGroupTitleSlots {
   /**
@@ -18,5 +18,5 @@ export interface ListboxFieldGroupTitleSlots {
 
 defineSlots<ListboxFieldGroupTitleSlots>();
 
-const id = useContext(ListboxFieldGroupInjectionKey);
+const id = inject(ListboxFieldGroupContextKey)!;
 </script>

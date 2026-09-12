@@ -9,8 +9,9 @@
 <script lang="ts" setup>
 import { provide } from "vue";
 
-import { TabKey } from "./hooks";
 import { useSharedIds } from "../../hooks";
+
+import { TabContextKey } from "./hooks";
 
 export interface TabsProps {
   /**
@@ -37,7 +38,7 @@ const selectedPanel = defineModel<string>();
 
 const sharedIds = useSharedIds();
 
-provide(TabKey, {
+provide(TabContextKey, {
   sharedIds,
   selectedPanel,
 });

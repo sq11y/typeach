@@ -14,13 +14,13 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, useId } from "vue";
+import { computed, inject, useId } from "vue";
 
 import { vHidden } from "../../directives";
 
-import { useContext, shareId } from "../../hooks";
+import { shareId } from "../../hooks";
 
-import { DisclosureKey } from "./hooks";
+import { DisclosureContextKey } from "./hooks";
 
 export interface DisclosurePanelProps {
   /**
@@ -57,7 +57,7 @@ const props = withDefaults(defineProps<DisclosurePanelProps>(), {
 
 defineSlots<DisclosurePanelSlots>();
 
-const { sharedIds, popover, open } = useContext(DisclosureKey);
+const { sharedIds, popover, open } = inject(DisclosureContextKey)!;
 
 shareId(sharedIds, "panel", () => props.id);
 

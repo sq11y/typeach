@@ -12,7 +12,6 @@
 import { computed, ref } from "vue";
 
 import { PeachyButton } from "../button";
-
 import { PeachyVisuallyHidden } from "../visually-hidden";
 
 export interface CopyButtonProps {

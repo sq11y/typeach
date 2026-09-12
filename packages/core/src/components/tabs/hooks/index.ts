@@ -11,6 +11,6 @@ export type TabsListContext = Pick<RovingTabindex, "onKeyDown"> & {
   selectionFollowsFocus: ComputedRef<boolean>;
 };
 
-export const TabKey: InjectionKey<TabContext> = Symbol("tabs");
+export const TabContextKey: InjectionKey<TabContext> = Symbol("tabs");
 
-export const TabListKey: InjectionKey<TabsListContext> = Symbol("tabs-list");
+export const TabListContextKey: InjectionKey<TabsListContext> = Symbol("tabs-list");

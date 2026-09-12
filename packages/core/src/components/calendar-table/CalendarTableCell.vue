@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import PeachyTableCell from "../table/TableCell.vue";
+import { PeachyTableCell } from "../table";
 
 export interface CalendarTableCellSlots {
   /**

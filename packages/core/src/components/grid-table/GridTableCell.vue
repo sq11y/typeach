@@ -14,7 +14,7 @@ import { useTemplateRef } from "vue";
 
 import { useGridTableCell } from "./hooks";
 
-import PeachyTableCell from "../table/TableCell.vue";
+import { PeachyTableCell } from "../table";
 
 export interface GridTableCellProps {
   /**

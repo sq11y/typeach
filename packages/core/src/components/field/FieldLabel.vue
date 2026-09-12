@@ -6,7 +6,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useField } from "./hooks";
+import { inject } from "vue";
+
+import { FieldContextKey } from "./hooks";
 
 export interface FieldLabelSlots {
   /**
@@ -19,7 +21,7 @@ export interface FieldLabelSlots {
 
 defineSlots<FieldLabelSlots>();
 
-const { id } = useField();
+const { id } = inject(FieldContextKey)!;
 
 const onClick = () => {
   document.getElementById(id)?.focus();
