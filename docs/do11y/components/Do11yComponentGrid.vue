@@ -2,7 +2,7 @@
   <nav :class="c()">
     <ul :class="c('list')">
       <li
-        v-for="component of components"
+        v-for="component of filteredComponents"
         :key="component.path"
         :class="c('list-item')"
         :style="`
@@ -32,25 +32,45 @@
 </template>
 
 <script lang="ts" setup>
-import type { RouteRecordRaw } from "vue-router";
-import { useRouter } from "vue-router";
+import { computed } from "vue";
 
+import { useRouter } from "vue-router";
 import { useBemClass } from "@typeach/core";
 
-interface ComponentGridProps {
+import routes from "do11y:routes";
+
+export interface ComponentGridProps {
   /**
-   * The component routes.
+   * The components to show.
    */
-  components: (Omit<RouteRecordRaw, "meta"> & {
-    meta: Exclude<RouteRecordRaw["meta"], undefined>;
-  })[];
+  components?: string[];
 }
 
-defineProps<ComponentGridProps>();
+const props = defineProps<ComponentGridProps>();
 
 const c = useBemClass("component-grid");
 
 const router = useRouter();
+
+const componentRoutes = computed(() => {
+  return routes.filter((r) => {
+    return !r.path.startsWith("/c") ? false : r.path !== "/c";
+  });
+});
+
+const fieldsRoutes = computed(() => {
+  return routes.filter((r) => {
+    return r.path.startsWith("/f");
+  });
+});
+
+const filteredComponents = computed(() => {
+  const components = [...componentRoutes.value, ...fieldsRoutes.value];
+
+  return props.components
+    ? components.filter((c) => props.components!.some((filter) => filter === c.meta.title))
+    : components;
+});
 </script>
 
 <style lang="scss">
