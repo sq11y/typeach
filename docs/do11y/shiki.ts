@@ -12,7 +12,7 @@ const colors = {
 export const theme: ThemeRegistration = {
   name: "do11y",
   fg: "var(--fg)",
-  bg: "var(--grey-10)",
+  bg: "var(--code-block-bg, var(--grey-10))",
 
   tokenColors: [
     {

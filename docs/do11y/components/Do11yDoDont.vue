@@ -82,21 +82,24 @@ const c = useBemClass("usage-guide");
 @use "../style/mixins";
 
 .usage-guide {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: start;
   gap: var(--spacing-l);
 
-  @media (width < 45rem) {
-    grid-template-columns: 1fr;
-  }
-
-  img {
+  img,
+  pre {
     background-color: var(--bg);
     border-radius: var(--border-radius);
   }
 
+  pre {
+    padding: var(--spacing-l);
+  }
+
   &__do,
   &__dont {
+    inline-size: 50%;
+
     position: relative;
     display: flex;
 
@@ -128,6 +131,7 @@ const c = useBemClass("usage-guide");
   }
 
   &__do {
+    --code-block-bg: var(--green-bg);
     --usage-guide-title-color: var(--green-90);
     --usage-guide-background-color: var(--green-10);
     --usage-guide-color: var(--green-fg);
@@ -140,6 +144,7 @@ const c = useBemClass("usage-guide");
   }
 
   &__dont {
+    --code-block-bg: var(--red-bg);
     --usage-guide-title-color: var(--red-90);
     --usage-guide-background-color: var(--red-10);
     --usage-guide-color: var(--red-fg);
@@ -186,6 +191,17 @@ const c = useBemClass("usage-guide");
       38.874% 1.254% var(--g),
       81.174% 10.908% var(--g),
       radial-gradient(100% 100%, #000 31.417%, #0000 calc(31.417% + 1px));
+  }
+}
+
+@media (width < 45rem) {
+  .usage-guide {
+    flex-direction: column;
+
+    &__do,
+    &__dont {
+      inline-size: 100%;
+    }
   }
 }
 </style>

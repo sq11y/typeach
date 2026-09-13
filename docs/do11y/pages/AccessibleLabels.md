@@ -1,10 +1,58 @@
 # Accessible labels
 
 <div class="description">
-  A quick summary and best practises.
+  Best practises.
 </div>
 
-If you override the accessible label for a control, you should put the visible text _first_. This makes it easier for people using voice control to activate it.
+You should avoid _only_ using icons when possible; even if people understand the meaning of the icon, hiding the label creates an extra step for people using voice control (unless they of course correctly _guess_ the hidden label).
+
+Anyways, whether the label is visible, or not, you will need to provide an _accessible_ label.
+
+See, the label might make little to no sense if you can't see the full picture. You're in a cooking app with a button labelled "Bake" - is that enough information for you? What are you baking? What if it there were 10 buttons labelled "Bake"?
+
+<Do11yDoDont>
+
+<template v-slot:do>
+
+<!-- prettier-ignore -->
+```vue
+<template>
+  <PeachyButton aria-label="Bake 'Carrot cake'">
+    Bake 
+  </PeachyButton>
+</template>
+```
+
+Provide context for those who might not see the button in it's full context.
+
+</template>
+
+<template v-slot:dont>
+
+<!-- prettier-ignore -->
+```vue
+<template>
+  <PeachyButton>
+    Bake
+  </PeachyButton>
+</template>
+```
+
+Use vague labels.
+
+</template>
+
+</Do11yDoDont>
+
+<div>
+
+Another thing to keep in mind is that some people use different types of voice control to interact with their computers. "Siri, bake!". Oh, nothing happened? Hmm..
+
+</div>
+
+<Do11yDoDont>
+
+<template v-slot:do>
 
 <!-- prettier-ignore -->
 ```vue
@@ -15,17 +63,23 @@ If you override the accessible label for a control, you should put the visible t
 </template>
 ```
 
-If there is no visible text, make sure to still provide an accessible label. You should avoid only using icons when possible; even if people understand the _meaning_ of the icon used, hiding the label creates an extra step for people using voice control (unless they of course correctly guess the hidden label).
+Put the visible text _first_ to make it easier for people using voice control.
+
+</template>
+
+<template v-slot:dont>
 
 <!-- prettier-ignore -->
 ```vue
 <template>
-  <PeachyButton>
-    <svg aria-hidden="true" />
-
-    <PeachyVisuallyHiddenText>
-      Bake 'Carrot Cake'
-    </PeachyVisuallyHiddenText>
+  <PeachyButton aria-label="Set 'Carrot Cake' to bake">
+    Bake
   </PeachyButton>
 </template>
 ```
+
+Use different keywords in the accessible label and jumble up the order.
+
+</template>
+
+</Do11yDoDont>
