@@ -127,13 +127,15 @@ ul {
     content: "";
     position: absolute;
 
-    block-size: 0.8em;
+    block-size: 0.725em;
     aspect-ratio: 1;
 
     inset-inline-start: -1.25em;
     inset-block-start: 0.425em;
 
     background-color: var(--pink-60);
+    border: var(--invisible-border);
+    border-radius: 100%;
 
     /**
       * Flower shape.
@@ -153,6 +155,10 @@ ul {
       41.662% 0.7% var(--g),
       88.526% 18.129% var(--g),
       radial-gradient(100% 100%, #000 28.868%, #0000 calc(28.868% + 1px));
+
+    @media (forced-colors: active) {
+      mask: none;
+    }
   }
 }
 
