@@ -2,15 +2,15 @@
 <template>
   <PeachyTextField v-model="modelValue">
     <PeachyFieldLabel>
-      Who was <span style="color: var(--purple-80)">Aina Wifalk</span>?
+      Who is <span style="color: var(--purple-80)">Valerie Thomas</span>?
     </PeachyFieldLabel>
 
-    <PeachyTextFieldInput />
+    <PeachyTextareaFieldInput />
   </PeachyTextField>
 </template>
 
 <script lang="ts" setup>
-import { PeachyFieldLabel, PeachyTextField, PeachyTextFieldInput } from "@typeach/core";
+import { PeachyFieldLabel, PeachyTextField, PeachyTextareaFieldInput } from "@typeach/core";
 
 const modelValue = defineModel<string>();
 </script>
@@ -28,9 +28,12 @@ const modelValue = defineModel<string>();
 
 /* ===== Container ===== */
 
-input[type="text"],
-input[type="search"] {
+textarea {
   min-inline-size: 14rem;
+  inline-size: 100%;
+  min-block-size: 4em;
+  field-sizing: content;
+  resize: none;
 
   background-color: var(--bg);
   color: var(--fg);

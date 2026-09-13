@@ -12,6 +12,7 @@ export * from "./separator";
 export * from "./switch-field";
 export * from "./table";
 export * from "./tabs";
+export * from "./textarea-field";
 export * from "./text-field";
 export * from "./toolbar";
 export * from "./visually-hidden";
