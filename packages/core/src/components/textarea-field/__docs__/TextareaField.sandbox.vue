@@ -1,16 +1,16 @@
 <!-- prettier-ignore -->
 <template>
-  <PeachyTextField v-model="modelValue">
+  <PeachyTextareaField v-model="modelValue">
     <PeachyFieldLabel>
       Who is <span style="color: var(--purple-80)">Valerie Thomas</span>?
     </PeachyFieldLabel>
 
     <PeachyTextareaFieldInput />
-  </PeachyTextField>
+  </PeachyTextareaField>
 </template>
 
 <script lang="ts" setup>
-import { PeachyFieldLabel, PeachyTextField, PeachyTextareaFieldInput } from "@typeach/core";
+import { PeachyFieldLabel, PeachyTextareaField, PeachyTextareaFieldInput } from "@typeach/core";
 
 const modelValue = defineModel<string>();
 </script>
