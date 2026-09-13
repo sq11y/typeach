@@ -61,7 +61,7 @@ and <kbd>Arrow up</kbd> with <kbd>Arrow left</kbd>.
 | <kbd>Home</kbd>       | Moves to the first control.                                                            |
 | <kbd>End</kbd>        | Moves to the last control.                                                             |
 
-## Adding custom controls
+## Adding controls
 
 To add a custom control to a toolbar use `provideElement("toolbar", element)` to include it in the roving tabindex - then use `optionalInject(ToolbarContextKey)` to access the necessary keyboard bindings and the ability to move focus to the control (which you should do when it is interacted with).
 
