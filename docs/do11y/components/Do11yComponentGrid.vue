@@ -72,27 +72,23 @@ const c = useBemClass("component-grid");
 
 const router = useRouter();
 
-const componentRoutes = computed(() => {
+const compoonentRoutes = computed(() => {
   return routes.filter((r) => {
+    if (r.path.startsWith("/f")) {
+      return true;
+    }
+
     return !r.path.startsWith("/c") ? false : r.path !== "/c";
   });
 });
 
-const fieldsRoutes = computed(() => {
-  return routes.filter((r) => {
-    return r.path.startsWith("/f");
-  });
-});
-
-const componentsToInclude = computed(() => {
-  const components = [...componentRoutes.value, ...fieldsRoutes.value];
-
+const componentRoutesToInclude = computed(() => {
   return props.components
-    ? components.filter((c) => props.components!.some((filter) => filter === c.meta.title))
-    : components;
+    ? compoonentRoutes.value.filter((c) => props.components!.some((f) => f === c.meta.title))
+    : compoonentRoutes.value;
 });
 
-const searchResults = useFuzzySearch(() => props.search, componentsToInclude, [
+const searchResults = useFuzzySearch(() => props.search, componentRoutesToInclude, [
   "meta.title",
   "meta.alternativeTitles",
   "meta.description",
