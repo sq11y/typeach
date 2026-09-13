@@ -64,8 +64,18 @@ h1:not([class]) {
 }
 
 @media (width < 42rem) {
-  h1::before {
-    display: none;
+  h1:not([class]) {
+    position: static;
+
+    &::before {
+      inline-size: 3em;
+      inset-inline-start: -1em;
+      inset-block-start: -0.8em;
+    }
+  }
+
+  body {
+    position: relative;
   }
 
   .description {
