@@ -58,10 +58,13 @@ router.beforeEach(() => {
 @use "../style/mixins";
 
 header {
+  --logo-size: 4.25rem;
+
   position: sticky;
   z-index: 5;
 
   inset-block-start: var(--spacing-xl);
+  transform: translateX(calc(var(--logo-size) / 2));
   margin-inline: auto;
 
   @include utils.dock(var(--spacing-m));
@@ -75,8 +78,9 @@ header {
   background-color: var(--green-30);
   color: var(--green-80);
 
-  @media (width <= 36rem) {
+  @media (width <= 40rem) {
     margin-inline: auto calc(var(--inline-margin));
+    transform: none;
   }
 }
 
@@ -100,8 +104,6 @@ a {
 }
 
 .logo {
-  --logo-size: 4.25rem;
-
   @include utils.dock(var(--spacing-l));
 
   img {
