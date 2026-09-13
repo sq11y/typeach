@@ -20,7 +20,10 @@ export const useDocumentOutline = <T = Outline>(
     return headings.value.sort((a, b) => (a === b ? 0 : a.compareDocumentPosition(b) & 2 ? 1 : -1));
   });
 
-  const getHeadings = () => document.querySelectorAll<HTMLHeadingElement>("h1, h2, h3, h4, h5, h6");
+  const getHeadings = () => {
+    const selector = ":is(h1, h2, h3, h4, h5, h6):not(dialog *)";
+    return document.querySelectorAll<HTMLHeadingElement>(selector);
+  };
 
   const rawDocumentOutline = computed(() => {
     const outline: Outline[] = [];
