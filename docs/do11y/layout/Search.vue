@@ -1,8 +1,9 @@
 <template>
   <PeachyDialog v-model="open" modal>
     <PeachyDialogButton :class="c('button')" keyboard-shortcut="Ctrl+K, ⌘+K">
-      <SearchSvg aria-label="Search" />
-      <kbd>K <CmdSvg aria-hidden="true" /></kbd>
+      <SearchSvg aria-hidden="true" />
+      <span>Search</span>
+      <kbd aria-hidden="true">K <CmdSvg aria-hidden="true" /></kbd>
     </PeachyDialogButton>
 
     <PeachyDialogPanel light-dismiss :class="c('dialog')">
@@ -71,26 +72,36 @@ router.beforeEach(() => {
 @use "../style/mixins";
 
 .search__button {
-  @include utils.dock(var(--spacing-xxs));
+  @include utils.dock(var(--spacing-xs));
 
-  border: 0;
-  background-color: transparent;
+  background-color: var(--green-20);
   color: inherit;
 
   border-radius: var(--border-radius);
-  corner-shape: squircle;
+  border: var(--invisible-border);
 
   padding: var(--relative-spacing-xs);
-  margin-inline: calc(var(--relative-spacing-xs) * -1);
+  padding-inline-start: var(--relative-spacing-s);
+
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-s);
 
   @include utils.transition("background-color");
 
   @include utils.hover {
+    background-color: var(--green-10);
+  }
+
+  &:active {
     background-color: var(--green-40);
   }
 
   @media (width < 25rem) {
-    kbd {
+    background-color: transparent;
+    border: transparent;
+
+    kbd,
+    span {
       display: none;
     }
   }

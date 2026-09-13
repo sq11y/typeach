@@ -11,15 +11,12 @@ a {
   margin-inline: calc(var(--relative-spacing-xs) * -1);
 }
 
-*:focus-visible:not(.no-focus) {
-  @include mixins.focus-visible;
-}
-
 .required-tag,
 code:not(pre code),
 kbd {
   display: inline-flex;
   align-items: center;
+  gap: 0.125em;
 
   border-radius: var(--border-radius);
   padding-inline: var(--relative-spacing-s);

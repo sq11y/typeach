@@ -5,6 +5,7 @@
 @use "./typography";
 @use "./inline";
 @use "./block";
+@use "./mixins";
 
 :root {
   --border-radius: 8px;
@@ -45,4 +46,12 @@ main {
 svg {
   inline-size: var(--icon-size);
   min-inline-size: var(--icon-size);
+}
+
+.no-focus {
+  outline: none;
+}
+
+*:focus-visible:not(.no-focus) {
+  @include mixins.focus-visible;
 }
