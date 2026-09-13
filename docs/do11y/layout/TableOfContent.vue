@@ -1,5 +1,5 @@
 <template>
-  <nav :class="c('container')">
+  <nav aria-label="On this page" :class="c('container')">
     <ol :class="c()">
       <li v-for="link of documentOutline[0]?.children || []" :key="link.heading.id">
         <RouterLink :to="`#${link.heading.id}`">
@@ -37,7 +37,7 @@ iframe {
   position: absolute;
   position-anchor: --iframe;
   inset-block-start: anchor(top);
-  inset-inline-start: calc(anchor(right) + var(--spacing-xl));
+  inset-inline-start: calc(anchor(right) + var(--spacing-l));
 
   /* @TODO Fix magic number */
   block-size: calc(100% - 60rem);
@@ -46,9 +46,12 @@ iframe {
 .table-of-content {
   position: sticky;
   inset-block-start: calc(5rem + var(--spacing-xxxl));
-  inline-size: 10rem;
+  inline-size: 12rem;
 
   display: flex;
   flex-direction: column;
+
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-s);
 }
 </style>
