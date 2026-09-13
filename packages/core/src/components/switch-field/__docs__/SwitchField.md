@@ -4,7 +4,7 @@ alternativeTitles: ["Toggle"]
 slug: "/f/switch-field"
 description: "Toggles an option."
 illustration: "switch-field.png"
-color: "green"
+color: "purple"
 ---
 
 <script setup>

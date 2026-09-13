@@ -134,22 +134,22 @@ button[aria-checked] {
 button[aria-checked="true"] {
   .switch__toggle {
     padding-inline: var(--relative-spacing-xl) 0.0125em;
-    background-color: var(--green-40);
+    background-color: var(--purple-40);
   }
 
   .switch__toggle-indicator {
-    background-color: var(--green-70);
+    background-color: var(--purple-70);
   }
 
   @include utils.enabled {
     @include utils.hover {
       .switch__toggle {
-        border-color: var(--green-60);
+        border-color: var(--purple-60);
       }
     }
 
     &:active .switch__toggle {
-      background-color: var(--green-50);
+      background-color: var(--purple-50);
     }
   }
 }

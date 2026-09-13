@@ -4,7 +4,7 @@ alternativeTitles: ["Select"]
 slug: "/f/listbox-field"
 description: "Picks options from a list."
 illustration: "listbox-field.png"
-color: "pink"
+color: "purple"
 ---
 
 <script setup>

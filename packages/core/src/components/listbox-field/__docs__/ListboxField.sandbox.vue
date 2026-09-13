@@ -125,12 +125,12 @@ label {
 }
 
 [role="option"][aria-selected="true"] {
-  background-color: var(--pink-20);
-  color: var(--pink-80);
+  background-color: var(--purple-20);
+  color: var(--purple-80);
 
   @include utils.enabled {
     @include utils.hover {
-      background-color: var(--pink-30);
+      background-color: var(--purple-30);
     }
   }
 }
