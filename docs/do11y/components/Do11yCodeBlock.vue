@@ -1,5 +1,5 @@
 <template>
-  <div :class="c()">
+  <div ref="element" :class="c()">
     <div :class="c('toolbar')">
       <slot />
 
@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, useId } from "vue";
+import { computed, nextTick, ref, useId, useTemplateRef, watch } from "vue";
 import { useBemClass, useThemeSettingsStore } from "@typeach/core";
 
 import Do11ySwitch from "./Do11ySwitch.vue";
@@ -67,12 +67,22 @@ const themeSettings = useThemeSettingsStore();
 
 const showCode = ref(false);
 
+const element = useTemplateRef("element");
+
 const modifiedHighlightedCode = computed(() => props.highlightedCode.replace(`tabindex="0"`, ""));
 
 const code = computed(() => {
   const element = document.createElement("div");
   element.innerHTML = props.highlightedCode;
   return element.textContent;
+});
+
+watch(showCode, async (newShowCode) => {
+  await nextTick();
+
+  if (!newShowCode) {
+    element.value?.scrollIntoView({ block: "center" });
+  }
 });
 </script>
 
