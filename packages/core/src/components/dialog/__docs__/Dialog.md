@@ -1,5 +1,6 @@
 ---
 title: "Dialog"
+alternativeTitles: ["Modal", "Alert"]
 slug: "/c/dialog"
 description: "A demanding popover."
 illustration: "dialog.png"

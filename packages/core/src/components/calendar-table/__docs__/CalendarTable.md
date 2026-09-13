@@ -1,5 +1,6 @@
 ---
 title: "Calendar table"
+alternativeTitles: ["Date picker"]
 slug: "/c/calendar-table"
 description: "Displays a month."
 illustration: "calendar-table.png"

@@ -3,7 +3,12 @@
     <slot v-if="isCopying" :is-copying="isCopying" />
   </PeachyVisuallyHidden>
 
-  <PeachyButton v-bind="$attrs" @click="copy">
+  <PeachyButton
+    v-bind="$attrs"
+    :disabled="disabled"
+    :keyboard-shortcut="keyboardShortcut"
+    @click="copy"
+  >
     <slot :is-copying="isCopying" />
   </PeachyButton>
 </template>
@@ -11,10 +16,10 @@
 <script lang="ts" setup>
 import { computed, ref } from "vue";
 
-import { PeachyButton } from "../button";
+import { PeachyButton, type ButtonProps } from "../button";
 import { PeachyVisuallyHidden } from "../visually-hidden";
 
-export interface CopyButtonProps {
+export interface CopyButtonProps extends Omit<ButtonProps, "type"> {
   /**
    * The content that is to be copied on click.
    */

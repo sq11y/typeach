@@ -1,5 +1,6 @@
 ---
 title: "Switch Field"
+alternativeTitles: ["Toggle"]
 slug: "/f/switch-field"
 description: "Toggles an option."
 illustration: "switch-field.png"

@@ -6,6 +6,7 @@ export * from "./useBemClass";
 export * from "./useCalendar";
 export * from "./useDocumentOutline";
 export * from "./useElements";
+export * from "./useFuzzySearch";
 export * from "./useId";
 export * from "./useThemeSettingsStore";
 

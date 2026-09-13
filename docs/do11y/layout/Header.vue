@@ -6,14 +6,16 @@
       <span>Typeach</span>
     </RouterLink>
 
-    <PeachyButton v-if="isSmallScreen" ref="button" command="toggle-popover" commandfor="nav">
-      <MenuSvg aria-label="Navigation" />
-    </PeachyButton>
-
     <nav id="nav" ref="popover" :popover="isSmallScreen ? 'auto' : undefined">
       <RouterLink to="/p/components">Components</RouterLink>
       <RouterLink to="/p/theme">Theme</RouterLink>
     </nav>
+
+    <Search />
+
+    <PeachyButton v-if="isSmallScreen" ref="button" command="toggle-popover" commandfor="nav">
+      <MenuSvg aria-label="Navigation" />
+    </PeachyButton>
   </header>
 
   <TableOfContent v-if="isLargeScreen && isComponentPage" />
@@ -28,6 +30,7 @@ import { useRoute, useRouter } from "vue-router";
 import { PeachyButton } from "@typeach/core";
 
 import TableOfContent from "./TableOfContent.vue";
+import Search from "./Search.vue";
 
 import MenuSvg from "../icons/menu.svg?component";
 

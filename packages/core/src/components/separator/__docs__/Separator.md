@@ -1,5 +1,6 @@
 ---
 title: "Separator"
+alternativeTitles: ["Divider", "Rule"]
 slug: "/c/separator"
 description: "Separates content."
 illustration: "separator.png"

@@ -18,7 +18,8 @@ a {
 .required-tag,
 code:not(pre code),
 kbd {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
 
   border-radius: var(--border-radius);
   padding-inline: var(--relative-spacing-s);
@@ -44,8 +45,10 @@ code:not(pre code) {
 }
 
 kbd {
-  background-color: var(--bg);
   border: 1px solid var(--grey-60);
+
+  background-color: var(--bg);
+  color: var(--fg);
 
   font-size: var(--font-size-smaller);
 }

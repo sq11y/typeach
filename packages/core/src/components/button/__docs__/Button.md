@@ -1,5 +1,6 @@
 ---
 title: "Button"
+alternativeTitles: ["Clickable"]
 slug: "/c/button"
 description: "Triggers an action."
 illustration: "button.png"

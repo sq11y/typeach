@@ -3,6 +3,7 @@
     aria-haspopup="dialog"
     :aria-expanded="open"
     :disabled="disabled"
+    :keyboard-shortcut="keyboardShortcut"
     :commandfor="sharedIds.get('panel')"
     :command="modal ? 'show-modal' : '--show-non-modal'"
   >

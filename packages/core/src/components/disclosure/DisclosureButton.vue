@@ -4,6 +4,7 @@
     :aria-expanded="open"
     :aria-controls="sharedIds.get('panel')"
     :disabled="disabled"
+    :keyboard-shortcut="keyboardShortcut"
     v-bind="conditionalProps"
   >
     <slot />

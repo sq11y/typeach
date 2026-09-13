@@ -1,5 +1,6 @@
 ---
 title: "Listbox Field"
+alternativeTitles: ["Select"]
 slug: "/f/listbox-field"
 description: "Picks options from a list."
 illustration: "listbox-field.png"

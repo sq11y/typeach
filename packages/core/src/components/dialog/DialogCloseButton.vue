@@ -1,5 +1,10 @@
 <template>
-  <PeachyButton :disabled="disabled" :commandfor="sharedIds.get('panel')" command="close">
+  <PeachyButton
+    :disabled="disabled"
+    :keyboard-shortcut="keyboardShortcut"
+    :commandfor="sharedIds.get('panel')"
+    command="close"
+  >
     <slot />
   </PeachyButton>
 </template>

@@ -6,6 +6,7 @@
     :aria-invalid="hasErrors ? true : undefined"
     :aria-labelledby="sharedIds.get('label')"
     :disabled="disabled"
+    :keyboard-shortcut="keyboardShortcut"
     role="switch"
     @click="modelValue = !modelValue"
   >
@@ -19,15 +20,10 @@ import { inject, useId } from "vue";
 import { FieldContextKey } from "../field/hooks";
 import { SwitchFieldContextKey } from "./hooks";
 
-import { PeachyButton } from "../button";
+import { PeachyButton, type ButtonProps } from "../button";
 import { shareId } from "../../hooks";
 
-export interface SwitchFieldSwitchButtonProps {
-  /**
-   * If the button should be disabled.
-   */
-  disabled?: boolean;
-
+export interface SwitchFieldSwitchButtonProps extends Omit<ButtonProps, "type"> {
   /**
    * The id for the element.
    *

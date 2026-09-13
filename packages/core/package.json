@@ -31,7 +31,9 @@
   },
   "dependencies": {
     "@vueuse/core": "catalog:",
-    "change-case": "catalog:"
+    "change-case": "catalog:",
+    "fuse.js": "^7.5.0",
+    "hotkeys-js": "^4.0.8"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",

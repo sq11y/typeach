@@ -1,5 +1,6 @@
 ---
 title: "Grid table"
+alternativeTitles: ["Data table", "Spreadsheet"]
 slug: "/c/grid-table"
 description: "An interactive table."
 illustration: "grid-table.png"

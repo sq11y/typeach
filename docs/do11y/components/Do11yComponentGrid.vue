@@ -1,8 +1,16 @@
 <template>
-  <nav :class="c()">
+  <PeachyVisuallyHidden v-if="search !== undefined" aria-live="assertive" aria-atomic="true">
+    {{ search !== undefined ? searchResultText : undefined }}
+  </PeachyVisuallyHidden>
+
+  <nav
+    v-if="searchResults.length && search !== ''"
+    :class="c('nav', { scrollable })"
+    v-bind="$attrs"
+  >
     <ul :class="c('list')">
       <li
-        v-for="component of filteredComponents"
+        v-for="component of searchResults"
         :key="component.path"
         :class="c('list-item')"
         :style="`
@@ -35,7 +43,7 @@
 import { computed } from "vue";
 
 import { useRouter } from "vue-router";
-import { useBemClass } from "@typeach/core";
+import { useBemClass, useFuzzySearch, PeachyVisuallyHidden } from "@typeach/core";
 
 import routes from "do11y:routes";
 
@@ -44,6 +52,18 @@ export interface ComponentGridProps {
    * The components to show.
    */
   components?: string[];
+
+  /**
+   * The current search term.
+   *
+   * When search is supported, this should never be `undefined`. If you want to specify that there is _currently_ no search term - pass `""`.
+   */
+  search?: string;
+
+  /**
+   * If the area should be scrollable.
+   */
+  scrollable?: boolean;
 }
 
 const props = defineProps<ComponentGridProps>();
@@ -64,12 +84,22 @@ const fieldsRoutes = computed(() => {
   });
 });
 
-const filteredComponents = computed(() => {
+const componentsToInclude = computed(() => {
   const components = [...componentRoutes.value, ...fieldsRoutes.value];
 
   return props.components
     ? components.filter((c) => props.components!.some((filter) => filter === c.meta.title))
     : components;
+});
+
+const searchResults = useFuzzySearch(() => props.search, componentsToInclude, [
+  "meta.title",
+  "meta.alternativeTitles",
+  "meta.description",
+]);
+
+const searchResultText = computed(() => {
+  return `Found ${searchResults.value.length} results for ${props.search}`;
 });
 </script>
 
@@ -77,12 +107,22 @@ const filteredComponents = computed(() => {
 @use "@typeach/theme/utils";
 @use "../style/mixins";
 
+.component-grid__nav--scrollable {
+  overflow-block: auto;
+  scrollbar-gutter: stable;
+
+  padding: var(--spacing-xs);
+  margin: calc(var(--spacing-xs) * -1);
+}
+
 .component-grid__list {
+  --prose-flow-scale: 0;
+
   list-style: none;
-  margin-inline-start: 0;
+  padding-inline-start: 0;
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
   gap: var(--spacing-l);
 }
 

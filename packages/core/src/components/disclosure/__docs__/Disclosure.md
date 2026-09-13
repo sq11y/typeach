@@ -1,5 +1,6 @@
 ---
 title: "Disclosure"
+alternativeTitles: ["Details", "Accordion", "Collapse", "Expandable"]
 slug: "/c/disclosure"
 description: "Toggles content."
 illustration: "disclosure.png"
