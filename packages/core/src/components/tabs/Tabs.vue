@@ -1,7 +1,7 @@
 <template>
-  <component :is="as" v-if="as">
+  <div v-if="Object.keys($attrs).length" v-bind="$attrs">
     <slot />
-  </component>
+  </div>
 
   <slot v-else />
 </template>
@@ -13,21 +13,12 @@ import { useSharedIds } from "../../hooks";
 
 import { TabContextKey } from "./hooks";
 
-export interface TabsProps {
-  /**
-   * If a wrapper element should be rendered, and if so, which element.
-   */
-  as?: string;
-}
-
 export interface TabsSlots {
   /**
    * The tabs list and panels.
    */
   default: () => void;
 }
-
-defineProps<TabsProps>();
 
 defineSlots<TabsSlots>();
 

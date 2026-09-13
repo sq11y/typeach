@@ -1,5 +1,5 @@
 <template>
-  <div v-if="Object.keys($attrs).length">
+  <div v-if="Object.keys($attrs).length" v-bind="$attrs">
     <slot />
   </div>
 

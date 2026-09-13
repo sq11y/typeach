@@ -1,5 +1,9 @@
 <template>
-  <slot />
+  <div v-if="Object.keys($attrs).length" v-bind="$attrs">
+    <slot />
+  </div>
+
+  <slot v-else />
 </template>
 
 <script lang="ts" setup>

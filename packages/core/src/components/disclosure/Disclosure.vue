@@ -1,5 +1,5 @@
 <template>
-  <div v-if="render">
+  <div v-if="Object.keys($attrs).length" v-bind="$attrs">
     <slot />
   </div>
 
@@ -14,11 +14,6 @@ import { useSharedIds } from "../../hooks";
 import { DisclosureContextKey } from "./hooks";
 
 export interface DisclosureProps {
-  /**
-   * If a wrapper element should be rendered.
-   */
-  render?: boolean;
-
   /**
    * If the disclosure is disabled. When `true` the button will be hidden, and the panel will be shown.
    */
