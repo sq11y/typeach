@@ -19,9 +19,9 @@ import { watchImmediate } from "@vueuse/core";
 
 import { isSameDate } from "../../utils";
 
-import { useCalendarGrid } from "../../hooks";
-
 import { CalendarTableContextKey } from "./hooks";
+
+import { useCalendarTable } from "./hooks/useCalendarTable";
 
 export interface CalendarTableCellButtonProps {
   /**
@@ -66,7 +66,7 @@ const element = useTemplateRef("element");
 
 const { focusedDate, allowFocus } = inject(CalendarTableContextKey)!;
 
-const { onKeyDown } = useCalendarGrid(focusedDate);
+const { onKeyDown } = useCalendarTable(focusedDate);
 
 const isFocused = computed(() => isSameDate(props.date, focusedDate.value));
 

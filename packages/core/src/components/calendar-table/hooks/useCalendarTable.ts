@@ -14,9 +14,9 @@ import {
   getPreviousMonth,
   getPreviousWeek,
   getPreviousYear,
-} from "../../utils";
+} from "../../../utils";
 
-export interface CalendarGrid {
+export interface CalendarTableContext {
   /**
    * The `onKeydown` event which should be applied
    * to each cell in the grid.
@@ -24,7 +24,10 @@ export interface CalendarGrid {
   onKeyDown(event: KeyboardEvent): void;
 }
 
-export const useCalendarGrid = (date: Ref<Date>, startOfWeek = Weekday.Monday): CalendarGrid => ({
+export const useCalendarTable = (
+  date: Ref<Date>,
+  startOfWeek = Weekday.Monday,
+): CalendarTableContext => ({
   onKeyDown(event) {
     const keys = [
       "ArrowLeft",

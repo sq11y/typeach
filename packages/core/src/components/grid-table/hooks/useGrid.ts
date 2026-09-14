@@ -1,14 +1,8 @@
-import type { InjectionKey } from "vue";
+import { isHtmlElement } from "../../../utils";
 
-import { isHtmlElement } from "../../utils";
+import { Move, type Elements, useSingleTabStop } from "../../../hooks";
 
-import type { Elements } from "../useElements";
-
-import { useSingleTabStop } from "./useSingleTabStop";
-
-import { Move } from "../../hooks";
-
-export interface Grid {
+export interface GridContext {
   /**
    * The `onKeydown` event you should apply to
    * each cell in the grid.
@@ -16,9 +10,7 @@ export interface Grid {
   onKeyDown(rowId: string, event: KeyboardEvent): void;
 }
 
-export const GridKey: InjectionKey<Grid> = Symbol("grid");
-
-export const useGrid = (getElements: Elements["getElements"]): Grid => {
+export const useGrid = (getElements: Elements["getElements"]): GridContext => {
   const { navigate, navigateByPage, navigateCustom, navigateTo } = useSingleTabStop(getElements);
 
   return {

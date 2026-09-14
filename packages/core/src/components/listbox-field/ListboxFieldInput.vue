@@ -15,12 +15,14 @@
 
 <script lang="ts" setup>
 import { useTemplateRef, computed, inject, provide, useId } from "vue";
-import { shareId, useElements, useListbox } from "../../hooks";
+import { shareId, useElements } from "../../hooks";
 
 import type { Orientation } from "../../utils";
 
 import { ListboxFieldContextKey } from "./hooks";
 import { FieldContextKey } from "../field/hooks";
+
+import { useListbox } from "./hooks/useListbox";
 
 export interface ListboxFieldInputProps {
   /**

@@ -1,14 +1,10 @@
-import { toValue, type InjectionKey, type MaybeRefOrGetter, type Ref } from "vue";
+import { toValue, type MaybeRefOrGetter, type Ref } from "vue";
 
-import { isDisabledElement, isHtmlElement, type Orientation } from "../../utils";
+import { isDisabledElement, isHtmlElement, type Orientation } from "../../../utils";
 
-import type { Elements } from "../useElements";
+import { Move, type Elements, useRovingTabindex, type RovingTabindex } from "../../../hooks";
 
-import { useRovingTabindex, type RovingTabindex } from "./useRovingTabindex";
-
-import { Move } from "../../hooks";
-
-export interface Listbox extends Pick<RovingTabindex, "navigateTo"> {
+export interface ListboxContext extends Pick<RovingTabindex, "navigateTo"> {
   /**
    * The `onKeydown` event you should
    * apply to the options.
@@ -22,15 +18,13 @@ export interface Listbox extends Pick<RovingTabindex, "navigateTo"> {
   onSpace(value: string, event: KeyboardEvent): void;
 }
 
-export const ListboxKey: InjectionKey<Listbox> = Symbol("listbox");
-
 /* eslint-disable max-lines-per-function */
 export const useListbox = (
   orientation: MaybeRefOrGetter<Orientation>,
   multiselect: MaybeRefOrGetter<boolean>,
   modelValue: Ref<string[]>,
   getElements: Elements["getElements"],
-): Listbox => {
+): ListboxContext => {
   const { navigate, navigateTo, onKeyDown, getCurrentTabStop } = useRovingTabindex(
     orientation,
     getElements,

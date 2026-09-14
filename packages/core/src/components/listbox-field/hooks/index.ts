@@ -1,7 +1,7 @@
 import type { ComputedRef, InjectionKey, Ref } from "vue";
-import type { Listbox } from "../../../hooks";
+import type { ListboxContext } from "./useListbox";
 
-export interface ListboxFieldContext extends Listbox {
+export interface ListboxFieldContext extends ListboxContext {
   modelValue: Ref<string[]>;
   multiselect: ComputedRef<boolean>;
 }

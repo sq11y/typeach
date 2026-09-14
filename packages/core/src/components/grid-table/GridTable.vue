@@ -6,7 +6,8 @@
 
 <script lang="ts" setup>
 import { useTemplateRef, computed, provide } from "vue";
-import { useElements, useGrid, GridKey } from "../../hooks";
+import { useElements } from "../../hooks";
+import { useGrid, GridContextKey } from "./hooks";
 
 import { PeachyTable } from "../table";
 
@@ -27,7 +28,7 @@ const { getElements } = useElements("table", element);
 
 const { onKeyDown } = useGrid(getElements);
 
-provide(GridKey, {
+provide(GridContextKey, {
   onKeyDown,
 });
 </script>
