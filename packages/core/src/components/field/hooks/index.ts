@@ -21,11 +21,15 @@ export const provideField = (
 
   const getElementIds = (array: HTMLElement[]) => array.filter((i) => i.id).map((i) => i.id);
 
-  return provide(FieldContextKey, {
+  const field = {
     sharedIds,
 
     hasErrors: computed(() => errorElements.value.length > 0),
     errorIds: computed(() => getElementIds(errorElements.value)),
     descriptionIds: computed(() => getElementIds(descriptionElements.value)),
-  });
+  };
+
+  provide(FieldContextKey, field);
+
+  return field;
 };
