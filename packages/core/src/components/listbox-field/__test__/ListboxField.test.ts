@@ -14,7 +14,7 @@ test("Keyboard navigation", async ({ page, mount, rovingTabindex, getByExactText
   await mount(ListboxFieldTest, { props: { items } });
   await rovingTabindex("vertical", items);
 
-  /* Move up and toggle with {Shift} + {ArrowUp} */
+  /* Navigate up and toggle with {Shift} + {ArrowUp} */
   await (await getByExactText("5")).click();
   await (await getByExactText("5")).click();
   await page.keyboard.press("Shift+ArrowUp");
@@ -22,7 +22,7 @@ test("Keyboard navigation", async ({ page, mount, rovingTabindex, getByExactText
   expect(await (await getByExactText("4")).getAttribute("aria-selected")).toEqual("true");
   await (await getByExactText("4")).click();
 
-  /* Move down and toggle with {Shift} + {ArrowDown} */
+  /* Navigate down and toggle with {Shift} + {ArrowDown} */
   await (await getByExactText("1")).click();
   await (await getByExactText("1")).click();
   await page.keyboard.press("Shift+ArrowDown");

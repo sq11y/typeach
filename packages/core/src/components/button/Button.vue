@@ -68,12 +68,12 @@ defineSlots<ButtonSlots>();
 
 const element = useTemplateRef("element");
 
-const { onKeyDown, moveTo } = optionalInject(ToolbarContextKey);
+const { onKeyDown, navigateTo } = optionalInject(ToolbarContextKey);
 
 provideElement("toolbar", element);
 
 const onClick = (event: MouseEvent) => {
-  moveTo?.(element.value!);
+  navigateTo?.(element.value!);
 
   if (!props.disabled) {
     emit("click", event);

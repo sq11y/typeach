@@ -6,6 +6,8 @@ import type { Elements } from "../useElements";
 
 import { useSingleTabStop } from "./useSingleTabStop";
 
+import { Move } from "../../hooks";
+
 export interface Grid {
   /**
    * The `onKeydown` event you should apply to
@@ -17,7 +19,7 @@ export interface Grid {
 export const GridKey: InjectionKey<Grid> = Symbol("grid");
 
 export const useGrid = (getElements: Elements["getElements"]): Grid => {
-  const { moveRelatively, moveToEdge, moveTo, moveByPages } = useSingleTabStop(getElements);
+  const { navigate, navigateByPage, navigateCustom, navigateTo } = useSingleTabStop(getElements);
 
   return {
     onKeyDown(rowId, event) {
@@ -49,44 +51,44 @@ export const useGrid = (getElements: Elements["getElements"]): Grid => {
       switch (event.key) {
         case "ArrowLeft":
           if (!firstCell?.isSameNode(cell)) {
-            moveRelatively(-1);
+            navigateCustom(-1);
           }
 
           break;
 
         case "ArrowRight":
           if (!lastCell?.isSameNode(cell)) {
-            moveRelatively(1);
+            navigateCustom(1);
           }
 
           break;
 
         case "ArrowUp":
-          return moveByPages(-1, row.length);
+          return navigateByPage(-1, row.length);
 
         case "ArrowDown":
-          return moveByPages(1, row.length);
+          return navigateByPage(1, row.length);
 
         case "PageUp":
-          return moveByPages(-9, row.length);
+          return navigateByPage(-9, row.length);
 
         case "PageDown":
-          return moveByPages(9, row.length);
+          return navigateByPage(9, row.length);
 
         case "Home":
           if (event.ctrlKey) {
-            moveToEdge("start");
+            navigate(Move.Start);
           } else if (firstCell) {
-            moveTo(firstCell);
+            navigateTo(firstCell);
           }
 
           break;
 
         case "End":
           if (event.ctrlKey) {
-            moveToEdge("end");
+            navigate(Move.End);
           } else if (lastCell) {
-            moveTo(lastCell);
+            navigateTo(lastCell);
           }
 
           break;

@@ -6,6 +6,8 @@ import type { Elements } from "../useElements";
 
 import type { Orientation } from "../../utils";
 
+import { Move } from "../../hooks";
+
 export interface RovingTabindex extends SingleTabStop {
   /**
    * The `onKeydown` event you should
@@ -22,18 +24,18 @@ export const useRovingTabindex = (
 ): RovingTabindex => {
   /* prettier-ignore */
   const {
-    moveTo,
-    moveRelatively,
-    moveToEdge,
-    moveByPages,
+    navigate,
+    navigateByPage,
+    navigateCustom,
+    navigateTo,
     getCurrentTabStop
   } = useSingleTabStop(getElements);
 
   return {
-    moveTo,
-    moveRelatively,
-    moveToEdge,
-    moveByPages,
+    navigate,
+    navigateByPage,
+    navigateCustom,
+    navigateTo,
     getCurrentTabStop,
 
     onKeyDown(event: KeyboardEvent) {
@@ -51,22 +53,22 @@ export const useRovingTabindex = (
 
       switch (event.key) {
         case previous:
-          return moveRelatively(-1);
+          return navigate(Move.Backward);
 
         case next:
-          return moveRelatively(1);
+          return navigate(Move.Forward);
 
         case "PageUp":
-          return moveRelatively(-10);
+          return navigateCustom(-10);
 
         case "PageDown":
-          return moveRelatively(10);
+          return navigateCustom(10);
 
         case "Home":
-          return moveToEdge("start");
+          return navigate(Move.Start);
 
         case "End":
-          return moveToEdge("end");
+          return navigate(Move.End);
 
         default:
           return;

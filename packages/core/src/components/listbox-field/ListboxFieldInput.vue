@@ -77,7 +77,7 @@ const element = useTemplateRef("element");
 
 const { getElements } = useElements("listbox", element);
 
-const { onKeyDown, onSpace, moveTo } = useListbox(
+const { onKeyDown, onSpace, navigateTo } = useListbox(
   () => props.orientation,
   () => props.multiselect,
   modelValue,
@@ -87,7 +87,7 @@ const { onKeyDown, onSpace, moveTo } = useListbox(
 provide(ListboxFieldContextKey, {
   onKeyDown,
   onSpace,
-  moveTo,
+  navigateTo,
   modelValue,
   multiselect: computed(() => props.multiselect),
 });

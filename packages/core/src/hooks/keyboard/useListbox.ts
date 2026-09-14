@@ -6,7 +6,9 @@ import type { Elements } from "../useElements";
 
 import { useRovingTabindex, type RovingTabindex } from "./useRovingTabindex";
 
-export interface Listbox extends Pick<RovingTabindex, "moveTo"> {
+import { Move } from "../../hooks";
+
+export interface Listbox extends Pick<RovingTabindex, "navigateTo"> {
   /**
    * The `onKeydown` event you should
    * apply to the options.
@@ -29,7 +31,7 @@ export const useListbox = (
   modelValue: Ref<string[]>,
   getElements: Elements["getElements"],
 ): Listbox => {
-  const { moveTo, moveRelatively, moveToEdge, onKeyDown, getCurrentTabStop } = useRovingTabindex(
+  const { navigate, navigateTo, onKeyDown, getCurrentTabStop } = useRovingTabindex(
     orientation,
     getElements,
   );
@@ -85,7 +87,7 @@ export const useListbox = (
   };
 
   return {
-    moveTo,
+    navigateTo,
 
     onSpace(value, event) {
       if (isHtmlElement(event.target) && isDisabledElement(event.target)) {
@@ -149,13 +151,13 @@ export const useListbox = (
       switch (event.key) {
         case isVertical ? "ArrowUp" : "ArrowLeft":
           event.preventDefault();
-          moveRelatively(-1);
+          navigate(Move.Backward);
           clickFocusedOption();
           break;
 
         case isVertical ? "ArrowDown" : "ArrowRight":
           event.preventDefault();
-          moveRelatively(1);
+          navigate(Move.Forward);
           clickFocusedOption();
           break;
 
@@ -164,7 +166,7 @@ export const useListbox = (
           if (event.ctrlKey) {
             event.preventDefault();
             selectToEdge(value, event.key === "Home" ? "start" : "end");
-            moveToEdge(event.key === "Home" ? "start" : "end");
+            navigate(event.key === "Home" ? Move.Start : Move.End);
           }
           break;
 

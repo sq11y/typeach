@@ -51,10 +51,10 @@ const element = useTemplateRef("element");
 
 const { getElements } = useElements("toolbar", element);
 
-const { onKeyDown, moveTo } = useRovingTabindex(orientation, getElements);
+const { onKeyDown, navigateTo } = useRovingTabindex(orientation, getElements);
 
 provide(ToolbarContextKey, {
   onKeyDown,
-  moveTo,
+  navigateTo,
 });
 </script>

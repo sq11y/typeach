@@ -2,15 +2,15 @@ import { watch } from "vue";
 
 import { isDisabledElement, isFocusedRovingTabindexElement } from "../../utils";
 
-import { useNavigableElements, type NavigableElements } from "./useNavigableElements";
+import { useElementNavigation, type ElementNavigation } from "./useElementNavigation";
 
 import type { Elements } from "../useElements";
 
-export interface SingleTabStop extends NavigableElements {
+export interface SingleTabStop extends ElementNavigation {
   /**
-   * Move directly to the element.
+   * Navigate directly to the element.
    */
-  moveTo(element: HTMLElement): void;
+  navigateTo(element: HTMLElement): void;
 
   /**
    * Get the currently tab stop.
@@ -27,7 +27,7 @@ export const useSingleTabStop = (getElements: Elements["getElements"]): SingleTa
     tabbable?.setAttribute("tabindex", "0");
   };
 
-  const moveTo = (element: HTMLElement) => {
+  const navigateTo = (element: HTMLElement) => {
     updateTabindex(element, getElements());
     element.focus();
   };
@@ -44,17 +44,17 @@ export const useSingleTabStop = (getElements: Elements["getElements"]): SingleTa
     updateTabindex(focusedElement || firstElement, newElements);
   });
 
-  const { moveRelatively, moveToEdge, moveByPages } = useNavigableElements({
+  const { navigate, navigateByPage, navigateCustom } = useElementNavigation({
     getElements,
-    isMovedTo: isFocusedRovingTabindexElement,
-    moveTo,
+    isNavigatedTo: isFocusedRovingTabindexElement,
+    navigateTo,
   });
 
   return {
-    moveTo,
-    moveRelatively,
-    moveToEdge,
-    moveByPages,
+    navigateTo,
+    navigate,
+    navigateByPage,
+    navigateCustom,
 
     getCurrentTabStop() {
       return getElements().find((element) => element.matches(":focus") || element.tabIndex === 0);

@@ -51,10 +51,10 @@ const element = useTemplateRef("element");
 
 provideElement("listbox", element);
 
-const { onKeyDown, onSpace, moveTo, modelValue, multiselect } = inject(ListboxFieldContextKey)!;
+const { onKeyDown, onSpace, navigateTo, modelValue, multiselect } = inject(ListboxFieldContextKey)!;
 
 const onClick = () => {
-  moveTo(element.value!);
+  navigateTo(element.value!);
 
   if (props.disabled) {
     return;

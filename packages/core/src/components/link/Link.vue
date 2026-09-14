@@ -1,5 +1,5 @@
 <template>
-  <a ref="element" :href="url" @keydown="onKeyDown" @click="moveTo?.(element!)">
+  <a ref="element" :href="url" @keydown="onKeyDown" @click="navigateTo?.(element!)">
     <slot />
   </a>
 </template>
@@ -33,7 +33,7 @@ defineSlots<LinkSlots>();
 
 const element = useTemplateRef("element");
 
-const { onKeyDown, moveTo } = optionalInject(ToolbarContextKey);
+const { onKeyDown, navigateTo } = optionalInject(ToolbarContextKey);
 
 provideElement("toolbar", element);
 </script>

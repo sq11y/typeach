@@ -2,7 +2,7 @@ import { ref, toValue, type MaybeRefOrGetter } from "vue";
 
 import { useTimeout } from "@vueuse/core";
 
-import type { NavigableElementsOptions } from "./useNavigableElements";
+import type { ElementNavigationOptions } from "./useElementNavigation";
 
 import { isRepeatingCharacter, startsWith } from "../../utils";
 
@@ -17,7 +17,7 @@ export interface Typeahead {
  * Helps loop through elements matching
  * the current search.
  */
-export const useTypeahead = (options: MaybeRefOrGetter<NavigableElementsOptions>): Typeahead => {
+export const useTypeahead = (options: MaybeRefOrGetter<ElementNavigationOptions>): Typeahead => {
   const search = ref("");
 
   const repeatingTimeout = useTimeout(500, {
@@ -30,7 +30,7 @@ export const useTypeahead = (options: MaybeRefOrGetter<NavigableElementsOptions>
 
   return {
     type(key: string) {
-      const { getElements, moveTo, isMovedTo } = toValue(options);
+      const { getElements, navigateTo, isNavigatedTo } = toValue(options);
 
       if (repeatingTimeout.isPending.value) {
         repeatingTimeout.stop();
@@ -46,12 +46,12 @@ export const useTypeahead = (options: MaybeRefOrGetter<NavigableElementsOptions>
 
       const matches = elements.filter((e) => startsWith(e.textContent, lookup));
 
-      const item = elements.find((e) => isMovedTo(e));
+      const item = elements.find((e) => isNavigatedTo(e));
 
       const next = matches[matches.findIndex((element) => item?.isSameNode(element)) + 1];
 
       if (next) {
-        moveTo(next, item);
+        navigateTo(next, item);
       }
 
       repeatingTimeout.start();
