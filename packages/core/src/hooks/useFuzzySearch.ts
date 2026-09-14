@@ -1,6 +1,9 @@
 import Fuse, { type FuseOptionKey } from "fuse.js";
 import { computed, toValue, type MaybeRefOrGetter } from "vue";
 
+/**
+ * Helps with a simple [fuse.js](https://www.fusejs.io) search.
+ */
 export const useFuzzySearch = <T>(
   search: MaybeRefOrGetter<string | undefined>,
   items: MaybeRefOrGetter<T[]>,

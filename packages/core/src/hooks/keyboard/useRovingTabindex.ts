@@ -18,6 +18,9 @@ export interface RovingTabindex extends SingleTabStop {
 
 export const RovingTabindexKey: InjectionKey<RovingTabindex> = Symbol("roving-tabindex");
 
+/**
+ * Helps with roving tabindex.
+ */
 export const useRovingTabindex = (
   orientation: MaybeRefOrGetter<Orientation>,
   getElements: Elements["getElements"],

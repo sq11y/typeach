@@ -36,6 +36,9 @@ export interface ElementNavigation {
   navigateCustom(relativeIndex: number): void;
 }
 
+/**
+ * Helps with navigating a list of elements.
+ */
 export const useElementNavigation = (options: ElementNavigationOptions): ElementNavigation => {
   const navigateToElement = (getNextIndex: (index: number, max: number) => number) => {
     const { getElements, navigateTo, isNavigatedTo } = options;

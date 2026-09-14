@@ -2,6 +2,9 @@ import { ref } from "vue";
 import { defineStore } from "pinia";
 import { watchImmediate } from "@vueuse/core";
 
+/**
+ * Helps with programatically modifying CSS options for the theme.
+ */
 export const useThemeSettingsStore = defineStore("theme-settings", () => {
   const saturation = ref(1);
 

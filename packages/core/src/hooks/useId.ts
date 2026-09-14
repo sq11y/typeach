@@ -6,6 +6,10 @@ export type SharedIds = {
   get: (key: string) => string;
 };
 
+/**
+ * Helps with sharing ids
+ * between sub-components.
+ */
 export const useSharedIds = (): SharedIds => {
   const sharedIds = ref<Map<string, string>>(new Map());
 
@@ -24,6 +28,9 @@ export const useSharedIds = (): SharedIds => {
   };
 };
 
+/**
+ * Add an id to the shared ids.
+ */
 export const shareId = (ids: SharedIds, key: string, getter: () => string) => {
   watchImmediate(getter, (newId) => {
     ids.set(key, newId);

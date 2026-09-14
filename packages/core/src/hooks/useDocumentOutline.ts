@@ -10,6 +10,8 @@ export interface Outline {
 /**
  * Gives you a nested array of the
  * headings on the page.
+ *
+ * Only works for the main page, _not_ dialogs.
  */
 export const useDocumentOutline = <T = Outline>(
   map?: (heading: HTMLHeadingElement, level: number) => T,

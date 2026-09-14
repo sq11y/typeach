@@ -18,6 +18,10 @@ export interface SingleTabStop extends ElementNavigation {
   getCurrentTabStop(): HTMLElement | undefined;
 }
 
+/**
+ * Helps ensure only one of the elements
+ * are in the tab-order at a time.
+ */
 export const useSingleTabStop = (getElements: Elements["getElements"]): SingleTabStop => {
   const updateTabindex = (tabbable: HTMLElement | undefined, elements: HTMLElement[]) => {
     elements
