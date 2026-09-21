@@ -21,7 +21,7 @@
         <PeachyTextFieldInput v-model="search" autofocus placeholder="Search components" search />
       </PeachyTextField>
 
-      <Do11yComponentGrid :search="search" scrollable />
+      <Do11yComponentGrid :search="search" scrollable @click="open = false" />
 
       <PeachyDialogCloseButton :class="c('close-button')">
         <CloseSvg aria-label="Close" />

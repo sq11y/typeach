@@ -28,7 +28,7 @@
         />
 
         <div :class="c('description')">
-          <router-link :to="component.path">
+          <router-link :to="component.path" @click="emit('click')">
             {{ component.meta.title }}
           </router-link>
 
@@ -66,7 +66,16 @@ export interface ComponentGridProps {
   scrollable?: boolean;
 }
 
+export interface ComponentGridEmits {
+  /**
+   * When a component is selected.
+   */
+  click: [];
+}
+
 const props = defineProps<ComponentGridProps>();
+
+const emit = defineEmits<ComponentGridEmits>();
 
 const c = useBemClass("component-grid");
 
