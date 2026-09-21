@@ -48,7 +48,7 @@ The typography styles come with the `prose` utility class which can be used to a
 
 The CSS variable `--prose-flow-scale` is available to modify the scale, which defaults to `1`.
 
-## Resources
+## Further reading
 
 - [The ideal line length & line height in web design](https://pimpmytype.com/line-length-line-height/)
 - [What is queer typograpghy?](https://soulellis.com/writing/tdc2021/)

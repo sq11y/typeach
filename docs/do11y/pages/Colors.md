@@ -65,7 +65,7 @@ If the value for "Text" is labelled as "ui" it means the color should _only_ be 
 
 </figure>
 
-## Resources
+## Further reading
 
 - [Perceptual Palettes](https://perceptualpalettes.alexdunn.au/) - “generate palettes with consistent luminance”.
 - [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) - check the contrast for normal text, large text (`18.66px+`) and graphical elements.
