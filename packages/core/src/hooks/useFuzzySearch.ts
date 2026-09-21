@@ -23,8 +23,6 @@ export const useFuzzySearch = <T>(
       keys,
     });
 
-    return searchValue
-      ? fuseInstance.search(searchValue, { limit: 3 }).map((r) => r.item)
-      : itemsValue;
+    return searchValue ? fuseInstance.search(searchValue).map((r) => r.item) : itemsValue;
   });
 };

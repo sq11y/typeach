@@ -1,11 +1,11 @@
 <!-- prettier-ignore -->
 <template>
-  <PeachyTextField v-model="modelValue">
+  <PeachyTextField>
     <PeachyFieldLabel>
       Who was <span style="color: var(--purple-80)">Aina Wifalk</span>?
     </PeachyFieldLabel>
 
-    <PeachyTextFieldInput />
+    <PeachyTextFieldInput v-model="modelValue" />
   </PeachyTextField>
 </template>
 

@@ -20,6 +20,9 @@ export default {
     const Do11yDoDont = (await import("./components/Do11yDoDont.vue")).default;
     app.component("Do11yDoDont", Do11yDoDont);
 
+    const Do11yComponentGrid = (await import("./components/Do11yComponentGrid.vue")).default;
+    app.component("Do11yComponentGrid", Do11yComponentGrid);
+
     const description = document.createElement("meta");
 
     description.name = "description";
