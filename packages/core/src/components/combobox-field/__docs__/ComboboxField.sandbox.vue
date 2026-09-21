@@ -14,7 +14,7 @@
       </PeachyComboboxSelectionListItem>
     </PeachyComboboxSelectionList>
 
-    <PeachyComboboxInput placeholder="Search fruit.." />
+    <PeachyComboboxInput placeholder="Search a character.." />
 
     <PeachyListboxInput>
       <template v-for="(option, i) of options" :key="i">
