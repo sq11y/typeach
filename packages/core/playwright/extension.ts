@@ -4,12 +4,19 @@ import type { Locator } from "@playwright/test";
 
 import AxeBuilder from "@axe-core/playwright";
 
+export const listboxOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"];
+
 type Fixtures = {
   /**
    * Runs keyboard navigation tests for roving tabindex.
    */
   /* prettier-ignore */
-  rovingTabindex( direction: "horizontal" | "vertical", items: string[], edgeless?: boolean, withoutPagination?: boolean): Promise<void>;
+  rovingTabindex(direction: "horizontal" | "vertical", items: string[], edgeless?: boolean, withoutPagination?: boolean): Promise<void>;
+
+  /**
+   * Runs keyboard navigation tests for roving tabindex.
+   */
+  listbox(combobox?: boolean): Promise<void>;
 
   /**
    * Runs axe-core tests.
@@ -19,7 +26,7 @@ type Fixtures = {
   /**
    * Gets the closest focusable element by text.
    */
-  getByExactText(text: string): Promise<Locator>;
+  getByExactText(text: string, index?: number): Promise<Locator>;
 };
 
 export const test = baseTest.extend<Fixtures>({
@@ -34,8 +41,8 @@ export const test = baseTest.extend<Fixtures>({
   },
 
   async getByExactText({ page }, use) {
-    await use(async (text) => {
-      const element = page.getByText(text, { exact: true }).first();
+    await use(async (text, index) => {
+      const element = page.getByText(text, { exact: true }).nth(index || 0);
 
       const tagName = await element.evaluate((el) => el.tagName.toLowerCase());
 
@@ -89,6 +96,32 @@ export const test = baseTest.extend<Fixtures>({
         await page.keyboard.press("PageUp");
         await expect(await getByExactText(items[0]!)).toBeFocused();
       }
+    });
+  },
+
+  async listbox({ page, getByExactText }, use) {
+    await use(async (combobox) => {
+      const input = page.locator(combobox ? "[role='combobox']" : "[role='listbox']");
+
+      await (await getByExactText("5")).click();
+
+      await input.press("ArrowDown");
+      await expect(input).toHaveAttribute("aria-activedescendant", `v-${combobox ? 14 : 13}`);
+
+      await input.press("ArrowUp");
+      await expect(input).toHaveAttribute("aria-activedescendant", `v-${combobox ? 12 : 10}`);
+
+      await input.press("End");
+      await expect(input).toHaveAttribute("aria-activedescendant", `v-${combobox ? 28 : 27}`);
+
+      await input.press("Home");
+      await expect(input).toHaveAttribute("aria-activedescendant", `v-${combobox ? 4 : 2}`);
+
+      await input.press("PageDown");
+      await expect(input).toHaveAttribute("aria-activedescendant", `v-${combobox ? 24 : 23}`);
+
+      await input.press("PageUp");
+      await expect(input).toHaveAttribute("aria-activedescendant", `v-${combobox ? 4 : 2}`);
     });
   },
 });

@@ -54,3 +54,30 @@ export const sortElementsByAppearance = (elements: HTMLElement[]): HTMLElement[]
     return a === b ? 0 : a.compareDocumentPosition(b) & 2 ? 1 : -1;
   });
 };
+
+/**
+ * Check if an element has block scroll.
+ */
+export const elementHasBlockScroll = (element: HTMLElement) => {
+  return element.clientHeight < element.scrollHeight;
+};
+
+/**
+ * Scroll a child element into the area.
+ */
+export const scrollElementIntoArea = (element: HTMLElement, area: HTMLElement) => {
+  const { offsetHeight, offsetTop } = element;
+  const { offsetHeight: parentOffsetHeight, scrollTop } = area;
+
+  const isAbove = offsetTop < scrollTop;
+  const isBelow = offsetTop + offsetHeight > scrollTop + parentOffsetHeight;
+
+  const scrollMarginBottom = getComputedStyle(element).scrollMarginTop || "0px";
+  const scrollMarginTop = getComputedStyle(element).scrollMarginBottom || "0px";
+
+  if (isAbove) {
+    area.scrollTo(0, offsetTop - parseInt(scrollMarginTop));
+  } else if (isBelow) {
+    area.scrollTo(0, offsetTop - parentOffsetHeight + offsetHeight + parseInt(scrollMarginBottom));
+  }
+};

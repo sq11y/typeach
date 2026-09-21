@@ -1,10 +1,11 @@
-import { ref, toValue, type MaybeRefOrGetter } from "vue";
-
+import { ref, type ComputedRef, type Ref } from "vue";
 import { useTimeout } from "@vueuse/core";
-
-import type { ElementNavigationOptions } from "./useElementNavigation";
-
 import { isRepeatingCharacter, startsWith } from "../../utils";
+
+export interface TypeAheadOption {
+  label: string;
+  value: string;
+}
 
 export interface Typeahead {
   /**
@@ -17,7 +18,7 @@ export interface Typeahead {
  * Helps loop through elements matching
  * the current search.
  */
-export const useTypeahead = (options: MaybeRefOrGetter<ElementNavigationOptions>): Typeahead => {
+export const useTypeahead = (activeIndex: Ref<number>, options: ComputedRef<TypeAheadOption[]>) => {
   const search = ref("");
 
   const repeatingTimeout = useTimeout(500, {
@@ -30,8 +31,6 @@ export const useTypeahead = (options: MaybeRefOrGetter<ElementNavigationOptions>
 
   return {
     type(key: string) {
-      const { getElements, navigateTo, isNavigatedTo } = toValue(options);
-
       if (repeatingTimeout.isPending.value) {
         repeatingTimeout.stop();
       }
@@ -41,17 +40,17 @@ export const useTypeahead = (options: MaybeRefOrGetter<ElementNavigationOptions>
       search.value += character;
 
       const lookup = isRepeatingCharacter(search.value, character) ? character : search.value;
+      console.log("new search", lookup);
 
-      const elements = getElements();
+      const matches = options.value
+        .map((option, index) => ({ ...option, index }))
+        .filter((option) => startsWith(option.label, lookup));
 
-      const matches = elements.filter((e) => startsWith(e.textContent, lookup));
-
-      const item = elements.find((e) => isNavigatedTo(e));
-
-      const next = matches[matches.findIndex((element) => item?.isSameNode(element)) + 1];
-
-      if (next) {
-        navigateTo(next, item);
+      if (matches.length === 1) {
+        activeIndex.value = matches[0]!.index;
+      } else if (matches.length > 0) {
+        const nextIndex = matches.find((i) => i.index > activeIndex.value);
+        activeIndex.value = nextIndex ? nextIndex.index : matches[0]!.index;
       }
 
       repeatingTimeout.start();

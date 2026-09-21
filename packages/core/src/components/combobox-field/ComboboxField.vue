@@ -5,29 +5,33 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, provide, useTemplateRef } from "vue";
+import { computed, provide, ref, useTemplateRef } from "vue";
 import { provideField } from "../field/hooks";
+import { ComboboxFieldContextKey } from "./hooks";
 import { useCombobox } from "../../hooks";
-import { ListboxFieldContextKey, ListboxFieldStandaloneContextKey } from "./hooks";
+import { ListboxFieldContextKey } from "../listbox-field/hooks";
 
-export interface ListboxFieldProps {
+export interface ComboboxFieldProps {
   /**
    * If one should be able to select more than one option.
    */
   multiselect?: boolean;
 }
 
-export interface ListboxFieldSlots {
+export interface ComboboxFieldSlots {
   /**
-   * The listbox input and field sub-components.
+   * The selected options list, combobox input and listbox input.
    */
-  default?: () => void;
+  default: () => void;
 }
 
-const props = defineProps<ListboxFieldProps>();
+const props = defineProps<ComboboxFieldProps>();
 
-defineSlots<ListboxFieldSlots>();
+defineSlots<ComboboxFieldSlots>();
 
+/**
+ * The selected values. When single select, there will be only one value in the array.
+ */
 const modelValue = defineModel<string[]>({ default: () => [] });
 
 const element = useTemplateRef("element");
@@ -35,6 +39,10 @@ const element = useTemplateRef("element");
 const { sharedIds } = provideField(element);
 
 const multiselect = computed(() => props.multiselect);
+
+const filter = ref("");
+
+const open = ref(false);
 
 const {
   optionsTracker,
@@ -49,14 +57,18 @@ const {
   onOptionClick,
   onOptionMouseDown,
   onOptionMouseUp,
-} = useCombobox(modelValue, multiselect, sharedIds);
+} = useCombobox(modelValue, multiselect, sharedIds, filter, open);
 
 provide(ListboxFieldContextKey, {
   modelValue,
+
+  open,
   activeIndex,
+  activeElementId,
+
   optionsTracker,
   options,
-  activeElementId,
+
   multiselect,
 
   onClick,
@@ -67,5 +79,7 @@ provide(ListboxFieldContextKey, {
   onOptionMouseUp,
 });
 
-provide(ListboxFieldStandaloneContextKey, true);
+provide(ComboboxFieldContextKey, {
+  filter,
+});
 </script>

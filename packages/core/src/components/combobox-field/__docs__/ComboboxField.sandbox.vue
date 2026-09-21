@@ -1,11 +1,22 @@
 <!-- prettier-ignore -->
 <template>
-  <PeachyListboxField v-model="modelValue" multiselect class="listbox-container">
+  <PeachyComboboxField v-model="modelValue" class="combobox-container" multiselect>
     <PeachyFieldLabel>
       Favorite characters
     </PeachyFieldLabel>
 
-    <PeachyListboxInput multiselect>
+    <PeachyComboboxSelectionList>
+      <PeachyComboboxSelectionListItem
+        v-for="value in modelValue"
+        :key="value"
+      >
+        {{ value }}
+      </PeachyComboboxSelectionListItem>
+    </PeachyComboboxSelectionList>
+
+    <PeachyComboboxInput placeholder="Search fruit.." />
+
+    <PeachyListboxInput>
       <template v-for="(option, i) of options" :key="i">
         <PeachyListboxGroup v-if="option.options">
           <PeachyListboxGroupLabel class="group-label">
@@ -31,13 +42,16 @@
         </PeachyListboxOption>
       </template>
     </PeachyListboxInput>
-  </PeachyListboxField>
+  </PeachyComboboxField>
 </template>
 
 <script lang="ts" setup>
 import {
-  PeachyListboxField,
   PeachyFieldLabel,
+  PeachyComboboxField,
+  PeachyComboboxInput,
+  PeachyComboboxSelectionList,
+  PeachyComboboxSelectionListItem,
   PeachyListboxInput,
   PeachyListboxGroup,
   PeachyListboxGroupLabel,
@@ -89,13 +103,14 @@ const options: Option[] = [
   --border-radius: 8px;
   --border-shape: 1px solid;
   --border: var(--border-shape) var(--grey-40);
+  --invisible-border: var(--border-shape) transparent;
 
   --icon-size: 1.25em;
 }
 
 /* ===== Container ===== */
 
-.listbox-container {
+.combobox-container {
   inline-size: 16rem;
   display: grid;
   gap: var(--spacing-xs);
@@ -106,6 +121,47 @@ const options: Option[] = [
 label {
   cursor: pointer;
   display: block;
+}
+
+/* ===== Selected options ===== */
+
+ul {
+  list-style: none;
+  padding-inline-start: 0;
+
+  @include utils.dock(var(--spacing-xxs));
+
+  li {
+    border-radius: var(--border-radius);
+    padding-inline: var(--relative-spacing-s);
+
+    background-color: var(--purple-20);
+    color: var(--purple-80);
+
+    border: var(--invisible-border);
+  }
+}
+
+/* ===== Input ===== */
+
+input[role="combobox"] {
+  anchor-name: --combobox-input;
+
+  background-color: var(--bg);
+  color: var(--fg);
+
+  padding: var(--spacing-xs) var(--spacing-m);
+
+  border-radius: var(--border-radius);
+  border: var(--border);
+
+  @include utils.transition(border-color);
+
+  @include utils.enabled {
+    @include utils.hover {
+      border-color: var(--purple-60);
+    }
+  }
 }
 
 /* ===== Border radius ===== */
@@ -121,7 +177,15 @@ label {
 /* ===== List and groups ===== */
 
 [role="listbox"] {
-  inline-size: 14rem;
+  position: absolute;
+  position-anchor: --combobox-input;
+  position-area: bottom center;
+  inline-size: anchor-size(width);
+  margin-block-start: var(--spacing-xs);
+
+  max-block-size: 14rem;
+  overflow-block: auto;
+  scrollbar-width: thin;
 
   padding: var(--spacing-s) var(--spacing-xs);
   border: var(--border);
@@ -179,7 +243,7 @@ label {
   }
 }
 
-[role="listbox"]:focus [role="option"][data-active="true"] {
+[role="option"][data-active="true"] {
   outline: 2px solid var(--purple-60);
   outline-offset: -2px;
 }

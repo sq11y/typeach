@@ -1,5 +1,5 @@
 export enum Move {
-  Forward,
+  Forward = 1,
   Backward,
 
   JumpForward,
@@ -9,10 +9,33 @@ export enum Move {
   Start,
 }
 
+export const Moves = [
+  Move.Forward,
+  Move.Backward,
+  Move.JumpForward,
+  Move.JumpBackward,
+  Move.End,
+  Move.Start,
+] as const;
+
 export enum PageMove {
-  Forward,
+  Forward = 1,
   Backward,
 }
+
+/* prettier-ignore */
+export const PageMoves = [
+  PageMove.Forward,
+  PageMove.Backward,
+] as const;
+
+export const isMove = <T>(move: Move | T): move is Move => {
+  return Moves.includes(move as Move);
+};
+
+export const isPageMove = <T>(move: PageMove | T): move is PageMove => {
+  return PageMoves.includes(move as PageMove);
+};
 
 /**
  * Get the next index in a list based on a pre-determined move.

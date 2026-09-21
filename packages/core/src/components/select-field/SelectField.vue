@@ -5,29 +5,34 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, provide, useTemplateRef } from "vue";
+import { computed, provide, ref, useTemplateRef } from "vue";
+
 import { provideField } from "../field/hooks";
 import { useCombobox } from "../../hooks";
-import { ListboxFieldContextKey, ListboxFieldStandaloneContextKey } from "./hooks";
 
-export interface ListboxFieldProps {
+import { ListboxFieldContextKey } from "../listbox-field/hooks";
+
+export interface SelectFieldProps {
   /**
    * If one should be able to select more than one option.
    */
   multiselect?: boolean;
 }
 
-export interface ListboxFieldSlots {
+export interface SelectFieldSlots {
   /**
-   * The listbox input and field sub-components.
+   * The related select button and listbox input.
    */
-  default?: () => void;
+  default: () => void;
 }
 
-const props = defineProps<ListboxFieldProps>();
+const props = defineProps<SelectFieldProps>();
 
-defineSlots<ListboxFieldSlots>();
+defineSlots<SelectFieldSlots>();
 
+/**
+ * The selected values. When single select, there will be only one value in the array.
+ */
 const modelValue = defineModel<string[]>({ default: () => [] });
 
 const element = useTemplateRef("element");
@@ -36,9 +41,11 @@ const { sharedIds } = provideField(element);
 
 const multiselect = computed(() => props.multiselect);
 
+const open = ref(false);
+
 const {
-  optionsTracker,
   options,
+  optionsTracker,
 
   activeIndex,
   activeElementId,
@@ -49,14 +56,18 @@ const {
   onOptionClick,
   onOptionMouseDown,
   onOptionMouseUp,
-} = useCombobox(modelValue, multiselect, sharedIds);
+} = useCombobox(modelValue, multiselect, sharedIds, undefined, open);
 
 provide(ListboxFieldContextKey, {
   modelValue,
+
+  open,
   activeIndex,
+  activeElementId,
+
   optionsTracker,
   options,
-  activeElementId,
+
   multiselect,
 
   onClick,
@@ -66,6 +77,4 @@ provide(ListboxFieldContextKey, {
   onOptionMouseDown,
   onOptionMouseUp,
 });
-
-provide(ListboxFieldStandaloneContextKey, true);
 </script>

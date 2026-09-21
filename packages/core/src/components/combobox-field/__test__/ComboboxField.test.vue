@@ -1,8 +1,16 @@
 <template>
-  <PeachyListboxField>
-    <PeachyFieldLabel>Fruits</PeachyFieldLabel>
+  <PeachyComboboxField v-model="modelValue" :multiselect="multiselect">
+    <PeachyFieldLabel> Fruit </PeachyFieldLabel>
 
-    <PeachyListboxInput v-model="modelValue">
+    <PeachyComboboxSelectionList>
+      <PeachyComboboxSelectionListItem v-for="value in modelValue" :key="value">
+        {{ value }}
+      </PeachyComboboxSelectionListItem>
+    </PeachyComboboxSelectionList>
+
+    <PeachyComboboxInput />
+
+    <PeachyListboxInput v-model="modelValue" multiselect>
       <template v-for="(option, i) of options" :key="option">
         <PeachyListboxOption v-if="i <= 4" :value="option" :label="option">
           {{ option }}
@@ -19,22 +27,28 @@
         </template>
       </PeachyListboxGroup>
     </PeachyListboxInput>
-  </PeachyListboxField>
+  </PeachyComboboxField>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue";
 
 import {
-  PeachyListboxField,
   PeachyFieldLabel,
+  PeachyComboboxField,
+  PeachyComboboxInput,
+  PeachyComboboxSelectionList,
+  PeachyComboboxSelectionListItem,
   PeachyListboxInput,
-  PeachyListboxGroup,
-  PeachyListboxGroupLabel,
   PeachyListboxOption,
 } from "@typeach/core";
 
 interface ListboxFieldTestProps {
+  /**
+   * If the test should run a multiselect.
+   */
+  multiselect?: boolean;
+
   /**
    * The mock data.
    */
@@ -45,3 +59,17 @@ defineProps<ListboxFieldTestProps>();
 
 const modelValue = ref(["3"]);
 </script>
+
+<style>
+[data-active="true"] {
+  background-color: palegoldenrod;
+}
+
+[aria-selected="true"] {
+  background-color: greenyellow;
+
+  &[data-active="true"] {
+    background-color: green;
+  }
+}
+</style>

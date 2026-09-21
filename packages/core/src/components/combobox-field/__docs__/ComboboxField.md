@@ -1,21 +1,19 @@
 ---
-title: "Listbox Field"
+title: "Combobox Field"
 alternativeTitles: ["Select"]
-slug: "/f/listbox-field"
-description: "Pick from visible options."
-illustration: "listbox-field.png"
+slug: "/f/combobox-field"
+description: "Filter and pick options."
+illustration: "combobox-field.png"
 color: "purple"
 ---
 
 <script setup>
   import { useRoute } from 'vue-router';
 
-  import ListboxFieldSandbox from './ListboxField.sandbox.vue';
-  import ListboxFieldMeta from '../ListboxField.vue?meta';
-  import ListboxInputMeta from '../ListboxInput.vue?meta';
-  import ListboxGroupMeta from '../ListboxGroup.vue?meta';
-  import ListboxGroupLabelMeta from '../ListboxGroupLabel.vue?meta';
-  import ListboxOptionMeta from '../ListboxOption.vue?meta';
+  import ComboboxFieldSandbox from './ComboboxField.sandbox.vue';
+
+  import ComboboxFieldMeta from '../ComboboxField.vue?meta';
+  import ComboboxInputMeta from '../ComboboxInput.vue?meta';
 
   const route = useRoute();
 </script>
@@ -26,7 +24,7 @@ color: "purple"
   {{ route?.meta.description }}
 </div>
 
-<ListboxFieldSandbox title="Listbox field" block-size="46rem" />
+<ComboboxFieldSandbox title="Combobox Field" block-size="40rem" />
 
 ## Guidelines
 
@@ -34,17 +32,15 @@ color: "purple"
 
 <template v-slot:do>
 
-- The user is going to pick one or more options from a big list.
-- Typeahead and extensive keyboard navgiation might be beneficial.
-- Making an input to let users categorize their selection. <em>Example to come!</em>
+- Choosing from a long list of options.
+- The options benefit from filtering.
 
 </template>
 
 <template v-slot:dont>
 
-- You only want the typeahead and extensive keyboard navgiation, use a select.
-- It would be better for the user to _search_ through the options, use a combobox.
-- There are very few options, use a radio or a group of checkboxes.
+- Few options - use a radio or a checkbox group.
+- Few options, but you want to save space - use [Select Field](/f/select-field).
 
 </template>
 
@@ -54,31 +50,21 @@ color: "purple"
 
 ### Field
 
-<Do11yMeta :meta="ListboxFieldMeta" />
+<Do11yMeta :meta="ComboboxFieldMeta" />
 
 ### Input
 
-<Do11yMeta :meta="ListboxInputMeta" />
-
-### Group
-
-<Do11yMeta :meta="ListboxGroupMeta" />
-
-### Group label
-
-<Do11yMeta :meta="ListboxGroupLabelMeta" />
-
-### Option
-
-<Do11yMeta :meta="ListboxOptionMeta" />
+<Do11yMeta :meta="ComboboxInputMeta" />
 
 ## Accessibility
+
+The input extends the [HTML input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input) with an [ARIA combobox role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role) with `aria-autocomplete="list"`.
+
+It associates itself with the listbox through `aria-haspopup="listbox"` and `aria-controls`. It indicates the currently focused option with `aria-activedescendant` and whether it's open or not with `aria-expanded`.
 
 The listbox extends a generic element with an [ARIA listbox role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role), and every option with an [ARIA option role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/option_role). Each group get the [ARIA group role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/group_role) and a the labels have no semantic role but are associated with the group using `aria-labelledby`.
 
 ### Keyboard navigation
-
-Only one of the options remain in the tab order - starting with the first option and then it switches to the last option the user navigated to.
 
 | Key                                  | Action                                                                              |
 | ------------------------------------ | ----------------------------------------------------------------------------------- |
@@ -91,3 +77,7 @@ Only one of the options remain in the tab order - starting with the first option
 | <kbd>End</kbd>                       | Moves to the last option.                                                           |
 | <kbd>Enter</kbd> or <kbd>Space</kbd> | Toggles the current option.                                                         |
 | <kbd>Ctrl</kbd> + <kbd>A</kbd>       | Selects all options when `multiselect`.                                             |
+
+## Further reading
+
+- [\<select> your poison](https://sarahmhigley.com/writing/select-your-poison/) by Sarah Higley - insights to Sarah's usability tests for selects and comboboxes.

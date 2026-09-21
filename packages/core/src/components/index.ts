@@ -1,5 +1,6 @@
 export * from "./button";
 export * from "./calendar-table";
+export * from "./combobox-field";
 export * from "./copy-button";
 export * from "./dialog";
 export * from "./disclosure";
@@ -8,6 +9,7 @@ export * from "./field";
 export * from "./grid-table";
 export * from "./link";
 export * from "./listbox-field";
+export * from "./select-field";
 export * from "./separator";
 export * from "./switch-field";
 export * from "./table";

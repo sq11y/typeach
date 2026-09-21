@@ -1,11 +1,15 @@
 <!-- prettier-ignore -->
 <template>
-  <PeachyListboxField v-model="modelValue" multiselect class="listbox-container">
+  <PeachySelectField v-model="modelValue" class="select-container">
     <PeachyFieldLabel>
-      Favorite characters
+      Favorite character
     </PeachyFieldLabel>
 
-    <PeachyListboxInput multiselect>
+    <PeachySelectButton>
+      {{ modelValue.join(', ') }}
+    </PeachySelectButton>
+
+    <PeachyListboxInput>
       <template v-for="(option, i) of options" :key="i">
         <PeachyListboxGroup v-if="option.options">
           <PeachyListboxGroupLabel class="group-label">
@@ -31,13 +35,14 @@
         </PeachyListboxOption>
       </template>
     </PeachyListboxInput>
-  </PeachyListboxField>
+  </PeachySelectField>
 </template>
 
 <script lang="ts" setup>
 import {
-  PeachyListboxField,
   PeachyFieldLabel,
+  PeachySelectField,
+  PeachySelectButton,
   PeachyListboxInput,
   PeachyListboxGroup,
   PeachyListboxGroupLabel,
@@ -52,7 +57,7 @@ type Option = {
 };
 
 const modelValue = defineModel<string[]>({
-  default: () => ["Devi Vishwakumar", "Christina Yang", "Brooke Davis"],
+  default: () => ["Brooke Davis"],
 });
 
 const options: Option[] = [
@@ -95,7 +100,7 @@ const options: Option[] = [
 
 /* ===== Container ===== */
 
-.listbox-container {
+.select-container {
   inline-size: 16rem;
   display: grid;
   gap: var(--spacing-xs);
@@ -106,6 +111,30 @@ const options: Option[] = [
 label {
   cursor: pointer;
   display: block;
+}
+
+/* ===== Input ===== */
+
+button[role="combobox"] {
+  anchor-name: --combobox-input;
+
+  text-align: start;
+
+  background-color: var(--bg);
+  color: var(--fg);
+
+  padding: var(--spacing-xs) var(--spacing-m);
+
+  border-radius: var(--border-radius);
+  border: var(--border);
+
+  @include utils.transition(border-color);
+
+  @include utils.enabled {
+    @include utils.hover {
+      border-color: var(--purple-60);
+    }
+  }
 }
 
 /* ===== Border radius ===== */
@@ -121,7 +150,17 @@ label {
 /* ===== List and groups ===== */
 
 [role="listbox"] {
-  inline-size: 14rem;
+  background-color: var(--bg);
+
+  position: absolute;
+  position-anchor: --combobox-input;
+  position-area: center center;
+  inline-size: anchor-size(width);
+  margin-block-start: var(--spacing-xs);
+
+  max-block-size: 20rem;
+  overflow-block: auto;
+  scrollbar-width: thin;
 
   padding: var(--spacing-s) var(--spacing-xs);
   border: var(--border);
@@ -179,7 +218,7 @@ label {
   }
 }
 
-[role="listbox"]:focus [role="option"][data-active="true"] {
+[role="option"][data-active="true"] {
   outline: 2px solid var(--purple-60);
   outline-offset: -2px;
 }

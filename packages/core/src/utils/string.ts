@@ -10,8 +10,9 @@ export const isPrintableCharacter = (character: string): boolean => {
  * Checks if a character is a printable
  * character which is not space.
  */
+/* prettier-ignore */
 export const isTypeaheadCharacter = (character: string): boolean => {
-  return isPrintableCharacter(character) && character !== " ";
+  return isPrintableCharacter(character) && character !== " " || ["Backspace", "Clear"].includes(character);
 };
 
 /**
