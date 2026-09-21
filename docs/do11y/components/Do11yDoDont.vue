@@ -1,7 +1,7 @@
 <template>
   <div :class="c()">
     <div v-if="$slots.do" :class="c('do')">
-      <h3>
+      <component :is="headingTag">
         <div :class="c('icon')">
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
             <path
@@ -11,7 +11,7 @@
         </div>
 
         {{ doTitle }}
-      </h3>
+      </component>
 
       <div :class="c('slot')">
         <slot name="do" />
@@ -19,7 +19,7 @@
     </div>
 
     <div v-if="$slots.dont" :class="c('dont')">
-      <h3>
+      <component :is="headingTag">
         <div :class="c('icon')">
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
             <path
@@ -29,7 +29,7 @@
         </div>
 
         {{ dontTitle }}
-      </h3>
+      </component>
 
       <div :class="c('slot')">
         <slot name="dont" />
@@ -51,6 +51,11 @@ export interface DoDontProps {
    * The title for the donts.
    */
   dontTitle?: string;
+
+  /**
+   * The heading level to start at.
+   */
+  headingTag?: "h2" | "h3" | "h4";
 }
 
 export interface DoDontSlots {
@@ -68,6 +73,7 @@ export interface DoDontSlots {
 withDefaults(defineProps<DoDontProps>(), {
   doTitle: "Do",
   dontTitle: `Don't`,
+  headingTag: "h3",
 });
 
 defineSlots<DoDontSlots>();
@@ -114,7 +120,9 @@ const c = useBemClass("usage-guide");
     color: var(--usage-guide-color);
   }
 
-  h3 {
+  h2,
+  h3,
+  h4 {
     margin-inline-start: var(--spacing-xxs);
 
     font-size: var(--font-size-xl);

@@ -10,7 +10,7 @@ Anyways, whether the label is visible, or not, you will need to provide an _acce
 
 See, the label might make little to no sense if you can't see the full picture. You're in a cooking app with a button labelled "Bake" - is that enough information for you? What are you baking? What if it there were 10 buttons labelled "Bake"?
 
-<Do11yDoDont>
+<Do11yDoDont heading-tag="h2">
 
 <template v-slot:do>
 
@@ -50,7 +50,7 @@ Another thing to keep in mind is that some people use different types of voice c
 
 </div>
 
-<Do11yDoDont>
+<Do11yDoDont heading-tag="h2">
 
 <template v-slot:do>
 

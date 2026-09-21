@@ -54,7 +54,7 @@ A disabled button can cause confusion as to why it has been disabled and how to 
 
 However, if you _must_..
 
-<Do11yDoDont>
+<Do11yDoDont heading-tag="h4">>
 
 <template v-slot:do>
 
