@@ -75,7 +75,7 @@ The listbox extends a generic element with an [ARIA listbox role](https://develo
 | <kbd>PageDown</kbd>                  | Moves to the 10th option after. If there isn't one - it moves to the last option.   |
 | <kbd>Home</kbd>                      | Moves to the first option.                                                          |
 | <kbd>End</kbd>                       | Moves to the last option.                                                           |
-| <kbd>Enter</kbd> or <kbd>Space</kbd> | Toggles the current option.                                                         |
+| <kbd>Enter</kbd> or <kbd>Space</kbd> | Selects the current option.                                                         |
 | <kbd>Ctrl</kbd> + <kbd>A</kbd>       | Selects all options when `multiselect`.                                             |
 
 ## Further reading
