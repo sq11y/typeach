@@ -37,6 +37,7 @@ color: "blue"
 
 - Performing an action, use [Button](/c/button).
 - Downloading content instantly, use [Download link](/c/download-link).
+- You want to switch part of the page's content, use [Tabs](/c/tabs).
 
 </template>
 

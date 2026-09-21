@@ -34,8 +34,7 @@ color: "turquoise"
 
 <template v-slot:do>
 
-- You want sub-pages without loading a new page.
-- You want to split the page into sections.
+- You want to switch part of the page's content.
 
 </template>
 
@@ -43,6 +42,8 @@ color: "turquoise"
 
 - You want to hide information that is only relevant to some users, use [Disclosure](/c/disclosure).
 - Part of a step-by-step process.
+- You want to filter a view, use a radio.
+- You want to navigate to a sub-page, use [Link](/c/link).
 
 </template>
 
