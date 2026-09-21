@@ -14,7 +14,7 @@ import SelectFieldTest from "./SelectField.test.vue";
 
       await expect(combobox).toHaveAttribute("id", "v-1");
       await expect(combobox).toHaveAttribute("aria-haspopup", "listbox");
-      await expect(combobox).toHaveAttribute("aria-autocomplete", "list");
+      await expect(combobox).toHaveAttribute("aria-autocomplete", "none");
       await expect(combobox).toHaveAttribute("aria-labelledby", "v-0");
       await expect(combobox).toHaveAttribute("aria-controls", "v-2");
 

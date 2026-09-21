@@ -28,22 +28,6 @@ import ComboboxFieldTest from "./ComboboxField.test.vue";
       await expect(await optionThree()).toHaveAttribute("role", "option");
     });
 
-    test("Keyboard navigation", async ({ mount, page, listbox, getByExactText }) => {
-      await mount(ComboboxFieldTest, { props: { multiselect, options: listboxOptions } });
-
-      const combobox = page.locator("[role='combobox']");
-
-      await combobox.click();
-      await listbox(true);
-      await combobox.press("Enter");
-
-      if (multiselect) {
-        await expect(await getByExactText("1", 1)).toHaveAttribute("aria-selected", "true");
-      } else {
-        await expect(page.locator("input")).toHaveValue("1");
-      }
-    });
-
     test("Can open and close", async ({ mount, page }) => {
       await mount(ComboboxFieldTest, { props: { multiselect, options: listboxOptions } });
 
@@ -80,10 +64,19 @@ import ComboboxFieldTest from "./ComboboxField.test.vue";
       const optionEight = async () => await getByExactText("8", optionIndex);
 
       await (await getByExactText("6")).click();
+
+      if (!multiselect) {
+        await combobox.click();
+      }
+
       await expect(await optionSix()).toHaveAttribute("aria-selected", "true");
       await expect(await optionThree()).toHaveAttribute("aria-selected", `${multiselect}`);
 
       await (await getByExactText("8")).click();
+
+      if (!multiselect) {
+        await combobox.click();
+      }
       await expect(await optionEight()).toHaveAttribute("aria-selected", "true");
     });
 

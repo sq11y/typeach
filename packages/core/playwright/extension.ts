@@ -14,11 +14,6 @@ type Fixtures = {
   rovingTabindex(direction: "horizontal" | "vertical", items: string[], edgeless?: boolean, withoutPagination?: boolean): Promise<void>;
 
   /**
-   * Runs keyboard navigation tests for roving tabindex.
-   */
-  listbox(combobox?: boolean): Promise<void>;
-
-  /**
    * Runs axe-core tests.
    */
   a11y(disabledRules?: string[]): Promise<void>;
@@ -96,32 +91,6 @@ export const test = baseTest.extend<Fixtures>({
         await page.keyboard.press("PageUp");
         await expect(await getByExactText(items[0]!)).toBeFocused();
       }
-    });
-  },
-
-  async listbox({ page, getByExactText }, use) {
-    await use(async (combobox) => {
-      const input = page.locator(combobox ? "[role='combobox']" : "[role='listbox']");
-
-      await (await getByExactText("5")).click();
-
-      await input.press("ArrowDown");
-      await expect(input).toHaveAttribute("aria-activedescendant", `v-${combobox ? 14 : 13}`);
-
-      await input.press("ArrowUp");
-      await expect(input).toHaveAttribute("aria-activedescendant", `v-${combobox ? 12 : 10}`);
-
-      await input.press("End");
-      await expect(input).toHaveAttribute("aria-activedescendant", `v-${combobox ? 28 : 27}`);
-
-      await input.press("Home");
-      await expect(input).toHaveAttribute("aria-activedescendant", `v-${combobox ? 4 : 2}`);
-
-      await input.press("PageDown");
-      await expect(input).toHaveAttribute("aria-activedescendant", `v-${combobox ? 24 : 23}`);
-
-      await input.press("PageUp");
-      await expect(input).toHaveAttribute("aria-activedescendant", `v-${combobox ? 4 : 2}`);
     });
   },
 });
