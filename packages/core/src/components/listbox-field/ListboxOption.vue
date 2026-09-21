@@ -11,7 +11,6 @@
     role="option"
     @click="onOptionClick(index)"
     @mousedown="onOptionMouseDown"
-    @mouseup="onOptionMouseUp"
   >
     <slot />
   </div>
@@ -91,7 +90,6 @@ const {
 
   onOptionClick,
   onOptionMouseDown,
-  onOptionMouseUp,
 } = inject(ListboxFieldContextKey)!;
 
 const index = computed(() => options.value.findIndex((i) => i.value === props.value));

@@ -56,7 +56,6 @@ const {
   onKeyDown,
   onOptionClick,
   onOptionMouseDown,
-  onOptionMouseUp,
 } = useCombobox(modelValue, multiselect, sharedIds, filter, open);
 
 provide(ListboxFieldContextKey, {
@@ -76,7 +75,6 @@ provide(ListboxFieldContextKey, {
   onKeyDown,
   onOptionClick,
   onOptionMouseDown,
-  onOptionMouseUp,
 });
 
 provide(ComboboxFieldContextKey, {

@@ -1,4 +1,4 @@
-import { computed, nextTick, ref, watch, type ComputedRef, type Ref } from "vue";
+import { computed, ref, watch, type ComputedRef, type Ref } from "vue";
 
 import { isMove, Move, navigateList, useTypeahead } from "./keyboard";
 import { isTypeaheadCharacter } from "../utils";
@@ -64,7 +64,7 @@ export interface ComboxboxContext {
    * The `onKeydown` event you should apply to
    * the combobox itself.
    */
-  onKeyDown(event: KeyboardEvent): Promise<void>;
+  onKeyDown(event: KeyboardEvent): void;
 
   /**
    * The `onClick` event you should apply to each option.
@@ -75,11 +75,6 @@ export interface ComboxboxContext {
    * The `onMouseDown` event you should apply to each option.
    */
   onOptionMouseDown(event: MouseEvent): void;
-
-  /**
-   * The `onMouseUp` event you should apply to each option.
-   */
-  onOptionMouseUp(event: MouseEvent): void;
 }
 
 /* eslint-disable max-lines-per-function */
@@ -174,22 +169,22 @@ export const useCombobox = (
     }
 
     modelValue.value = [option.value];
+
+    /**
+     * Ensure the
+     */
+    setTimeout(() => {
+      setOpen(false);
+    }, 0);
   };
 
   const onOptionMouseDown = () => {
     ignoreBlur.value = true;
   };
 
-  const onOptionMouseUp = () => {
-    setTimeout(() => {
-      if (!multiselect.value) {
-        setOpen(false);
-      }
-    }, 0);
-  };
-
   const onOptionClick = (index: number) => {
     activeIndex.value = index;
+    setFilter("");
 
     if (multiselect.value) {
       toggleOption(index);
@@ -197,7 +192,6 @@ export const useCombobox = (
       selectOption(index);
     }
 
-    setFilter("");
     document.getElementById(sharedIds.get("input"))?.focus();
   };
 
@@ -214,7 +208,7 @@ export const useCombobox = (
     setOpen(true);
   };
 
-  const onKeyDown = async (event: KeyboardEvent) => {
+  const onKeyDown = (event: KeyboardEvent) => {
     const action = getComboboxAction(event, open ? open.value : true, !!filter);
 
     const max = options.value.length - 1;
@@ -238,13 +232,11 @@ export const useCombobox = (
 
       case "select":
         if (multiselect.value) {
-          toggleOption(activeIndex.value);
           setFilter("");
+          toggleOption(activeIndex.value);
         } else {
-          selectOption(activeIndex.value);
           setFilter(activeOption.value?.label || "");
-          await nextTick();
-          setOpen(false);
+          selectOption(activeIndex.value);
         }
 
         break;
@@ -282,7 +274,6 @@ export const useCombobox = (
     onKeyDown,
     onOptionClick,
     onOptionMouseDown,
-    onOptionMouseUp,
   };
 };
 
