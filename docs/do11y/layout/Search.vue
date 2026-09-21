@@ -115,7 +115,7 @@ router.beforeEach(() => {
   flex-direction: column;
   gap: var(--spacing-l);
 
-  inline-size: min(80vw, 32rem);
+  inline-size: min(80vw, 36rem);
   max-block-size: calc(100vh - 30vh);
   margin-block-start: 15vh;
 
