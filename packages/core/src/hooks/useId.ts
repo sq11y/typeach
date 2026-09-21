@@ -2,7 +2,14 @@ import { watchImmediate } from "@vueuse/core";
 import { ref } from "vue";
 
 export type SharedIds = {
+  /**
+   * The setter.
+   */
   set: (key: string, id?: string) => void;
+
+  /**
+   * The getter.
+   */
   get: (key: string) => string;
 };
 

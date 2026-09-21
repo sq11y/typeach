@@ -2,9 +2,20 @@ import { computed, nextTick, onMounted, ref } from "vue";
 import { useMutationObserver } from "@vueuse/core";
 
 export interface Outline {
+  /**
+   * The heading element.
+   */
   heading: HTMLHeadingElement;
-  children?: Outline[];
+
+  /**
+   * The level for the current heading.
+   */
   level: number;
+
+  /**
+   * The diret subheadings.
+   */
+  children?: Outline[];
 }
 
 /**
