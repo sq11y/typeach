@@ -19,7 +19,7 @@ export const useFuzzySearch = <T>(
     }
 
     const fuseInstance = new Fuse([...itemsValue] as Readonly<T[]>, {
-      threshold: 0.4,
+      threshold: 0.2,
       keys,
     });
 
