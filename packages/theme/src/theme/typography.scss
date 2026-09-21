@@ -91,7 +91,7 @@
 }
 
 .prose {
-  $block-element: div, pre, img, video, figure, details;
+  $block-element: nav, div, pre, img, video, figure, details, table;
 
   :where(* + h2) {
     margin-block-start: calc(var(--prose-flow-scale) * 1.575em);
@@ -124,13 +124,13 @@
 
   :where(h1 + h2),
   :where(h2 + h3) {
-    margin-block-start: calc(var(--prose-flow-scale) * 0.42em);
+    margin-block-start: calc(var(--prose-flow-scale) * 0.4em);
   }
 
   :where(h3 + h4),
   :where(h4 + h5),
   :where(h5 + h6) {
-    margin-block-start: calc(var(--prose-flow-scale) * 0.59em);
+    margin-block-start: calc(var(--prose-flow-scale) * 0.55em);
   }
 
   :where(* + p),
