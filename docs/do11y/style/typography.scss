@@ -23,8 +23,9 @@
   font-weight: var(--font-weight-normal);
 }
 
+:where(b),
 :where(strong) {
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-bold);
 }
 
 :where(html, kbd),

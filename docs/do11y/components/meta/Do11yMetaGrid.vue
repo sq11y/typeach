@@ -1,9 +1,7 @@
 <template>
-  <h4 v-if="title">{{ title }}</h4>
-
   <div :class="c({ events })">
     <div v-for="slot of meta" :key="slot.name" :class="c('item')">
-      <h5 v-if="events">{{ events ? "@" : "" }}{{ slot.name }}</h5>
+      <h4>{{ events ? `@${slot.name}` : "<slot />" }}</h4>
 
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div :class="c('description')" v-html="slot.description" />
@@ -53,9 +51,16 @@ const c = useBemClass("meta-grid");
   @media screen and (width <= 40rem) {
     grid-template-columns: 1fr;
   }
+
+  h4 {
+    font-size: var(--font-size-l);
+    line-height: var(--line-height-l);
+  }
 }
 
 .meta-grid__item {
+  --prose-flow-scale: 0.6;
+
   position: relative;
   overflow: hidden;
 

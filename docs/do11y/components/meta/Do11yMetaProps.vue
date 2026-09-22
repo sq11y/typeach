@@ -18,8 +18,6 @@
 
   <!-- Templates end -->
 
-  <h4>Props</h4>
-
   <Do11yTable
     :titles="['Prop', 'Type', 'Description & Necessity']"
     :small-titles="['Prop', 'Type', 'Description', 'Necessity']"

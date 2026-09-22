@@ -99,7 +99,7 @@
 
   :where(* + h3),
   :where(* + h4) {
-    margin-block-start: calc(var(--prose-flow-scale) * 1.125em);
+    margin-block-start: calc(var(--prose-flow-scale) * 1.65em);
   }
 
   :where(* + h5) {
@@ -140,7 +140,7 @@
 
   :where(p + *),
   :where(small + *) {
-    margin-block-start: calc(var(--prose-flow-scale) * 1.4em);
+    margin-block-start: calc(var(--prose-flow-scale) * 1.65em);
   }
 
   > :where(#{$block-element}) + :where(#{$block-element}) {
@@ -148,7 +148,7 @@
   }
 
   :where(:is(small, p) + :is(small, p)) {
-    margin-block-start: calc(var(--prose-flow-scale) * 1.125em);
+    margin-block-start: calc(var(--prose-flow-scale) * 1.25em);
   }
 
   :where(ul, ol) {
