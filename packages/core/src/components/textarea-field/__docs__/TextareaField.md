@@ -10,6 +10,8 @@ color: "purple"
   import { useRoute } from 'vue-router';
 
   import TextareaFieldSandbox from './TextareaField.sandbox.vue';
+
+  import TextareaFieldMeta from '../TextareaField.vue?meta';
   import TextareaFieldInputMeta from '../TextareaFieldInput.vue?meta';
 
   const route = useRoute();
@@ -42,6 +44,10 @@ color: "purple"
 </Do11yDoDont>
 
 ## API
+
+### Field
+
+<Do11yMeta :meta="TextareaFieldMeta" />
 
 ### Input
 
