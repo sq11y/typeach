@@ -48,7 +48,8 @@ const warByEdwinStarrLyricsAnswer = "Absolutely nothing.";
 button[aria-expanded] {
   margin-block-end: var(--spacing-s);
 
-  @include utils.space-between(var(--spacing-m));
+  @include utils.space-between;
+  gap: var(--spacing-m);
 
   padding-block: var(--relative-spacing-s);
   padding-inline: var(--relative-spacing-l) var(--relative-spacing-m);

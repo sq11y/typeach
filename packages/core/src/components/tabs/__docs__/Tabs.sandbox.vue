@@ -61,7 +61,8 @@ const quotesFromUltraProcessedPeopleByChrisVanTulleken = [
 }
 
 [role="tablist"] {
-  @include utils.dock(var(--spacing-xs));
+  @include utils.dock;
+  gap: var(--spacing-xs);
 }
 
 [role="tab"] {

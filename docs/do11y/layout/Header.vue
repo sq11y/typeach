@@ -69,7 +69,8 @@ header {
   transform: translateX(calc(var(--logo-size) / 2));
   margin-inline: auto;
 
-  @include utils.dock(var(--spacing-m));
+  @include utils.dock;
+  gap: var(--spacing-m);
 
   padding-inline: var(--spacing-l) var(--spacing-m);
   padding-block: var(--spacing-xs);
@@ -100,7 +101,8 @@ header {
 }
 
 .header__logo {
-  @include utils.dock(var(--spacing-l));
+  @include utils.dock;
+  gap: var(--spacing-l);
 
   span {
     font-family: var(--font-family-heading);
@@ -147,7 +149,8 @@ button[commandfor="nav"] {
 
 nav {
   &:not([popover]):not([class]) {
-    @include utils.dock(var(--spacing-m));
+    @include utils.dock;
+    gap: var(--spacing-m);
   }
 
   &:popover-open {
@@ -156,7 +159,8 @@ nav {
     margin-block-start: var(--spacing-s);
     justify-self: end;
 
-    @include utils.stack(var(--spacing-xs));
+    @include utils.stack;
+    gap: var(--spacing-xs);
 
     border: var(--border);
     border-radius: var(--border-radius);

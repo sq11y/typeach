@@ -138,7 +138,8 @@ const isBigScreen = useMediaQuery("(width >= 45rem)");
   border-radius: var(--border-radius);
   overflow: hidden;
 
-  @include utils.stack(var(--spacing-s));
+  @include utils.stack;
+  gap: var(--spacing-s);
 }
 
 .table__list {

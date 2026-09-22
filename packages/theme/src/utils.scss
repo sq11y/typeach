@@ -14,53 +14,37 @@
   }
 }
 
-@mixin pile($gap: false) {
+@mixin pile {
   display: grid;
   grid-template-areas: "pile";
   place-content: center;
-
-  @if $gap {
-    gap: $gap;
-  }
 
   > * {
     grid-area: pile;
   }
 }
 
-@mixin center($gap: false) {
+@mixin center {
   display: grid;
   place-content: center;
   justify-items: center;
-
-  @if $gap {
-    gap: $gap;
-  }
 }
 
-@mixin dock($gap: false) {
+@mixin dock {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-
-  @if $gap {
-    gap: $gap;
-  }
 }
 
-@mixin stack($gap: false) {
+@mixin stack {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
   align-self: stretch;
-
-  @if $gap {
-    gap: $gap;
-  }
 }
 
-@mixin space-between($gap: false) {
-  @include dock($gap);
+@mixin space-between {
+  @include dock;
   justify-content: space-between;
 }
 

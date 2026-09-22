@@ -117,8 +117,9 @@ watch(showCode, async (newShowCode) => {
 .code-block__toolbar {
   background-color: var(--grey-10);
 
-  @include utils.dock(var(--spacing-xs));
+  @include utils.dock;
   justify-content: end;
+  gap: var(--spacing-xs);
 
   padding: var(--spacing-m);
   padding-block-end: 0;

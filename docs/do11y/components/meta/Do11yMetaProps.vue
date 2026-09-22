@@ -96,7 +96,8 @@ const sortedProps = computed(() => {
 @use "@typeach/theme/utils";
 
 .tags {
-  @include utils.dock(var(--spacing-xs));
+  @include utils.dock;
+  gap: var(--spacing-xs);
 
   * {
     min-inline-size: max-content;

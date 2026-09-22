@@ -129,7 +129,8 @@ ul {
   list-style: none;
   padding-inline-start: 0;
 
-  @include utils.dock(var(--spacing-xxs));
+  @include utils.dock;
+  gap: var(--spacing-xxs);
 
   li {
     border-radius: var(--border-radius);
@@ -196,7 +197,8 @@ input[role="combobox"] {
 }
 
 [role="group"] {
-  @include utils.stack(var(--spacing-xxs));
+  @include utils.stack;
+  gap: var(--spacing-xxs);
 }
 
 /* ===== Options and group labels ===== */
@@ -215,7 +217,8 @@ input[role="combobox"] {
 [role="option"] {
   scroll-margin-block: 1em;
 
-  @include utils.space-between(var(--spacing-m));
+  @include utils.space-between;
+  gap: var(--spacing-m);
 
   @include utils.transition("background-color, color");
 

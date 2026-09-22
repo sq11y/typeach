@@ -72,7 +72,8 @@ router.beforeEach(() => {
 @use "../style/mixins";
 
 .search__button {
-  @include utils.dock(var(--spacing-xs));
+  @include utils.dock;
+  gap: var(--spacing-xs);
 
   background-color: var(--green-20);
   color: inherit;

@@ -79,8 +79,9 @@ img {
 /* ===== Toolbar ===== */
 
 [role="toolbar"] {
-  @include utils.dock(var(--spacing-xs));
+  @include utils.dock;
   justify-content: center;
+  gap: var(--spacing-xs);
 }
 
 /* ===== Toolbar button ===== */

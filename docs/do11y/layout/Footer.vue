@@ -60,7 +60,8 @@ a {
 }
 
 a[href^="https://github.com"] {
-  @include utils.dock(var(--spacing-xs));
+  @include utils.dock;
+  gap: var(--spacing-xs);
   display: inline-flex;
 }
 </style>

@@ -43,7 +43,8 @@ const c = useBemClass("color-rules");
 @use "@typeach/theme/utils";
 
 .color-rules__rule {
-  @include utils.dock(var(--spacing-s));
+  @include utils.dock;
+  gap: var(--spacing-s);
 
   div {
     forced-color-adjust: none;

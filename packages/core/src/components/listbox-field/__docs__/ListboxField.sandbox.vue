@@ -132,7 +132,8 @@ label {
 }
 
 [role="group"] {
-  @include utils.stack(var(--spacing-xxs));
+  @include utils.stack;
+  gap: var(--spacing-xxs);
 }
 
 /* ===== Options and group labels ===== */
@@ -151,7 +152,8 @@ label {
 [role="option"] {
   scroll-margin-block: 1em;
 
-  @include utils.space-between(var(--spacing-m));
+  @include utils.space-between;
+  gap: var(--spacing-m);
 
   @include utils.transition("background-color, color");
 

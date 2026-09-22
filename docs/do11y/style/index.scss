@@ -30,8 +30,9 @@ html {
 }
 
 body {
-  @include utils.center(var(--spacing-xxxxxl));
+  @include utils.center;
   grid-template-rows: auto 1fr auto;
+  gap: var(--spacing-xxxxxl);
 
   @media (width <= 60rem) {
     gap: var(--spacing-xxxxl);

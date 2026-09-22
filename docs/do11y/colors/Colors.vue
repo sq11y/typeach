@@ -56,7 +56,8 @@ const c = useBemClass("colors");
 @use "@typeach/theme/utils";
 
 .colors {
-  @include utils.dock(var(--spacing-xxs));
+  @include utils.dock;
+  gap: var(--spacing-xxs);
 
   font-size: var(--font-size-s);
   forced-color-adjust: none;
