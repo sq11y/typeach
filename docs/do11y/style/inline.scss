@@ -18,14 +18,17 @@ kbd {
   align-items: center;
   gap: 0.125em;
 
-  border-radius: var(--border-radius);
-  padding-inline: var(--relative-spacing-s);
-  line-height: 1.4;
-
-  margin-inline: 1px;
-
   white-space: normal;
   word-break: word-break;
+
+  &:not(.unstyled) {
+    margin-inline: 1px;
+    padding-inline: var(--relative-spacing-s);
+
+    border-radius: var(--border-radius);
+
+    line-height: 1.4;
+  }
 }
 
 .required-tag,
@@ -45,8 +48,8 @@ code:not(pre code) {
   font-size: var(--font-size-smaller);
 }
 
-kbd {
-  border: 1px solid var(--grey-60);
+kbd:not(.unstyled) {
+  border: var(--border-shape) var(--grey-60);
 
   background-color: var(--bg);
   color: var(--fg);

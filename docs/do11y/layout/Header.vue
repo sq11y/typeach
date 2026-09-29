@@ -1,9 +1,7 @@
 <template>
   <header>
     <RouterLink to="/" :class="[c('logo'), 'no-focus']">
-      <img :class="c('mascot')" alt="Squirrel mascot" src="/logo.webp" />
-
-      <span>Typeach</span>
+      <img :class="c('mascot')" alt="Typeach mascot" src="/logo.webp" />
     </RouterLink>
 
     <nav id="nav" ref="popover" :popover="isSmallScreen ? 'auto' : undefined">
@@ -70,10 +68,10 @@ header {
   margin-inline: auto;
 
   @include utils.dock;
-  gap: var(--spacing-m);
+  gap: var(--spacing-s);
 
-  padding-inline: var(--spacing-l) var(--spacing-m);
-  padding-block: var(--spacing-xs);
+  padding: var(--spacing-xs);
+  padding-inline-start: var(--spacing-m);
 
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
   border: var(--invisible-border);
@@ -81,38 +79,37 @@ header {
   background-color: var(--green-30);
   color: var(--green-80);
 
-  a {
-    color: inherit;
-    text-decoration: none;
+  &::before {
+    content: "";
+    position: absolute;
+
+    inset-block: calc(var(--border-width) * -1);
+    inset-inline-start: calc(var(--logo-size) / 2 * -1);
+    inline-size: calc(var(--logo-size) / 2);
+
+    background-color: inherit;
   }
 
   @media (width <= 40rem) {
     margin-inline: auto calc(var(--inline-margin));
     transform: none;
+
+    padding-inline: var(--spacing-s);
   }
 }
 
 .header__link {
-  @include utils.transition("background-color");
-
-  @include utils.hover {
-    background-color: var(--green-40);
-  }
+  color: inherit;
+  text-decoration: none;
 }
 
 .header__logo {
-  @include utils.dock;
-  gap: var(--spacing-l);
-
-  span {
-    font-family: var(--font-family-heading);
-    font-weight: var(--font-weight-medium);
-    font-size: var(--font-size-bigger);
-  }
+  position: absolute;
+  inset-inline-start: calc(var(--logo-size) * -1);
 
   &:hover .header__mascot {
-    scale: 1.15;
-    rotate: calc(360deg - 8deg);
+    scale: 1.1;
+    rotate: calc(-3.5deg);
   }
 
   &:focus-visible .header__mascot {
@@ -121,18 +118,14 @@ header {
 }
 
 .header__mascot {
-  position: absolute;
-
   block-size: var(--logo-size);
-  inset-inline-start: calc(var(--logo-size) * -1 + calc(var(--logo-size) * 0.15));
-
   border-radius: var(--border-radius);
 
-  @include utils.transition("scale, rotate");
+  @include utils.transition(scale, rotate);
 
   @supports (corner-shape: squircle) {
     corner-shape: squircle;
-    border-radius: 50%;
+    border-radius: 40%;
   }
 }
 

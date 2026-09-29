@@ -1,9 +1,8 @@
 <template>
   <PeachyDialog v-model="open" modal>
     <PeachyDialogButton :class="c('button')" keyboard-shortcut="Ctrl+K, ⌘+K">
-      <SearchSvg aria-hidden="true" />
-      <span>Search</span>
-      <kbd aria-hidden="true">K <CmdSvg aria-hidden="true" /></kbd>
+      Search
+      <kbd class="unstyled" aria-hidden="true"><CmdSvg aria-hidden="true" />K</kbd>
     </PeachyDialogButton>
 
     <PeachyDialogPanel light-dismiss :class="c('dialog')">
@@ -12,7 +11,7 @@
       </PeachyVisuallyHidden>
 
       <PeachyTextField role="search">
-        <PeachyFieldLabel :class="c('label')">
+        <PeachyFieldLabel :class="[c('label'), 'h5']">
           <SearchSvg aria-hidden="true" />
           What are you looking for?
         </PeachyFieldLabel>
@@ -75,36 +74,24 @@ router.beforeEach(() => {
   @include utils.dock;
   gap: var(--spacing-xs);
 
-  background-color: var(--green-20);
-  color: inherit;
+  background-color: var(--bg);
+  color: var(--fg);
 
   border-radius: var(--border-radius);
-  border: var(--invisible-border);
+  border: var(--border-shape) var(--grey-60);
 
-  padding: var(--relative-spacing-xs);
-  padding-inline-start: var(--relative-spacing-s);
+  padding: var(--relative-spacing-xxs) var(--relative-spacing-m);
 
-  font-size: var(--font-size-s);
-  line-height: var(--line-height-s);
+  font-size: var(--font-size-smaller);
 
-  @include utils.transition("background-color");
+  @include utils.transition(transform, background-color);
 
   @include utils.hover {
-    background-color: var(--green-10);
+    background-color: var(--green-20);
   }
 
   &:active {
-    background-color: var(--green-40);
-  }
-
-  @media (width < 25rem) {
-    background-color: transparent;
-    border: transparent;
-
-    kbd,
-    span {
-      display: none;
-    }
+    transform: translateY(2px);
   }
 }
 
@@ -132,7 +119,7 @@ router.beforeEach(() => {
     rgb(0 0 0 / 30%) 0 3px 7px -3px;
 
   &::backdrop {
-    background-color: rgb(from var(--pink-30) r g b / 60%);
+    background-color: rgb(from var(--pink-30) r g b / 65%);
     backdrop-filter: blur(2px);
   }
 }
@@ -140,11 +127,7 @@ router.beforeEach(() => {
 .search__label {
   @include utils.dock;
   gap: var(--spacing-xs);
-
-  color: var(--pink-90);
-
-  font-size: var(--font-size-l);
-  line-height: var(--line-height-l);
+  color: var(--pink-80);
 }
 
 input[type="search"] {

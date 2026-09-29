@@ -9,7 +9,8 @@
 
 :root {
   --border-radius: 8px;
-  --border-shape: 1px solid;
+  --border-width: 1px;
+  --border-shape: var(--border-width) solid;
   --border: var(--border-shape) var(--grey-40);
   --invisible-border: var(--border-shape) transparent;
 
