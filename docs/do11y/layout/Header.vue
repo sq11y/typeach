@@ -44,7 +44,7 @@ const route = useRoute();
 
 const isComponentPage = computed(() => route.path.startsWith("/c") || route.path.startsWith("/f"));
 
-const isLargeScreen = useMediaQuery("(width >= 78rem)");
+const isLargeScreen = useMediaQuery("(width >= 76rem)");
 
 const isSmallScreen = useMediaQuery("(width <= 40rem)");
 

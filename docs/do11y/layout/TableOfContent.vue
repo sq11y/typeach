@@ -40,7 +40,7 @@ iframe {
   inset-inline-start: calc(anchor(right) + var(--spacing-l));
 
   /* @TODO Fix magic number */
-  block-size: calc(100% - 60rem);
+  block-size: calc(100% - 55rem);
 }
 
 .table-of-content {
