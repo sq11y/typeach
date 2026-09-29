@@ -1,10 +1,10 @@
 <template>
   <button
     ref="element"
-    :aria-disabled="disabled === true ? true : undefined"
+    :aria-disabled="!!disabled"
     :aria-keyshortcuts="keyboardShortcut"
-    :disabled="disabled === 'without-focus' ? true : undefined"
     :type="type"
+    :tabindex="disabled === 'without-focus' ? -1 : undefined"
     @click="onClick"
     @keydown="onKeyDown"
   >
@@ -49,9 +49,7 @@ export interface ButtonEmits {
 
 export interface ButtonSlots {
   /**
-   * The content of the button should include an [accessible label](/p/accessible-labels).
-   *
-   * Also keep in mind that a button should only contain [phrasing content](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#phrasing_content).
+   * The content of the button should include an [accessible label](/p/accessible-labels). Also keep in mind that a button should only contain [phrasing content](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#phrasing_content).
    */
   default: () => void;
 }
