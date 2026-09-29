@@ -83,6 +83,8 @@ const isBigScreen = useMediaQuery("(width >= 45rem)");
 @use "@typeach/theme/utils";
 
 .table {
+  --prose-flow-scale: 0.8;
+
   border-spacing: 0;
   border: var(--border);
   border-radius: var(--border-radius);
@@ -148,7 +150,7 @@ const isBigScreen = useMediaQuery("(width >= 45rem)");
   }
 
   dd:first-of-type {
-    padding: var(--spacing-s) var(--spacing-l);
+    padding: var(--spacing-xs) var(--spacing-m);
 
     background-color: var(--green-20);
     color: var(--green-80);

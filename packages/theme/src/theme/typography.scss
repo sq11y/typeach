@@ -25,10 +25,10 @@
   --font-size-xl: calc(var(--font-size-scale) * 1.5rem);
   --line-height-xl: calc(var(--line-height-scale) * 1.45);
 
-  --font-size-xxl: calc(var(--font-size-scale) * 1.825rem);
+  --font-size-xxl: calc(var(--font-size-scale) * 1.75rem);
   --line-height-xxl: calc(var(--line-height-scale) * 1.45);
 
-  --font-size-xxxl: calc(var(--font-size-scale) * 2.325rem);
+  --font-size-xxxl: calc(var(--font-size-scale) * 2.125rem);
   --line-height-xxxl: calc(var(--line-height-scale) * 1.4);
 
   --font-size-xxxxl: calc(var(--font-size-scale) * 3.275rem);
@@ -91,47 +91,7 @@
 }
 
 .prose {
-  $block-element: nav, div, pre, img, video, figure, details, table;
-
-  :where(* + h2) {
-    margin-block-start: calc(var(--prose-flow-scale) * 1.575em);
-  }
-
-  :where(* + h3),
-  :where(* + h4) {
-    margin-block-start: calc(var(--prose-flow-scale) * 1.65em);
-  }
-
-  :where(* + h5) {
-    margin-block-start: calc(var(--prose-flow-scale) * 0.985em);
-  }
-
-  :where(* + h6) {
-    margin-block-start: calc(var(--prose-flow-scale) * 0.915em);
-  }
-
-  :where(h1 + *),
-  :where(h2 + *),
-  :where(h3 + *),
-  :where(h4 + *) {
-    margin-block-start: calc(var(--prose-flow-scale) * 1.125em);
-  }
-
-  :where(h5 + *),
-  :where(h6 + *) {
-    margin-block-start: calc(var(--prose-flow-scale) * 0.875em);
-  }
-
-  :where(h1 + h2),
-  :where(h2 + h3) {
-    margin-block-start: calc(var(--prose-flow-scale) * 0.4em);
-  }
-
-  :where(h3 + h4),
-  :where(h4 + h5),
-  :where(h5 + h6) {
-    margin-block-start: calc(var(--prose-flow-scale) * 0.55em);
-  }
+  $block-element: nav, div, pre, img, video, figure, details, table, dl;
 
   :where(* + p),
   :where(* + small) {
@@ -175,5 +135,45 @@
 
   :where(hr[aria-orientation="vertical"]) {
     margin-inline: calc(var(--prose-flow-scale) * 2.8em);
+  }
+
+  :where(* + h2) {
+    margin-block-start: calc(var(--prose-flow-scale) * 1.575em);
+  }
+
+  :where(* + h3),
+  :where(* + h4) {
+    margin-block-start: calc(var(--prose-flow-scale) * 1.25em);
+  }
+
+  :where(* + h5) {
+    margin-block-start: calc(var(--prose-flow-scale) * 0.985em);
+  }
+
+  :where(* + h6) {
+    margin-block-start: calc(var(--prose-flow-scale) * 0.915em);
+  }
+
+  :where(h1 + *),
+  :where(h2 + *),
+  :where(h3 + *),
+  :where(h4 + *) {
+    margin-block-start: calc(var(--prose-flow-scale) * 1.125em);
+  }
+
+  :where(h5 + *),
+  :where(h6 + *) {
+    margin-block-start: calc(var(--prose-flow-scale) * 0.875em);
+  }
+
+  :where(h1 + h2),
+  :where(h2 + h3) {
+    margin-block-start: calc(var(--prose-flow-scale) * 0.4em);
+  }
+
+  :where(h3 + h4),
+  :where(h4 + h5),
+  :where(h5 + h6) {
+    margin-block-start: calc(var(--prose-flow-scale) * 0.55em);
   }
 }

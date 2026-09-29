@@ -1,18 +1,15 @@
 <template>
+  <!-- eslint-disable-next-line vue/no-v-html -->
+  <div v-if="meta.description" v-html="meta.description" />
+
   <Do11yComponentMetaProps v-if="meta.props.length" :meta="meta" />
 
-  <Do11yComponentMetaGrid
-    v-if="meta.slots.length"
-    :meta="meta.slots"
-    :title="showSlotTitle ? 'Slot' : undefined"
-  />
+  <Do11yComponentMetaGrid v-if="meta.events.length" :props="meta.events" emit />
 
-  <Do11yComponentMetaGrid v-if="meta.events.length" :meta="meta.events" title="Events" events />
+  <Do11yComponentMetaGrid v-if="meta.slots.length" :props="meta.slots" />
 </template>
 
 <script lang="ts" setup>
-import { computed } from "vue";
-
 import type { Meta } from "do11y";
 
 import Do11yComponentMetaProps from "./Do11yMetaProps.vue";
@@ -25,7 +22,5 @@ interface MetaProps {
   meta: Meta;
 }
 
-const props = defineProps<MetaProps>();
-
-const showSlotTitle = computed(() => props.meta.props.length || props.meta.events.length);
+defineProps<MetaProps>();
 </script>
