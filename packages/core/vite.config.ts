@@ -4,6 +4,7 @@ import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite-plus";
 
 import vue from "@vitejs/plugin-vue";
+import docs from "v-custom-block";
 
 import { compilerOptions } from "./tsconfig.app.json";
 
@@ -15,7 +16,7 @@ Object.entries(compilerOptions.paths).forEach(([pckg, [path]]) => {
 });
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue(), docs("docs")],
 
   resolve: {
     alias,
