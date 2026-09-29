@@ -83,55 +83,25 @@ const isBigScreen = useMediaQuery("(width >= 45rem)");
 @use "@typeach/theme/utils";
 
 .table {
-  --prose-flow-scale: 0.8;
-
-  border-spacing: 0;
-  border: var(--border);
-  border-radius: var(--border-radius);
-
-  overflow: hidden;
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
 
   td,
   th {
     padding: var(--spacing-l);
-    text-align: start;
   }
 
   th {
-    border-block-end: var(--invisible-border);
     padding-block: var(--spacing-m) var(--spacing-s);
-
-    background-color: var(--green-20);
-    color: var(--green-80);
-
-    font-weight: var(--font-weight-medium);
-  }
-
-  td:nth-child(2) {
-    max-inline-size: 20rem;
   }
 
   tr:nth-child(even) {
     background-color: var(--grey-10);
   }
 
-  tr:nth-child(even):not(:last-child) td {
-    border-block: var(--border);
-    border-color: transparent;
-  }
-
-  tr:nth-child(even):last-child td {
-    border-block-start: var(--border);
-    border-color: transparent;
-  }
-
   td:first-child {
     min-inline-size: max-content;
     white-space: nowrap;
-  }
-
-  td {
-    vertical-align: text-top;
   }
 }
 
@@ -151,12 +121,11 @@ const isBigScreen = useMediaQuery("(width >= 45rem)");
 
   dd:first-of-type {
     padding: var(--spacing-xs) var(--spacing-m);
+    border-block-end: var(--invisible-border);
 
     background-color: var(--green-20);
     color: var(--green-80);
 
-    font-size: var(--font-size-l);
-    line-height: var(--line-height-l);
     font-weight: var(--font-weight-medium);
   }
 
@@ -181,7 +150,7 @@ const isBigScreen = useMediaQuery("(width >= 45rem)");
     }
 
     dd:last-child {
-      padding-block-end: var(--spacing-l);
+      padding-block-end: var(--spacing-m);
     }
   }
 }

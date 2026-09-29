@@ -162,7 +162,9 @@ ul {
   }
 }
 
-table:not([class]) {
+table {
+  --prose-flow-scale: 0.8;
+
   border-spacing: 0;
   border: var(--border);
   border-radius: var(--border-radius);
