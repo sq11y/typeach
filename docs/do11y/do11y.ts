@@ -11,9 +11,6 @@ export default {
     const pinia = createPinia();
     app.use(pinia);
 
-    const Do11yCodeBlock = (await import("./components/Do11yCodeBlock.vue")).default;
-    app.component("Do11yCodeBlock", Do11yCodeBlock);
-
     const Do11yMeta = (await import("./components/meta/Do11yMeta.vue")).default;
     app.component("Do11yMeta", Do11yMeta);
 
