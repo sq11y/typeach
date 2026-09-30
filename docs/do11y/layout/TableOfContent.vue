@@ -1,5 +1,5 @@
 <template>
-  <nav aria-label="On this page" :class="c('container')">
+  <nav aria-label="Table of content">
     <ol :class="c()">
       <li v-for="link of documentOutline[0]?.children || []" :key="link.heading.id">
         <RouterLink :to="`#${link.heading.id}`">
@@ -28,30 +28,32 @@ const { documentOutline } = useDocumentOutline((heading, level) => {
 });
 </script>
 
-<style lang="scss">
-iframe {
-  anchor-name: --iframe;
-}
-
-.table-of-content__container {
-  position: absolute;
-  position-anchor: --iframe;
-  inset-block-start: anchor(top);
-  inset-inline-start: calc(anchor(right) + var(--spacing-l));
-
-  /* @TODO Fix magic number */
-  block-size: calc(100% - 55rem);
-}
+<style>
+/* stylelint-disable selector-pseudo-class-no-unknown */
 
 .table-of-content {
-  position: sticky;
-  inset-block-start: calc(5rem + var(--spacing-xxxl));
-  inline-size: 12rem;
-
-  display: flex;
-  flex-direction: column;
-
   font-size: var(--font-size-s);
   line-height: var(--line-height-s);
+  padding-inline-start: 1.375rem;
+
+  a {
+    color: var(--grey-70);
+    text-decoration: none;
+  }
+
+  li:not(:has(:target-current))::before {
+    background-color: transparent;
+  }
+}
+
+@supports (scroll-target-group: auto) {
+  html {
+    scroll-target-group: auto;
+  }
+
+  .table-of-content a:target-current {
+    color: var(--pink-80);
+    font-weight: var(--font-weight-medium);
+  }
 }
 </style>

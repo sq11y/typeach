@@ -44,24 +44,8 @@ footer {
 
   border-block-start: var(--invisible-border);
 
-  @media (width <= 55rem) {
-    padding-block: var(--spacing-xl);
+  a {
+    color: inherit;
   }
-}
-
-a {
-  color: inherit;
-
-  @include utils.transition("background-color");
-
-  @include utils.hover {
-    background-color: var(--pink-30);
-  }
-}
-
-a[href^="https://github.com"] {
-  @include utils.dock;
-  gap: var(--spacing-xs);
-  display: inline-flex;
 }
 </style>

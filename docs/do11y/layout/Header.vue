@@ -1,12 +1,12 @@
 <template>
   <header>
-    <RouterLink to="/" :class="[c('logo'), 'no-focus']">
-      <img :class="c('mascot')" alt="Typeach mascot" src="/logo.webp" />
+    <RouterLink id="logo" to="/" :class="['no-focus']">
+      <img id="mascot" alt="Typeach mascot" src="/logo.webp" />
     </RouterLink>
 
     <nav id="nav" ref="popover" :popover="isSmallScreen ? 'auto' : undefined">
-      <RouterLink :class="c('link')" to="/p/components">Components</RouterLink>
-      <RouterLink :class="c('link')" to="/p/theme">Theme</RouterLink>
+      <RouterLink to="/p/components">Components</RouterLink>
+      <RouterLink to="/p/theme">Theme</RouterLink>
     </nav>
 
     <Search />
@@ -15,36 +15,25 @@
       <MenuSvg aria-label="Navigation" />
     </PeachyButton>
   </header>
-
-  <TableOfContent v-if="isLargeScreen && isComponentPage" />
 </template>
 
 <script lang="ts" setup>
-import { computed, useTemplateRef } from "vue";
+import { useTemplateRef } from "vue";
 
 import { useMediaQuery } from "@vueuse/core";
-import { useRoute, useRouter } from "vue-router";
+import { useRouter } from "vue-router";
 
-import { PeachyButton, useBemClass } from "@typeach/core";
+import { PeachyButton } from "@typeach/core";
 
-import TableOfContent from "./TableOfContent.vue";
 import Search from "./Search.vue";
 
 import MenuSvg from "../icons/menu.svg?component";
 
 const popover = useTemplateRef("popover");
 
-const c = useBemClass("header");
-
 const router = useRouter();
 
-const route = useRoute();
-
-const isComponentPage = computed(() => route.path.startsWith("/c") || route.path.startsWith("/f"));
-
-const isLargeScreen = useMediaQuery("(width >= 76rem)");
-
-const isSmallScreen = useMediaQuery("(width <= 40rem)");
+const isSmallScreen = useMediaQuery("(width <= 42rem)");
 
 router.beforeEach(() => {
   if (isSmallScreen.value) {
@@ -53,7 +42,7 @@ router.beforeEach(() => {
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use "@typeach/theme/utils";
 @use "../style/mixins";
 
@@ -90,20 +79,17 @@ header {
     background-color: inherit;
   }
 
-  @media (width <= 40rem) {
-    margin-inline: auto calc(var(--inline-margin));
-    transform: none;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
+  @media (width <= 42rem) {
     padding-inline: var(--spacing-s);
   }
 }
 
-.header__link {
-  color: inherit;
-  text-decoration: none;
-}
-
-.header__logo {
+#logo {
   position: absolute;
   inset-inline-start: calc(var(--logo-size) * -1);
 
@@ -117,7 +103,7 @@ header {
   }
 }
 
-.header__mascot {
+#mascot {
   block-size: var(--logo-size);
   border-radius: var(--border-radius);
 
@@ -125,7 +111,7 @@ header {
 
   @supports (corner-shape: squircle) {
     corner-shape: squircle;
-    border-radius: 40%;
+    border-radius: 50%;
   }
 }
 

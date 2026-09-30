@@ -11,6 +11,15 @@ a {
   margin-inline: calc(var(--relative-spacing-xs) * -1);
 }
 
+/**
+  * Github links have the Github logo inside them.
+  */
+a[href^="https://github.com"] {
+  @include utils.dock;
+  gap: var(--spacing-xs);
+  display: inline-flex;
+}
+
 .required-tag,
 code:not(pre code),
 kbd {

@@ -127,7 +127,7 @@ const searchResultText = computed(() => {
   padding-inline-start: 0;
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   gap: var(--spacing-l);
 }
 

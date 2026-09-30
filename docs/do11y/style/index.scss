@@ -14,8 +14,12 @@
   --border: var(--border-shape) var(--grey-40);
   --invisible-border: var(--border-shape) transparent;
 
-  --inline-margin-min: 6rem;
-  --article-inline-size: min(calc(100svw - var(--inline-margin-min)), 48rem);
+  /* prettier-ignore */
+  --article-inline-size: min(calc(100svw - var(--inline-margin-min)), calc(var(--content-inline-size) + var(--aside-inline-size)));
+  --aside-inline-size: 12rem;
+  --content-inline-size: 48rem;
+
+  --inline-margin-min: 8rem;
   --inline-margin: calc((100svw - var(--article-inline-size)) / 2);
 
   --icon-size: 1.25em;
@@ -35,14 +39,46 @@ body {
   grid-template-rows: auto 1fr auto;
   gap: var(--spacing-xxxxxl);
 
-  @media (width <= 60rem) {
+  @media (width < 42rem) {
     gap: var(--spacing-xxxxl);
   }
 }
 
 main {
+  --content-aside-gap: var(--spacing-l);
+
+  position: relative;
+
   inline-size: var(--article-inline-size);
+  display: grid;
   align-self: stretch;
+
+  &:has(aside) {
+    grid-template-columns: var(--content-inline-size) var(--aside-inline-size);
+  }
+}
+
+article {
+  max-inline-size: var(--article-inline-size);
+}
+
+iframe {
+  anchor-name: --iframe;
+}
+
+aside {
+  position: absolute;
+  position-anchor: --iframe;
+  inset-block-start: anchor(top);
+  inset-inline-start: anchor(right);
+  margin-inline-start: var(--content-aside-gap);
+
+  block-size: 100%;
+
+  > div {
+    position: sticky;
+    inset-block-start: calc(5rem + var(--spacing-xxxxl));
+  }
 }
 
 svg {
