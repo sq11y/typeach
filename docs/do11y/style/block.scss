@@ -218,6 +218,11 @@ table.large {
     padding: var(--spacing-s) var(--spacing-l);
   }
 
+  th:not(:last-child),
+  td:not(:last-child) {
+    padding-inline-end: var(--spacing-s);
+  }
+
   tr:nth-child(even) {
     background-color: var(--grey-10);
   }
