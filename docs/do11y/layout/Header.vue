@@ -93,12 +93,12 @@ header {
   position: absolute;
   inset-inline-start: calc(var(--logo-size) * -1);
 
-  &:hover .header__mascot {
+  &:hover #mascot {
     scale: 1.1;
     rotate: calc(-3.5deg);
   }
 
-  &:focus-visible .header__mascot {
+  &:focus-visible #mascot {
     @include mixins.focus-visible;
   }
 }
