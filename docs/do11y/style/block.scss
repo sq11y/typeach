@@ -195,10 +195,6 @@ table {
     font-weight: var(--font-weight-medium);
   }
 
-  td:nth-child(2) {
-    max-inline-size: 20rem;
-  }
-
   td:first-child {
     min-inline-size: max-content;
     white-space: nowrap;
