@@ -20,7 +20,6 @@ a[href^="https://github.com"] {
   display: inline-flex;
 }
 
-.required-tag,
 code:not(pre code),
 kbd {
   display: inline-flex;
@@ -40,21 +39,17 @@ kbd {
   }
 }
 
-.required-tag,
 code:not(pre code) {
   border: var(--invisible-border);
 }
 
-.required-tag {
-  background-color: var(--red-30);
-  color: var(--red-80);
+code:not(pre code) {
+  font-size: var(--font-size-smaller);
 }
 
-code:not(pre code) {
+code:not(pre code):not(.colorless) {
   background-color: var(--blue-30);
   color: var(--blue-80);
-
-  font-size: var(--font-size-smaller);
 }
 
 kbd:not(.unstyled) {
@@ -64,4 +59,12 @@ kbd:not(.unstyled) {
   color: var(--fg);
 
   font-size: var(--font-size-smaller);
+}
+
+.required {
+  color: var(--red-70);
+}
+
+.faded {
+  color: var(--grey-70);
 }

@@ -1,5 +1,5 @@
 <template>
-  <PeachyTable v-if="isBigScreen || unresponsive" :class="c()">
+  <PeachyTable v-if="isBigScreen || unresponsive" :class="[c(), 'large']">
     <PeachyTableHead>
       <PeachyTableRow>
         <PeachyTableHeadingCell v-for="(title, titleIndex) of titles" :key="titleIndex">
@@ -82,27 +82,9 @@ const isBigScreen = useMediaQuery("(width >= 45rem)");
 <style lang="scss">
 @use "@typeach/theme/utils";
 
-.table {
-  font-size: var(--font-size-m);
-  line-height: var(--line-height-m);
-
-  td,
-  th {
-    padding: var(--spacing-l);
-  }
-
-  th {
-    padding-block: var(--spacing-m) var(--spacing-s);
-  }
-
-  tr:nth-child(even) {
-    background-color: var(--grey-10);
-  }
-
-  td:first-child {
-    min-inline-size: max-content;
-    white-space: nowrap;
-  }
+.table td:first-child {
+  min-inline-size: max-content;
+  white-space: nowrap;
 }
 
 .table__list {
@@ -140,7 +122,7 @@ const isBigScreen = useMediaQuery("(width >= 45rem)");
     }
 
     dt {
-      margin-block-start: var(--spacing-s);
+      margin-block: var(--spacing-s) var(--spacing-xs);
 
       font-weight: var(--font-weight-medium);
     }

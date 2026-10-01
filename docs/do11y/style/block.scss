@@ -167,8 +167,18 @@ table {
 
   overflow: hidden;
 
-  font-size: var(--font-size-s);
-  line-height: var(--line-height-s);
+  &:not(.large) {
+    font-size: var(--font-size-s);
+    line-height: var(--line-height-s);
+
+    tr:nth-child(even):not(:last-child) td {
+      border-block: var(--border);
+    }
+
+    tr:nth-child(even):last-child td {
+      border-block-start: var(--border);
+    }
+  }
 
   td,
   th {
@@ -189,14 +199,6 @@ table {
     max-inline-size: 20rem;
   }
 
-  tr:nth-child(even):not(:last-child) td {
-    border-block: var(--border);
-  }
-
-  tr:nth-child(even):last-child td {
-    border-block-start: var(--border);
-  }
-
   td:first-child {
     min-inline-size: max-content;
     white-space: nowrap;
@@ -204,5 +206,19 @@ table {
 
   td {
     vertical-align: text-top;
+  }
+}
+
+table.large {
+  td {
+    padding: var(--spacing-l) var(--spacing-l);
+  }
+
+  th {
+    padding: var(--spacing-s) var(--spacing-l);
+  }
+
+  tr:nth-child(even) {
+    background-color: var(--grey-10);
   }
 }

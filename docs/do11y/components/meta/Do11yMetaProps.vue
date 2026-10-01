@@ -1,61 +1,35 @@
 <template>
-  <!-- Templates -->
-
-  <DefineDescriptionTemplate v-slot="{ row }">
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <p v-if="row.description" v-html="row.description" />
-  </DefineDescriptionTemplate>
-
-  <DefineNecessityTemplate v-slot="{ row, small }">
-    <component :is="small ? 'small' : 'p'">
-      <span v-if="row.required" class="required-tag">Required</span>
-
-      <template v-else>
-        Optional, defaults to <code> {{ row.default ?? "undefined" }} </code>.
-      </template>
-    </component>
-  </DefineNecessityTemplate>
-
-  <!-- Templates end -->
-
-  <Do11yTable
-    :titles="['Prop', 'Type', 'Description & Necessity']"
-    :small-titles="['Prop', 'Type', 'Description', 'Necessity']"
-    :rows="sortedProps"
-  >
+  <Do11yTable :titles="['Prop', 'Type', 'Description']" :rows="meta.props">
     <template #prop="{ row }">
-      {{ row.name }}
+      {{ row.name
+      }}<span :class="row.required ? 'required' : 'faded'">{{ row.required ? "*" : "?" }}</span>
     </template>
 
     <template #type="{ row }">
       <div class="tags">
-        <div v-for="(type, i) in splitTypes(row.type)" :key="i">
-          <code>
-            {{ type }}
-          </code>
+        <code v-for="(type, i) in splitTypes(row.type)" :key="i">
+          {{ type }}
+        </code>
+      </div>
+
+      <div class="small" style="margin-block-start: var(--spacing-xs)">
+        <span v-if="row.required" class="required">Required</span>
+
+        <div v-else style="min-inline-size: max-content">
+          <span class="faded">Default:</span>
+          <code class="colorless">{{ row.default ?? "undefined" }}</code>
         </div>
       </div>
     </template>
 
-    <template #description-necessity="{ row }">
-      <ReuseDescriptionTemplate :row="row" />
-      <ReuseNecessityTemplate :row="row" :small="true" />
-    </template>
-
     <template #description="{ row }">
-      <ReuseDescriptionTemplate :row="row" />
-    </template>
-
-    <template #necessity="{ row }">
-      <ReuseNecessityTemplate :row="row" />
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <div v-html="row.description" />
     </template>
   </Do11yTable>
 </template>
 
 <script lang="ts" setup>
-import { computed } from "vue";
-import { createReusableTemplate } from "@vueuse/core";
-
 import type { Meta } from "do11y";
 
 import Do11yTable from "../Do11yTable.vue";
@@ -67,16 +41,7 @@ interface MetaProps {
   meta: Meta;
 }
 
-const props = defineProps<MetaProps>();
-
-const [DefineDescriptionTemplate, ReuseDescriptionTemplate] = createReusableTemplate<{
-  row: Meta["props"][number];
-}>();
-
-const [DefineNecessityTemplate, ReuseNecessityTemplate] = createReusableTemplate<{
-  row: Meta["props"][number];
-  small?: boolean;
-}>();
+defineProps<MetaProps>();
 
 const splitTypes = (type: string) => {
   return type
@@ -84,12 +49,6 @@ const splitTypes = (type: string) => {
     .map((t) => t.trim())
     .filter((t) => t !== "undefined");
 };
-
-const sortedProps = computed(() => {
-  return [...props.meta.props].sort((a, b) => {
-    return a.required && b.required ? 0 : a.required ? -1 : 1;
-  });
-});
 </script>
 
 <style lang="scss">
