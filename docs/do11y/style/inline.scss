@@ -52,6 +52,11 @@ code:not(pre code):not(.colorless) {
   color: var(--blue-80);
 }
 
+code:not(pre code).grey {
+  background-color: var(--grey-30);
+  color: var(--grey-70);
+}
+
 kbd:not(.unstyled) {
   border: var(--border-shape) var(--grey-60);
 
