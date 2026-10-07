@@ -21,7 +21,7 @@
     <dl v-for="(row, rowIndex) of rows" :key="rowIndex">
       <template v-for="(title, titleIndex) of smallTitles || titles" :key="titleIndex">
         <dt>{{ title }}</dt>
-        <dd><slot :name="kebabCase(title.replace('&', ''))" :row="row" /></dd>
+        <dd><slot :name="kebabCase(title.replace('&', ''))" :row="row" :small="true" /></dd>
       </template>
     </dl>
   </div>
@@ -67,7 +67,7 @@ interface TableProps {
 }
 
 interface TableSlots {
-  [key: string]: (data: { row: T }) => void;
+  [key: string]: (data: { row: T; small?: boolean }) => void;
 }
 
 defineProps<TableProps>();
@@ -76,7 +76,7 @@ defineSlots<TableSlots>();
 
 const c = useBemClass("table");
 
-const isBigScreen = useMediaQuery("(width >= 45rem)");
+const isBigScreen = useMediaQuery("(width >= 40rem)");
 </script>
 
 <style lang="scss">
@@ -109,6 +109,11 @@ const isBigScreen = useMediaQuery("(width >= 45rem)");
     color: var(--green-80);
 
     font-weight: var(--font-weight-medium);
+
+    &:has(.required) {
+      background-color: var(--red-20);
+      color: var(--red-80);
+    }
   }
 
   dl {
