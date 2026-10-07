@@ -96,6 +96,7 @@ const c = useBemClass("usage-guide");
   pre {
     background-color: var(--bg);
     border-radius: var(--border-radius);
+    inline-size: 100%;
   }
 
   pre {
