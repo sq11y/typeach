@@ -43,32 +43,32 @@
   word-spacing: var(--word-spacing, normal);
 }
 
-:where(h1, .h1) {
+:where(h1, .h1, .xxxxxl) {
   font-size: var(--font-size-xxxxxl);
   line-height: var(--line-height-xxxxxl);
 }
 
-:where(h2, .h2) {
+:where(h2, .h2, .xxxxl) {
   font-size: var(--font-size-xxxxl);
   line-height: var(--line-height-xxxxl);
 }
 
-:where(h3, .h3) {
+:where(h3, .h3, .xxxl) {
   font-size: var(--font-size-xxxl);
   line-height: var(--line-height-xxxl);
 }
 
-:where(h4, .h4) {
+:where(h4, .h4, .xxl) {
   font-size: var(--font-size-xxl);
   line-height: var(--line-height-xxl);
 }
 
-:where(h5, .h5) {
+:where(h5, .h5, .xl) {
   font-size: var(--font-size-xl);
   line-height: var(--line-height-xl);
 }
 
-:where(h6, .h6) {
+:where(h6, .h6, .l) {
   font-size: var(--font-size-l);
   line-height: var(--line-height-l);
 }
@@ -78,15 +78,25 @@
   line-height: var(--line-height-m);
 }
 
+:where(.s) {
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-s);
+}
+
+:where(.xs) {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
 :where(pre, .pre) {
   white-space: var(--code-white-space, pre-wrap);
 }
 
-:where(small, .small) {
+:where(small, .smaller) {
   font-size: var(--font-size-smaller);
 }
 
-:where(.big) {
+:where(.bigger) {
   font-size: var(--font-size-bigger);
 }
 
