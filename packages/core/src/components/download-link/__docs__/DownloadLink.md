@@ -10,9 +10,18 @@ color: "blue"
   import { useRoute } from 'vue-router';
 
   import DownloadLinkSandbox from './DownloadLink.sandbox.vue';
-  import DownloadLinkMeta from '../DownloadLink.vue?meta';
+
+  import Guidelines from './DownloadLink.guidelines.md';
+  import API from './DownloadLink.api.md';
+  import Accessibility from './DownloadLink.accessibility.md';
 
   const route = useRoute();
+
+  const tabs = {
+    Guidelines,
+    API,
+    Accessibility
+  }
 </script>
 
 # {{ route?.meta.title }}
@@ -23,30 +32,4 @@ color: "blue"
 
 <DownloadLinkSandbox title="Download link" />
 
-## Guidelines
-
-<Do11yDoDont do-title="Use when.." dont-title="Avoid when..">
-
-<template v-slot:do>
-
-- Downloading content instantly.
-
-</template>
-
-<template v-slot:dont>
-
-- Downloading content with a significant loading time, use [Button](/c/button).
-
-</template>
-
-</Do11yDoDont>
-
-## API
-
-### Download link
-
-<Do11yMeta :meta="DownloadLinkMeta" />
-
-## Accessibility
-
-The link extends the [HTML a element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a), meaning it is part of the tab order depending on the user's device and browser settings and can be activated with <kbd>Enter</kbd>.
+<Do11yTabs :tabs="tabs" />

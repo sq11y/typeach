@@ -11,10 +11,15 @@ color: "purple"
 
   import TextFieldSandbox from './TextField.sandbox.vue';
 
-  import TextFieldMeta from '../TextField.vue?meta';
-  import TextFieldInputMeta from '../TextFieldInput.vue?meta';
+  import Guidelines from './TextField.guidelines.md';
+  import API from './TextField.api.md';
 
   const route = useRoute();
+
+  const tabs = {
+    Guidelines,
+    API,
+  }
 </script>
 
 # {{ route?.meta.title }}
@@ -25,31 +30,4 @@ color: "purple"
 
 <TextFieldSandbox title="Text Field" />
 
-## Guidelines
-
-<Do11yDoDont do-title="Use when.." dont-title="Avoid when..">
-
-<template v-slot:do>
-
-- The text is unique and won't come from a dataset.
-
-</template>
-
-<template v-slot:dont>
-
-- The user would benefit from seeing a list of options to pick from, use a select or combobox.
-- You want a longer input or the text could benefit from being multiline, use [Textarea Field](/f/textarea-field).
-
-</template>
-
-</Do11yDoDont>
-
-## API
-
-### Field
-
-<Do11yMeta :meta="TextFieldMeta" />
-
-### Input
-
-<Do11yMeta :meta="TextFieldInputMeta" />
+<Do11yTabs :tabs="tabs" />

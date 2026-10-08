@@ -11,14 +11,11 @@
   --border-radius: 8px;
   --border-width: 1px;
   --border-shape: var(--border-width) solid;
-  --border: var(--border-shape) var(--grey-40);
+  --border-color: var(--grey-40);
+  --border: var(--border-shape) var(--border-color);
   --invisible-border: var(--border-shape) transparent;
 
-  /* prettier-ignore */
-  --article-inline-size: min(calc(100svw - var(--inline-margin-min)), calc(var(--content-inline-size) + var(--aside-inline-size)));
-  --aside-inline-size: 12rem;
-  --content-inline-size: 48rem;
-
+  --article-inline-size: min(calc(100svw - var(--inline-margin-min)), 48rem);
   --inline-margin-min: 8rem;
   --inline-margin: calc((100svw - var(--article-inline-size)) / 2);
 
@@ -45,17 +42,11 @@ body {
 }
 
 main {
-  --content-aside-gap: var(--spacing-xl);
-
   position: relative;
 
   inline-size: var(--article-inline-size);
   display: grid;
   align-self: stretch;
-
-  &:has(aside) {
-    grid-template-columns: var(--content-inline-size) var(--aside-inline-size);
-  }
 }
 
 article {
@@ -64,21 +55,6 @@ article {
 
 iframe {
   anchor-name: --iframe;
-}
-
-aside {
-  position: absolute;
-  position-anchor: --iframe;
-  inset-block-start: anchor(top);
-  inset-inline-start: anchor(right);
-  margin-inline-start: var(--content-aside-gap);
-
-  block-size: 100%;
-
-  > div {
-    position: sticky;
-    inset-block-start: calc(5rem + var(--spacing-xxxxl));
-  }
 }
 
 svg {

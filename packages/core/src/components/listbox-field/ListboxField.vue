@@ -28,6 +28,9 @@ const props = defineProps<ListboxFieldProps>();
 
 defineSlots<ListboxFieldSlots>();
 
+/**
+ * The selected options.
+ */
 const modelValue = defineModel<string[]>({ default: () => [] });
 
 const element = useTemplateRef("element");

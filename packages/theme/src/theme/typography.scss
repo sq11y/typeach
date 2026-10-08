@@ -147,10 +147,7 @@
     margin-inline: calc(var(--prose-flow-scale) * 2.8em);
   }
 
-  :where(* + h2) {
-    margin-block-start: calc(var(--prose-flow-scale) * 1.575em);
-  }
-
+  :where(* + h2),
   :where(* + h3),
   :where(* + h4) {
     margin-block-start: calc(var(--prose-flow-scale) * 1.25em);

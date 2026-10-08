@@ -26,6 +26,4 @@ color: "brown"
 
 ## API
 
-### Separator
-
 <Do11yMeta :meta="SeparatorMeta" />

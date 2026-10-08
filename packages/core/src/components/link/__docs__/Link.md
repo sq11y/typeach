@@ -10,9 +10,18 @@ color: "blue"
   import { useRoute } from 'vue-router';
 
   import LinkSandbox from './Link.sandbox.vue';
-  import LinkMeta from '../Link.vue?meta';
+
+  import Guidelines from './Link.guidelines.md';
+  import API from './Link.api.md';
+  import Accessibility from './Link.accessibility.md';
 
   const route = useRoute();
+
+  const tabs = {
+    Guidelines,
+    API,
+    Accessibility
+  }
 </script>
 
 # {{ route?.meta.title }}
@@ -23,32 +32,4 @@ color: "blue"
 
 <LinkSandbox title="Link" />
 
-## Guidelines
-
-<Do11yDoDont do-title="Use when.." dont-title="Avoid when..">
-
-<template v-slot:do>
-
-- Navigating the user to another website, page or area on the page.
-
-</template>
-
-<template v-slot:dont>
-
-- Performing an action, use [Button](/c/button).
-- Downloading content instantly, use [Download link](/c/download-link).
-- You want to switch part of the page's content, use [Tabs](/c/tabs).
-
-</template>
-
-</Do11yDoDont>
-
-## API
-
-### Link
-
-<Do11yMeta :meta="LinkMeta" />
-
-## Accessibility
-
-The link extends the [HTML a element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a), meaning it is part of the tab order depending on the user's device and browser settings and can be activated with <kbd>Enter</kbd>.
+<Do11yTabs :tabs="tabs" />

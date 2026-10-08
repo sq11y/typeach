@@ -11,16 +11,20 @@ color: "green"
   import { useMediaQuery } from '@vueuse/core';
 
   import TableSandbox from './Table.sandbox.vue';
-  import TableMeta from '../Table.vue?meta';
-  import TableHeadMeta from '../TableHead.vue?meta';
-  import TableBodyMeta from '../TableBody.vue?meta';
-  import TableRowMeta from '../TableRow.vue?meta';
-  import TableHeadingCellMeta from '../TableHeadingCell.vue?meta';
-  import TableCellMeta from '../TableCell.vue?meta';
+
+  import Guidelines from './Table.guidelines.md';
+  import API from './Table.api.md';
+  import Accessibility from './Table.accessibility.md';
 
   const route = useRoute();
 
   const tallTable = useMediaQuery('(width < 28rem)');
+
+  const tabs = {
+    Guidelines,
+    API,
+    Accessibility
+  };
 </script>
 
 # {{ route?.meta.title }}
@@ -31,52 +35,4 @@ color: "green"
 
 <TableSandbox title="Table" :block-size="tallTable ? '45rem' : '30rem'"  />
 
-## Guidelines
-
-<Do11yDoDont do-title="Use when.." dont-title="Avoid when..">
-
-<template v-slot:do>
-
-- You need to visualize data by rows and columns.
-- The content could benefit from sorting.
-
-</template>
-
-<template v-slot:dont>
-
-- The table requires spreadsheet functionality or is heavily filled with controls, use [Grid Table](/c/grid-table).
-- The table is a calendar either as a standalone or part of a date picker, use [Calendar Table](/c/calendar-table).
-
-</template>
-
-</Do11yDoDont>
-
-## API
-
-### Table
-
-<Do11yMeta :meta="TableMeta" />
-
-### Head
-
-<Do11yMeta :meta="TableHeadMeta" />
-
-### Body
-
-<Do11yMeta :meta="TableBodyMeta" />
-
-### Row
-
-<Do11yMeta :meta="TableRowMeta" />
-
-### Heading cell
-
-<Do11yMeta :meta="TableHeadingCellMeta" />
-
-### Cell
-
-<Do11yMeta :meta="TableCellMeta" />
-
-## Accessibility
-
-The table extends the [HTML table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table).
+<Do11yTabs :tabs="tabs" />

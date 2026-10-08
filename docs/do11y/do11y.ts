@@ -1,10 +1,11 @@
+import { nextTick, type Component } from "vue";
+
 import { START_LOCATION } from "vue-router";
 
 import type { Options } from "do11y";
 import { createPinia } from "pinia";
 
 import { theme } from "./shiki.ts";
-import { nextTick } from "vue";
 
 export default {
   async setup(app, router) {
@@ -19,6 +20,9 @@ export default {
 
     const Do11yComponentGrid = (await import("./components/Do11yComponentGrid.vue")).default;
     app.component("Do11yComponentGrid", Do11yComponentGrid);
+
+    const Do11yTabs = (await import("./components/Do11yTabs.vue")).default;
+    app.component("Do11yTabs", Do11yTabs as Component);
 
     const description = document.createElement("meta");
 
