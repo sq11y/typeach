@@ -3,7 +3,7 @@
     :class="c('table')"
     :titles="['Prop', 'Type']"
     :small-titles="['Prop', 'Description', 'Type']"
-    :rows="meta.props"
+    :rows="props"
   >
     <template #prop="{ row, small }">
       <!-- prettier-ignore -->
@@ -51,9 +51,9 @@ import Do11yTable from "../Do11yTable.vue";
 
 interface MetaProps {
   /**
-   * The generated component meta.
+   * The props.
    */
-  meta: Meta;
+  props: Meta["props"];
 }
 
 defineProps<MetaProps>();
