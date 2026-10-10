@@ -77,13 +77,12 @@ const optionId = useId();
 
 const element = useTemplateRef("element");
 
-const { sharedIds } = inject(FieldContextKey)!;
+const { sharedIds, disabled: listboxDisabled } = inject(FieldContextKey)!;
 
 shareId(sharedIds, props.value, () => props.id);
 
 const {
   modelValue,
-  disabled: listboxDisabled,
 
   options,
   optionsTracker,

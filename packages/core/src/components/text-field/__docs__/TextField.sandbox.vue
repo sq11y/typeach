@@ -42,13 +42,13 @@ input[type="search"] {
 
   @include utils.transition(border-color);
 
-  &[aria-disabled="false"] {
+  &:not(:read-only) {
     @include utils.hover {
       border-color: var(--purple-60);
     }
   }
 
-  &[aria-disabled="true"] {
+  &:read-only {
     background-color: var(--grey-10);
     border-color: var(--grey-10);
   }

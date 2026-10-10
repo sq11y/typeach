@@ -46,11 +46,11 @@ const props = withDefaults(defineProps<ListboxInputProps>(), {
 
 defineSlots<ListboxInputSlots>();
 
-const { sharedIds, hasErrors, errorIds, descriptionIds } = inject(FieldContextKey)!;
+const { sharedIds, hasErrors, errorIds, descriptionIds, disabled } = inject(FieldContextKey)!;
 
 shareId(sharedIds, "listbox", () => props.id);
 
-const { open, disabled, multiselect, activeElementId, onKeyDown } = inject(ListboxFieldContextKey)!;
+const { open, multiselect, activeElementId, onKeyDown } = inject(ListboxFieldContextKey)!;
 
 const isStandaloneListbox = inject(ListboxFieldStandaloneContextKey, false);
 </script>

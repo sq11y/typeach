@@ -45,11 +45,10 @@ const props = withDefaults(defineProps<ComboboxFieldInputProps>(), {
   placeholder: undefined,
 });
 
-const { sharedIds } = inject(FieldContextKey)!;
+const { sharedIds, disabled } = inject(FieldContextKey)!;
 
 const {
   open,
-  disabled,
   activeElementId,
 
   onBlur,

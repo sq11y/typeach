@@ -36,7 +36,7 @@ const modelValue = defineModel<boolean>({ default: false });
 
 const element = useTemplateRef("element");
 
-provideField(element);
+provideField(element, () => props.disabled);
 
 provide(SwitchFieldContextKey, {
   modelValue,

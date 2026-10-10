@@ -5,7 +5,7 @@
     :aria-invalid="hasErrors"
     :aria-describedby="[errorIds, descriptionIds].flat().join(' ') || undefined"
     :aria-labelledby="sharedIds.get('label')"
-    :disabled="disabled"
+    :readonly="disabled"
   />
 </template>
 
@@ -15,11 +15,6 @@ import { FieldContextKey } from "../field/hooks";
 import { shareId } from "../../hooks";
 
 export interface TextareaFieldInputProps {
-  /**
-   * If the input should be disabled.
-   */
-  disabled?: boolean;
-
   /**
    * The id for the element.
    *
@@ -33,7 +28,7 @@ const props = withDefaults(defineProps<TextareaFieldInputProps>(), {
   rows: 2,
 });
 
-const { sharedIds, hasErrors, errorIds, descriptionIds } = inject(FieldContextKey)!;
+const { sharedIds, hasErrors, errorIds, descriptionIds, disabled } = inject(FieldContextKey)!;
 
 shareId(sharedIds, "input", () => props.id);
 

@@ -41,7 +41,7 @@ const modelValue = defineModel<string[]>({ default: () => [] });
 
 const element = useTemplateRef("element");
 
-const { sharedIds } = provideField(element);
+const { sharedIds } = provideField(element, () => props.disabled);
 
 const multiselect = computed(() => props.multiselect);
 
@@ -70,7 +70,6 @@ provide(ListboxFieldContextKey, {
   activeIndex,
   activeElementId,
 
-  disabled: computed(() => props.disabled),
   optionsTracker,
   options,
 

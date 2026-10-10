@@ -6,7 +6,7 @@
     :aria-invalid="hasErrors"
     :aria-describedby="[errorIds, descriptionIds].flat().join(' ') || undefined"
     :aria-labelledby="sharedIds.get('label')"
-    :disabled="disabled"
+    :readonly="disabled"
   />
 </template>
 
@@ -22,11 +22,6 @@ export interface TextFieldInputProps {
   search?: boolean;
 
   /**
-   * If the input should be disabled.
-   */
-  disabled?: boolean;
-
-  /**
    * The id for the element.
    *
    * @default useId()
@@ -38,7 +33,7 @@ const props = withDefaults(defineProps<TextFieldInputProps>(), {
   id: () => useId(),
 });
 
-const { sharedIds, hasErrors, errorIds, descriptionIds } = inject(FieldContextKey)!;
+const { sharedIds, hasErrors, errorIds, descriptionIds, disabled } = inject(FieldContextKey)!;
 
 shareId(sharedIds, "input", () => props.id);
 

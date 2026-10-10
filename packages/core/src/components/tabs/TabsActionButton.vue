@@ -1,9 +1,8 @@
 <template>
   <button
     ref="button"
-    :tabindex="selectedPanel === value ? 0 : -1"
-    :aria-disabled="disabled === true ? true : undefined"
-    :disabled="disabled === 'without-focus' ? true : undefined"
+    :aria-disabled="!!disabled"
+    :tabindex="disabled === 'without-focus' ? -1 : selectedPanel === value ? 0 : -1"
     type="button"
     @click="onClick"
   >

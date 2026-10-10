@@ -2,7 +2,7 @@
   <button
     :id="id"
     ref="element"
-    :aria-disabled="disabled === true ? true : undefined"
+    :aria-disabled="!!disabled"
     :aria-selected="selectedPanel === value"
     :aria-controls="sharedIds.get(`${props.value}-panel`)"
     type="button"

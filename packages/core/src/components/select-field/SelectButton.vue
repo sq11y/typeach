@@ -48,12 +48,11 @@ const props = withDefaults(defineProps<SelectFieldButtonProps>(), {
 
 defineSlots<SelectFieldButtonSlots>();
 
-const { sharedIds } = inject(FieldContextKey)!;
+const { sharedIds, disabled } = inject(FieldContextKey)!;
 
 /* prettier-ignore */
 const {
   open,
-  disabled,
   activeElementId,
   onBlur,
   onKeyDown,

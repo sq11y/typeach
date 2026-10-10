@@ -1,9 +1,18 @@
-import { computed, provide, type ComputedRef, type InjectionKey, type TemplateRef } from "vue";
+import {
+  computed,
+  provide,
+  toValue,
+  type ComputedRef,
+  type InjectionKey,
+  type MaybeRefOrGetter,
+  type TemplateRef,
+} from "vue";
 
 import { useElements, useSharedIds, type SharedIds } from "../../../hooks";
 
 export interface FieldContext {
   sharedIds: SharedIds;
+  disabled: ComputedRef<boolean>;
   hasErrors: ComputedRef<boolean>;
   errorIds: ComputedRef<string[]>;
   descriptionIds: ComputedRef<string[]>;
@@ -12,7 +21,8 @@ export interface FieldContext {
 export const FieldContextKey: InjectionKey<FieldContext> = Symbol("field");
 
 export const provideField = (
-  list?: TemplateRef<HTMLElement> | ComputedRef<HTMLElement | undefined>,
+  list: TemplateRef<HTMLElement> | ComputedRef<HTMLElement | undefined>,
+  disabled: MaybeRefOrGetter,
 ) => {
   const sharedIds = useSharedIds();
 
@@ -23,6 +33,7 @@ export const provideField = (
 
   const field = {
     sharedIds,
+    disabled: computed(() => toValue(disabled)),
 
     hasErrors: computed(() => errorElements.value.length > 0),
     errorIds: computed(() => getElementIds(errorElements.value)),

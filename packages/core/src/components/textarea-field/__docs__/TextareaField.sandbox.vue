@@ -31,7 +31,7 @@ const modelValue = defineModel<string>();
 textarea {
   min-inline-size: 14rem;
   inline-size: 100%;
-  min-block-size: 4em;
+  min-block-size: calc((var(--spacing-xs) * 2) + 4lh);
   field-sizing: content;
   resize: none;
 
@@ -45,13 +45,13 @@ textarea {
 
   @include utils.transition(border-color);
 
-  &[aria-disabled="false"] {
+  &:not(:read-only) {
     @include utils.hover {
       border-color: var(--purple-60);
     }
   }
 
-  &[aria-disabled="true"] {
+  &:read-only {
     background-color: var(--grey-10);
     border-color: var(--grey-10);
   }
