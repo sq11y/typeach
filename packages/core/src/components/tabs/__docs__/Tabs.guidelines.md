@@ -1,3 +1,12 @@
+## Anatomy
+
+<img alt="" class="anatomy-illustration" src="./images/tabs-anatomy.png" />
+
+1. List
+   1. Button
+   2. Action button
+2. Panel
+
 ## Use case
 
 <Do11yDoDont do-title="Use when.." dont-title="Avoid when..">

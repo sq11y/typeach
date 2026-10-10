@@ -4,6 +4,12 @@
   const router = useRouter();
 </script>
 
+## Anatomy
+
+<img alt="" class="anatomy-illustration" src="./images/button-anatomy.png" />
+
+1. Button
+
 ## Use case
 
 <Do11yDoDont heading-tag="h2" do-title="Use when.." dont-title="Avoid when..">

@@ -4,6 +4,30 @@
   import CalendarTableCellButtonMeta from '../CalendarTableCellButton.vue?meta';
 </script>
 
+## Anatomy
+
+```vue
+<template>
+  <PeachyCalendarTable>
+    <PeachyTableHead>
+      <PeachyTableRow>
+        <PeachyTableHeadingCell />
+      </PeachyTableRow>
+    </PeachyTableHead>
+
+    <PeachyTableBody>
+      <PeachyTableRow>
+        <PeachyCalendarTableCell />
+
+        <PeachyCalendarTableCell>
+          <PeachyCalendarTableCellButton />
+        </PeachyCalendarTableCell>
+      </PeachyTableRow>
+    </PeachyTableBody>
+  </PeachyCalendarTable>
+</template>
+```
+
 ## Table
 
 <Do11yMeta :meta="CalendarTableMeta" />

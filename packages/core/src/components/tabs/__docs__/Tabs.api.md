@@ -6,6 +6,23 @@
   import TabsPanelMeta from '../TabsPanel.vue?meta';
 </script>
 
+## Anatomy
+
+```vue
+<template>
+  <PeachyTabs>
+    <PeachyTabsList>
+      <div>
+        <PeachyTabsButton />
+        <PeachyTabsActionButton />
+      </div>
+    </PeachyTabsList>
+
+    <PeachyTabsPanel />
+  </PeachyTabs>
+</template>
+```
+
 ## Tabs
 
 <Do11yMeta :meta="TabsMeta" />

@@ -7,6 +7,26 @@
   import TableCellMeta from '../TableCell.vue?meta';
 </script>
 
+## Anatomy
+
+```vue
+<template>
+  <PeachyTable>
+    <PeachyTableHead>
+      <PeachyTableRow>
+        <PeachyTableHeadingCell />
+      </PeachyTableRow>
+    </PeachyTableHead>
+
+    <PeachyTableBody>
+      <PeachyTableRow>
+        <PeachyTableCell />
+      </PeachyTableRow>
+    </PeachyTableBody>
+  </PeachyTable>
+</template>
+```
+
 ## Table
 
 <Do11yMeta :meta="TableMeta" />

@@ -1,3 +1,10 @@
+## Anatomy
+
+<img alt="" class="anatomy-illustration" src="./images/disclosure-anatomy.png" />
+
+1. Button - toggles the content
+2. Panel - the content
+
 ## Use case
 
 <Do11yDoDont do-title="Use when.." dont-title="Avoid when..">

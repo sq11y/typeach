@@ -192,8 +192,13 @@ ol:not([class]) {
   }
 
   /* stylelint-disable selector-max-compound-selectors */
+
   li ol ol li::before {
     content: counter(item, lower-roman);
+  }
+
+  li ol ol ol li::before {
+    content: counter(item, lower-greek);
   }
 }
 

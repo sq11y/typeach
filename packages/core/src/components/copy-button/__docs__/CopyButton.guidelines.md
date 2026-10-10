@@ -1,3 +1,9 @@
+## Anatomy
+
+<img alt="" class="anatomy-illustration" src="./images/copy-button-anatomy.png" />
+
+1. Copy button
+
 ## Use case
 
 <Do11yDoDont do-title="Use when.." dont-title="Avoid when..">

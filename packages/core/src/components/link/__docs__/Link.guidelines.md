@@ -1,3 +1,9 @@
+## Anatomy
+
+<img alt="" class="anatomy-illustration" src="./images/link-anatomy.png" />
+
+1. Link
+
 ## Use case
 
 <Do11yDoDont do-title="Use when.." dont-title="Avoid when..">
