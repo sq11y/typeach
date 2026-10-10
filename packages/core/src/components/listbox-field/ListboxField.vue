@@ -12,6 +12,11 @@ import { ListboxFieldContextKey, ListboxFieldStandaloneContextKey } from "./hook
 
 export interface ListboxFieldProps {
   /**
+   * If the listbox should be disabled.
+   */
+  disabled?: boolean;
+
+  /**
    * If one should be able to select more than one option.
    */
   multiselect?: boolean;
@@ -51,13 +56,23 @@ const {
   onKeyDown,
   onOptionClick,
   onOptionMouseDown,
-} = useCombobox(modelValue, multiselect, sharedIds);
+} = useCombobox(
+  modelValue,
+  multiselect,
+  sharedIds,
+  undefined,
+  undefined,
+  computed(() => props.disabled),
+);
 
 provide(ListboxFieldContextKey, {
   modelValue,
   activeIndex,
+
+  disabled: computed(() => props.disabled),
   optionsTracker,
   options,
+
   activeElementId,
   multiselect,
 

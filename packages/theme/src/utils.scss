@@ -77,19 +77,6 @@
   }
 }
 
-@mixin enabled {
-  &:not(:disabled, [aria-disabled="true"]) {
-    @content;
-  }
-}
-
-@mixin disabled {
-  &:disabled,
-  &[aria-disabled="true"] {
-    @content;
-  }
-}
-
 @mixin hover {
   @media (hover: hover) {
     &:hover {

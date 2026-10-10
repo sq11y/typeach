@@ -2,12 +2,12 @@
   <button
     ref="element"
     :aria-pressed="selected"
-    :aria-disabled="disabled"
+    :aria-disabled="!!disabled"
     :aria-current="isSameDate(date, new Date()) ? 'date' : undefined"
     :tabindex="isFocused ? 0 : -1"
     @focus="focusedDate = date"
     @keydown="onKeyDown"
-    @click="emit('click', $event)"
+    @click="onClick"
   >
     <slot />
   </button>
@@ -69,6 +69,14 @@ const { focusedDate, allowFocus } = inject(CalendarTableContextKey)!;
 const { onKeyDown } = useCalendarTable(focusedDate);
 
 const isFocused = computed(() => isSameDate(props.date, focusedDate.value));
+
+const onClick = (event: MouseEvent) => {
+  if (props.disabled) {
+    event.preventDefault();
+  } else {
+    emit("click", event);
+  }
+};
 
 watchImmediate(isFocused, async (newIsFocused) => {
   if (newIsFocused && allowFocus.value) {

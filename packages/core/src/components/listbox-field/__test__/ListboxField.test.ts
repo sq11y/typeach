@@ -3,9 +3,12 @@ import { test, listboxOptions } from "../../../../playwright/extension";
 
 import ListboxFieldTest from "./ListboxField.test.vue";
 
-test("Renders accessibly", async ({ mount, a11y }) => {
+test("Renders accessibly", async ({ mount, a11y, getByExactText }) => {
   await mount(ListboxFieldTest, { props: { options: listboxOptions } });
   await a11y();
+
+  await (await getByExactText("5")).click({ force: true });
+  await expect(await getByExactText("5")).toHaveAttribute("aria-selected", "true");
 });
 
 test("Keyboard navigation", async ({ page, mount, getByExactText }) => {
@@ -35,4 +38,11 @@ test("Keyboard navigation", async ({ page, mount, getByExactText }) => {
 
   await page.keyboard.press("Enter");
   expect(await (await getByExactText("1")).getAttribute("aria-selected")).toEqual("true");
+});
+
+test("Can be disabled", async ({ mount, getByExactText }) => {
+  await mount(ListboxFieldTest, { props: { options: listboxOptions, disabled: true } });
+
+  await (await getByExactText("5")).click({ force: true });
+  await expect(await getByExactText("5")).toHaveAttribute("aria-selected", "false");
 });

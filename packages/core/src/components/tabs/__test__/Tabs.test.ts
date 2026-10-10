@@ -30,3 +30,10 @@ test("Selection follows focus", async ({ page, mount, getByExactText }) => {
   await page.keyboard.press("ArrowRight");
   await getByExactText("Panel for 2");
 });
+
+test("Can disable tab", async ({ page, mount, getByExactText }) => {
+  await mount(TabsTest, { props: { disabled: true, items } });
+
+  await (await getByExactText("5")).click({ force: true });
+  await expect(page.locator('[role="tabpanel"]')).not.toContainText("Panel for 5");
+});

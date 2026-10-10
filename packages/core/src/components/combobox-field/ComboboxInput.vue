@@ -7,6 +7,7 @@
     :aria-controls="sharedIds.get('listbox')"
     :aria-expanded="open"
     :aria-labelledby="`${sharedIds.get('label')} ${sharedIds.get('selection-list')}`"
+    :disabled="disabled"
     aria-autocomplete="list"
     aria-haspopup="listbox"
     role="combobox"
@@ -48,6 +49,7 @@ const { sharedIds } = inject(FieldContextKey)!;
 
 const {
   open,
+  disabled,
   activeElementId,
 
   onBlur,

@@ -1,6 +1,7 @@
 <template>
   <button
     :id="id"
+    :disabled="disabled"
     :aria-activedescendant="activeElementId"
     :aria-controls="sharedIds.get('listbox')"
     :aria-expanded="open"
@@ -49,7 +50,15 @@ defineSlots<SelectFieldButtonSlots>();
 
 const { sharedIds } = inject(FieldContextKey)!;
 
-const { open, activeElementId, onBlur, onKeyDown, onClick } = inject(ListboxFieldContextKey)!;
+/* prettier-ignore */
+const {
+  open,
+  disabled,
+  activeElementId,
+  onBlur,
+  onKeyDown,
+  onClick
+} = inject(ListboxFieldContextKey)!;
 
 shareId(sharedIds, "input", () => props.id);
 </script>

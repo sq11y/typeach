@@ -7,7 +7,7 @@
     :data-active="activeIndex === index"
     :data-value="value"
     :aria-selected="modelValue.some((m) => m === value)"
-    :aria-disabled="disabled"
+    :aria-disabled="disabled || listboxDisabled"
     role="option"
     @click="onOptionClick(index)"
     @mousedown="onOptionMouseDown"
@@ -83,6 +83,7 @@ shareId(sharedIds, props.value, () => props.id);
 
 const {
   modelValue,
+  disabled: listboxDisabled,
 
   options,
   optionsTracker,

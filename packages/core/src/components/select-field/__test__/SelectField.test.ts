@@ -29,3 +29,12 @@ import SelectFieldTest from "./SelectField.test.vue";
     });
   });
 });
+
+test("Can be disabled", async ({ mount, page }) => {
+  await mount(SelectFieldTest, { props: { options: listboxOptions, disabled: true } });
+
+  const combobox = page.locator("[role='combobox']");
+
+  await expect(combobox).toHaveAttribute("disabled");
+  await combobox.click({ force: true });
+});

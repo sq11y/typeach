@@ -13,6 +13,11 @@ import { ListboxFieldContextKey } from "../listbox-field/hooks";
 
 export interface ComboboxFieldProps {
   /**
+   * If the combobox should be disabled.
+   */
+  disabled?: boolean;
+
+  /**
    * If one should be able to select more than one option.
    */
   multiselect?: boolean;
@@ -65,6 +70,7 @@ provide(ListboxFieldContextKey, {
   activeIndex,
   activeElementId,
 
+  disabled: computed(() => props.disabled),
   optionsTracker,
   options,
 

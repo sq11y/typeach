@@ -1,7 +1,12 @@
 <template>
   <PeachyTabs>
     <PeachyTabsList :selection-follows-focus="selectionFollowsFocus" :orientation="orientation">
-      <PeachyTabsButton v-for="item of items" :key="item" :value="item">
+      <PeachyTabsButton
+        v-for="item of items"
+        :key="item"
+        :value="item"
+        :disabled="disabled && item === '5'"
+      >
         {{ item }}
       </PeachyTabsButton>
     </PeachyTabsList>
@@ -30,6 +35,11 @@ export interface TabsTestProps {
    * The mock data.
    */
   items: string[];
+
+  /**
+   * If a tab should be disabled.
+   */
+  disabled?: boolean;
 }
 
 defineProps<TabsTestProps>();

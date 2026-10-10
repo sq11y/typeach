@@ -1,5 +1,5 @@
 <template>
-  <PeachyListboxField>
+  <PeachyListboxField :disabled="disabled">
     <PeachyFieldLabel>Fruits</PeachyFieldLabel>
 
     <PeachyListboxInput v-model="modelValue">
@@ -39,6 +39,11 @@ interface ListboxFieldTestProps {
    * The mock data.
    */
   options: string[];
+
+  /**
+   * If the listbox is disabled.
+   */
+  disabled?: boolean;
 }
 
 defineProps<ListboxFieldTestProps>();

@@ -3,9 +3,12 @@ import { test } from "../../../../playwright/extension";
 
 import CalendarTableTest from "./CalendarTable.test.vue";
 
-test("Renders accessibly", async ({ mount, a11y }) => {
+test("Renders accessibly", async ({ mount, a11y, getByExactText }) => {
   await mount(CalendarTableTest);
   await a11y();
+
+  await (await getByExactText("18")).click();
+  await expect(await getByExactText("18")).toHaveAttribute("aria-pressed", "true");
 });
 
 test("Calendar grid", async ({ page, mount, getByExactText, rovingTabindex }) => {
@@ -63,4 +66,14 @@ test("Calendar grid", async ({ page, mount, getByExactText, rovingTabindex }) =>
   await page.keyboard.press("Shift+End");
   await expect(await getByExactText("30")).toBeFocused();
   await getByExactText("September 2025");
+});
+
+test("Can disable date", async ({ mount, getByExactText }) => {
+  await mount(CalendarTableTest, {
+    props: { disabled: true },
+  });
+
+  await expect(await getByExactText("18")).toHaveAttribute("aria-disabled", "true");
+  await (await getByExactText("18")).click({ force: true });
+  await expect(await getByExactText("18")).not.toHaveAttribute("aria-pressed");
 });

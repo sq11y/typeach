@@ -1,10 +1,10 @@
 <!-- prettier-ignore -->
 <template>
-  <PeachySwitchField v-model="modelValue">
-    <PeachySwitchButton :disabled="disabled">
+  <PeachySwitchField v-model="modelValue" :disabled="disabled">
+    <PeachySwitchButton>
       <LockSvg
         v-if="disabled"
-        aria-label="Locked"
+        aria-hidden="true"
         class="lock"
       />
 
@@ -80,7 +80,7 @@ button[aria-checked] {
   border-radius: var(--border-radius);
   border: var(--border);
 
-  @include utils.enabled {
+  &[aria-disabled="false"] {
     cursor: pointer;
 
     @include utils.hover {
@@ -143,7 +143,7 @@ button[aria-checked="true"] {
     background-color: var(--purple-70);
   }
 
-  @include utils.enabled {
+  &[aria-disabled="false"] {
     @include utils.hover {
       .switch__toggle {
         border-color: var(--purple-60);
@@ -158,11 +158,9 @@ button[aria-checked="true"] {
 
 /* ===== Disabled ===== */
 
-button[aria-checked] {
-  @include utils.disabled {
-    .switch {
-      filter: grayscale(100%);
-    }
+button[aria-checked][aria-disabled="true"] {
+  .switch {
+    filter: grayscale(100%);
   }
 }
 

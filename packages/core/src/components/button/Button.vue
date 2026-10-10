@@ -73,7 +73,9 @@ provideElement("toolbar", element);
 const onClick = (event: MouseEvent) => {
   navigateTo?.(element.value!);
 
-  if (!props.disabled) {
+  if (props.disabled) {
+    event.preventDefault();
+  } else {
     emit("click", event);
   }
 };

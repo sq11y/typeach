@@ -134,7 +134,7 @@ h2 {
 
   @include utils.transition("background-color, color, scale");
 
-  @include utils.enabled {
+  &[aria-disabled="false"] {
     @include utils.hover {
       background-color: var(--pink-30);
       color: var(--pink-70);
@@ -220,26 +220,22 @@ button[aria-pressed] {
     display: none;
   }
 
+  &[aria-disabled="false"]:active {
+    scale: 1.1;
+  }
+
+  &[aria-disabled="true"] {
+    opacity: 0.475;
+  }
+
   @media (width < 25rem) {
     --size: 1.5rem;
   }
-
-  @include utils.enabled {
-    &:active {
-      scale: 1.1;
-    }
-  }
-
-  @include utils.disabled {
-    opacity: 0.475;
-  }
 }
 
-button[aria-pressed="false"] {
-  @include utils.enabled {
-    @include utils.hover {
-      background-color: var(--grey-20);
-    }
+button[aria-pressed="false"][aria-disabled="false"] {
+  @include utils.hover {
+    background-color: var(--grey-20);
   }
 }
 
@@ -248,7 +244,7 @@ button[aria-pressed="true"] {
   background-color: var(--pink-30);
   color: var(--pink-80);
 
-  @include utils.enabled {
+  &[aria-disabled="false"] {
     @include utils.hover {
       background-color: var(--pink-40);
     }

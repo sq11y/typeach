@@ -1,5 +1,5 @@
 <template>
-  <PeachySelectField v-model="modelValue" :multiselect="multiselect">
+  <PeachySelectField v-model="modelValue" :disabled="disabled" :multiselect="multiselect">
     <PeachyFieldLabel> Fruit </PeachyFieldLabel>
 
     <PeachySelectButton>
@@ -47,6 +47,11 @@ interface ListboxFieldTestProps {
    * The mock data.
    */
   options: string[];
+
+  /**
+   * If the select should be disabled.
+   */
+  disabled?: boolean;
 }
 
 defineProps<ListboxFieldTestProps>();

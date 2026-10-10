@@ -94,3 +94,12 @@ import ComboboxFieldTest from "./ComboboxField.test.vue";
     });
   });
 });
+
+test("Can be disabled", async ({ mount, page }) => {
+  await mount(ComboboxFieldTest, { props: { disabled: true, options: listboxOptions } });
+
+  const combobox = page.locator("[role='combobox']");
+
+  await expect(combobox).toHaveAttribute("disabled");
+  await combobox.click({ force: true });
+});

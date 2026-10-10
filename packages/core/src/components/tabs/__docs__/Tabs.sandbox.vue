@@ -79,7 +79,7 @@ const quotesFromUltraProcessedPeopleByChrisVanTulleken = [
 
   @include utils.transition("background-color, color, border-color");
 
-  @include utils.enabled {
+  &[aria-disabled="false"] {
     cursor: pointer;
   }
 }
@@ -87,7 +87,7 @@ const quotesFromUltraProcessedPeopleByChrisVanTulleken = [
 [role="tab"][aria-selected="false"] {
   text-decoration: underline;
 
-  @include utils.enabled {
+  &[aria-disabled="false"] {
     &:active {
       background-color: var(--grey-30);
       border-color: var(--grey-30);
@@ -103,7 +103,7 @@ const quotesFromUltraProcessedPeopleByChrisVanTulleken = [
   background-color: var(--turquoise-40);
   color: var(--turquoise-80);
 
-  @include utils.enabled {
+  &[aria-disabled="false"] {
     &:active {
       background-color: var(--turquoise-50);
       border-color: var(--turquoise-70);

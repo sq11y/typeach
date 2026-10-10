@@ -3,6 +3,7 @@ import type { ComboxboxContext, SharedIds } from "../../../hooks";
 
 export interface ListboxFieldContext extends ComboxboxContext {
   modelValue: Ref<string[]>;
+  disabled: Ref<boolean>;
   multiselect: ComputedRef<boolean>;
 
   /**

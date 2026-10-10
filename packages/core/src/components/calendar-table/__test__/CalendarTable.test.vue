@@ -31,6 +31,7 @@
           <PeachyCalendarTableCellButton
             :date="day"
             :selected="date && isSameDate(date, day)"
+            :disabled="disabled && isSameDate(new Date('12/18/2025'), day)"
             @click="date = day"
           >
             <span aria-hidden="true">
@@ -66,9 +67,18 @@ import {
   Weekday,
 } from "@typeach/core";
 
+export interface CalendarTableTestProps {
+  /**
+   * If a date should be disabled.
+   */
+  disabled?: boolean;
+}
+
+defineProps<CalendarTableTestProps>();
+
 const focusedDate = ref(new Date("12/14/2025"));
 
-const date = ref<Date>();
+const date = defineModel<Date>();
 
 const weekdays = getWeekdays(Weekday.Monday);
 

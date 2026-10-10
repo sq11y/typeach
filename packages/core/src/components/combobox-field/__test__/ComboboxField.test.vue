@@ -1,5 +1,5 @@
 <template>
-  <PeachyComboboxField v-model="modelValue" :multiselect="multiselect">
+  <PeachyComboboxField v-model="modelValue" :disabled="disabled" :multiselect="multiselect">
     <PeachyFieldLabel> Fruit </PeachyFieldLabel>
 
     <PeachyComboboxSelectionList>
@@ -43,7 +43,7 @@ import {
   PeachyListboxOption,
 } from "@typeach/core";
 
-interface ListboxFieldTestProps {
+interface ComboboxFieldTestProps {
   /**
    * If the test should run a multiselect.
    */
@@ -53,9 +53,14 @@ interface ListboxFieldTestProps {
    * The mock data.
    */
   options: string[];
+
+  /**
+   * If the combobox should be disabled.
+   */
+  disabled?: boolean;
 }
 
-defineProps<ListboxFieldTestProps>();
+defineProps<ComboboxFieldTestProps>();
 
 const modelValue = ref(["3"]);
 </script>

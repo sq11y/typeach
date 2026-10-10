@@ -158,10 +158,14 @@ input[role="combobox"] {
 
   @include utils.transition(border-color);
 
-  @include utils.enabled {
+  &:enabled {
     @include utils.hover {
       border-color: var(--purple-60);
     }
+  }
+
+  &:disabled {
+    background-color: var(--grey-20);
   }
 }
 
@@ -222,7 +226,7 @@ input[role="combobox"] {
 
   @include utils.transition("background-color, color");
 
-  @include utils.enabled {
+  &[aria-disabled="false"] {
     cursor: pointer;
   }
 }
@@ -231,18 +235,16 @@ input[role="combobox"] {
   background-color: var(--purple-20);
   color: var(--purple-80);
 
-  @include utils.enabled {
+  &[aria-disabled="false"] {
     @include utils.hover {
       background-color: var(--purple-30);
     }
   }
 }
 
-[role="option"][aria-selected="false"] {
-  @include utils.enabled {
-    @include utils.hover {
-      background-color: var(--grey-10);
-    }
+[role="option"][aria-selected="false"][aria-disabled="false"] {
+  @include utils.hover {
+    background-color: var(--grey-10);
   }
 }
 

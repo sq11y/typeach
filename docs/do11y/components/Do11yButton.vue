@@ -59,21 +59,15 @@ const components = {
 
   @include utils.transition("color, background-color, border-color");
 
-  @include utils.enabled {
-    cursor: pointer;
+  cursor: pointer;
 
-    &:active {
-      background-color: var(--grey-10);
-      border-color: var(--grey-60);
-    }
-
-    @include utils.hover {
-      border-color: var(--grey-60);
-    }
+  &:active {
+    background-color: var(--grey-10);
+    border-color: var(--grey-60);
   }
 
-  @include utils.disabled {
-    background-color: var(--grey-20);
+  @include utils.hover {
+    border-color: var(--grey-60);
   }
 }
 
@@ -84,18 +78,16 @@ const components = {
   background-color: var(--grey-30);
   border-color: var(--grey-30);
 
-  @include utils.enabled {
-    &:active {
-      background-color: var(--grey-50);
-      border-color: var(--grey-50);
-      color: var(--grey-80);
-    }
+  &:active {
+    background-color: var(--grey-50);
+    border-color: var(--grey-50);
+    color: var(--grey-80);
+  }
 
-    @include utils.hover {
-      background-color: var(--grey-40);
-      border-color: var(--grey-40);
-      color: var(--grey-80);
-    }
+  @include utils.hover {
+    background-color: var(--grey-40);
+    border-color: var(--grey-40);
+    color: var(--grey-80);
   }
 }
 </style>

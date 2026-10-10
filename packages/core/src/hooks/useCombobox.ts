@@ -84,6 +84,7 @@ export const useCombobox = (
   sharedIds: SharedIds,
   filter?: Ref<string>,
   open?: Ref<boolean>,
+  disabled?: Ref<boolean>,
 ): ComboxboxContext => {
   const optionsTracker = ref<ComboboxOption[]>([]);
 
@@ -138,7 +139,7 @@ export const useCombobox = (
   const toggleOption = (index: number) => {
     const option = options.value[index];
 
-    if (!option || option.disabled) {
+    if (disabled?.value || !option || option.disabled) {
       return;
     }
 
@@ -153,6 +154,10 @@ export const useCombobox = (
    * For multiple only.
    */
   const selectAllOptions = () => {
+    if (disabled?.value) {
+      return;
+    }
+
     modelValue.value = options.value
       .filter((o) => !o.disabled || modelValue.value.includes(o.value))
       .map((o) => o.value);
@@ -164,7 +169,7 @@ export const useCombobox = (
   const selectOption = (index: number) => {
     const option = options.value[index];
 
-    if (!option || option.disabled) {
+    if (disabled?.value || !option || option.disabled) {
       return;
     }
 
@@ -184,12 +189,15 @@ export const useCombobox = (
 
   const onOptionClick = (index: number) => {
     activeIndex.value = index;
-    setFilter("");
 
-    if (multiselect.value) {
-      toggleOption(index);
-    } else {
-      selectOption(index);
+    if (!disabled?.value) {
+      setFilter("");
+
+      if (multiselect.value) {
+        toggleOption(index);
+      } else {
+        selectOption(index);
+      }
     }
 
     document.getElementById(sharedIds.get("input"))?.focus();
@@ -231,6 +239,10 @@ export const useCombobox = (
         break;
 
       case "select":
+        if (disabled?.value) {
+          break;
+        }
+
         if (multiselect.value) {
           setFilter("");
           toggleOption(activeIndex.value);
@@ -242,7 +254,7 @@ export const useCombobox = (
         break;
 
       case "select-all":
-        if (multiselect.value) {
+        if (!disabled?.value && multiselect.value) {
           selectAllOptions();
         }
 

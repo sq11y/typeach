@@ -23,7 +23,7 @@ import { SwitchFieldContextKey } from "./hooks";
 import { PeachyButton, type ButtonProps } from "../button";
 import { shareId } from "../../hooks";
 
-export interface SwitchFieldSwitchButtonProps extends Omit<ButtonProps, "type"> {
+export interface SwitchFieldSwitchButtonProps extends Omit<ButtonProps, "type" | "disabled"> {
   /**
    * The id for the element.
    *
@@ -45,7 +45,7 @@ const props = withDefaults(defineProps<SwitchFieldSwitchButtonProps>(), {
 
 defineSlots<SwitchFieldSwitchButtonSlots>();
 
-const { modelValue } = inject(SwitchFieldContextKey)!;
+const { modelValue, disabled } = inject(SwitchFieldContextKey)!;
 
 const { sharedIds, hasErrors, errorIds, descriptionIds } = inject(FieldContextKey)!;
 

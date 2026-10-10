@@ -5,7 +5,7 @@
       Favorite characters
     </PeachyFieldLabel>
 
-    <PeachyListboxInput multiselect>
+    <PeachyListboxInput>
       <template v-for="(option, i) of options" :key="i">
         <PeachyListboxGroup v-if="option.options">
           <PeachyListboxGroupLabel class="group-label">
@@ -157,7 +157,7 @@ label {
 
   @include utils.transition("background-color, color");
 
-  @include utils.enabled {
+  &[aria-disabled="false"] {
     cursor: pointer;
   }
 }
@@ -166,18 +166,16 @@ label {
   background-color: var(--purple-20);
   color: var(--purple-80);
 
-  @include utils.enabled {
+  &[aria-disabled="false"] {
     @include utils.hover {
       background-color: var(--purple-30);
     }
   }
 }
 
-[role="option"][aria-selected="false"] {
-  @include utils.enabled {
-    @include utils.hover {
-      background-color: var(--grey-10);
-    }
+[role="option"][aria-selected="false"][aria-disabled="false"] {
+  @include utils.hover {
+    background-color: var(--grey-10);
   }
 }
 

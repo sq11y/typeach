@@ -45,13 +45,13 @@ textarea {
 
   @include utils.transition(border-color);
 
-  @include utils.enabled {
+  &[aria-disabled="false"] {
     @include utils.hover {
       border-color: var(--purple-60);
     }
   }
 
-  @include utils.disabled {
+  &[aria-disabled="true"] {
     background-color: var(--grey-10);
     border-color: var(--grey-10);
   }

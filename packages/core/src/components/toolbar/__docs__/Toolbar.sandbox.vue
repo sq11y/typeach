@@ -98,7 +98,7 @@ button {
 
   @include utils.transition("background-color, border-color");
 
-  @include utils.enabled {
+  &[aria-disabled="false"] {
     cursor: pointer;
 
     &:active {
@@ -111,7 +111,7 @@ button {
     }
   }
 
-  @include utils.disabled {
+  &[aria-disabled="true"] {
     background-color: var(--grey-50);
     border-color: var(--grey-50);
     color: var(--grey-80);
