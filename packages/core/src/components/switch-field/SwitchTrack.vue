@@ -23,7 +23,7 @@ import { SwitchFieldContextKey } from "./hooks";
 import { PeachyButton, type ButtonProps } from "../button";
 import { shareId } from "../../hooks";
 
-export interface SwitchFieldSwitchButtonProps extends Omit<ButtonProps, "type" | "disabled"> {
+export interface SwitchTrackProps extends Omit<ButtonProps, "type" | "disabled"> {
   /**
    * The id for the element.
    *
@@ -32,22 +32,22 @@ export interface SwitchFieldSwitchButtonProps extends Omit<ButtonProps, "type" |
   id?: string;
 }
 
-export interface SwitchFieldSwitchButtonSlots {
+export interface SwitchTrackSlots {
   /**
-   * The content of the button should include an [accessible label](/p/accessible-labels).
+   * The indicator.
    */
   default: () => void;
 }
 
-const props = withDefaults(defineProps<SwitchFieldSwitchButtonProps>(), {
+const props = withDefaults(defineProps<SwitchTrackProps>(), {
   id: () => useId(),
 });
 
-defineSlots<SwitchFieldSwitchButtonSlots>();
+defineSlots<SwitchTrackSlots>();
 
 const { modelValue, disabled } = inject(SwitchFieldContextKey)!;
 
 const { sharedIds, hasErrors, errorIds, descriptionIds } = inject(FieldContextKey)!;
 
-shareId(sharedIds, "switch-button", () => props.id);
+shareId(sharedIds, "input", () => props.id);
 </script>

@@ -1,3 +1,14 @@
+## Anatomy
+
+<img alt="" class="anatomy-illustration" src="./images/combobox-field-anatomy.png" />
+
+1. Selection list - a list of the selected items (intended for `multiselect`)
+   1. Selection list item - the selected item
+2. Input - used for seaching the options
+3. Listbox - see the full anatomy on the [listbox field page](/f/listbox-field)
+
+You'll find the label, descriptions and error messages documented in the [field component](/f/field).
+
 ## Use case
 
 <Do11yDoDont do-title="Use when.." dont-title="Avoid when..">

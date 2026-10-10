@@ -1,18 +1,13 @@
 <template>
-  <component :is="components[type]" :class="c({ grey })">
+  <PeachyButton :class="c({ grey })">
     <slot />
-  </component>
+  </PeachyButton>
 </template>
 
 <script lang="ts" setup>
-import { PeachyButton, PeachySwitchButton, useBemClass } from "@typeach/core";
+import { PeachyButton, useBemClass } from "@typeach/core";
 
 interface ButtonProps {
-  /**
-   * The underlying component to use.
-   */
-  type?: "button" | "switch-button";
-
   /**
    * If the button should be grey.
    */
@@ -34,11 +29,6 @@ withDefaults(defineProps<ButtonProps>(), {
 defineSlots<ButtonSlots>();
 
 const c = useBemClass("button");
-
-const components = {
-  button: PeachyButton,
-  "switch-button": PeachySwitchButton,
-};
 </script>
 
 <style lang="scss">
@@ -60,6 +50,10 @@ const components = {
   @include utils.transition("color, background-color, border-color");
 
   cursor: pointer;
+
+  * {
+    cursor: pointer;
+  }
 
   &:active {
     background-color: var(--grey-10);

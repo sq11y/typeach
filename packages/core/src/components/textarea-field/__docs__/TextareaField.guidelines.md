@@ -1,3 +1,11 @@
+## Anatomy
+
+<img alt="" class="anatomy-illustration" src="./images/textarea-field-anatomy.png" />
+
+1. Input
+
+You'll find the label, descriptions and error messages documented in the [field component](/f/field).
+
 ## Use case
 
 <Do11yDoDont do-title="Use when.." dont-title="Avoid when..">

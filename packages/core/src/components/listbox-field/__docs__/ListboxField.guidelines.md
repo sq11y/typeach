@@ -1,3 +1,15 @@
+## Anatomy
+
+<img alt="" class="anatomy-illustration" src="./images/listbox-field-anatomy.png" />
+
+1. Input - the list of options
+   1. Option
+   2. Group - a group of options
+      1. Group label
+      2. Option (grouped)
+
+You'll find the label, descriptions and error messages documented in the [field component](/f/field).
+
 ## Use case
 
 <Do11yDoDont do-title="Use when.." dont-title="Avoid when..">

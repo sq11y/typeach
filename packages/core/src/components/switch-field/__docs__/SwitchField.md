@@ -14,14 +14,12 @@ color: "purple"
 
   import Guidelines from './SwitchField.guidelines.md';
   import API from './SwitchField.api.md';
-  import Accessibility from './SwitchField.accessibility.md';
 
   const route = useRoute();
 
   const tabs = {
     Guidelines,
     API,
-    Accessibility
   };
 </script>
 

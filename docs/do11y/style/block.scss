@@ -64,7 +64,7 @@ h1:not([class]) {
   color: var(--pink-80);
 }
 
-@media (width < 42rem) {
+@media (width <= 42rem) {
   iframe {
     background-color: var(--bg);
   }
@@ -107,13 +107,15 @@ pre {
   }
 }
 
-ol,
-ul {
-  list-style: none;
-
+ul,
+ol {
   li {
     position: relative;
   }
+}
+
+ul {
+  list-style: none;
 
   li::marker {
     content: none;
@@ -155,6 +157,43 @@ ul {
     @media (forced-colors: active) {
       mask: none;
     }
+  }
+}
+
+ol:not([class]) {
+  list-style-type: none;
+  counter-reset: item;
+  margin-inline-start: calc(var(--prose-flow-scale) * 3em);
+
+  ol {
+    margin-inline-start: calc(var(--prose-flow-scale) * 2em);
+  }
+
+  li::before {
+    content: counter(item);
+    counter-increment: item;
+    color: var(--pink-80);
+
+    position: absolute;
+    inset-inline-start: -0.5em;
+    inset-block-start: 0.01lh;
+    transform: translateX(-100%);
+
+    @include utils.center;
+    @include utils.square(0.8lh);
+
+    background-color: var(--pink-30);
+    border: var(--invisible-border);
+    border-radius: 100%;
+  }
+
+  li ol li::before {
+    content: counter(item, lower-latin);
+  }
+
+  /* stylelint-disable selector-max-compound-selectors */
+  li ol ol li::before {
+    content: counter(item, lower-roman);
   }
 }
 
@@ -224,4 +263,10 @@ table.large {
   tr:nth-child(even) {
     background-color: var(--grey-10);
   }
+}
+
+.anatomy-illustration {
+  inline-size: 100%;
+  border: var(--border);
+  border-radius: var(--border-radius);
 }

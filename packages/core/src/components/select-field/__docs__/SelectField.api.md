@@ -3,6 +3,30 @@
   import SelectButtonMeta from '../SelectButton.vue?meta';
 </script>
 
+## Anatomy
+
+```vue
+<template>
+  <PeachySelectField>
+    <PeachyFieldLabel />
+    <PeachyFieldDescription />
+
+    <PeachySelectButton />
+
+    <PeachyListboxInput>
+      <PeachyListboxOption />
+
+      <PeachyListboxGroup>
+        <PeachyListboxGroupLabel />
+        <PeachyListboxOption />
+      </PeachyListboxGroup>
+    </PeachyListboxInput>
+
+    <PeachyFieldError v-if="error" />
+  </PeachySelectField>
+</template>
+```
+
 ## Field
 
 <Do11yMeta :meta="SelectFieldMeta" />

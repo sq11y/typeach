@@ -101,7 +101,7 @@
 }
 
 .prose {
-  $block-element: nav, div, pre, img, video, figure, details, table, dl;
+  $block-element: nav, div, pre, img, video, figure, details, table, dl, ol, ul;
 
   :where(* + p),
   :where(* + small) {
@@ -131,7 +131,7 @@
   }
 
   :where(li > ul, li > ol) {
-    margin-block: calc(var(--prose-flow-scale) * 0.275em) calc(var(--prose-flow-scale) * 0.5em);
+    margin-block: calc(var(--prose-flow-scale) * 0.375em) calc(var(--prose-flow-scale) * 0.5em);
     margin-inline-start: calc(var(--prose-flow-scale) * 1.75em);
   }
 

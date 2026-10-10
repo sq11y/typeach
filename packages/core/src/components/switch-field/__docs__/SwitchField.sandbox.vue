@@ -1,38 +1,29 @@
 <!-- prettier-ignore -->
 <template>
-  <PeachySwitchField v-model="modelValue" :disabled="disabled">
-    <PeachySwitchButton>
-      <LockSvg
-        v-if="disabled"
-        aria-hidden="true"
-        class="lock"
-      />
+  <PeachySwitchField v-model="modelValue" :disabled="disabled" class="field">
+    <LockSvg
+      v-if="disabled"
+      aria-hidden="true"
+      class="lock"
+    />
 
+    <PeachyFieldLabel>
       Universal health care
+    </PeachyFieldLabel>
 
-      <div class="switch">
-        <PeachySwitchStateLabel class="switch__state-label">
-          No
-        </PeachySwitchStateLabel>
-
-        <div class="switch__toggle">
-          <div class="switch__toggle-indicator"></div>
-        </div>
-
-        <PeachySwitchStateLabel class="switch__state-label">
-          Yes
-        </PeachySwitchStateLabel>
-      </div>
-    </PeachySwitchButton>
+    <PeachySwitchTrack>
+      <PeachySwitchThumb class="thumb" />
+    </PeachySwitchTrack>
   </PeachySwitchField>
 </template>
 
 <script lang="ts" setup>
 /* prettier-ignore */
 import {
+  PeachyFieldLabel,
   PeachySwitchField,
-  PeachySwitchButton,
-  PeachySwitchStateLabel
+  PeachySwitchTrack,
+  PeachySwitchThumb
 } from "@typeach/core";
 
 import LockSvg from "./icons/lock.svg?component";
@@ -65,7 +56,7 @@ const modelValue = defineModel<boolean>({ default: true });
 
 /* ===== Container ===== */
 
-button[aria-checked] {
+.field {
   position: relative;
 
   @include utils.dock;
@@ -79,38 +70,15 @@ button[aria-checked] {
 
   border-radius: var(--border-radius);
   border: var(--border);
-
-  &[aria-disabled="false"] {
-    cursor: pointer;
-
-    @include utils.hover {
-      .switch__toggle {
-        border-color: var(--grey-60);
-      }
-    }
-
-    &:active .switch__toggle {
-      background-color: var(--grey-50);
-    }
-  }
 }
 
-/* ===== Switch layout ===== */
-
-.switch {
-  min-inline-size: max-content;
-  @include utils.dock;
-  gap: var(--spacing-s);
+label {
+  cursor: pointer;
 }
 
-.switch__state-label {
-  font-size: var(--font-size-xs);
-  line-height: var(--line-height-xs);
-}
+/* ===== Track ===== */
 
-/* ===== Toggle ===== */
-
-.switch__toggle {
+button[aria-checked] {
   padding-inline: 0.0125em var(--relative-spacing-xl);
 
   border: var(--invisible-border);
@@ -119,9 +87,42 @@ button[aria-checked] {
   background-color: var(--grey-30);
 
   @include utils.transition("padding, border-color, background-color");
+
+  &[aria-disabled="false"] {
+    cursor: pointer;
+
+    @include utils.hover {
+      border-color: var(--grey-60);
+    }
+
+    &:active {
+      background-color: var(--grey-50);
+    }
+  }
 }
 
-.switch__toggle-indicator {
+button[aria-checked="true"] {
+  padding-inline: var(--relative-spacing-xl) 0.0125em;
+  background-color: var(--purple-40);
+
+  .thumb {
+    background-color: var(--purple-70);
+  }
+
+  &[aria-disabled="false"] {
+    @include utils.hover {
+      border-color: var(--purple-60);
+    }
+
+    &:active {
+      background-color: var(--purple-50);
+    }
+  }
+}
+
+/* ===== Thumb ===== */
+
+.thumb {
   inline-size: 1em;
   aspect-ratio: 1;
 
@@ -133,35 +134,10 @@ button[aria-checked] {
   @include utils.transition("scale, background-color");
 }
 
-button[aria-checked="true"] {
-  .switch__toggle {
-    padding-inline: var(--relative-spacing-xl) 0.0125em;
-    background-color: var(--purple-40);
-  }
-
-  .switch__toggle-indicator {
-    background-color: var(--purple-70);
-  }
-
-  &[aria-disabled="false"] {
-    @include utils.hover {
-      .switch__toggle {
-        border-color: var(--purple-60);
-      }
-    }
-
-    &:active .switch__toggle {
-      background-color: var(--purple-50);
-    }
-  }
-}
-
 /* ===== Disabled ===== */
 
 button[aria-checked][aria-disabled="true"] {
-  .switch {
-    filter: grayscale(100%);
-  }
+  filter: grayscale(100%);
 }
 
 .lock {

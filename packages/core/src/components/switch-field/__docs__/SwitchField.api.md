@@ -1,17 +1,29 @@
 <script setup>
   import SwitchFieldMeta from '../SwitchField.vue?meta';
-  import SwitchButtonMeta from '../SwitchButton.vue?meta';
-  import SwitchStateLabelMeta from '../SwitchStateLabel.vue?meta';
+  import SwitchTrackMeta from '../SwitchTrack.vue?meta';
 </script>
+
+## Anatomy
+
+```vue
+<template>
+  <PeachySwitchField>
+    <PeachyFieldLabel />
+    <PeachyFieldDescription />
+
+    <PeachySwitchTrack>
+      <PeachySwitchThumb />
+    </PeachySwitchTrack>
+
+    <PeachyFieldError v-if="error" />
+  </PeachySwitchField>
+</template>
+```
 
 ## Field
 
 <Do11yMeta :meta="SwitchFieldMeta" />
 
-## Button
+## Track
 
-<Do11yMeta :meta="SwitchButtonMeta" />
-
-## State label
-
-<Do11yMeta :meta="SwitchStateLabelMeta" />
+<Do11yMeta :meta="SwitchTrackMeta" />

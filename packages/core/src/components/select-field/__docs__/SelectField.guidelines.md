@@ -1,3 +1,12 @@
+## Anatomy
+
+<img alt="" class="anatomy-illustration" src="./images/select-field-anatomy.png" />
+
+1. Button - where the selected options are put
+2. Listbox - see the full anatomy on the [listbox field page](/f/listbox-field)
+
+You'll find the label, descriptions and error messages documented in the [field component](/f/field).
+
 ## Use case
 
 <Do11yDoDont do-title="Use when.." dont-title="Avoid when..">

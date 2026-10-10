@@ -1,21 +1,27 @@
 <template>
-  <PeachySwitchField v-model="modelValue">
-    <Do11yButton type="switch-button" v-bind="$attrs">
+  <PeachySwitchField v-model="modelValue" class="button">
+    <PeachyFieldLabel>
       <slot />
+    </PeachyFieldLabel>
 
-      <div :class="c()">
+    <PeachySwitchTrack v-bind="$attrs" class="no-focus">
+      <PeachySwitchThumb :class="c('thumb')">
         <component :is="icon" />
-      </div>
-    </Do11yButton>
+      </PeachySwitchThumb>
+    </PeachySwitchTrack>
   </PeachySwitchField>
 </template>
 
 <script lang="ts" setup>
 import type { Component } from "vue";
 
-import { PeachySwitchField, useBemClass } from "@typeach/core";
-
-import Do11yButton from "./Do11yButton.vue";
+import {
+  PeachyFieldLabel,
+  PeachySwitchField,
+  PeachySwitchThumb,
+  PeachySwitchTrack,
+  useBemClass,
+} from "@typeach/core";
 
 interface SwitchProps {
   /**
@@ -44,9 +50,13 @@ const c = useBemClass("switch");
 @use "@typeach/theme/utils";
 
 button[aria-checked] {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+
   gap: var(--relative-spacing-m);
 
-  .switch {
+  .switch__thumb {
     padding-inline: var(--relative-spacing-xxs) var(--relative-spacing-l);
     padding-block: 0.0125em;
 
@@ -59,12 +69,10 @@ button[aria-checked] {
   }
 }
 
-button[aria-checked="true"] {
-  .switch {
-    padding-inline: var(--relative-spacing-l) var(--relative-spacing-xxs);
+button[aria-checked="true"] .switch__thumb {
+  padding-inline: var(--relative-spacing-l) var(--relative-spacing-xxs);
 
-    background-color: var(--green-30);
-    color: var(--green-70);
-  }
+  background-color: var(--green-30);
+  color: var(--green-70);
 }
 </style>

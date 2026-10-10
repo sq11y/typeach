@@ -28,6 +28,6 @@ color: "purple"
   {{ route?.meta.description }}
 </div>
 
-<TextareaFieldSandbox title="Textarea Field" />
+<TextareaFieldSandbox title="Textarea Field" block-size="24rem" />
 
 <Do11yTabs :tabs="tabs" />

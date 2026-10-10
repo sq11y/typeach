@@ -35,12 +35,32 @@ color: "purple"
 
 <FieldSandbox title="Field" block-size="24rem" />
 
+## Anatomy
+
+<img alt="" class="anatomy-illustration" src="./images/field-anatomy.png" />
+
+1. Label
+2. Description
+3. *Field sub-components - see the full anatomy on the field's page
+4. Error
+
+### API
+
+```vue
+<template>
+  <*Field>
+    <PeachyFieldLabel />
+    <PeachyFieldDescription />
+
+    <!-- *Field sub-components -->
+
+    <PeachyFieldError v-if="error" />
+  </*Field>
+</template>
+```
+
+You should only render the error sub-component when there is an actual error, as it will mark the field invalid (e.g. use `v-if` instead of `v-show`).
+
 ## The {{ fieldRoutes.length }} fields
-
-A field component requires a label, use `PeachyFieldLabel` as a child of the `*Field` component to provide it, unless the field specifies otherwise.
-
-Then optionally, there is `PeachyFieldDescription` and `PeachyFieldError`. You should only render the error sub-component when there is an actual error, as it will mark the field invalid (e.g. use `v-if` instead of `v-show`).
-
-The related control will get the correct ARIA attributes depending on which of the sub-components are rendered. How you piece together the control itself differs a lot, so please read each page as needed.
 
 <Do11yComponentGrid :components="fieldRoutes" />
