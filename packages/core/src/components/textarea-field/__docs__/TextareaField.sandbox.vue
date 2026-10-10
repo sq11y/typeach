@@ -5,12 +5,12 @@
       Who is <span style="color: var(--purple-80)">Valerie Thomas</span>?
     </PeachyFieldLabel>
 
-    <PeachyTextareaFieldInput />
+    <PeachyTextareaInput />
   </PeachyTextareaField>
 </template>
 
 <script lang="ts" setup>
-import { PeachyFieldLabel, PeachyTextareaField, PeachyTextareaFieldInput } from "@typeach/core";
+import { PeachyFieldLabel, PeachyTextareaField, PeachyTextareaInput } from "@typeach/core";
 
 const modelValue = defineModel<string>();
 </script>

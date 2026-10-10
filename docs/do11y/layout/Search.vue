@@ -17,7 +17,7 @@
         </PeachyFieldLabel>
 
         <!-- eslint-disable-next-line vuejs-accessibility/no-autofocus -->
-        <PeachyTextFieldInput v-model="search" autofocus placeholder="Search components" search />
+        <PeachyTextInput v-model="search" autofocus placeholder="Search components" search />
       </PeachyTextField>
 
       <Do11yComponentGrid :search="search" scrollable @click="open = false" />
@@ -41,7 +41,7 @@ import {
   PeachyDialogPanel,
   PeachyFieldLabel,
   PeachyTextField,
-  PeachyTextFieldInput,
+  PeachyTextInput,
   PeachyVisuallyHidden,
   useBemClass,
 } from "@typeach/core";

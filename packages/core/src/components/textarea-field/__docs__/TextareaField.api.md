@@ -1,6 +1,6 @@
 <script setup>
   import TextareaFieldMeta from '../TextareaField.vue?meta';
-  import TextareaFieldInputMeta from '../TextareaFieldInput.vue?meta';
+  import TextareaInputMeta from '../TextareaInput.vue?meta';
 </script>
 
 ## Field
@@ -9,4 +9,4 @@
 
 ## Input
 
-<Do11yMeta :meta="TextareaFieldInputMeta" />
+<Do11yMeta :meta="TextareaInputMeta" />

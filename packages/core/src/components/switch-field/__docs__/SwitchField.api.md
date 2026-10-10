@@ -1,17 +1,17 @@
 <script setup>
   import SwitchFieldMeta from '../SwitchField.vue?meta';
-  import SwitchFieldSwitchButtonMeta from '../SwitchFieldSwitchButton.vue?meta';
-  import SwitchFieldStateLabelMeta from '../SwitchFieldStateLabel.vue?meta';
+  import SwitchButtonMeta from '../SwitchButton.vue?meta';
+  import SwitchStateLabelMeta from '../SwitchStateLabel.vue?meta';
 </script>
 
 ## Field
 
 <Do11yMeta :meta="SwitchFieldMeta" />
 
-## Switch button
+## Button
 
-<Do11yMeta :meta="SwitchFieldSwitchButtonMeta" />
+<Do11yMeta :meta="SwitchButtonMeta" />
 
 ## State label
 
-<Do11yMeta :meta="SwitchFieldStateLabelMeta" />
+<Do11yMeta :meta="SwitchStateLabelMeta" />

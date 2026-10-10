@@ -5,12 +5,12 @@
       Who was <span style="color: var(--purple-80)">Aina Wifalk</span>?
     </PeachyFieldLabel>
 
-    <PeachyTextFieldInput v-model="modelValue" />
+    <PeachyTextInput v-model="modelValue" />
   </PeachyTextField>
 </template>
 
 <script lang="ts" setup>
-import { PeachyFieldLabel, PeachyTextField, PeachyTextFieldInput } from "@typeach/core";
+import { PeachyFieldLabel, PeachyTextField, PeachyTextInput } from "@typeach/core";
 
 const modelValue = defineModel<string>();
 </script>
