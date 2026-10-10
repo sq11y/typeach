@@ -11,29 +11,29 @@ export type ElementNavigationOptions = {
   /**
    * What should happen when navgating to an element?
    */
-  navigateTo(element: HTMLElement, previousElement?: HTMLElement): void;
+  navigateTo: (element: HTMLElement, previousElement?: HTMLElement) => void;
 
   /**
    * How can we know if the element is the one currently navigated to?
    */
-  isNavigatedTo(element: HTMLElement): boolean;
+  isNavigatedTo: (element: HTMLElement) => boolean;
 };
 
 export interface ElementNavigation {
   /**
    * Navigate.
    */
-  navigate(move: Move): void;
+  navigate: (move: Move) => void;
 
   /**
    * Navigate page by page, until there is no more pages.
    */
-  navigateByPage(pages: number, size: number): void;
+  navigateByPage: (pages: number, size: number) => void;
 
   /**
    * Navigate relative to the current element.
    */
-  navigateCustom(relativeIndex: number): void;
+  navigateCustom: (relativeIndex: number) => void;
 }
 
 /**

@@ -11,17 +11,17 @@ type Fixtures = {
    * Runs keyboard navigation tests for roving tabindex.
    */
   /* prettier-ignore */
-  rovingTabindex(direction: "horizontal" | "vertical", items: string[], edgeless?: boolean, withoutPagination?: boolean): Promise<void>;
+  rovingTabindex: (direction: "horizontal" | "vertical", items: string[], edgeless?: boolean, withoutPagination?: boolean) => Promise<void>;
 
   /**
    * Runs axe-core tests.
    */
-  a11y(disabledRules?: string[]): Promise<void>;
+  a11y: (disabledRules?: string[]) => Promise<void>;
 
   /**
    * Gets the closest focusable element by text.
    */
-  getByExactText(text: string, index?: number): Promise<Locator>;
+  getByExactText: (text: string, index?: number) => Promise<Locator>;
 };
 
 export const test = baseTest.extend<Fixtures>({

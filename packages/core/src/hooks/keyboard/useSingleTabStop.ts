@@ -10,12 +10,12 @@ export interface SingleTabStop extends ElementNavigation {
   /**
    * Navigate directly to the element.
    */
-  navigateTo(element: HTMLElement): void;
+  navigateTo: (element: HTMLElement) => void;
 
   /**
    * Get the currently tab stop.
    */
-  getCurrentTabStop(): HTMLElement | undefined;
+  getCurrentTabStop: () => HTMLElement | undefined;
 }
 
 /**

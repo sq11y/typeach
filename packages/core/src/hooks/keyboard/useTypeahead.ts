@@ -11,14 +11,17 @@ export interface Typeahead {
   /**
    * Add a character to the search.
    */
-  type(character: string): void;
+  type: (character: string) => void;
 }
 
 /**
  * Helps loop through elements matching
  * the current search.
  */
-export const useTypeahead = (activeIndex: Ref<number>, options: ComputedRef<TypeAheadOption[]>) => {
+export const useTypeahead = (
+  activeIndex: Ref<number>,
+  options: ComputedRef<TypeAheadOption[]>,
+): Typeahead => {
   const search = ref("");
 
   const repeatingTimeout = useTimeout(500, {
@@ -30,7 +33,7 @@ export const useTypeahead = (activeIndex: Ref<number>, options: ComputedRef<Type
   });
 
   return {
-    type(key: string) {
+    type(key) {
       if (repeatingTimeout.isPending.value) {
         repeatingTimeout.stop();
       }

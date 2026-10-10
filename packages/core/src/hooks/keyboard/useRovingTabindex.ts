@@ -13,7 +13,7 @@ export interface RovingTabindex extends SingleTabStop {
    * The `onKeydown` event you should
    * apply to the elements.
    */
-  onKeyDown(event: KeyboardEvent): void;
+  onKeyDown: (event: KeyboardEvent) => void;
 }
 
 export const RovingTabindexKey: InjectionKey<RovingTabindex> = Symbol("roving-tabindex");

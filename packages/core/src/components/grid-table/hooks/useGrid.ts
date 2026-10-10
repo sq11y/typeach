@@ -7,7 +7,7 @@ export interface GridContext {
    * The `onKeydown` event you should apply to
    * each cell in the grid.
    */
-  onKeyDown(rowId: string, event: KeyboardEvent): void;
+  onKeyDown: (rowId: string, event: KeyboardEvent) => void;
 }
 
 export const useGrid = (getElements: Elements["getElements"]): GridContext => {
