@@ -5,7 +5,7 @@
       Who was <span style="color: var(--purple-80)">Aina Wifalk</span>?
     </PeachyFieldLabel>
 
-    <PeachyTextareaFieldInput v-model="modelValue" disabled />
+    <PeachyTextareaInput v-model="modelValue" disabled />
 
     <PeachyFieldError class="error-text">
       <WarningSvg aria-hidden="true" />
@@ -20,7 +20,7 @@ import {
   PeachyFieldError,
   PeachyFieldLabel,
   PeachyTextareaField,
-  PeachyTextareaFieldInput,
+  PeachyTextareaInput,
 } from "@typeach/core";
 
 import WarningSvg from "./icons/warning.svg?component";
