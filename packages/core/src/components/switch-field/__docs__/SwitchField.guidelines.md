@@ -20,8 +20,7 @@ You'll find the label, descriptions and error messages documented in the [field 
 
 <template v-slot:dont>
 
-- As an input in a form, use a radio or checkbox.
-- Toggling between different options, use a radio.
+- Switching between different options, use a radio.
 - You want to trigger an _action_, use [Button](/c/button).
 
 </template>

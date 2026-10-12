@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, provide, useTemplateRef } from "vue";
+import { provide, useTemplateRef } from "vue";
 
 import { SwitchFieldContextKey } from "./hooks";
 
@@ -13,9 +13,9 @@ import { provideField } from "../field/hooks";
 
 export interface SwitchFieldProps {
   /**
-   * If the switch should be disabled.
+   * If the switch should be readonly.
    */
-  disabled?: boolean;
+  readonly?: boolean;
 }
 
 export interface SwitchFieldSlots {
@@ -36,10 +36,9 @@ const modelValue = defineModel<boolean>({ default: false });
 
 const element = useTemplateRef("element");
 
-provideField(element, () => props.disabled);
+provideField(element, () => props.readonly);
 
 provide(SwitchFieldContextKey, {
   modelValue,
-  disabled: computed(() => props.disabled),
 });
 </script>

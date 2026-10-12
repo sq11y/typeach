@@ -1,8 +1,8 @@
 <!-- prettier-ignore -->
 <template>
-  <PeachySwitchField v-model="modelValue" :disabled="disabled" class="field">
+  <PeachySwitchField v-model="modelValue" :readonly="readonly" class="field">
     <LockSvg
-      v-if="disabled"
+      v-if="readonly"
       aria-hidden="true"
       class="lock"
     />
@@ -30,9 +30,9 @@ import LockSvg from "./icons/lock.svg?component";
 
 interface SwitchFieldProps {
   /**
-   * If the switch button should be disabled or not.
+   * If the switch button should be readonly.
    */
-  disabled?: boolean;
+  readonly?: boolean;
 }
 
 defineProps<SwitchFieldProps>();
@@ -88,7 +88,7 @@ button[aria-checked] {
 
   @include utils.transition("padding, border-color, background-color");
 
-  &[aria-disabled="false"] {
+  &[aria-readonly="false"] {
     cursor: pointer;
 
     @include utils.hover {
@@ -109,7 +109,7 @@ button[aria-checked="true"] {
     background-color: var(--purple-70);
   }
 
-  &[aria-disabled="false"] {
+  &[aria-readonly="false"] {
     @include utils.hover {
       border-color: var(--purple-60);
     }
@@ -134,9 +134,9 @@ button[aria-checked="true"] {
   @include utils.transition("scale, background-color");
 }
 
-/* ===== Disabled ===== */
+/* ===== Readonly ===== */
 
-button[aria-checked][aria-disabled="true"] {
+button[aria-checked][aria-readonly="true"] {
   filter: grayscale(100%);
 }
 

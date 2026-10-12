@@ -5,7 +5,7 @@
     :aria-describedby="[errorIds, descriptionIds].flat().join(' ') || undefined"
     :aria-invalid="hasErrors ? true : undefined"
     :aria-labelledby="sharedIds.get('label')"
-    :disabled="disabled"
+    :aria-readonly="readonly"
     :keyboard-shortcut="keyboardShortcut"
     role="switch"
     @click="modelValue = !modelValue"
@@ -45,9 +45,15 @@ const props = withDefaults(defineProps<SwitchTrackProps>(), {
 
 defineSlots<SwitchTrackSlots>();
 
-const { modelValue, disabled } = inject(SwitchFieldContextKey)!;
+const { modelValue } = inject(SwitchFieldContextKey)!;
 
-const { sharedIds, hasErrors, errorIds, descriptionIds } = inject(FieldContextKey)!;
+const {
+  sharedIds,
+  hasErrors,
+  errorIds,
+  descriptionIds,
+  disabled: readonly,
+} = inject(FieldContextKey)!;
 
 shareId(sharedIds, "input", () => props.id);
 </script>

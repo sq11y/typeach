@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import hotkeys from "hotkeys-js";
 
-import { useTemplateRef, type ButtonHTMLAttributes } from "vue";
+import { useAttrs, useTemplateRef, type ButtonHTMLAttributes } from "vue";
 
 import { optionalInject, provideElement } from "../../hooks";
 
@@ -66,6 +66,8 @@ defineSlots<ButtonSlots>();
 
 const element = useTemplateRef("element");
 
+const attrs = useAttrs();
+
 const { onKeyDown, navigateTo } = optionalInject(ToolbarContextKey);
 
 provideElement("toolbar", element);
@@ -73,7 +75,7 @@ provideElement("toolbar", element);
 const onClick = (event: MouseEvent) => {
   navigateTo?.(element.value!);
 
-  if (props.disabled) {
+  if (props.disabled || attrs["aria-readonly"]) {
     event.preventDefault();
   } else {
     emit("click", event);
