@@ -1,11 +1,13 @@
-import { computed, nextTick, onMounted, ref } from "vue";
+import { computed, nextTick, onMounted, ref, watch } from "vue";
 import { useMutationObserver } from "@vueuse/core";
 
-export interface Outline {
+export type OutlineFunction<T = void> = (heading: HTMLHeadingElement, level: number) => T;
+
+export interface Outline<H = HTMLHeadingElement> {
   /**
    * The heading element.
    */
-  heading: HTMLHeadingElement;
+  heading: H;
 
   /**
    * The level for the current heading.
@@ -15,7 +17,7 @@ export interface Outline {
   /**
    * The diret subheadings.
    */
-  children?: Outline[];
+  children?: Outline<H>[];
 }
 
 /**
@@ -24,8 +26,10 @@ export interface Outline {
  *
  * Only works for the main page, _not_ dialogs.
  */
+/* eslint-disable max-lines-per-function */
 export const useDocumentOutline = <T = Outline>(
-  map?: (heading: HTMLHeadingElement, level: number) => T,
+  map?: OutlineFunction<T>,
+  watcher?: OutlineFunction,
 ) => {
   const headings = ref<HTMLHeadingElement[]>([]);
 
@@ -73,12 +77,11 @@ export const useDocumentOutline = <T = Outline>(
     }
 
     return array.map((item) => {
-      const mappedItem = {
+      const mappedItem: Outline<HTMLHeadingElement | T> = {
         level: item.level,
         heading: map(item.heading, item.level),
 
-        /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-        children: item.children as any,
+        children: item.children,
       };
 
       if (item.children) {
@@ -89,24 +92,38 @@ export const useDocumentOutline = <T = Outline>(
     });
   };
 
+  const walkOutline = (array: Outline[], action: OutlineFunction) => {
+    return array.map((item) => {
+      action(item.heading, item.level);
+
+      if (item.children) {
+        walkOutline(item.children, action);
+      }
+    });
+  };
+
+  const mutationObserver: MutationCallback = (mutations) => {
+    const isHeadingsChanged = mutations.some((m) => {
+      return [...m.addedNodes, ...m.removedNodes].some((n) => n instanceof HTMLHeadingElement);
+    });
+
+    if (isHeadingsChanged) {
+      headings.value = Array.from(getHeadings());
+    }
+  };
+
+  useMutationObserver(document.body, mutationObserver, { childList: true, subtree: true });
+
   onMounted(async () => {
     await nextTick();
     headings.value = Array.from(getHeadings());
   });
 
-  const mutationObserver: MutationCallback = (mutations) => {
-    const currentHeadings = Array.from(getHeadings());
-
-    const isHeadingsChanged = currentHeadings.some((el) => {
-      return mutations.some((m) => [...m.addedNodes, ...m.removedNodes].includes(el));
-    });
-
-    if (isHeadingsChanged) {
-      headings.value = currentHeadings;
+  watch(rawDocumentOutline, (newRawDocumentOutline) => {
+    if (watcher) {
+      walkOutline(newRawDocumentOutline, watcher);
     }
-  };
-
-  useMutationObserver(document.body, mutationObserver, { childList: true, subtree: true });
+  });
 
   return {
     documentOutline: computed(() => mapOutline(rawDocumentOutline.value)),
