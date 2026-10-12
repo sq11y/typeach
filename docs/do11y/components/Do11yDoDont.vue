@@ -1,13 +1,9 @@
 <template>
-  <div :class="c()">
-    <div v-if="$slots.do" :class="c('do')">
+  <div :class="c({ 'full-width': fullWidth })">
+    <div v-if="$slots.do" :class="c('do', { 'full-width': fullWidth })">
       <component :is="headingTag">
         <div :class="c('icon')">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
-            <path
-              d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"
-            ></path>
-          </svg>
+          <CheckmarkSvg aria-hidden="true" />
         </div>
 
         {{ doTitle }}
@@ -18,14 +14,10 @@
       </div>
     </div>
 
-    <div v-if="$slots.dont" :class="c('dont')">
+    <div v-if="$slots.dont" :class="c('dont', { 'full-width': fullWidth })">
       <component :is="headingTag">
         <div :class="c('icon')">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
-            <path
-              d="M144,200a16,16,0,1,1-16-16A16,16,0,0,1,144,200Zm-16-40a8,8,0,0,0,8-8V48a8,8,0,0,0-16,0V152A8,8,0,0,0,128,160Z"
-            ></path>
-          </svg>
+          <ExclamationMarkSvg aria-hidden="true" />
         </div>
 
         {{ dontTitle }}
@@ -40,6 +32,9 @@
 
 <script lang="ts" setup>
 import { useBemClass } from "@typeach/core";
+
+import CheckmarkSvg from "../icons/checkmark.svg?component";
+import ExclamationMarkSvg from "../icons/exclamation-mark.svg?component";
 
 export interface DoDontProps {
   /**
@@ -56,6 +51,11 @@ export interface DoDontProps {
    * The heading level to start at.
    */
   headingTag?: "h2" | "h3" | "h4";
+
+  /**
+   * If both bozes should take the full width even on large screens.
+   */
+  fullWidth?: boolean;
 }
 
 export interface DoDontSlots {
@@ -92,6 +92,10 @@ const c = useBemClass("usage-guide");
   align-items: start;
   gap: var(--spacing-l);
 
+  &--full-width {
+    flex-direction: column;
+  }
+
   img,
   pre {
     background-color: var(--bg);
@@ -119,6 +123,10 @@ const c = useBemClass("usage-guide");
 
     background-color: var(--usage-guide-background-color);
     color: var(--usage-guide-color);
+
+    &--full-width {
+      inline-size: 100%;
+    }
   }
 
   h2,
