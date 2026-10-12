@@ -1,16 +1,17 @@
 ## Anatomy
 
-A calendar table follows the same structure as a [Grid Table](/c/grid-table); the structural difference is that _these_ grid cells should have a single date in them.
+A calendar follows the same structure as a [Table](/c/table); the structural difference is that the content of most calendar cells should be a single date.
 
 <img alt="" class="anatomy-illustration" src="../../table/__docs__/images/table-anatomy.png" />
 
-1. Grid
-   1. Table head
-      1. Table row (or table heading row)
-         1. Heading grid cell
-   1. Table body
-      1. Table row
-         1. Grid cell
+1. Calendar
+   1. Head
+      1. Row (or heading row)
+         1. Heading cell
+   1. Body
+      1. Row
+         1. Row heading cell
+         1. Cell
 
 ## Use case
 

@@ -5,6 +5,7 @@
   import TableRowMeta from '../TableRow.vue?meta';
   import TableHeadingCellMeta from '../TableHeadingCell.vue?meta';
   import TableCellMeta from '../TableCell.vue?meta';
+  import TableRowHeadingCellMeta from '../TableRowHeadingCell.vue?meta';
 </script>
 
 ## Anatomy
@@ -20,6 +21,7 @@
 
     <PeachyTableBody>
       <PeachyTableRow>
+        <PeachyTableRowHeadingCell />
         <PeachyTableCell />
       </PeachyTableRow>
     </PeachyTableBody>
@@ -35,6 +37,10 @@
 
 <Do11yMeta :meta="TableHeadMeta" />
 
+## Heading cell
+
+<Do11yMeta :meta="TableHeadingCellMeta" />
+
 ## Body
 
 <Do11yMeta :meta="TableBodyMeta" />
@@ -43,9 +49,9 @@
 
 <Do11yMeta :meta="TableRowMeta" />
 
-## Heading cell
+## Row heading cell
 
-<Do11yMeta :meta="TableHeadingCellMeta" />
+<Do11yMeta :meta="TableRowHeadingCellMeta" />
 
 ## Cell
 

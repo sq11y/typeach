@@ -1,4 +1,26 @@
-The calendar table extends the [HTML table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table) with an [ARIA grid role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role). Every cell has a button inside of it with the attribute `aria-pressed` used to indicate when a date is selected.
+## Checklist
+
+<Do11yDoDont do-title="Done for you" dont-title="What you must do" full-width>
+
+<template v-slot:do>
+
+- Indication of the currently seleted item with `aria-pressed`.
+- Indication of the current date with `aria-current`.
+
+</template>
+
+<template v-slot:dont>
+
+- Ensure each date has a clear accessible label. Though you might visually show "28", the accessible label should state the full date like for example "Saturday, June 28, 1969".
+- If adding week numbers - though you might visually show "26", the accessible label should provide the context like for example "Week 26".
+
+</template>
+
+</Do11yDoDont>
+
+## Implementation
+
+The calendar extends the [HTML table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table) with an [ARIA grid role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role). Every cell has a button inside of it with the attributes `aria-pressed` and `aria-current`, to indicate if a date is selected and if it's the current date.
 
 ## Keyboard navigation
 

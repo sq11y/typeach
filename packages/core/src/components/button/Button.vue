@@ -3,6 +3,7 @@
     ref="element"
     :aria-disabled="!!disabled"
     :aria-keyshortcuts="keyboardShortcut"
+    :aria-busy="loading"
     :type="type"
     :tabindex="disabled === 'without-focus' ? -1 : undefined"
     @click="onClick"
@@ -33,6 +34,11 @@ export interface ButtonProps {
    * If you want the disabled button to be taken out of the tab order, you can set this to `"without-focus"`.
    */
   disabled?: boolean | "without-focus";
+
+  /**
+   * If the button is loading.
+   */
+  loading?: boolean;
 
   /**
    * The keyboard shortcuts to click the button. Uses [hotkeys-js](https://github.com/jaywcjlove/hotkeys-js).
@@ -75,7 +81,7 @@ provideElement("toolbar", element);
 const onClick = (event: MouseEvent) => {
   navigateTo?.(element.value!);
 
-  if (props.disabled || attrs["aria-readonly"]) {
+  if (props.disabled || attrs["aria-readonly"] || props.loading) {
     event.preventDefault();
   } else {
     emit("click", event);

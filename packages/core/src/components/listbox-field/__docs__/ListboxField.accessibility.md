@@ -1,6 +1,21 @@
+## Checklist
+
+<Do11yDoDont do-title="Done for you" dont-title="What you must do" full-width>
+
+<template v-slot:dont>
+
+- Ensure each option and group have an accessible label.
+- Ensure checkmarks are hidden from assistive technolog to avoid repetition.
+
+</template>
+
+</Do11yDoDont>
+
+## Implementation
+
 The listbox extends a generic element with an [ARIA listbox role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role), and every option with an [ARIA option role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/option_role). Each group get the [ARIA group role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/group_role) and a the labels have no semantic role but are associated with the group using `aria-labelledby`.
 
-### Keyboard navigation
+## Keyboard navigation
 
 Only one of the options remain in the tab order - starting with the first option and then it switches to the last option the user navigated to.
 

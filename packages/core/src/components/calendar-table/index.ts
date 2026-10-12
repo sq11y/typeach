@@ -1,7 +1,7 @@
-export { default as PeachyCalendarTable } from "./CalendarTable.vue";
-export { default as PeachyCalendarTableCell } from "./CalendarTableCell.vue";
-export { default as PeachyCalendarTableCellButton } from "./CalendarTableCellButton.vue";
+export { default as PeachyCalendar } from "./Calendar.vue";
+export { default as PeachyCalendarCell } from "./CalendarCell.vue";
+export { default as PeachyCalendarDate } from "./CalendarDate.vue";
 
-export type * from "./CalendarTable.vue";
-export type * from "./CalendarTableCell.vue";
-export type * from "./CalendarTableCellButton.vue";
+export type * from "./Calendar.vue";
+export type * from "./CalendarCell.vue";
+export type * from "./CalendarDate.vue";

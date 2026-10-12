@@ -4,7 +4,7 @@
     {{ year }}
   </h1>
 
-  <PeachyCalendarTable v-model="focusedDate">
+  <PeachyCalendar v-model="focusedDate">
     <PeachyTableHead>
       <PeachyTableRow>
         <PeachyTableHeadingCell>Week</PeachyTableHeadingCell>
@@ -17,7 +17,7 @@
 
     <PeachyTableBody>
       <PeachyTableRow v-for="week of weeks" :key="week.number">
-        <PeachyCalendarTableCell role="gridcell" heading>
+        <PeachyTableRowHeadingCell>
           <span aria-hidden="true">
             {{ week.number }}
           </span>
@@ -25,10 +25,10 @@
           <PeachyVisuallyHidden>
             {{ `Week ${week.number}` }}
           </PeachyVisuallyHidden>
-        </PeachyCalendarTableCell>
+        </PeachyTableRowHeadingCell>
 
-        <PeachyCalendarTableCell v-for="(day, i) of week.days" :key="i">
-          <PeachyCalendarTableCellButton
+        <PeachyCalendarCell v-for="(day, i) of week.days" :key="i">
+          <PeachyCalendarDate
             :date="day"
             :selected="date && isSameDate(date, day)"
             :disabled="disabled && isSameDate(new Date('12/18/2025'), day)"
@@ -41,11 +41,11 @@
             <PeachyVisuallyHidden>
               {{ formatDate(day) }}
             </PeachyVisuallyHidden>
-          </PeachyCalendarTableCellButton>
-        </PeachyCalendarTableCell>
+          </PeachyCalendarDate>
+        </PeachyCalendarCell>
       </PeachyTableRow>
     </PeachyTableBody>
-  </PeachyCalendarTable>
+  </PeachyCalendar>
 </template>
 
 <script lang="ts" setup>
@@ -53,13 +53,14 @@ import { ref } from "vue";
 
 import {
   PeachyVisuallyHidden,
-  PeachyCalendarTable,
-  PeachyCalendarTableCell,
-  PeachyCalendarTableCellButton,
+  PeachyCalendar,
+  PeachyCalendarCell,
+  PeachyCalendarDate,
   PeachyTableHead,
   PeachyTableHeadingCell,
   PeachyTableBody,
   PeachyTableRow,
+  PeachyTableRowHeadingCell,
   useCalendar,
   formatDate,
   getWeekdays,
@@ -67,14 +68,14 @@ import {
   Weekday,
 } from "@typeach/core";
 
-export interface CalendarTableTestProps {
+export interface CalendarTestProps {
   /**
    * If a date should be disabled.
    */
   disabled?: boolean;
 }
 
-defineProps<CalendarTableTestProps>();
+defineProps<CalendarTestProps>();
 
 const focusedDate = ref(new Date("12/14/2025"));
 

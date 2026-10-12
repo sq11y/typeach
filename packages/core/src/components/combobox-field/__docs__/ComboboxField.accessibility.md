@@ -1,3 +1,19 @@
+## Checklist
+
+<Do11yDoDont do-title="Done for you" dont-title="What you must do" full-width>
+
+<template v-slot:dont>
+
+- For `multiselect` - ensure each selection list item have an accessible label.
+- Ensure each option and group have an accessible label.
+- Ensure checkmarks are hidden from assistive technolog to avoid repetition.
+
+</template>
+
+</Do11yDoDont>
+
+## Implementation
+
 The input extends the [HTML input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input) with an [ARIA combobox role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role) with `aria-autocomplete="list"`.
 
 It associates itself with the listbox through `aria-haspopup="listbox"` and `aria-controls`. It indicates the currently focused option with `aria-activedescendant` and whether it's open or not with `aria-expanded`.
@@ -8,7 +24,7 @@ The listbox extends a generic element with an [ARIA listbox role](https://develo
 
 | Key                                  | Action                                                                              |
 | ------------------------------------ | ----------------------------------------------------------------------------------- |
-| <kbd>Printable character</kbd>       | Moves to the next item with a label that starts with the typed characters.          |
+| <kbd>Printable character</kbd>       | Filters the options starting with the current search.                               |
 | <kbd>Arrow up</kbd>                  | Moves to the previous option.                                                       |
 | <kbd>Arrow down</kbd>                | Moves to the next option.                                                           |
 | <kbd>PageUp</kbd>                    | Moves to the 10th option before. If there isn't one - it moves to the first option. |

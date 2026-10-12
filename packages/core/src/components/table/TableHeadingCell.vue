@@ -9,7 +9,7 @@ export interface TableHeadingCellProps {
   /**
    * Which order the column is currently sorted in.
    */
-  sorted?: "ascending" | "descending";
+  sorted?: "ascending" | "descending" | "other";
 }
 
 export interface TableHeadingCellSlots {

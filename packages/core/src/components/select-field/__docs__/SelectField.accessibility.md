@@ -1,3 +1,19 @@
+## Checklist
+
+<Do11yDoDont do-title="Done for you" dont-title="What you must do" full-width>
+
+<template v-slot:dont>
+
+- Ensure the button and the label both have accessible labels. The button should indicate which items are selected while the label should indicate what those items are selected for.
+- Ensure each option and group have an accessible label.
+- Ensure checkmarks are hidden from assistive technolog to avoid repetition.
+
+</template>
+
+</Do11yDoDont>
+
+## Implementation
+
 The button extends the [HTML button element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button) with an [ARIA combobox role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role) with `aria-autocomplete="none"`.
 
 It associates itself with the listbox through `aria-haspopup="listbox"` and `aria-controls`. It indicates the currently focused option with `aria-activedescendant` and whether it's open or not with `aria-expanded`.

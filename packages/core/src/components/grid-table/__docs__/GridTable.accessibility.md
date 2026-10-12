@@ -1,3 +1,18 @@
+## Checklist
+
+<Do11yDoDont do-title="Done for you" dont-title="What you must do" full-width>
+
+<template v-slot:dont>
+
+- Ensure that when a cell gains focus - the focus is moved to the control.
+- If there are controls with conflicting keyboard navigation, you have to deal with it. This could for example mean adding an extra activation step for keyboard users and providing a way to end the control interaction.
+
+</template>
+
+</Do11yDoDont>
+
+## Implementation
+
 The grid table extends the [HTML table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table) with an [ARIA grid role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role).
 
 ## Keyboard navigation

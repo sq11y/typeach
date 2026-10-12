@@ -16,7 +16,7 @@
     </PeachyButton>
   </header>
 
-  <PeachyCalendarTable v-model="focusedDate">
+  <PeachyCalendar v-model="focusedDate">
     <PeachyTableHead>
       <PeachyTableRow>
         <PeachyTableHeadingCell>W</PeachyTableHeadingCell>
@@ -29,7 +29,7 @@
 
     <PeachyTableBody>
       <PeachyTableRow v-for="week of weeks" :key="week.number">
-        <PeachyCalendarTableCell role="gridcell" heading>
+        <PeachyTableRowHeadingCell>
           <span aria-hidden="true">
             {{ week.number }}
           </span>
@@ -37,10 +37,10 @@
           <PeachyVisuallyHidden>
             {{ `Week ${week.number}` }}
           </PeachyVisuallyHidden>
-        </PeachyCalendarTableCell>
+        </PeachyTableRowHeadingCell>
 
-        <PeachyCalendarTableCell v-for="(day, i) of week.days" :key="i">
-          <PeachyCalendarTableCellButton
+        <PeachyCalendarCell v-for="(day, i) of week.days" :key="i">
+          <PeachyCalendarDate
             :date="day"
             :selected="date && isSameDate(date, day)"
             :data-current-month="isSameMonth(focusedDate, day)"
@@ -53,25 +53,26 @@
             <PeachyVisuallyHidden>
               {{ formatDate(day) }}
             </PeachyVisuallyHidden>
-          </PeachyCalendarTableCellButton>
-        </PeachyCalendarTableCell>
+          </PeachyCalendarDate>
+        </PeachyCalendarCell>
       </PeachyTableRow>
     </PeachyTableBody>
-  </PeachyCalendarTable>
+  </PeachyCalendar>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue";
 
 import {
-  PeachyCalendarTable,
-  PeachyCalendarTableCell,
-  PeachyCalendarTableCellButton,
+  PeachyCalendar,
+  PeachyCalendarCell,
+  PeachyCalendarDate,
   PeachyVisuallyHidden,
   PeachyTableHead,
   PeachyTableHeadingCell,
   PeachyTableBody,
   PeachyTableRow,
+  PeachyTableRowHeadingCell,
   PeachyButton,
   useCalendar,
   formatDate,

@@ -12,13 +12,12 @@
 
 ## Use case
 
-<Do11yDoDont heading-tag="h2" do-title="Use when.." dont-title="Avoid when..">
+<Do11yDoDont do-title="Use when.." dont-title="Avoid when..">
 
 <template v-slot:do>
 
+- You want to perform an action.
 - Submitting a form.
-- Calculating results.
-- Starting a new process.
 
 </template>
 
@@ -34,7 +33,7 @@
 
 ## Disabled buttons
 
-A disabled button can cause confusion as to why it has been disabled and how to enable it. Usually the more user-friendly alternative is to keep the button active and display an error message when the user clicks it. That way we avoid more guesswork for the user.
+A disabled button can cause confusion as to why it has been disabled and how to enable it. Usually the more user-friendly alternative is to keep the button active and display an error message when the user clicks it. That way we avoid guesswork for the user.
 
 However, if you _must_..
 
@@ -60,4 +59,4 @@ Use a hidden tooltip to explain why the button is disabled.
 
 ### Contrast
 
-WCAG does not require sufficient contrast for disabled buttons, _however_ meaningful content content should be accessible to everyone. If your disabled button truly does not convey meaning, it is likely best not to show it at all.
+WCAG does not require sufficient contrast for disabled buttons, _however_ meaningful content should be accessible to everyone. If your disabled button truly does not convey meaning, it is likely best not to show it at all.

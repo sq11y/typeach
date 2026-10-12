@@ -7,12 +7,12 @@
 <script lang="ts" setup>
 import { PeachyTableCell } from "../table";
 
-export interface CalendarTableCellSlots {
+export interface CalendarCellSlots {
   /**
-   * The content of the cell should include a single `CellButton`.
+   * The content of the cell should include a single `Date`.
    */
   default: () => void;
 }
 
-defineSlots<CalendarTableCellSlots>();
+defineSlots<CalendarCellSlots>();
 </script>

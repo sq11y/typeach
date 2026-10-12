@@ -1,26 +1,16 @@
 <template>
-  <component :is="heading ? 'th' : 'td'" :scope="heading ? 'row' : undefined">
+  <td>
     <slot />
-  </component>
+  </td>
 </template>
 
 <script lang="ts" setup>
-export interface TableCellProps {
-  /**
-   * If the cell is a heading for
-   * the current row.
-   */
-  heading?: boolean;
-}
-
 export interface TableCellSlots {
   /**
    * The content of the cell.
    */
   default: () => void;
 }
-
-defineProps<TableCellProps>();
 
 defineSlots<TableCellSlots>();
 </script>

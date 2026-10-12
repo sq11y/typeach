@@ -1,10 +1,10 @@
 import { expect } from "@playwright/experimental-ct-vue";
-import { test } from "../../../../playwright/extension";
+import { test } from "../../../../playwright/extension.ts";
 
-import CalendarTableTest from "./CalendarTable.test.vue";
+import CalendarTest from "./Calendar.test.vue";
 
 test("Renders accessibly", async ({ mount, a11y, getByExactText }) => {
-  await mount(CalendarTableTest);
+  await mount(CalendarTest);
   await a11y();
 
   await (await getByExactText("18")).click();
@@ -12,7 +12,7 @@ test("Renders accessibly", async ({ mount, a11y, getByExactText }) => {
 });
 
 test("Calendar grid", async ({ page, mount, getByExactText, rovingTabindex }) => {
-  await mount(CalendarTableTest);
+  await mount(CalendarTest);
 
   const dates = Array.from({ length: 30 })
     .fill(undefined)
@@ -69,7 +69,7 @@ test("Calendar grid", async ({ page, mount, getByExactText, rovingTabindex }) =>
 });
 
 test("Can disable date", async ({ mount, getByExactText }) => {
-  await mount(CalendarTableTest, {
+  await mount(CalendarTest, {
     props: { disabled: true },
   });
 

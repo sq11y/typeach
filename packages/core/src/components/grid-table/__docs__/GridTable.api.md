@@ -1,6 +1,7 @@
 <script setup>
   import GridTableMeta from '../GridTable.vue?meta';
   import GridTableRowMeta from '../GridTableRow.vue?meta';
+  import GridTableRowHedingCellMeta from '../GridTableRowHeadingCell.vue?meta';
   import GridTableHeadingCellMeta from '../GridTableHeadingCell.vue?meta';
   import GridTableCellMeta from '../GridTableCell.vue?meta';
 </script>
@@ -18,6 +19,7 @@
 
     <PeachyTableBody>
       <PeachyGridTableRow>
+        <PeachyGridTableRowHeadingCell />
         <PeachyGridTableCell />
       </PeachyGridTableRow>
     </PeachyTableBody>
@@ -29,13 +31,17 @@
 
 <Do11yMeta :meta="GridTableMeta" />
 
+## Heading cell
+
+<Do11yMeta :meta="GridTableHeadingCellMeta" />
+
 ## Row
 
 <Do11yMeta :meta="GridTableRowMeta" />
 
-## Heading cell
+## Row heading cell
 
-<Do11yMeta :meta="GridTableHeadingCellMeta" />
+<Do11yMeta :meta="GridTableRowHedingCellMeta" />
 
 ## Cell
 

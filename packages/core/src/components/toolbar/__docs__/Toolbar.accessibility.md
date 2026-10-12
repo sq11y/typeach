@@ -1,6 +1,20 @@
+## Checklist
+
+<Do11yDoDont do-title="Done for you" dont-title="What you must do" full-width>
+
+<template v-slot:dont>
+
+- If there are controls with conflicting keyboard navigation, you have to deal with it. This could for example mean adding an extra activation step for keyboard users and providing a way to end the control interaction, or for simpler cases it could mean just placing it last in the toolbar.
+
+</template>
+
+</Do11yDoDont>
+
+## Implementation
+
 The toolbar extends a generic element with an [ARIA toolbar role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/toolbar_role).
 
-### Keyboard navigation
+## Keyboard navigation
 
 Only one of the controls remain in the tab order - starting with the first enabled control and then it switches to the last control the user navigated to.
 

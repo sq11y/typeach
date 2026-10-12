@@ -1,3 +1,9 @@
+<script setup>
+  import { useRouter } from 'vue-router';
+
+  const router = useRouter();
+</script>
+
 ## Anatomy
 
 <img alt="" class="anatomy-illustration" src="./images/copy-button-anatomy.png" />
@@ -21,7 +27,3 @@
 </template>
 
 </Do11yDoDont>
-
-## Disabled buttons
-
-The [guidelines for a disabled button](/c/button#guidelines) are relevant to the copy button too.

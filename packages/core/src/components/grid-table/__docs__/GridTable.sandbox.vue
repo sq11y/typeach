@@ -15,7 +15,7 @@
 
     <PeachyTableBody>
       <PeachyGridTableRow>
-        <PeachyGridTableCell @focus="() => gretaLink?.focus()">
+        <PeachyGridTableRowHeadingCell @focus="() => gretaLink?.focus()">
           <a
             ref="greta-link"
             tabindex="-1"
@@ -24,7 +24,7 @@
           >
             Greta Thunberg
           </a>
-        </PeachyGridTableCell>
+        </PeachyGridTableRowHeadingCell>
 
         <PeachyGridTableCell>
           Famous climate change and indigenous people activist.
@@ -32,7 +32,7 @@
       </PeachyGridTableRow>
 
       <PeachyGridTableRow>
-        <PeachyGridTableCell @focus="() => marieLink?.focus()">
+        <PeachyGridTableRowHeadingCell @focus="() => marieLink?.focus()">
           <a
             ref="marie-link"
             tabindex="-1"
@@ -41,7 +41,7 @@
           >
             Marie Curie
           </a>
-        </PeachyGridTableCell>
+        </PeachyGridTableRowHeadingCell>
 
         <PeachyGridTableCell>
           Physicist and chemist - the first woman to win a Nobel price.
@@ -61,6 +61,7 @@ import {
   PeachyGridTableCell,
   PeachyGridTableHeadingCell,
   PeachyGridTableRow,
+  PeachyGridTableRowHeadingCell,
 } from "@typeach/core";
 
 const gretaLink = useTemplateRef("greta-link");
@@ -77,6 +78,7 @@ const marieLink = useTemplateRef("marie-link");
   --border: var(--border-shape) var(--grey-40);
   --invisible-border: var(--border-shape) transparent;
 
+  --font-weight-normal: 400;
   --font-weight-medium: 500;
 }
 
@@ -129,7 +131,7 @@ td {
   text-align: start;
 }
 
-th {
+thead th {
   border-block-end: var(--invisible-border);
   padding-block: var(--spacing-m) var(--spacing-s);
 
@@ -137,6 +139,10 @@ th {
   color: var(--green-80);
 
   font-weight: var(--font-weight-medium);
+}
+
+tbody th {
+  font-weight: var(--font-weight-normal);
 }
 
 td {

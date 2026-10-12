@@ -19,11 +19,11 @@ import { watchImmediate } from "@vueuse/core";
 
 import { isSameDate } from "../../utils";
 
-import { CalendarTableContextKey } from "./hooks";
+import { CalendarContextKey } from "./hooks";
 
 import { useCalendarTable } from "./hooks/useCalendarTable";
 
-export interface CalendarTableCellButtonProps {
+export interface CalendarDateProps {
   /**
    * The date.
    */
@@ -40,14 +40,14 @@ export interface CalendarTableCellButtonProps {
   selected?: boolean;
 }
 
-export interface CalendarTableCellButtonEmits {
+export interface CalendarDateEmits {
   /**
    * The event triggered on click.
    */
   click: [event: MouseEvent];
 }
 
-export interface CalendarTableCellButtonSlots {
+export interface CalendarDateSlots {
   /**
    * The content of the button should include an [accessible label](/p/accessible-labels) with the full date.
    *
@@ -56,15 +56,15 @@ export interface CalendarTableCellButtonSlots {
   default: () => void;
 }
 
-const props = defineProps<CalendarTableCellButtonProps>();
+const props = defineProps<CalendarDateProps>();
 
-const emit = defineEmits<CalendarTableCellButtonEmits>();
+const emit = defineEmits<CalendarDateEmits>();
 
-defineSlots<CalendarTableCellButtonSlots>();
+defineSlots<CalendarDateSlots>();
 
 const element = useTemplateRef("element");
 
-const { focusedDate, allowFocus } = inject(CalendarTableContextKey)!;
+const { focusedDate, allowFocus } = inject(CalendarContextKey)!;
 
 const { onKeyDown } = useCalendarTable(focusedDate);
 

@@ -1,8 +1,8 @@
 import type { ComputedRef, InjectionKey, Ref } from "vue";
 
-export interface CalendarTableContext {
+export interface CalendarContext {
   focusedDate: Ref<Date>;
   allowFocus: ComputedRef<boolean | undefined>;
 }
 
-export const CalendarTableContextKey: InjectionKey<CalendarTableContext> = Symbol("calendar-table");
+export const CalendarContextKey: InjectionKey<CalendarContext> = Symbol("calendar-table");

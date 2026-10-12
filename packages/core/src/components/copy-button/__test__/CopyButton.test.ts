@@ -18,13 +18,3 @@ test("Live region", async ({ mount, page }) => {
   await expect(page.locator('[aria-live="polite"]')).toContainText("Copied");
   await expect(page.locator('[aria-live="polite"]')).toContainText("");
 });
-
-test("Can be disabled", async ({ mount, page }) => {
-  await mount(CopyButtonTest, { props: { disabled: true } });
-
-  await expect(page.locator('[aria-live="polite"]')).toContainText("");
-
-  await page.getByText("Copy").click({ force: true });
-
-  await expect(page.locator('[aria-live="polite"]')).not.toContainText("Copied");
-});
