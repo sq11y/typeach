@@ -1,7 +1,7 @@
 <template>
   <button
     ref="element"
-    :aria-disabled="!!disabled"
+    :aria-disabled="!!disabled || !!loading"
     :aria-keyshortcuts="keyboardShortcut"
     :aria-busy="loading"
     :type="type"
@@ -36,7 +36,7 @@ export interface ButtonProps {
   disabled?: boolean | "without-focus";
 
   /**
-   * If the button is loading.
+   * If the button is loading. This will also disable the button.
    */
   loading?: boolean;
 
