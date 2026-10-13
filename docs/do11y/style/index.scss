@@ -31,6 +31,10 @@ html {
   color: var(--fg);
 }
 
+html:has(.home) {
+  background-color: var(--pink-bg);
+}
+
 body {
   @include utils.center;
   grid-template-rows: auto 1fr auto;
@@ -47,6 +51,10 @@ main {
   inline-size: var(--article-inline-size);
   display: grid;
   align-self: stretch;
+}
+
+main:has(.home) {
+  place-content: center;
 }
 
 article {

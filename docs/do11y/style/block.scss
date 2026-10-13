@@ -268,6 +268,20 @@ table.large {
   }
 }
 
+blockquote {
+  color: var(--pink-80);
+  text-wrap: pretty;
+
+  h1 {
+    font-family: var(--font-family-body);
+  }
+
+  cite {
+    display: block;
+    margin-inline-start: var(--spacing-m);
+  }
+}
+
 .anatomy-illustration {
   inline-size: 100%;
   border: var(--border);
