@@ -8,7 +8,7 @@
 @use "@typeach/theme";
 @use "@typeach/theme/reset";
 
-@import "https://fonts.bunny.net/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap";
 
 html {
   block-size: 100%;
@@ -21,7 +21,7 @@ body {
 
   display: grid;
   place-content: center;
-  font-family: "Atkinson Hyperlegible Next", sans-serif;
+  font-family: "Source Sans 3", sans-serif;
 
   padding-inline: var(--spacing-m);
 }

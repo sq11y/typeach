@@ -132,8 +132,6 @@ const c = useBemClass("usage-guide");
   h2,
   h3,
   h4 {
-    margin-inline-start: var(--spacing-xxs);
-
     font-size: var(--font-size-xl);
     line-height: var(--line-height-xl);
     color: var(--usage-guide-title-color);

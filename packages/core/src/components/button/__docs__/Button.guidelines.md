@@ -1,9 +1,3 @@
-<script setup>
-  import { useRouter } from 'vue-router';
-
-  const router = useRouter();
-</script>
-
 ## Anatomy
 
 <img alt="" class="anatomy-illustration" src="./images/button-anatomy.png" />
@@ -41,7 +35,7 @@ However, if you _must_..
 
 <template v-slot:do>
 
-<img :src="`${router.options.history.base}/guidelines/button-disabled-good.png`" alt="" />
+<img src="./images/button-disabled-good.png" alt="" />
 
 Use supporting text that stays visible when relevant to explain _why_ the button is disabled.
 
@@ -49,7 +43,7 @@ Use supporting text that stays visible when relevant to explain _why_ the button
 
 <template v-slot:dont>
 
-<img :src="`${router.options.history.base}/guidelines/button-disabled-bad.png`" alt="" />
+<img src="./images/button-disabled-bad.png" alt="" />
 
 Use a hidden tooltip to explain why the button is disabled.
 

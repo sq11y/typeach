@@ -7,7 +7,7 @@
   >
     <template #prop="{ row, small }">
       <!-- prettier-ignore -->
-      <div :class="c('title')">
+      <div :class="['heading-font', 'l']">
         {{ row.name }}<span :class="row.required ? 'required' : small ? 'faded-green' : 'faded'">{{ row.required ? "*" : "?" }}</span>
       </div>
 
@@ -84,14 +84,6 @@ const splitTypes = (type: string) => {
   }
 }
 
-table .meta-props__title {
-  font-size: var(--font-size-l);
-  line-height: var(--line-height-l);
-
-  font-family: var(--font-family-heading);
-}
-
-.meta-props__description,
 .meta-props__necessity {
   margin-block-start: var(--spacing-xs);
 }

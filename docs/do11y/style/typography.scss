@@ -1,26 +1,19 @@
-@import "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Signika:wght@300..700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap";
 
 :root {
   --font-weight-normal: 400;
   --font-weight-medium: 500;
-  --font-weight-bold: 700;
+  --font-weight-bold: 650;
 
-  --font-family-heading: "Signika", sans-serif;
-  --font-family-body: "Atkinson Hyperlegible Next", sans-serif;
+  --font-family-heading: "Public Sans", sans-serif;
+  --font-family-body: "Source Sans 3", sans-serif;
   --font-family-mono: "JetBrains Mono", monospace;
 }
 
 :where(h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6),
 .heading-font {
   font-family: var(--font-family-heading);
-}
-
-:where(h1) {
   font-weight: var(--font-weight-medium);
-}
-
-:where(h2, h3, h4, h5, h6) {
-  font-weight: var(--font-weight-normal);
 }
 
 :where(b),

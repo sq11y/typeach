@@ -26,7 +26,7 @@ h1:not([class]) {
 
     transform-origin: center;
     inset-inline-start: -0.75em;
-    inset-block-start: -0.65em;
+    inset-block-start: -0.575em;
 
     background-color: var(--pink-40);
 
@@ -84,7 +84,7 @@ pre {
   padding: var(--spacing-xl);
 
   font-size: var(--font-size-smaller);
-  line-height: var(--line-height-m);
+  line-height: var(--line-height-l);
 
   &:not(.code-block pre) {
     border-radius: var(--border-radius);
@@ -203,8 +203,6 @@ ol:not([class]) {
 }
 
 table {
-  --prose-flow-scale: 0.8;
-
   border-spacing: 0;
   border: var(--border);
   border-radius: var(--border-radius);
@@ -257,7 +255,7 @@ table.large {
   }
 
   th {
-    padding: var(--spacing-s) var(--spacing-l);
+    padding: var(--spacing-m) var(--spacing-l);
   }
 
   th:not(:last-child),
