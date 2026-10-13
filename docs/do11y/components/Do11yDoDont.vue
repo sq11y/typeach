@@ -9,7 +9,7 @@
         {{ doTitle }}
       </component>
 
-      <div :class="c('slot')">
+      <div :class="[c('slot'), 'prose']">
         <slot name="do" />
       </div>
     </div>
@@ -23,7 +23,7 @@
         {{ dontTitle }}
       </component>
 
-      <div :class="c('slot')">
+      <div :class="[c('slot'), 'prose']">
         <slot name="dont" />
       </div>
     </div>
