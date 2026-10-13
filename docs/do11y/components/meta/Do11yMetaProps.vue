@@ -1,3 +1,5 @@
+<!-- eslint-disable vue/no-v-html -->
+
 <template>
   <Do11yTable
     :class="c('table')"
@@ -6,21 +8,20 @@
     :rows="props"
   >
     <template #prop="{ row, small }">
-      <!-- prettier-ignore -->
-      <div :class="['heading-font', 'l']">
-        {{ row.name }}<span :class="row.required ? 'required' : small ? 'faded-green' : 'faded'">{{ row.required ? "*" : "?" }}</span>
-      </div>
+      <div class="prose">
+        <!-- prettier-ignore -->
+        <p :class="['heading-font', 'l']">
+          {{ row.name }}<span :class="row.required ? 'required' : small ? 'faded-green' : 'faded'">{{ row.required ? "*" : "?" }}</span>
+        </p>
 
-      <!-- eslint-disable vue/no-v-html -->
-      <div
-        v-if="!small && row.description"
-        :class="c('description')"
-        v-html="row.description?.replace('<code', '<code class=grey')"
-      />
+        <div
+          v-if="!small && row.description"
+          v-html="row.description?.replace('<code', '<code class=grey')"
+        />
+      </div>
     </template>
 
     <template #description="{ row }">
-      <!-- eslint-disable vue/no-v-html -->
       <div v-if="row.description" v-html="row.description?.replace('<code', '<code class=grey')" />
     </template>
 
@@ -86,9 +87,6 @@ const splitTypes = (type: string) => {
 
 .meta-props__necessity {
   margin-block-start: var(--spacing-xs);
-}
-
-.meta-props__necessity {
   min-inline-size: max-content;
 }
 </style>
