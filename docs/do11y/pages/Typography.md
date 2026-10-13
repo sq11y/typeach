@@ -64,6 +64,7 @@ The CSS variable `--prose-flow-scale` is available to modify the scale, which de
 - [Vocal Type](https://www.vocaltype.co/typefaces) (paid fonts) - “a font foundry that would introduce a piece of minority culture into the root of any good graphic design work — typography”.
 - [The Bye Bye Binary typolibrary](https://typotheque.genderfluid.space/fr) - a collection of “inclusive, non-binary, post-binary fonts under construction”.
 - [Fontshare™](https://www.fontshare.com/) - “a growing collection of professional grade fonts that are 100% free for personal and commercial use”.
+- [TypeMates](https://www.typemates.com/news/pay-once-use-forever-licencing) - a font foundry with one-time payments instead of subscriptions.
 
 ### Extras
 
