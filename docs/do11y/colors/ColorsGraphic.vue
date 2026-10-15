@@ -3,7 +3,7 @@
     <div
       v-for="color of colors"
       :key="color"
-      :style="`--background: var(--${color}-20);`"
+      :style="`--background: var(--${color}-30);`"
       aria-hidden="true"
     />
   </div>
@@ -21,6 +21,7 @@ const c = useBemClass("colors-graphic");
 @use "@typeach/theme/utils";
 
 .colors-graphic {
+  forced-color-adjust: none;
   block-size: var(--graphic-block-size, 20rem);
 
   display: grid;

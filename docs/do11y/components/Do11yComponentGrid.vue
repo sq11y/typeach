@@ -15,9 +15,8 @@
         :class="c('list-item')"
         :style="`
           --c-color: var(--${component.meta.color}-80);
-          --c-background-color: var(--${component.meta.color}-30);
-          --c-pale-background-color: var(--${component.meta.color}-10);
-          --c-border-color: var(--${component.meta.color}-60);
+          --c-background-color: var(--${component.meta.color}-20);
+          --c-border-color: var(--${component.meta.color}-70);
         `"
       >
         <img
@@ -138,20 +137,22 @@ const searchResultText = computed(() => {
   border-radius: var(--border-radius);
   border: var(--border);
 
-  background-color: var(--c-pale-background-color);
-  color: var(--c-color);
-
   margin-block-start: 0;
 
-  @include utils.transition(border-color, background-color);
+  @include utils.transition(border-color);
 
-  @include utils.hover {
+  &:hover,
+  &:has(:focus-visible) {
     border-color: var(--c-border-color);
-    background-color: var(--c-background-color);
+
+    .component-grid__description {
+      color: var(--c-color);
+      background-color: var(--c-background-color);
+    }
   }
 
   &:has(:focus-visible) {
-    @include mixins.focus-visible;
+    @include mixins.focus-visible(var(--c-border-color), var(--c-background-color));
   }
 
   a {
@@ -159,8 +160,6 @@ const searchResultText = computed(() => {
 
     font-size: var(--font-size-l);
     line-height: var(--line-height-l);
-
-    @include utils.transition(color);
 
     &::before {
       content: "";
@@ -185,11 +184,14 @@ const searchResultText = computed(() => {
     inline-size: 100%;
     block-size: auto;
     background-color: var(--bg);
-    border-block-end: var(--invisible-border);
   }
 }
 
 .component-grid__description {
   padding: var(--spacing-l);
+  padding-block: var(--spacing-m);
+  margin-block-start: calc((var(--spacing-m) / 2) * -1);
+
+  @include utils.transition(background-color, color);
 }
 </style>

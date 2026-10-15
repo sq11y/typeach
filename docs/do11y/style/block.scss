@@ -1,6 +1,7 @@
 /* stylelint-disable scss/operator-no-unspaced */
 
 @use "@typeach/theme/utils";
+@use "./mixins";
 
 h1:not([class]) {
   position: relative;
@@ -20,7 +21,15 @@ h1:not([class]) {
 
   color: var(--pink-80);
 
+  @media (forced-colors: active) {
+    background-color: transparent;
+    forced-color-adjust: none;
+    color: CanvasText;
+  }
+
   &::before {
+    @include mixins.large-flower-mask;
+
     inline-size: 2.25em;
     aspect-ratio: 1;
 
@@ -28,30 +37,14 @@ h1:not([class]) {
     inset-inline-start: -0.75em;
     inset-block-start: -0.575em;
 
-    background-color: var(--pink-40);
+    background-color: var(--pink-30);
 
-    /**
-      * Flower shape.
-      *
-      * Number of petals: 10
-      * Rotation: 0
-      *
-      * @see https://css-generators.com/flower-shapes/
-      */
-    --g: /23.606% 23.606% radial-gradient(#000 calc(71% - 1px), #0000 71%) no-repeat;
+    @media (forced-colors: active) {
+      @include mixins.large-flower-border-mask;
 
-    mask:
-      100% 50% var(--g),
-      90.451% 79.389% var(--g),
-      65.451% 97.553% var(--g),
-      34.549% 97.553% var(--g),
-      9.549% 79.389% var(--g),
-      0% 50% var(--g),
-      9.549% 20.611% var(--g),
-      34.549% 2.447% var(--g),
-      65.451% 2.447% var(--g),
-      90.451% 20.611% var(--g),
-      radial-gradient(100% 100%, #000 36.327%, #0000 calc(36.327% + 1px));
+      background-color: CanvasText;
+      forced-color-adjust: none;
+    }
   }
 }
 
@@ -102,7 +95,7 @@ pre {
 
   margin-block-start: var(--spacing-l);
 
-  @media (width < 46rem) {
+  @media (width < 52rem) {
     grid-template-columns: 1fr;
   }
 }
@@ -135,27 +128,13 @@ ul {
     border: var(--invisible-border);
     border-radius: 100%;
 
-    /**
-      * Flower shape.
-      *
-      * Number of petals: 6
-      * Rotation: 4
-      *
-      * @see https://css-generators.com/flower-shapes/
-      */
-    --g: /33.334% 33.334% radial-gradient(#000 calc(71% - 1px), #0000 71%) no-repeat;
-
-    mask:
-      96.864% 67.429% var(--g),
-      58.338% 99.3% var(--g),
-      11.474% 81.871% var(--g),
-      3.136% 32.571% var(--g),
-      41.662% 0.7% var(--g),
-      88.526% 18.129% var(--g),
-      radial-gradient(100% 100%, #000 28.868%, #0000 calc(28.868% + 1px));
+    @include mixins.small-flower-mask;
 
     @media (forced-colors: active) {
-      mask: none;
+      @include mixins.small-flower-border-mask;
+
+      background-color: CanvasText;
+      forced-color-adjust: none;
     }
   }
 }
@@ -214,14 +193,6 @@ table {
   &:not(.large) {
     font-size: var(--font-size-s);
     line-height: var(--line-height-s);
-
-    tr:nth-child(even):not(:last-child) td {
-      border-block: var(--border);
-    }
-
-    tr:nth-child(even):last-child td {
-      border-block-start: var(--border);
-    }
   }
 
   td,
@@ -286,4 +257,12 @@ blockquote {
   inline-size: 100%;
   border: var(--border);
   border-radius: var(--border-radius);
+}
+
+.color-swatch {
+  forced-color-adjust: none;
+
+  aspect-ratio: 1;
+  block-size: 1.125em;
+  border-radius: calc(var(--border-radius) / 2);
 }

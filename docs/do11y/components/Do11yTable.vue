@@ -1,5 +1,5 @@
 <template>
-  <PeachyTable v-if="isBigScreen || unresponsive" :class="[c(), 'large']">
+  <PeachyTable v-if="isBigScreen || unresponsive" :class="[c(), small ? undefined : 'large']">
     <PeachyTableHead>
       <PeachyTableRow>
         <PeachyTableHeadingCell v-for="(title, titleIndex) of titles" :key="titleIndex">
@@ -11,7 +11,7 @@
     <PeachyTableBody>
       <PeachyTableRow v-for="(row, rowIndex) of rows" :key="rowIndex">
         <PeachyTableCell v-for="(title, titleIndex) of titles" :key="titleIndex">
-          <slot :name="kebabCase(title.replace('&', ''))" :row="row" />
+          <slot :name="formatSlotName(title)" :row="row" />
         </PeachyTableCell>
       </PeachyTableRow>
     </PeachyTableBody>
@@ -21,7 +21,9 @@
     <dl v-for="(row, rowIndex) of rows" :key="rowIndex">
       <template v-for="(title, titleIndex) of smallTitles || titles" :key="titleIndex">
         <dt>{{ title }}</dt>
-        <dd><slot :name="kebabCase(title.replace('&', ''))" :row="row" :small="true" /></dd>
+        <dd>
+          <slot :name="formatSlotName(title)" :row="row" :small="true" />
+        </dd>
       </template>
     </dl>
   </div>
@@ -64,6 +66,11 @@ interface TableProps {
    * This means it will not switch into a definition list on smaller screens.
    */
   unresponsive?: boolean;
+
+  /**
+   * If the table should be small.
+   */
+  small?: boolean;
 }
 
 interface TableSlots {
@@ -77,6 +84,10 @@ defineSlots<TableSlots>();
 const c = useBemClass("table");
 
 const isBigScreen = useMediaQuery("(width >= 40rem)");
+
+const formatSlotName = (name: string) => {
+  return kebabCase(name.replace("&", "").replace(":", "").replace(".", ""));
+};
 </script>
 
 <style lang="scss">

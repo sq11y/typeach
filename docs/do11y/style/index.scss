@@ -5,6 +5,7 @@
 @use "./typography";
 @use "./inline";
 @use "./block";
+@use "./button";
 @use "./mixins";
 
 :root {
@@ -77,4 +78,8 @@ svg {
 *:focus-visible:not(.no-focus),
 .button:has(:focus-visible) {
   @include mixins.focus-visible;
+}
+
+[data-visually-hidden="true"] {
+  @include utils.visually-hidden;
 }

@@ -1,103 +1,184 @@
 <template>
-  <div :class="c()">
-    <div v-for="color of colors" :key="color" :class="c('color')">
-      <section tabindex="0" :class="c('palette')" :aria-labelledby="`color-${color}`">
-        <div :id="`color-${color}`" :style="`color: var(--${color}-80);`">
-          {{ color.charAt(0).toUpperCase() + color.slice(1) }}
-        </div>
+  <ColorSelect v-model="filter" v-model:compatibility="compatibilityFilter" />
+
+  <template v-for="color of filteredColors" :key="color.color">
+    <h3 :style="`color: var(--${color.color}-80);`">
+      {{ color.title }}
+    </h3>
+
+    <div :class="c('values')">
+      <dl v-for="(value, i) of color.values" :key="i" :class="c('value')">
+        <dt
+          :class="[c('flower'), 's']"
+          :style="`color: var(--${color.color}-fg); --background-color: var(--${color.color}-50); --border-color: var(--${color.color}-60);`"
+        >
+          {{ value.value }}
+        </dt>
 
         <div
-          v-for="(match, i) of apca ? matchesForAPCA : matchesForWCAG"
-          :key="i"
-          :style="`background: var(--${color}-${match.bg}); color: var(--${color}-${match.fg});`"
+          :class="c('preview')"
+          :style="`background-color: var(--${color.color}-${value.value});;`"
         >
-          {{ match.fg === "ui" ? "" : match.bg }}
-
-          <ImageSvg v-if="match.fg === 'ui'" aria-label="ui" :style="`color: var(--${color}-10)`" />
+          <span v-if="filter" :style="`color: var(${filter})`">
+            {{ value.contrast.toFixed(2) }}
+          </span>
         </div>
-      </section>
+
+        <dd class="xs">
+          {{ value.computedValue }}
+        </dd>
+
+        <dd class="xs">
+          {{ `var(--${color.color}-${value.value})` }}
+        </dd>
+      </dl>
     </div>
-  </div>
+  </template>
 </template>
 
 <script lang="ts" setup>
-import { useBemClass } from "@typeach/core";
+import { computed, ref } from "vue";
 
-import { matchesForWCAG, matchesForAPCA } from "./color-matches";
+/* @ts-expect-error due to missing types */
+import { wcagContrast } from "culori";
+import { useBemClass, useCssColorVars } from "@typeach/core";
 
-import ImageSvg from "../icons/image.svg?component";
+import {
+  matchesForWCAG,
+  colors,
+  ColorContrast,
+  ColorValues,
+  type ColorContrastKey,
+} from "./colors.ts";
 
-interface ColorRulesProps {
-  /**
-   * If the color matches should pass APCA.
-   */
-  apca?: boolean;
-}
-
-defineProps<ColorRulesProps>();
-
-const colors = [
-  "brown",
-  "red",
-  "orange",
-  "yellow",
-  "green",
-  "turquoise",
-  "blue",
-  "purple",
-  "pink",
-  "grey",
-];
+import ColorSelect from "./ColorSelect.vue";
 
 const c = useBemClass("colors");
+
+const compatibilityFilter = ref<ColorContrastKey>();
+
+const filter = ref<string>();
+
+const filterValue = computed(() => (filter.value ? variables.value[filter.value] : undefined));
+
+const compatibilityFilterValue = computed(() => {
+  switch (compatibilityFilter.value) {
+    case "AAAText":
+      return ColorContrast.AAAText;
+
+    case "AAText":
+    case "AAAInterface":
+      return ColorContrast.AAText;
+
+    default:
+      return ColorContrast.AAInterface;
+  }
+});
+
+const variableProperties = computed(() => {
+  return colors.map((color) => ColorValues.map((value) => `--${color}-${value}`)).flat();
+});
+
+const variables = useCssColorVars(variableProperties);
+
+const filteredColors = computed(() => {
+  return colors.map((color) => mapColor(color)).filter((color) => color.values.length);
+});
+
+const mapColor = (color: (typeof colors)[number]) => {
+  const values = ColorValues.map((value) => {
+    const computedValue = variables.value[`--${color}-${value}`];
+
+    return {
+      value,
+      text: matchesForWCAG.find((i) => i.bg === value)?.fg,
+      computedValue,
+      contrast: filterValue.value ? wcagContrast(filterValue.value, computedValue!) : undefined,
+    };
+  });
+
+  return {
+    title: color.charAt(0).toUpperCase() + color.slice(1),
+    color,
+    values: values.filter((v) => !filter.value || v.contrast >= compatibilityFilterValue.value),
+  };
+};
 </script>
 
 <style lang="scss">
+/* stylelint-disable scss/operator-no-unspaced */
+
 @use "@typeach/theme/utils";
+@use "../style/mixins";
 
-.colors {
-  @include utils.dock;
-  gap: var(--spacing-xxs);
+.colors__values {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  row-gap: var(--spacing-xl);
+}
 
-  font-size: var(--font-size-s);
+.colors__preview {
+  @include utils.center;
+  padding: var(--spacing-s);
+  aspect-ratio: 1;
+
   forced-color-adjust: none;
 }
 
-.colors__color {
-  inline-size: 100%;
-}
+.colors__value {
+  position: relative;
 
-.colors__palette {
-  inline-size: 100%;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  dd {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: all;
 
-  overflow-inline: auto;
-  scrollbar-width: none;
+    padding-inline-end: var(--spacing-m);
 
-  border-radius: var(--border-radius);
-
-  > * {
-    @include utils.center;
-    padding: var(--spacing-s);
-
-    &:nth-child(2) {
-      border-radius: var(--border-radius) 0 0 var(--border-radius);
-    }
-
-    &:last-child {
-      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    &:not(:last-child) {
+      padding-block-start: var(--spacing-xs);
     }
   }
+}
 
-  > *:first-child {
-    forced-color-adjust: auto;
+.colors__flower {
+  position: absolute;
+  isolation: isolate;
 
-    inline-size: 6.5rem;
-    justify-content: end;
-    padding-inline-end: calc(var(--spacing-s) + 0.5rem);
+  inset-inline-start: -0.725em;
+  inset-block-start: -0.725em;
 
-    font-family: var(--font-family-heading);
+  block-size: 2.625em;
+  aspect-ratio: 1;
+
+  @include utils.center;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+  }
+
+  &::after {
+    @include mixins.flower-mask;
+
+    inset: 0;
+    z-index: -1;
+
+    background-color: var(--background-color);
+  }
+
+  &::before {
+    @include mixins.flower-border-mask;
+
+    inset: 0;
+    background-color: var(--border-color);
+
+    @media (forced-colors: active) {
+      background-color: CanvasText;
+      forced-color-adjust: none;
+    }
   }
 }
 </style>

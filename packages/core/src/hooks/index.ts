@@ -5,6 +5,7 @@ export * from "./keyboard";
 export * from "./useBemClass";
 export * from "./useCalendar";
 export * from "./useCombobox";
+export * from "./useCssColorVars";
 export * from "./useDocumentOutline";
 export * from "./useElements";
 export * from "./useFuzzySearch";

@@ -1,20 +1,30 @@
 <template>
-  <Do11yTable
-    :titles="['Background', 'Text']"
-    :rows="apca ? matchesForAPCA : matchesForWCAG"
-    unresponsive
-  >
-    <template #background="{ row }">
+  <Do11yTable :titles="['Value', '4.5:1', '3:1', '7:1']" :rows="matchesForWCAG" unresponsive small>
+    <template #value="{ row }">
       <div :class="c('rule')">
-        <div :style="`--color: var(--grey-${row.bg});`" />
+        <div class="color-swatch" :style="`background-color: var(--grey-${row.bg});`" />
         {{ row.bg }}
       </div>
     </template>
 
-    <template #text="{ row }">
-      <div :class="c('rule')">
-        <div v-if="row.fg !== 'ui'" :style="`--color: var(--grey-${row.fg});`" />
-        {{ typeof row.fg === "string" ? row.fg : row.fg <= 50 ? `<=${row.fg}` : `>=${row.fg}` }}
+    <template #451="{ row }">
+      <div v-if="row.fg" :class="c('rule')">
+        <div class="color-swatch" :style="`background-color: var(--grey-${row.fg});`" />
+        {{ row.fg }}
+      </div>
+    </template>
+
+    <template #31="{ row }">
+      <div v-if="row.ui" :class="c('rule')">
+        <div class="color-swatch" :style="`background-color: var(--grey-${row.ui});`" />
+        {{ row.ui }}
+      </div>
+    </template>
+
+    <template #71="{ row }">
+      <div v-if="row.aaa" :class="c('rule')">
+        <div class="color-swatch" :style="`background-color: var(--grey-${row.aaa});`" />
+        {{ row.aaa }}
       </div>
     </template>
   </Do11yTable>
@@ -22,19 +32,9 @@
 
 <script lang="ts" setup>
 import { useBemClass } from "@typeach/core";
-
-import { matchesForWCAG, matchesForAPCA } from "./color-matches";
+import { matchesForWCAG } from "./colors.ts";
 
 import Do11yTable from "../components/Do11yTable.vue";
-
-interface ColorRulesProps {
-  /**
-   * If the color matches should pass APCA.
-   */
-  apca?: boolean;
-}
-
-defineProps<ColorRulesProps>();
 
 const c = useBemClass("color-rules");
 </script>
@@ -45,29 +45,5 @@ const c = useBemClass("color-rules");
 .color-rules__rule {
   @include utils.dock;
   gap: var(--spacing-s);
-
-  div {
-    forced-color-adjust: none;
-
-    block-size: var(--icon-size);
-    inline-size: calc(var(--icon-size) * 1.5);
-
-    border: var(--border);
-    border-radius: calc(var(--border-radius) / 2);
-    background-color: var(--color);
-
-    @supports (corner-shape: squircle) {
-      corner-shape: squircle;
-      border-radius: calc(var(--border-radius) * 2);
-    }
-
-    @media (forced-colors: active) {
-      border-color: ButtonBorder;
-    }
-  }
-}
-
-td:has(.color-rules__rule) {
-  padding-block: var(--spacing-m);
 }
 </style>

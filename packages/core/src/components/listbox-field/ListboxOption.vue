@@ -25,6 +25,7 @@ import {
   onBeforeUnmount,
   useId,
   useTemplateRef,
+  onMounted,
 } from "vue";
 
 import { watchDeep } from "@vueuse/core";
@@ -101,11 +102,7 @@ const option = computed<ComboboxOption>(() => ({
   disabled: props.disabled,
 }));
 
-watch(activeIndex, (newActiveIndex) => {
-  if (newActiveIndex !== index.value) {
-    return;
-  }
-
+const scrollOptionIntoListbox = () => {
   const listbox = document.getElementById(sharedIds.get("listbox"));
 
   if (!elementHasBlockScroll(listbox!)) {
@@ -113,6 +110,22 @@ watch(activeIndex, (newActiveIndex) => {
   }
 
   scrollElementIntoArea(element.value!, listbox!);
+};
+
+watch(activeIndex, (newActiveIndex) => {
+  if (newActiveIndex !== index.value) {
+    return;
+  }
+
+  scrollOptionIntoListbox();
+});
+
+onMounted(() => {
+  if (!modelValue.value.some((m) => m === props.value)) {
+    return;
+  }
+
+  scrollOptionIntoListbox();
 });
 
 onBeforeMount(() => {

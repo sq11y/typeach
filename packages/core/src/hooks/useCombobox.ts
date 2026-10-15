@@ -27,6 +27,13 @@ export interface ComboboxOption {
   id: string;
 }
 
+export interface ComboboxGroup extends Pick<ComboboxOption, "label"> {
+  /**
+   * The available options.
+   */
+  options?: ComboboxOption[];
+}
+
 export interface ComboxboxContext {
   /**
    * The options.
@@ -76,6 +83,9 @@ export interface ComboxboxContext {
    */
   onOptionMouseDown(event: MouseEvent): void;
 }
+
+/* prettier-ignore */
+export const isComboboxGroup = (o: ComboboxGroup | ComboboxOption): o is ComboboxGroup => "options" in o;
 
 /* eslint-disable max-lines-per-function */
 export const useCombobox = (

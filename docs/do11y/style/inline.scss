@@ -55,15 +55,11 @@ code:not(pre code):not(.colorless) {
 
 code:not(pre code).grey {
   background-color: var(--grey-30);
-  color: var(--grey-70);
+  color: var(--grey-80);
 }
 
 kbd:not(.unstyled) {
   border: var(--border-shape) var(--grey-60);
-
-  background-color: var(--bg);
-  color: var(--fg);
-
   font-size: var(--font-size-smaller);
 }
 

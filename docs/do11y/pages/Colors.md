@@ -6,9 +6,7 @@
   import ColorRules from '../colors/ColorRules.vue';
   import Do11ySwitch from '../components/Do11ySwitch.vue';
 
-  import ApcaIcon from '../icons/apca.svg?component';
-  
-  const apca = ref(false)
+  import ColorSelect from '../colors/ColorSelect.vue';
 </script>
 
 # Colors
@@ -19,53 +17,37 @@
 
 <ColorsGraphic />
 
-## Values
+## Contrast
 
-<Colors :apca="apca" />
-
-All colors come with 11 values. The brightest value is `bg`, the darkest value is `fg` - and the values between them are numbers where the lower the value, the brighter the color.
-
-### Variables
-
-Every color value has an accompanying CSS variable. For example `--grey-bg`, `--pink-30` or `--brown-fg`.
-
-```scss
-@use "@typeach/theme";
-
-button {
-  border: var(--grey-30);
-  background: var(--grey-bg);
-  color: var(--grey-fg);
-}
-```
-
-### Options
-
-The CSS variable `--saturation` is available to modify the saturation of the colors, which defaults to `1`. You can pretty safely desaturate the colors, but if you are to increase the saturation - you should manually check which combinations still have sufficient contrast.
-
-## Accessibility
+Each color comes with 11 values. The brightest value is `bg`, the darkest value is `fg` - and the values between them are numbers where the lower the value, the brighter the color.
 
 <figure class="two-columns">
 
-<ColorRules :apca="apca" />
+<ColorRules />
 
 <figcaption>
 
-<Do11ySwitch v-model="apca" :icon="ApcaIcon">
-APCA
-</Do11ySwitch>
+The table showcases the values you can always combine _within_ a color to pass the different WCAG criteria.
 
-The table showcases the values you can combine to pass {{ apca ? 'APCA' : 'WCAG AA' }}.
+WCAG AA requires a minimum contrast ratio of `4.5:1` for text and `3:1` for large text, meaningful graphics and interactive elements, while for AAA it's `7:1` and `4.5:1`.
 
-These rules work for each color - but if you need to combine different colors (e.g. blue and orange), you have to [manually check the contrast](https://webaim.org/resources/contrastchecker/).
-
-If the value for "Text" is labelled as "ui" it means the color should _only_ be used for graphical elements, not for text.
+- Large text means above `18.66px` _and_ bold, or above `24px`.
+- Meaningful graphics refers to anything that communicates information.
+- An interactive element would, for example, be the border of an input.
 
 </figcaption>
 
 </figure>
 
+## Colors
+
+<Colors />
+
+## Options
+
+The CSS variable `--saturation` is available to modify the saturation of the colors, which defaults to `1`. You can pretty safely desaturate the colors, but if you are to increase the saturation - you should manually check which combinations still have sufficient contrast.
+
 ## Further reading
 
 - [Perceptual Palettes](https://perceptualpalettes.alexdunn.au/) - “generate palettes with consistent luminance”.
-- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) - check the contrast for normal text, large text (`18.66px+`) and graphical elements.
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) - check the contrast for body text, large text, meaningful graphics and interactive elements.

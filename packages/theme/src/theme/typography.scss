@@ -105,12 +105,12 @@
 
   :where(* + p),
   :where(* + small) {
-    margin-block-start: calc(var(--prose-flow-scale) * 1.125em);
+    margin-block-start: calc(var(--prose-flow-scale) * 1.25em);
   }
 
   :where(p + *),
   :where(small + *) {
-    margin-block-start: calc(var(--prose-flow-scale) * 1.65em);
+    margin-block-start: calc(var(--prose-flow-scale) * 1.75em);
   }
 
   > :where(#{$block-element}) + :where(#{$block-element}) {
@@ -123,7 +123,16 @@
 
   :where(ul, ol) {
     padding-inline-start: 0;
-    margin-inline-start: calc(var(--prose-flow-scale) * 2em);
+    margin-inline-start: calc(var(--prose-flow-scale) * 2.25em);
+
+    :where(* + &) {
+      margin-block-start: calc(var(--prose-flow-scale) * 0.925em);
+    }
+  }
+
+  :where(p + :is(ul, ol)),
+  :where(small + :is(ul, ol)) {
+    margin-block-start: calc(var(--prose-flow-scale) * 1.25em);
   }
 
   :where(li + li) {

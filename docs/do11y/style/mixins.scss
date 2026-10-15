@@ -1,5 +1,140 @@
-@mixin focus-visible {
-  outline: 2px solid var(--blue-80);
-  box-shadow: 0 0 0 6px var(--blue-30);
+/* stylelint-disable scss/operator-no-unspaced */
+
+@mixin focus-visible($outline: "var(--blue-80)", $shadow: "var(--blue-30)") {
+  outline: 2px solid $outline;
+  box-shadow: 0 0 0 6px $shadow;
   isolation: isolate;
+}
+
+/**
+  * Number of petals: 6
+  * Rotation: 4
+  *
+  * @see https://css-generators.com/flower-shapes/
+  */
+@mixin small-flower-mask {
+  --g: /33.334% 33.334% radial-gradient(#000 calc(71% - 1px), #0000 71%) no-repeat;
+
+  mask:
+    100% 50% var(--g),
+    75% 93.301% var(--g),
+    25% 93.301% var(--g),
+    0% 50% var(--g),
+    25% 6.699% var(--g),
+    75% 6.699% var(--g),
+    radial-gradient(100% 100%, #000 28.868%, #0000 calc(28.868% + 1px));
+}
+
+/**
+  * Border: 1px
+  * Number of petals: 6
+  * Rotation: 4
+  *
+  * @see https://css-generators.com/flower-shapes/
+  */
+@mixin small-flower-border-mask {
+  /* prettier-ignore */
+  --g: /calc(33.333% + 0.577px) calc(33.333% + 0.577px) radial-gradient(#0000 calc(70% - 1px),#000 calc(71% - 1px) 70%,#0000 71%) no-repeat;
+
+  /* prettier-ignore */
+  mask:
+    radial-gradient(100% 100%, #0000 calc((33.333% + 0.577px) /1.154 - 0.866px), #000 calc((33.333% + 0.577px) /1.154 - 0.866px + 1px)) intersect,
+    100% 50% var(--g),
+    75% 93.301% var(--g),
+    25% 93.301% var(--g),
+    0% 50% var(--g),
+    25% 6.699% var(--g),
+    75% 6.699% var(--g);
+}
+
+/**
+  * Border: 1px
+  * Number of petals: 7
+  * Rotation: 4
+  *
+  * @see https://css-generators.com/flower-shapes/
+  */
+@mixin flower-border-mask {
+  /* prettier-ignore */
+  --g: /calc(30.259% + 0.628px) calc(30.259% + 0.628px) radial-gradient(#0000 calc(70% - 1px), #000 calc(71% - 1px) 70%, #0000 71%) no-repeat;
+
+  /* prettier-ignore */
+  mask:
+    radial-gradient(100% 100%, #0000 calc((30.259% + 0.628px) / 0.964 - 1.038px), #000 calc((30.259% + 0.628px) / 0.964 - 1.038px + 1px)) intersect,
+    97.553% 65.451% var(--g),
+    67.569% 96.812% var(--g),
+    24.355% 92.922% var(--g),
+    0.453% 56.712% var(--g),
+    13.86% 15.447% var(--g),
+    54.482% 0.201% var(--g),
+    91.729% 22.455% var(--g);
+}
+
+/**
+  * Number of petals: 7
+  * Rotation: 4
+  *
+  * @see https://css-generators.com/flower-shapes/
+  */
+@mixin flower-mask {
+  --g: /30.26% 30.26% radial-gradient(#000 calc(71% - 1px), #0000 71%) no-repeat;
+
+  mask:
+    97.553% 65.451% var(--g),
+    67.569% 96.812% var(--g),
+    24.355% 92.922% var(--g),
+    0.453% 56.712% var(--g),
+    13.86% 15.447% var(--g),
+    54.482% 0.201% var(--g),
+    91.729% 22.455% var(--g),
+    radial-gradient(100% 100%, #000 31.417%, #0000 calc(31.417% + 1px));
+}
+
+/**
+  * Number of petals: 10
+  * Rotation: 0
+  *
+  * @see https://css-generators.com/flower-shapes/
+  */
+@mixin large-flower-mask {
+  --g: /23.606% 23.606% radial-gradient(#000 calc(71% - 1px), #0000 71%) no-repeat;
+
+  mask:
+    100% 50% var(--g),
+    90.451% 79.389% var(--g),
+    65.451% 97.553% var(--g),
+    34.549% 97.553% var(--g),
+    9.549% 79.389% var(--g),
+    0% 50% var(--g),
+    9.549% 20.611% var(--g),
+    34.549% 2.447% var(--g),
+    65.451% 2.447% var(--g),
+    90.451% 20.611% var(--g),
+    radial-gradient(100% 100%, #000 36.327%, #0000 calc(36.327% + 1px));
+}
+
+/**
+  * Border: 1px
+  * Number of petals: 10
+  * Rotation: 0
+  *
+  * @see https://css-generators.com/flower-shapes/
+  */
+@mixin large-flower-border-mask {
+  /* prettier-ignore */
+  --g: /calc(23.607% + 0.727px) calc(23.607% + 0.727px) radial-gradient(#0000 calc(70% - 1px), #000 calc(71% - 1px) 70%, #0000 71%) no-repeat;
+
+  /* prettier-ignore */
+  mask:
+    radial-gradient(100% 100%, #0000 calc((23.607% + 0.727px) /0.65 - 1.539px), #000 calc((23.607% + 0.727px) /0.65 - 1.539px + 1px)) intersect,
+    100% 50% var(--g),
+    90.451% 79.389% var(--g),
+    65.451% 97.553% var(--g),
+    34.549% 97.553% var(--g),
+    9.549% 79.389% var(--g),
+    0% 50% var(--g),
+    9.549% 20.611% var(--g),
+    34.549% 2.447% var(--g),
+    65.451% 2.447% var(--g),
+    90.451% 20.611% var(--g);
 }

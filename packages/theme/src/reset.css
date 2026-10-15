@@ -9,10 +9,11 @@
 }
 
 /**
- * Ensure a gap above an anchor
- * when it is scrolled into view.
+ * Ensure a gap above an anchor or elements usually in a scroll area,
+ * when they are scrolled into the scroll area.
  */
-:where([id]) {
+:where([id]),
+:where([role="option"]) {
   scroll-margin-block: 5ex;
 }
 
@@ -31,7 +32,9 @@
 }
 
 /* Ensure clickable targets are communicated. */
-:where(a, select:enabled:not([aria-disabled="true"]), button:enabled:not([aria-disabled="true"])) {
+:where(label),
+:where(a, select:enabled:not([aria-disabled="true"]), button:enabled:not([aria-disabled="true"])),
+:where([role="combobox"]:not([aria-disabled="true"]), [role="option"]:not([aria-disabled="true"])) {
   cursor: pointer;
 }
 

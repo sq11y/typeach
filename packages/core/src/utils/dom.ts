@@ -72,12 +72,12 @@ export const scrollElementIntoArea = (element: HTMLElement, area: HTMLElement) =
   const isAbove = offsetTop < scrollTop;
   const isBelow = offsetTop + offsetHeight > scrollTop + parentOffsetHeight;
 
-  const scrollMarginBottom = getComputedStyle(element).scrollMarginTop || "0px";
-  const scrollMarginTop = getComputedStyle(element).scrollMarginBottom || "0px";
+  const scrollMarginTop = parseInt(getComputedStyle(element).scrollMarginTop || "0px");
+  const scrollMarginBottom = parseInt(getComputedStyle(element).scrollMarginBottom || "0px");
 
   if (isAbove) {
-    area.scrollTo(0, offsetTop - parseInt(scrollMarginTop));
+    area.scrollTo(0, offsetTop - offsetHeight / 2 - parentOffsetHeight / 2 + scrollMarginTop);
   } else if (isBelow) {
-    area.scrollTo(0, offsetTop - parentOffsetHeight + offsetHeight + parseInt(scrollMarginBottom));
+    area.scrollTo(0, offsetTop - parentOffsetHeight / 2 + offsetHeight / 2 - scrollMarginBottom);
   }
 };

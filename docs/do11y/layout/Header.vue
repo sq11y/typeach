@@ -79,7 +79,7 @@ header {
     background-color: inherit;
   }
 
-  a {
+  #nav a {
     color: inherit;
     text-decoration: none;
   }
