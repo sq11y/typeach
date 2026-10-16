@@ -128,6 +128,7 @@ watch(showCode, async (newShowCode) => {
 .code-block__toggle-button {
   position: absolute;
   inset-block-end: var(--spacing-l);
+  inset-inline: 0;
   justify-self: center;
 }
 </style>
