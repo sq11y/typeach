@@ -27,6 +27,20 @@
         <slot name="dont" />
       </div>
     </div>
+
+    <div v-if="$slots.consider" :class="c('consider', { 'full-width': fullWidth })">
+      <component :is="headingTag">
+        <div :class="c('icon')">
+          <QuestionMarkSvg aria-hidden="true" />
+        </div>
+
+        {{ considerTitle }}
+      </component>
+
+      <div :class="[c('slot'), 'prose']">
+        <slot name="consider" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -35,6 +49,7 @@ import { useBemClass } from "@typeach/core";
 
 import CheckmarkSvg from "../icons/checkmark.svg?component";
 import ExclamationMarkSvg from "../icons/exclamation-mark.svg?component";
+import QuestionMarkSvg from "../icons/question-mark.svg?component";
 
 export interface DoDontProps {
   /**
@@ -46,6 +61,11 @@ export interface DoDontProps {
    * The title for the donts.
    */
   dontTitle?: string;
+
+  /**
+   * The title for the things to consider.
+   */
+  considerTitle?: string;
 
   /**
    * The heading level to start at.
@@ -68,11 +88,17 @@ export interface DoDontSlots {
    * The donts.
    */
   dont: () => void;
+
+  /**
+   * The things to consider.
+   */
+  consider: () => void;
 }
 
 withDefaults(defineProps<DoDontProps>(), {
   doTitle: "Do",
   dontTitle: `Don't`,
+  considerTitle: "Consider",
   headingTag: "h3",
 });
 
@@ -108,7 +134,8 @@ const c = useBemClass("usage-guide");
   }
 
   &__do,
-  &__dont {
+  &__dont,
+  &__consider {
     inline-size: 50%;
 
     position: relative;
@@ -137,6 +164,13 @@ const c = useBemClass("usage-guide");
     color: var(--usage-guide-title-color);
   }
 
+  hr {
+    margin-block: calc(var(--prose-flow-scale) * 1em);
+    border-color: var(--usage-guide-rule-color);
+    inline-size: calc(100% + (2 * var(--spacing-xl)));
+    margin-inline: calc(var(--spacing-xl) * -1);
+  }
+
   li::before {
     background-color: var(--usage-guide-list-color);
   }
@@ -151,6 +185,7 @@ const c = useBemClass("usage-guide");
     --usage-guide-background-color: var(--green-10);
     --usage-guide-color: var(--green-fg);
     --usage-guide-list-color: var(--green-60);
+    --usage-guide-rule-color: var(--green-20);
 
     .usage-guide__icon {
       background-color: var(--green-40);
@@ -164,10 +199,25 @@ const c = useBemClass("usage-guide");
     --usage-guide-background-color: var(--red-10);
     --usage-guide-color: var(--red-fg);
     --usage-guide-list-color: var(--red-60);
+    --usage-guide-rule-color: var(--red-20);
 
     .usage-guide__icon {
       background-color: var(--red-40);
       color: var(--red-80);
+    }
+  }
+
+  &__consider {
+    --code-block-bg: var(--orange-bg);
+    --usage-guide-title-color: var(--orange-90);
+    --usage-guide-background-color: var(--orange-10);
+    --usage-guide-color: var(--orange-fg);
+    --usage-guide-list-color: var(--orange-60);
+    --usage-guide-rule-color: var(--orange-20);
+
+    .usage-guide__icon {
+      background-color: var(--orange-40);
+      color: var(--orange-80);
     }
   }
 
@@ -214,7 +264,8 @@ const c = useBemClass("usage-guide");
     flex-direction: column;
 
     &__do,
-    &__dont {
+    &__dont,
+    &__consider {
       inline-size: 100%;
     }
   }
