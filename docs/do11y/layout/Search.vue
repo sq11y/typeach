@@ -84,10 +84,16 @@ router.beforeEach(() => {
 
   font-size: var(--font-size-smaller);
 
-  @include utils.transition(transform, background-color);
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      transform var(--transition-duration) ease-in-out,
+      background-color var(--transition-duration) ease-in-out;
+  }
 
-  @include utils.hover {
-    background-color: var(--green-20);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--green-20);
+    }
   }
 
   &:active {
@@ -159,12 +165,19 @@ input[type="search"] {
   background-color: var(--bg);
   color: var(--grey-90);
 
-  @include utils.transition(border-color, background-color, color);
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      color var(--transition-duration) ease-in-out,
+      border-color var(--transition-duration) ease-in-out,
+      background-color var(--transition-duration) ease-in-out;
+  }
 
-  @include utils.hover {
-    border-color: var(--pink-40);
-    background-color: var(--pink-40);
-    color: var(--pink-80);
+  @media (hover: hover) {
+    &:hover {
+      border-color: var(--pink-40);
+      background-color: var(--pink-40);
+      color: var(--pink-80);
+    }
   }
 
   &:active {

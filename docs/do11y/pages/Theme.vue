@@ -58,15 +58,21 @@ const c = useBemClass("theme");
   color: var(--theme-card-color);
   background-color: var(--theme-card-background-color);
 
-  @include utils.transition(border-color, background-color);
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      border-color var(--transition-duration) ease-in-out,
+      background-color var(--transition-duration) ease-in-out;
+  }
 
   &:focus-visible {
     @include mixins.focus-visible;
   }
 
-  @include utils.hover {
-    border-color: var(--theme-card-hover-border-color);
-    background-color: var(--theme-card-hover-background-color);
+  @media (hover: hover) {
+    &:hover {
+      border-color: var(--theme-card-hover-border-color);
+      background-color: var(--theme-card-hover-background-color);
+    }
   }
 
   @media (width < 45rem) {
@@ -121,6 +127,9 @@ const c = useBemClass("theme");
   text-decoration: underline;
 
   @include utils.center;
-  @include utils.transition(background-color);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: background-color var(--transition-duration) ease-in-out;
+  }
 }
 </style>

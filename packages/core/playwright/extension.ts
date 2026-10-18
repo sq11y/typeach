@@ -8,7 +8,7 @@ export const listboxOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"
 
 type Fixtures = {
   /**
-   * Runs keyboard navigation tests for roving tabindex.
+   * Runs keyboard support tests for roving tabindex.
    */
   /* prettier-ignore */
   rovingTabindex: (direction: "horizontal" | "vertical", items: string[], edgeless?: boolean, withoutPagination?: boolean) => Promise<void>;

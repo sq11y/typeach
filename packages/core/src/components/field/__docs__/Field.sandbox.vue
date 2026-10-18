@@ -5,7 +5,7 @@
       Who was <span style="color: var(--purple-80)">Aina Wifalk</span>?
     </PeachyFieldLabel>
 
-    <PeachyTextareaInput v-model="modelValue" disabled />
+    <PeachyTextareaInput v-model="modelValue" />
 
     <PeachyFieldError class="error-text">
       <WarningSvg aria-hidden="true" />
@@ -41,6 +41,8 @@ const modelValue = defineModel<string>({
   --border: var(--border-shape) var(--grey-40);
 
   --icon-size: 1.25em;
+
+  --transition-duration: 0.15s;
 }
 
 /** ===== Container =====  */
@@ -64,10 +66,14 @@ textarea {
   border-radius: var(--border-radius);
   border: var(--border);
 
-  @include utils.transition(border-color);
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      outline var(--transition-duration) ease-in-out,
+      border-color var(--transition-duration) ease-in-out;
+  }
 
-  &[aria-disabled="false"] {
-    @include utils.hover {
+  @media (hover: hover) {
+    &:hover:not([aria-disabled="true"]) {
       border-color: var(--purple-60);
     }
   }
@@ -81,7 +87,6 @@ textarea {
 /* ===== Label ===== */
 
 label {
-  cursor: pointer;
   display: block;
   margin-block-end: var(--spacing-xs);
 }
@@ -100,17 +105,19 @@ label {
   color: var(--red-70);
 }
 
-/* ===== Focus indicators ===== */
+/* ===== Global ===== */
+
+svg {
+  block-size: var(--icon-size);
+}
 
 *:focus-visible {
-  outline: 2px solid var(--purple-80);
-  box-shadow: 0 0 0 6px var(--purple-30);
   isolation: isolate;
+  outline: 6px solid var(--blue-80);
 }
 
 svg {
   block-size: var(--icon-size);
   flex-shrink: 0;
-  margin-block-start: 0.1em;
 }
 </style>

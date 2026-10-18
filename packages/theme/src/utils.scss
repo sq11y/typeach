@@ -64,23 +64,3 @@
     max-block-size: $size;
   }
 }
-
-@mixin transition($properties...) {
-  @media (prefers-reduced-motion: no-preference) {
-    @content;
-
-    @if list.length($properties) {
-      transition-property: #{$properties};
-      transition-duration: var(--transition-duration, 0.175s);
-      transition-timing-function: ease-in-out;
-    }
-  }
-}
-
-@mixin hover {
-  @media (hover: hover) {
-    &:hover {
-      @content;
-    }
-  }
-}

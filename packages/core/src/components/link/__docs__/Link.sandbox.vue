@@ -13,25 +13,29 @@ import { PeachyLink } from "@typeach/core";
 
 :root {
   --border-radius: 8px;
+  --transition-duration: 0.15s;
 }
 
-/* ===== Link ===== */
+/* ===== Link & Icon ===== */
 
 a {
-  color: var(--blue-80);
+  color: var(--blue-90);
 
   border-radius: var(--border-radius);
   corner-shape: squircle;
 
   padding-inline: var(--relative-spacing-xs);
   margin-inline: calc(var(--relative-spacing-xs) * -1);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: outline var(--transition-duration) ease-in-out;
+  }
 }
 
-/* ===== Focus indicators ===== */
+/* ===== Global ===== */
 
 *:focus-visible {
-  outline: 2px solid var(--blue-80);
-  box-shadow: 0 0 0 6px var(--blue-30);
   isolation: isolate;
+  outline: 6px solid var(--blue-80);
 }
 </style>

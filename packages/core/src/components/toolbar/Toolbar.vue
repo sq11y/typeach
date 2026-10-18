@@ -14,7 +14,7 @@ import { ToolbarContextKey } from "./hooks";
 
 export interface ToolbarProps {
   /**
-   * The orientation of the toolbar, which will decide the available keyboard shortcuts.
+   * The orientation of the toolbar.
    */
   orientation?: Orientation;
 

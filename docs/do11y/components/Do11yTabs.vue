@@ -84,6 +84,7 @@ useEventListener("resize", () => {
 
   padding-block: var(--relative-spacing-m);
   padding-inline: var(--relative-spacing-xxl);
+
   background-color: var(--bg);
 
   min-inline-size: max-content;
@@ -99,7 +100,9 @@ useEventListener("resize", () => {
     padding-block: inherit;
     inset: 0;
 
-    @include utils.transition(font-weight);
+    @media (prefers-reduced-motion: no-preference) {
+      transition: font-weight var(--transition-duration) ease-in-out;
+    }
   }
 }
 
@@ -130,7 +133,11 @@ useEventListener("resize", () => {
   border-color: var(--grey-10);
   background-color: var(--grey-10);
 
-  @include utils.transition(background-color, border-color);
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      background-color var(--transition-duration) ease-in-out,
+      border-color var(--transition-duration) ease-in-out;
+  }
 
   &:hover {
     background-color: var(--grey-20);

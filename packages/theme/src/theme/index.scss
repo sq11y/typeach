@@ -4,9 +4,4 @@
 
 :root {
   --pill-border-radius: 999rem;
-  --transition-duration: 0.001ms;
-
-  @media (prefers-reduced-motion: no-preference) {
-    --transition-duration: 0.175s;
-  }
 }

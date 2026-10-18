@@ -1,5 +1,5 @@
 <template>
-  <PeachyVisuallyHidden v-if="!preventAnnouncement" aria-live="polite">
+  <PeachyVisuallyHidden aria-live="polite">
     <slot v-if="isCopying" :is-copying="isCopying" />
   </PeachyVisuallyHidden>
 
@@ -16,14 +16,9 @@ import { PeachyVisuallyHidden } from "../visually-hidden";
 
 export interface CopyButtonProps extends Omit<ButtonProps, "type" | "loading" | "disabled"> {
   /**
-   * The content that is to be copied on click.
+   * The content to copy.
    */
   content?: ClipboardItem[] | ClipboardItem | string;
-
-  /**
-   * If the [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions) should be disabled. Should only be used if you already have accessible feedback for the button.
-   */
-  preventAnnouncement?: boolean;
 
   /**
    * The event triggered when copying - only fired when no content is provided.
@@ -33,18 +28,16 @@ export interface CopyButtonProps extends Omit<ButtonProps, "type" | "loading" | 
 
 export interface CopyButtonEmits {
   /**
-   * The event triggered when copying - only fired when no content is provided.
+   * Triggered when copying if no content is provided.
    */
   copy: [event: MouseEvent];
 }
 
 export interface CopyButtonSlots {
   /**
-   * The content of the button should include an [accessible label](/p/accessible-labels).
+   * The button should include an [accessible label](/p/accessible-labels) and only contain non-interactive [phrasing content](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#phrasing_content).
    *
-   * The label should let the user know the copy was successful when `isCopying` is `true` - unless you already provide feedback, in which case you should set `preventAnnouncement`.
-   *
-   * Also keep in mind that a button should only contain [phrasing content](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#phrasing_content).
+   * Change the accessible label when `isCopying` is `true` to indicate a successful copy.
    */
   default: (data: { isCopying: boolean }) => void;
 }

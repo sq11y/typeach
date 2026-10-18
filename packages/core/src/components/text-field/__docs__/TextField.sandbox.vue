@@ -16,14 +16,14 @@ const modelValue = defineModel<string>();
 </script>
 
 <style lang="scss">
-@use "@typeach/theme/utils";
-
 /* ===== Variables ===== */
 
 :root {
   --border-radius: 8px;
   --border-shape: 1px solid;
   --border: var(--border-shape) var(--grey-40);
+
+  --transition-duration: 0.15s;
 }
 
 /* ===== Container ===== */
@@ -40,10 +40,14 @@ input[type="search"] {
   border-radius: var(--border-radius);
   border: var(--border);
 
-  @include utils.transition(border-color);
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      outline var(--transition-duration) ease-in-out,
+      border-color var(--transition-duration) ease-in-out;
+  }
 
-  &:not(:read-only) {
-    @include utils.hover {
+  @media (hover: hover) {
+    &:hover:not(:read-only) {
       border-color: var(--purple-60);
     }
   }
@@ -57,16 +61,14 @@ input[type="search"] {
 /* ===== Label ===== */
 
 label {
-  cursor: pointer;
   display: block;
   margin-block-end: var(--spacing-xs);
 }
 
-/* ===== Focus indicators ===== */
+/* ===== Global ===== */
 
 *:focus-visible {
-  outline: 2px solid var(--purple-80);
-  box-shadow: 0 0 0 6px var(--purple-30);
   isolation: isolate;
+  outline: 6px solid var(--blue-80);
 }
 </style>

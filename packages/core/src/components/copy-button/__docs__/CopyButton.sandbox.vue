@@ -15,12 +15,11 @@ const excerptFromIfIMustDieByRefaatAlareer = "If I must die, let it bring hope, 
 </script>
 
 <style lang="scss">
-@use "@typeach/theme/utils";
-
 /* ===== Variables ===== */
 
 :root {
   --border-shape: 1px solid;
+  --transition-duration: 0.15s;
 }
 
 /* ===== Button ===== */
@@ -32,44 +31,35 @@ button {
   border: var(--border-shape) var(--pink-40);
   border-radius: var(--pill-border-radius);
 
-  background-color: var(--pink-40);
+  background-color: var(--pink-30);
   color: var(--pink-80);
 
   font-size: var(--font-size-l);
   line-height: var(--line-height-l);
 
-  @include utils.transition("background-color, border-color");
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      outline var(--transition-duration) ease-in-out,
+      background-color var(--transition-duration) ease-in-out,
+      border-color var(--transition-duration) ease-in-out;
+  }
 
-  &[aria-disabled="false"] {
-    cursor: pointer;
-
-    &:active {
-      background-color: var(--pink-50);
-      border-color: var(--pink-70);
-    }
-
-    @include utils.hover {
+  @media (hover: hover) {
+    &:hover {
       border-color: var(--pink-70);
     }
   }
 
-  &[aria-disabled="true"] {
-    background-color: var(--grey-50);
-    border-color: var(--grey-50);
-    color: var(--grey-80);
-
-    @media (forced-colors: active) {
-      color: GrayText;
-      border-color: GrayText;
-    }
+  &:active {
+    background-color: var(--pink-50);
+    border-color: var(--pink-70);
   }
 }
 
-/* ===== Focus indicators ===== */
+/* ===== Global ===== */
 
 *:focus-visible {
-  outline: 2px solid var(--blue-80);
-  box-shadow: 0 0 0 6px var(--blue-30);
   isolation: isolate;
+  outline: 6px solid var(--blue-80);
 }
 </style>

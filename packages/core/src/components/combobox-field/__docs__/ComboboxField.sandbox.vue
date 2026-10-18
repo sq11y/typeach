@@ -106,6 +106,7 @@ const options: Option[] = [
   --invisible-border: var(--border-shape) transparent;
 
   --icon-size: 1.25em;
+  --transition-duration: 0.15s;
 }
 
 /* ===== Container ===== */
@@ -113,14 +114,7 @@ const options: Option[] = [
 .combobox-container {
   inline-size: 16rem;
   display: grid;
-  gap: var(--spacing-xs);
-}
-
-/* ===== Label ===== */
-
-label {
-  cursor: pointer;
-  display: block;
+  gap: var(--spacing-s);
 }
 
 /* ===== Selected options ===== */
@@ -156,10 +150,14 @@ input[role="combobox"] {
   border-radius: var(--border-radius);
   border: var(--border);
 
-  @include utils.transition(border-color);
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      outline var(--transition-duration) ease-in-out,
+      border-color var(--transition-duration) ease-in-out;
+  }
 
-  &:enabled {
-    @include utils.hover {
+  @media (hover: hover) {
+    &:hover:enabled {
       border-color: var(--purple-60);
     }
   }
@@ -169,17 +167,7 @@ input[role="combobox"] {
   }
 }
 
-/* ===== Border radius ===== */
-
-[role="listbox"] {
-  border-radius: var(--border-radius);
-
-  [role="option"] {
-    border-radius: calc(var(--border-radius) / 2);
-  }
-}
-
-/* ===== List and groups ===== */
+/* ===== List & groups ===== */
 
 [role="listbox"] {
   position: absolute;
@@ -192,17 +180,26 @@ input[role="combobox"] {
   overflow-block: auto;
   scrollbar-width: thin;
 
+  border-radius: var(--border-radius);
   padding: var(--spacing-s) var(--spacing-xs);
   border: var(--border);
-}
 
-[role="group"]:not(:first-child) {
-  margin-block-start: var(--spacing-s);
+  @media (prefers-reduced-motion: no-preference) {
+    transition: outline var(--transition-duration) ease-in-out;
+  }
 }
 
 [role="group"] {
   @include utils.stack;
   gap: var(--spacing-xxs);
+}
+
+[role="group"]:not(:first-child) {
+  margin-block-start: var(--spacing-xs);
+}
+
+[role="group"] > * {
+  margin-inline-start: var(--spacing-s);
 }
 
 /* ===== Options and group labels ===== */
@@ -213,21 +210,22 @@ input[role="combobox"] {
 }
 
 .group-label {
-  font-size: var(--font-size-s);
-  line-height: var(--line-height-s);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
   color: var(--grey-70);
 }
 
 [role="option"] {
-  scroll-margin-block: 1em;
-
   @include utils.space-between;
   gap: var(--spacing-m);
 
-  @include utils.transition("background-color, color");
+  border-radius: var(--border-radius);
 
-  &[aria-disabled="false"] {
-    cursor: pointer;
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      outline var(--transition-duration) ease-in-out,
+      background-color var(--transition-duration) ease-in-out,
+      color var(--transition-duration) ease-in-out;
   }
 }
 
@@ -235,44 +233,59 @@ input[role="combobox"] {
   background-color: var(--purple-20);
   color: var(--purple-80);
 
-  &[aria-disabled="false"] {
-    @include utils.hover {
+  @media (forced-colors: active) {
+    color: SelectedItemText;
+    background-color: SelectedItem;
+  }
+
+  @media (hover: hover) {
+    &:hover:not([aria-disabled="true"]) {
       background-color: var(--purple-30);
     }
   }
 }
 
-[role="option"][aria-selected="false"][aria-disabled="false"] {
-  @include utils.hover {
-    background-color: var(--grey-10);
+[role="option"][aria-selected="false"] {
+  svg {
+    visibility: hidden;
+  }
+
+  @media (hover: hover) {
+    &:hover:not([aria-disabled="true"]) {
+      background-color: var(--grey-10);
+    }
   }
 }
 
-[role="option"][data-active="true"] {
-  outline: 2px solid var(--purple-60);
-  outline-offset: -2px;
+[role="option"][aria-disabled="true"] {
+  background-color: var(--grey-30);
+  border-color: var(--grey-30);
+  color: var(--grey-70);
+
+  @media (forced-colors: active) {
+    color: GrayText;
+  }
 }
 
-[role="group"] > * {
-  margin-inline-start: var(--spacing-s);
+/* ===== Focus indicator ===== */
+
+*:focus-visible {
+  isolation: isolate;
+  outline: 6px solid var(--blue-80);
 }
 
-/* ===== Selected indicator ===== */
+[role="combobox"]:focus-visible:has(+ [role="listbox"] [data-active="true"]) {
+  outline: 0;
+}
+
+[role="combobox"]:focus-visible + [role="listbox"] [data-active="true"] {
+  isolation: isolate;
+  outline: 6px solid var(--blue-80);
+}
+
+/* ===== Global ===== */
 
 svg {
   inline-size: var(--icon-size);
-  @include utils.transition("opacity");
-}
-
-[role="option"][aria-selected="false"] svg {
-  visibility: hidden;
-}
-
-/* ===== Focus indicators ===== */
-
-*:focus-visible {
-  outline: 2px solid var(--blue-80);
-  box-shadow: 0 0 0 6px var(--blue-30);
-  isolation: isolate;
 }
 </style>

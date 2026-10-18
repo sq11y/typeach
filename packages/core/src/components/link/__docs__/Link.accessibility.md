@@ -1,10 +1,32 @@
 ## Checklist
 
-<Do11yDoDont do-title="Done for you" dont-title="What you must do" full-width>
+<Do11yDoDont do-title="What's done for you" dont-title="What you must do" consider-title="What you should do" full-width>
+
+<template v-slot:do>
+
+- Keyboard support.
+
+</template>
 
 <template v-slot:dont>
 
-- Ensure the link has an accessible label.
+- Add an [accessible label](/p/accessible-labels), even if there is no _visible_ label.
+
+---
+
+- Ensure the link has sufficient contrast.
+- If the link is only indicated using text color - ensure it has [sufficient contrast to the text surrounding it and the background](https://webaim.org/resources/linkcontrastchecker/).
+- Ensure the link has a clear focus indicator.
+
+---
+
+- Reduce animations and transitions for users who [prefer reduced motion](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion).
+
+</template>
+
+<template v-slot:consider>
+
+- Test in [forced colors mode](https://benmyers.dev/encyclopedia/forced-colors-mode/). The link should still _look_ like a link.
 
 </template>
 

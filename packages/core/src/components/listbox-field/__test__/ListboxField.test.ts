@@ -11,7 +11,7 @@ test("Renders accessibly", async ({ mount, a11y, getByExactText }) => {
   await expect(await getByExactText("5")).toHaveAttribute("aria-selected", "true");
 });
 
-test("Keyboard navigation", async ({ page, mount, getByExactText }) => {
+test("Keyboard support", async ({ page, mount, getByExactText }) => {
   await mount(ListboxFieldTest, { props: { options: listboxOptions } });
 
   const input = page.locator("[role='listbox']");

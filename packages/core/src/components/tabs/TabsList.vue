@@ -15,15 +15,11 @@ import { TabListContextKey } from "./hooks";
 export interface TabsListProps {
   /**
    * The visual orientation of the tabs.
-   *
-   * This will decide the available keyboard shortcuts.
    */
   orientation?: Orientation;
 
   /**
    * If focusing a tab button should activate it.
-   *
-   * This should only be used if the content is loaded quickly.
    */
   selectionFollowsFocus?: boolean;
 }

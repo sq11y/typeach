@@ -56,6 +56,8 @@ import CloseSvg from "./icons/close.svg?component";
   --invisible-border: var(--border-shape) transparent;
 
   --icon-size: 1.25em;
+
+  --transition-duration: 0.15s;
 }
 
 /* ===== Dialog ===== */
@@ -73,10 +75,11 @@ dialog:open {
   box-shadow:
     rgb(50 50 93 / 25%) 0 6px 12px -2px,
     rgb(0 0 0 / 30%) 0 3px 7px -3px;
-}
 
-dialog::backdrop {
-  background-color: rgb(50 50 93 / 5%);
+  &::backdrop {
+    background-color: rgb(from var(--turquoise-30) r g b / 65%);
+    backdrop-filter: blur(2px);
+  }
 }
 
 .dialog__header {
@@ -108,32 +111,22 @@ button {
   font-size: var(--font-size-l);
   line-height: var(--line-height-l);
 
-  @include utils.transition("background-color, border-color");
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      outline var(--transition-duration) ease-in-out,
+      background-color var(--transition-duration) ease-in-out,
+      border-color var(--transition-duration) ease-in-out;
+  }
 
-  &[aria-disabled="false"] {
-    cursor: pointer;
-
-    &:active {
-      background-color: var(--turquoise-50);
+  @media (hover: hover) {
+    &:hover:not([aria-disabled="true"]) {
       border-color: var(--turquoise-70);
-    }
-
-    @include utils.hover {
-      border-color: var(--turquoise-70);
-      color: var(--turquoise-80);
-      background-color: var(--turquoise-40);
     }
   }
 
-  &[aria-disabled="true"] {
-    background-color: var(--grey-50);
-    border-color: var(--grey-50);
-    color: var(--grey-80);
-
-    @media (forced-colors: active) {
-      color: GrayText;
-      border-color: GrayText;
-    }
+  &:active:not([aria-disabled="true"]) {
+    background-color: var(--turquoise-50);
+    border-color: var(--turquoise-70);
   }
 }
 
@@ -144,7 +137,7 @@ button[aria-haspopup="dialog"] {
   border: var(--border-shape) var(--turquoise-40);
   border-radius: var(--pill-border-radius);
 
-  background-color: var(--turquoise-40);
+  background-color: var(--turquoise-30);
   color: var(--turquoise-80);
 }
 
@@ -162,6 +155,19 @@ button[command="close"] {
   color: inherit;
 }
 
+/* ===== Disabled buttons ===== */
+
+button[aria-disabled="true"] {
+  background-color: var(--grey-30);
+  border-color: var(--grey-30);
+  color: var(--grey-70);
+
+  @media (forced-colors: active) {
+    color: GrayText;
+    border-color: GrayText;
+  }
+}
+
 /* ===== Link ===== */
 
 a {
@@ -172,14 +178,17 @@ a {
 
   padding-inline: var(--relative-spacing-xs);
   margin-inline: calc(var(--relative-spacing-xs) * -1);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: outline var(--transition-duration) ease-in-out;
+  }
 }
 
-/* ===== Focus indicators ===== */
+/* ===== Global ===== */
 
 *:focus-visible {
-  outline: 2px solid var(--blue-80);
-  box-shadow: 0 0 0 6px var(--blue-30);
   isolation: isolate;
+  outline: 6px solid var(--blue-80);
 }
 
 svg {

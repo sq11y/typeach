@@ -126,6 +126,7 @@ button[role="combobox"] {
 
 <style lang="scss">
 @use "@typeach/theme/utils";
+@use "../style/mixins";
 
 button[role="combobox"] {
   margin-inline-start: var(--relative-spacing-s);
@@ -192,7 +193,11 @@ button[role="combobox"] {
   @include utils.dock;
   gap: var(--relative-spacing-m);
 
-  @include utils.transition("background-color, color");
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      background-color var(--transition-duration) ease-in-out,
+      color var(--transition-duration) ease-in-out;
+  }
 
   &[aria-selected="true"] {
     background-color: var(--grey-20);
@@ -213,7 +218,6 @@ button[role="combobox"] {
 }
 
 [role="combobox"]:focus-visible + [role="listbox"] [data-active="true"] {
-  outline: 2px solid var(--blue-60);
-  outline-offset: -2px;
+  @include mixins.focus-visible;
 }
 </style>

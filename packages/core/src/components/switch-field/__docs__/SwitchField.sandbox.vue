@@ -52,6 +52,8 @@ const modelValue = defineModel<boolean>({ default: true });
   --invisible-border: var(--border-shape) transparent;
 
   --icon-size: 1.25em;
+
+  --transition-duration: 0.15s;
 }
 
 /* ===== Container ===== */
@@ -72,8 +74,10 @@ const modelValue = defineModel<boolean>({ default: true });
   border: var(--border);
 }
 
-label {
-  cursor: pointer;
+label:has(+ [aria-readonly="true"]) {
+  @media (forced-colors: active) {
+    color: GrayText;
+  }
 }
 
 /* ===== Track ===== */
@@ -86,18 +90,22 @@ button[aria-checked] {
 
   background-color: var(--grey-30);
 
-  @include utils.transition("padding, border-color, background-color");
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      outline var(--transition-duration) ease-in-out,
+      padding var(--transition-duration) ease-in-out,
+      background-color var(--transition-duration) ease-in-out,
+      border-color var(--transition-duration) ease-in-out;
+  }
 
-  &[aria-readonly="false"] {
-    cursor: pointer;
-
-    @include utils.hover {
+  @media (hover: hover) {
+    &:hover:not([aria-readonly="true"]) {
       border-color: var(--grey-60);
     }
+  }
 
-    &:active {
-      background-color: var(--grey-50);
-    }
+  &:active:not([aria-readonly="true"]) {
+    background-color: var(--grey-50);
   }
 }
 
@@ -109,14 +117,14 @@ button[aria-checked="true"] {
     background-color: var(--purple-70);
   }
 
-  &[aria-readonly="false"] {
-    @include utils.hover {
+  @media (hover: hover) {
+    &:hover:not([aria-readonly="true"]) {
       border-color: var(--purple-60);
     }
+  }
 
-    &:active {
-      background-color: var(--purple-50);
-    }
+  &:active:not([aria-readonly="true"]) {
+    background-color: var(--purple-50);
   }
 }
 
@@ -131,7 +139,11 @@ button[aria-checked="true"] {
 
   background-color: var(--grey-60);
 
-  @include utils.transition("scale, background-color");
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      scale var(--transition-duration) ease-in-out,
+      background-color var(--transition-duration) ease-in-out;
+  }
 }
 
 /* ===== Readonly ===== */
@@ -153,11 +165,10 @@ button[aria-checked][aria-readonly="true"] {
   background-color: var(--bg);
 }
 
-/* ===== Focus indicators ===== */
+/* ===== Global ===== */
 
 *:focus-visible {
-  outline: 2px solid var(--blue-80);
-  box-shadow: 0 0 0 6px var(--blue-30);
   isolation: isolate;
+  outline: 6px solid var(--blue-80);
 }
 </style>

@@ -110,6 +110,8 @@ const { year, month, weeks } = useCalendar(focusedDate, Weekday.Monday, "en");
   --font-weight-medium: 500;
 
   --icon-size: 1.25em;
+
+  --transition-duration: 0.15s;
 }
 
 /* ===== Header ===== */
@@ -133,22 +135,19 @@ h2 {
 
   padding: var(--spacing-xxs);
 
-  @include utils.transition("background-color, color, scale");
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      outline var(--transition-duration) ease-in-out,
+      background-color var(--transition-duration) ease-in-out,
+      color var(--transition-duration) ease-in-out;
+  }
 
-  &[aria-disabled="false"] {
-    @include utils.hover {
+  @media (hover: hover) {
+    &:hover:not([aria-disabled="true"]) {
       background-color: var(--pink-30);
       color: var(--pink-70);
     }
-
-    &:active {
-      scale: 1.1;
-    }
   }
-}
-
-.navigation-button svg {
-  inline-size: calc(var(--icon-size) * 1.125);
 }
 
 /* ===== Table borders ===== */
@@ -157,7 +156,22 @@ table {
   border-spacing: 0;
   border: var(--border);
   border-radius: var(--border-radius);
-  overflow: hidden;
+}
+
+thead th:first-child {
+  border-start-start-radius: var(--border-radius);
+}
+
+thead th:last-child {
+  border-start-end-radius: var(--border-radius);
+}
+
+tbody tr:last-child th:first-child {
+  border-end-start-radius: var(--border-radius);
+}
+
+tbody tr:last-child td:last-child {
+  border-end-end-radius: var(--border-radius);
 }
 
 th:not(tbody tr:last-child > th) {
@@ -181,7 +195,11 @@ th:not(:last-child) {
 
 th,
 td {
-  padding: var(--relative-spacing-xs);
+  @include utils.square(2rem);
+  line-height: 1;
+
+  vertical-align: middle;
+  text-align: center;
 }
 
 tbody th,
@@ -203,8 +221,6 @@ tbody th {
 /* ===== Dates ===== */
 
 button[aria-pressed] {
-  --size: 1.75rem;
-
   padding: 0;
 
   border-radius: 100%;
@@ -213,30 +229,33 @@ button[aria-pressed] {
   background-color: transparent;
   color: inherit;
 
-  @include utils.square(var(--size));
+  @include utils.square(1lh);
 
-  @include utils.transition("background-color, color, scale");
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      outline var(--transition-duration) ease-in-out,
+      background-color var(--transition-duration) ease-in-out,
+      color var(--transition-duration) ease-in-out;
+  }
 
   &[data-current-month="false"] {
     display: none;
   }
 
-  &[aria-disabled="false"]:active {
-    scale: 1.1;
-  }
-
   &[aria-disabled="true"] {
-    opacity: 0.475;
-  }
+    color: var(--grey-70);
 
-  @media (width < 25rem) {
-    --size: 1.5rem;
+    @media (forced-colors: active) {
+      color: GrayText;
+    }
   }
 }
 
-button[aria-pressed="false"][aria-disabled="false"] {
-  @include utils.hover {
-    background-color: var(--grey-20);
+button[aria-pressed="false"] {
+  @media (hover: hover) {
+    &:hover:not([aria-disabled="true"]) {
+      background-color: var(--grey-20);
+    }
   }
 }
 
@@ -245,18 +264,27 @@ button[aria-pressed="true"] {
   background-color: var(--pink-30);
   color: var(--pink-80);
 
-  &[aria-disabled="false"] {
-    @include utils.hover {
+  @media (hover: hover) {
+    &:hover:not([aria-disabled="true"]) {
       background-color: var(--pink-40);
     }
   }
+
+  @media (forced-colors: active) {
+    color: SelectedItemText;
+    background-color: SelectedItem;
+    forced-color-adjust: none; /* Allow background-color behind text since the date covers the entire circle */
+  }
 }
 
-/* ===== Focus indicators ===== */
+/* ===== Global ===== */
 
 *:focus-visible {
-  outline: 2px solid var(--blue-80);
-  box-shadow: 0 0 0 6px var(--blue-30);
   isolation: isolate;
+  outline: 6px solid var(--blue-80);
+}
+
+svg {
+  block-size: var(--icon-size);
 }
 </style>

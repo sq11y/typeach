@@ -139,7 +139,11 @@ const searchResultText = computed(() => {
 
   margin-block-start: 0;
 
-  @include utils.transition(border-color);
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      outline var(--transition-duration) ease-in-out,
+      border-color var(--transition-duration) ease-in-out;
+  }
 
   &:hover,
   &:has(:focus-visible) {
@@ -192,6 +196,10 @@ const searchResultText = computed(() => {
   padding-block: var(--spacing-m);
   margin-block-start: calc((var(--spacing-m) / 2) * -1);
 
-  @include utils.transition(background-color, color);
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      background-color var(--transition-duration) ease-in-out,
+      color var(--transition-duration) ease-in-out;
+  }
 }
 </style>

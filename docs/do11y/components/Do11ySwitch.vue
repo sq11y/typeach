@@ -65,7 +65,12 @@ button[aria-checked] {
 
     background-color: var(--grey-30);
 
-    @include utils.transition("padding, background-color, color");
+    @media (prefers-reduced-motion: no-preference) {
+      transition:
+        padding var(--transition-duration) ease-in-out,
+        background-color var(--transition-duration) ease-in-out,
+        color var(--transition-duration) ease-in-out;
+    }
   }
 }
 

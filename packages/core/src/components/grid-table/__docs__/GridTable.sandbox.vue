@@ -156,7 +156,7 @@ tr:nth-child(even) {
 /* ===== Links ===== */
 
 a {
-  color: var(--blue-80);
+  color: var(--blue-90);
 
   border-radius: var(--border-radius);
   corner-shape: squircle;
@@ -165,11 +165,10 @@ a {
   margin-inline: calc(var(--relative-spacing-xs) * -1);
 }
 
-/* ===== Focus indicators ===== */
+/* ===== Global ===== */
 
 *:focus-visible {
-  outline: 2px solid var(--blue-80);
-  box-shadow: 0 0 0 6px var(--blue-30);
   isolation: isolate;
+  outline: 6px solid var(--blue-80);
 }
 </style>

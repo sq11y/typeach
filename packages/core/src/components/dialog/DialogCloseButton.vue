@@ -16,13 +16,11 @@ import { DialogContextKey } from "./hooks";
 
 import { PeachyButton, type ButtonProps } from "../button";
 
-export interface DialogCloseButtonProps extends Omit<ButtonProps, "type"> {}
+export interface DialogCloseButtonProps extends Omit<ButtonProps, "type" | "loading"> {}
 
 export interface DialogCloseButtonSlots {
   /**
-   * The content of the button should include an [accessible label](/p/accessible-labels).
-   *
-   * Also keep in mind that a button should only contain [phrasing content](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#phrasing_content).
+   * The button should include an [accessible label](/p/accessible-labels) and only contain non-interactive [phrasing content](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#phrasing_content).
    */
   default: () => void;
 }

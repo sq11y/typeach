@@ -22,25 +22,21 @@ export interface TabsActionButtonProps {
   value: string | number;
 
   /**
-   * If the button should be disabled.
-   *
-   * If you want the disabled button to be taken out of the tab order even when the associated tab is active, you can set this to `"without-focus"`.
+   * If the button should be disabled. If you want it to also be taken out of the tab order even when the associated tab is active, `"without-focus"` can be used.
    */
   disabled?: boolean | "without-focus";
 }
 
 export interface TabsActionButtonEmits {
   /**
-   * The click event.
+   * Only fired when the button is enabled.
    */
   click: [event: MouseEvent];
 }
 
 export interface TabsActionButtonSlots {
   /**
-   * The content of the button should include an [accessible label](/p/accessible-labels) that makes it clear which tab it is related to.
-   *
-   * Also keep in mind that a button should only contain [phrasing content](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#phrasing_content).
+   * The button should include an [accessible label](/p/accessible-labels) and only contain non-interactive [phrasing content](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#phrasing_content).
    */
   default: () => void;
 }

@@ -41,6 +41,8 @@ const warByEdwinStarrLyricsAnswer = "Absolutely nothing.";
   --invisible-border: var(--border-shape) transparent;
 
   --icon-size: 1.25em;
+
+  --transition-duration: 0.15s;
 }
 
 /* ===== Button ===== */
@@ -54,40 +56,39 @@ button[aria-expanded] {
   padding-block: var(--relative-spacing-s);
   padding-inline: var(--relative-spacing-l) var(--relative-spacing-m);
 
-  /**
-   * Hidden border to ensure the shape
-   * of the button is defined in `forced-colors` mode.
-   */
   border: var(--border-shape) var(--turquoise-40);
   border-radius: var(--border-radius);
 
   background-color: var(--turquoise-40);
   color: var(--turquoise-80);
 
-  @include utils.transition("background-color, border-color");
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      outline var(--transition-duration) ease-in-out,
+      background-color var(--transition-duration) ease-in-out,
+      border-color var(--transition-duration) ease-in-out;
+  }
 
-  &[aria-disabled="false"] {
-    cursor: pointer;
-
-    &:active {
-      background-color: var(--turquoise-50);
-      border-color: var(--turquoise-70);
-    }
-
-    @include utils.hover {
+  @media (hover: hover) {
+    &:hover:not([aria-disabled="true"]) {
       border-color: var(--turquoise-70);
     }
   }
 
-  &[aria-disabled="true"] {
-    background-color: var(--grey-50);
-    border-color: var(--grey-50);
-    color: var(--grey-80);
+  &:active:not([aria-disabled="true"]) {
+    background-color: var(--turquoise-50);
+    border-color: var(--turquoise-70);
+  }
+}
 
-    @media (forced-colors: active) {
-      color: GrayText;
-      border-color: GrayText;
-    }
+button[aria-disabled="true"] {
+  background-color: var(--grey-50);
+  border-color: var(--grey-50);
+  color: var(--grey-80);
+
+  @media (forced-colors: active) {
+    color: GrayText;
+    border-color: GrayText;
   }
 }
 
@@ -96,9 +97,11 @@ button[aria-expanded] {
 button[aria-expanded] {
   svg {
     margin-inline-start: auto;
-    block-size: var(--icon-size);
     transform: rotate(-45deg);
-    @include utils.transition("transform");
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform var(--transition-duration) ease-in-out;
+    }
   }
 
   &[aria-expanded="true"] svg {
@@ -115,13 +118,6 @@ button[aria-expanded] {
   font-size: var(--font-size-s);
   line-height: var(--line-height-s);
 
-  /**
-   * Invisible border to ensure the shape
-   * of the card is defined in `forced-colors` mode.
-   *
-   * Applied on the content instead of the panel
-   * to prevent it being visible when the disclosure is closed.
-   */
   border: var(--invisible-border);
   border-radius: var(--border-radius);
 
@@ -139,7 +135,9 @@ button[aria-expanded] {
   overflow-block: hidden;
   max-block-size: 15rem;
 
-  @include utils.transition("max-block-size");
+  @media (prefers-reduced-motion: no-preference) {
+    transition: max-block-size var(--transition-duration) ease-in-out;
+  }
 }
 
 .v-enter-from,
@@ -147,11 +145,14 @@ button[aria-expanded] {
   max-block-size: 0;
 }
 
-/* ===== Focus indicators ===== */
+/* ===== Global ===== */
+
+svg {
+  block-size: var(--icon-size);
+}
 
 *:focus-visible {
-  outline: 2px solid var(--turquoise-80);
-  box-shadow: 0 0 0 6px var(--turquoise-30);
   isolation: isolate;
+  outline: 6px solid var(--blue-80);
 }
 </style>

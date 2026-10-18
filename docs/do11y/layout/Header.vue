@@ -107,7 +107,11 @@ header {
   block-size: var(--logo-size);
   border-radius: var(--border-radius);
 
-  @include utils.transition(scale, rotate);
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      scale var(--transition-duration) ease-in-out,
+      rotate var(--transition-duration) ease-in-out;
+  }
 
   @supports (corner-shape: squircle) {
     corner-shape: squircle;

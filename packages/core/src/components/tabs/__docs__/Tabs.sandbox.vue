@@ -49,91 +49,88 @@ const quotesFromUltraProcessedPeopleByChrisVanTulleken = [
 
 :root {
   --border-radius: 8px;
-  --border-shape: 1px solid;
+  --border-width: 1px;
+  --border-shape: var(--border-width) solid;
   --border: var(--border-shape) var(--grey-40);
-  --invisible-border: var(--border-shape) transparent;
+
+  --transition-duration: 0.15s;
 }
 
 /* ===== Tabs ===== */
 
-.tabs {
-  min-block-size: 14rem;
-}
-
 [role="tablist"] {
   @include utils.dock;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-xxs);
 }
 
 [role="tab"] {
-  padding: var(--relative-spacing-xxs) var(--relative-spacing-xl);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  border: var(--border);
+  border-block-end: 0;
 
-  /**
-   * Hidden border to ensure the shape
-   * of the tab is defined in `forced-colors` mode.
-   */
-  border: var(--invisible-border);
-  border-radius: var(--border-radius);
+  padding-block: var(--relative-spacing-xs);
+  padding-inline: var(--relative-spacing-xxl);
 
-  background-color: transparent;
+  background-color: var(--bg);
 
-  @include utils.transition("background-color, color, border-color");
-
-  &[aria-disabled="false"] {
-    cursor: pointer;
-  }
-}
-
-[role="tab"][aria-selected="false"] {
-  text-decoration: underline;
-
-  &[aria-disabled="false"] {
-    &:active {
-      background-color: var(--grey-30);
-      border-color: var(--grey-30);
-    }
-
-    @include utils.hover {
-      border-color: var(--grey-70);
-    }
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      outline var(--transition-duration) ease-in-out,
+      background-color var(--transition-duration) ease-in-out,
+      border-color var(--transition-duration) ease-in-out,
+      color var(--transition-duration) ease-in-out;
   }
 }
 
 [role="tab"][aria-selected="true"] {
-  background-color: var(--turquoise-40);
-  color: var(--turquoise-80);
+  margin-block-end: calc(-2 * var(--border-width));
+  padding-block-end: calc(var(--relative-spacing-xs) + (2 * var(--border-width)));
+}
 
-  &[aria-disabled="false"] {
-    &:active {
-      background-color: var(--turquoise-50);
-      border-color: var(--turquoise-70);
-    }
+[role="tab"][aria-selected="false"] {
+  border-color: var(--grey-10);
+  background-color: var(--grey-10);
 
-    @include utils.hover {
-      border-color: var(--turquoise-70);
+  @media (hover: hover) {
+    &:hover:not([aria-disabled="true"]) {
+      border-color: var(--turquoise-20);
+      background-color: var(--turquoise-20);
+      color: var(--turquoise-fg);
     }
+  }
+
+  &:active:not([aria-disabled="true"]) {
+    background-color: var(--turquoise-40);
+    border-color: var(--turquoise-40);
+    color: var(--turquoise-fg);
   }
 }
 
-/* ===== Tab panel ===== */
+[role="tab"][aria-disabled="true"] {
+  background-color: var(--grey-30);
+  border-color: var(--grey-30);
+  color: var(--grey-70);
+
+  @media (forced-colors: active) {
+    color: GrayText;
+    border-color: GrayText;
+  }
+}
+
+/* ===== Panel ===== */
 
 [role="tabpanel"] {
   inline-size: 15rem;
   padding: var(--spacing-s) var(--spacing-m);
 
-  background-color: var(--grey-10);
-
-  border: var(--invisible-border);
-  border-radius: var(--border-radius);
-
-  margin-block-start: var(--spacing-m);
+  border: var(--border);
+  border-radius: 0 var(--border-radius) var(--border-radius) var(--border-radius);
 }
 
-/* ===== Focus indicators ===== */
+/* ===== Global ===== */
 
 *:focus-visible {
-  outline: 2px solid var(--blue-80);
-  box-shadow: 0 0 0 6px var(--blue-30);
   isolation: isolate;
+  outline: 6px solid var(--blue-80);
 }
 </style>

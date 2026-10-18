@@ -16,6 +16,8 @@
   --border: var(--border-shape) var(--border-color);
   --invisible-border: var(--border-shape) transparent;
 
+  --transition-duration: 0.15s;
+
   --article-inline-size: min(calc(100svw - var(--inline-margin-min)), 48rem);
   --inline-margin-min: 8rem;
   --inline-margin: calc((100svw - var(--article-inline-size)) / 2);

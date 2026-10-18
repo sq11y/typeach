@@ -74,6 +74,8 @@ img {
   --border-radius: 8px;
   --border-shape: 1px solid;
   --border: var(--border-shape) var(--grey-40);
+
+  --transition-duration: 0.15s;
 }
 
 /* ===== Toolbar ===== */
@@ -82,45 +84,6 @@ img {
   @include utils.dock;
   justify-content: center;
   gap: var(--spacing-xs);
-}
-
-/* ===== Toolbar button ===== */
-
-button {
-  padding-block: var(--relative-spacing-xs);
-  padding-inline: var(--relative-spacing-l);
-
-  border: var(--border);
-  border-radius: var(--border-radius);
-
-  background-color: var(--bg);
-  color: var(--grey-70);
-
-  @include utils.transition("background-color, border-color");
-
-  &[aria-disabled="false"] {
-    cursor: pointer;
-
-    &:active {
-      background-color: var(--grey-10);
-      border-color: var(--grey-60);
-    }
-
-    @include utils.hover {
-      border-color: var(--grey-60);
-    }
-  }
-
-  &[aria-disabled="true"] {
-    background-color: var(--grey-50);
-    border-color: var(--grey-50);
-    color: var(--grey-80);
-
-    @media (forced-colors: active) {
-      color: GrayText;
-      border-color: GrayText;
-    }
-  }
 }
 
 /* ===== Image ===== */
@@ -136,11 +99,54 @@ button {
   }
 }
 
-/* ===== Focus indicators ===== */
+/* ===== Toolbar button ===== */
+
+button {
+  padding-block: var(--relative-spacing-xs);
+  padding-inline: var(--relative-spacing-l);
+
+  border: var(--border);
+  border-radius: var(--border-radius);
+
+  background-color: var(--bg);
+  color: var(--grey-70);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      outline var(--transition-duration) ease-in-out,
+      background-color var(--transition-duration) ease-in-out,
+      border-color var(--transition-duration) ease-in-out;
+  }
+
+  @media (hover: hover) {
+    &:hover:not([aria-disabled="true"]) {
+      border-color: var(--grey-60);
+    }
+  }
+
+  &:active:not([aria-disabled="true"]) {
+    background-color: var(--grey-10);
+    border-color: var(--grey-60);
+  }
+}
+
+/* ===== Disabled button ===== */
+
+button[aria-disabled="true"] {
+  background-color: var(--grey-30);
+  border-color: var(--grey-30);
+  color: var(--grey-70);
+
+  @media (forced-colors: active) {
+    color: GrayText;
+    border-color: GrayText;
+  }
+}
+
+/* ===== Global ===== */
 
 *:focus-visible {
-  outline: 2px solid var(--blue-80);
-  box-shadow: 0 0 0 6px var(--blue-30);
   isolation: isolate;
+  outline: 6px solid var(--blue-80);
 }
 </style>

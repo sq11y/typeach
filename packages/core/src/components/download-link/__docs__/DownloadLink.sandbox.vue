@@ -17,12 +17,13 @@ import DownloadSvg from "./icons/download.svg?component";
 :root {
   --border-radius: 8px;
   --icon-size: 1.25em;
+  --transition-duration: 0.15s;
 }
 
 /* ===== Link & Icon ===== */
 
 a[download] {
-  color: var(--blue-80);
+  color: var(--blue-90);
 
   border-radius: var(--border-radius);
   corner-shape: squircle;
@@ -30,20 +31,25 @@ a[download] {
   padding-inline: var(--relative-spacing-xs);
   margin-inline: calc(var(--relative-spacing-xs) * -1);
 
+  @media (prefers-reduced-motion: no-preference) {
+    transition: outline var(--transition-duration) ease-in-out;
+  }
+
   svg {
     display: inline;
     vertical-align: text-bottom;
     margin-inline: var(--spacing-xs);
-
-    block-size: var(--icon-size);
   }
 }
 
-/* ===== Focus indicators ===== */
+/* ===== Global ===== */
 
 *:focus-visible {
-  outline: 2px solid var(--blue-80);
-  box-shadow: 0 0 0 6px var(--blue-30);
   isolation: isolate;
+  outline: 6px solid var(--blue-80);
+}
+
+svg {
+  block-size: var(--icon-size);
 }
 </style>
