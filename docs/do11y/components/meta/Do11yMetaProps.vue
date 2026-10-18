@@ -16,13 +16,16 @@
 
         <div
           v-if="!small && row.description"
-          v-html="row.description?.replace('<code', '<code class=grey')"
+          v-html="row.description?.replaceAll('<code', '<code class=grey')"
         />
       </div>
     </template>
 
     <template #description="{ row }">
-      <div v-if="row.description" v-html="row.description?.replace('<code', '<code class=grey')" />
+      <div
+        v-if="row.description"
+        v-html="row.description?.replaceAll('<code', '<code class=grey')"
+      />
     </template>
 
     <template #type="{ row }">
