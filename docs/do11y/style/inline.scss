@@ -59,6 +59,7 @@ code:not(pre code).grey {
 }
 
 kbd:not(.unstyled) {
+  background-color: var(--bg);
   border: var(--border-shape) var(--grey-60);
   font-size: var(--font-size-smaller);
 }
