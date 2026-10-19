@@ -1,8 +1,8 @@
 /* stylelint-disable scss/operator-no-unspaced */
 
-@mixin focus-visible($outline: "var(--blue-80)", $shadow: "var(--blue-30)") {
+@mixin focus-visible($outline: "var(--blue-80)") {
   isolation: isolate;
-  outline: 6px solid var(--blue-80);
+  outline: 6px solid #{$outline};
 }
 
 /**

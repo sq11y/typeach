@@ -156,7 +156,7 @@ const searchResultText = computed(() => {
   }
 
   &:has(:focus-visible) {
-    @include mixins.focus-visible(var(--c-border-color), var(--c-background-color));
+    @include mixins.focus-visible(var(--c-border-color));
   }
 
   a {
