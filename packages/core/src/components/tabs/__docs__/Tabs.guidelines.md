@@ -1,11 +1,39 @@
-## Anatomy
+<script lang="ts" setup>
+  import illustration from './images/tabs-anatomy.png';
 
-<img alt="" class="anatomy-illustration" src="./images/tabs-anatomy.png" />
+  const anatomy = `
+    <template>
+      <PeachyTabs>
+         <PeachyTabsList>
+            <div>
+               <PeachyTabsButton />
+               <PeachyTabsActionButton />
+            </div>
+         </PeachyTabsList>
+
+         <PeachyTabsPanel />
+      </PeachyTabs>
+    </template>
+
+    <script lang="ts" setup>
+      import {
+         PeachyTabs,
+         PeachyTabsList,
+         PeachyTabsButton,
+         PeachyTabsPanel
+      } from "@typeach/core";
+    <\/script>
+  `;
+</script>
+
+<Do11yAnatomy :code="anatomy" :illustration="illustration">
 
 1. List
    1. Button
    2. Action button
 2. Panel
+
+</Do11yAnatomy>
 
 ## Use case
 

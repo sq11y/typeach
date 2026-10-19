@@ -1,6 +1,51 @@
-## Anatomy
+<script lang="ts" setup>
+  import illustration from './images/combobox-field-anatomy.png';
 
-<img alt="" class="anatomy-illustration" src="./images/combobox-field-anatomy.png" />
+  const anatomy = `
+    <template>
+      <PeachyComboboxField>
+         <PeachyFieldLabel />
+         <PeachyFieldDescription />
+
+         <PeachyComboboxSelectionList v-if="multiselect">
+            <PeachyComboboxSelectionListItem />
+         </PeachyComboboxSelectionList>
+
+         <PeachyComboboxInput />
+
+         <PeachyListboxInput>
+            <PeachyListboxOption />
+
+            <PeachyListboxGroup>
+               <PeachyListboxGroupLabel />
+               <PeachyListboxOption />
+            </PeachyListboxGroup>
+         </PeachyListboxInput>
+
+         <PeachyFieldError v-if="error" />
+      </PeachyComboboxField>
+    </template>
+
+
+    <script lang="ts" setup>
+      import {
+         PeachyFieldLabel,
+         PeachyFieldDescription,
+         PeachyFieldError,
+         PeachyComboboxSelectionList,
+         PeachyComboboxSelectionListItem,
+         PeachyComboboxField,
+         PeachyComboboxInput,
+         PeachyListboxInput,
+         PeachyListboxGroup,
+         PeachyListboxGroupLabel,
+         PeachyListboxOption
+      } from "@typeach/core";
+    <\/script>
+  `;
+</script>
+
+<Do11yAnatomy :code="anatomy" :illustration="illustration">
 
 1. Selection list - a list of the selected items (intended for `multiselect`)
    1. Selection list item - the selected item
@@ -8,6 +53,8 @@
 3. Listbox - see the full anatomy on the [listbox field page](/f/listbox-field)
 
 You'll find the label, descriptions and error messages documented in the [field component](/f/field).
+
+</Do11yAnatomy>
 
 ## Use case
 

@@ -1,8 +1,41 @@
-## Anatomy
+<script lang="ts" setup>
+  import illustration from '../../table/__docs__/images/table-anatomy.png';
+
+  const anatomy = `
+    <template>
+      <PeachyGridTable>
+         <PeachyTableHead>
+            <PeachyGridTableRow>
+               <PeachyGridTableHeadingCell />
+            </PeachyGridTableRow>
+         </PeachyTableHead>
+
+         <PeachyTableBody>
+            <PeachyGridTableRow>
+               <PeachyGridTableRowHeadingCell />
+               <PeachyGridTableCell />
+            </PeachyGridTableRow>
+         </PeachyTableBody>
+      </PeachyGridTable>
+    </template>
+
+    <script lang="ts" setup>
+      import { 
+         PeachyGridTable,
+         PeachyTableHead,
+         PeachyTableBody,
+         PeachyGridTableRow,
+         PeachyGridTableHeadingCell,
+         PeachyGridTableRowHeadingCell,
+         PeachyGridTableCell
+      } from "@typeach/core";
+    <\/script>
+  `;
+</script>
+
+<Do11yAnatomy :code="anatomy" :illustration="illustration">
 
 A grid follows the same structure as a [Table](/c/table); the structural difference is that the content of most grid cells should be a single control.
-
-<img alt="" class="anatomy-illustration" src="../../table/__docs__/images/table-anatomy.png" />
 
 1. Grid
    1. Head
@@ -12,6 +45,8 @@ A grid follows the same structure as a [Table](/c/table); the structural differe
       1. Row
          1. Row heading cell
          1. Cell
+
+</Do11yAnatomy>
 
 ## Use case
 

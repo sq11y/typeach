@@ -6,28 +6,6 @@
   import ListboxOptionMeta from '../ListboxOption.vue?meta';
 </script>
 
-## Anatomy
-
-```vue
-<template>
-  <PeachyListboxField>
-    <PeachyFieldLabel />
-    <PeachyFieldDescription />
-
-    <PeachyListboxInput>
-      <PeachyListboxOption />
-
-      <PeachyListboxGroup>
-        <PeachyListboxGroupLabel />
-        <PeachyListboxOption />
-      </PeachyListboxGroup>
-    </PeachyListboxInput>
-
-    <PeachyFieldError v-if="error" />
-  </PeachyListboxField>
-</template>
-```
-
 ## Field
 
 <Do11yMeta :meta="ListboxFieldMeta" />

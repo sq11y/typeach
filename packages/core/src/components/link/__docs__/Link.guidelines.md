@@ -1,8 +1,22 @@
-## Anatomy
+<script lang="ts" setup>
+  import illustration from './images/link-anatomy.png';
 
-<img alt="" class="anatomy-illustration" src="./images/link-anatomy.png" />
+  const anatomy = `
+    <template>
+      <PeachyLink />
+    </template>
+
+    <script lang="ts" setup>
+      import { PeachyLink } from "@typeach/core";
+    <\/script>
+  `;
+</script>
+
+<Do11yAnatomy :code="anatomy" :illustration="illustration">
 
 1. Link
+
+</Do11yAnatomy>
 
 ## Use case
 

@@ -5,34 +5,6 @@
   import ComboboxSelectionListItemMeta from '../ComboboxSelectionListItem.vue?meta';
 </script>
 
-## Anatomy
-
-```vue
-<template>
-  <PeachyComboboxField>
-    <PeachyFieldLabel />
-    <PeachyFieldDescription />
-
-    <PeachyComboboxSelectionList v-if="multiselect">
-      <PeachyComboboxSelectionListItem />
-    </PeachyComboboxSelectionList>
-
-    <PeachyComboboxInput />
-
-    <PeachyListboxInput>
-      <PeachyListboxOption />
-
-      <PeachyListboxGroup>
-        <PeachyListboxGroupLabel />
-        <PeachyListboxOption />
-      </PeachyListboxGroup>
-    </PeachyListboxInput>
-
-    <PeachyFieldError v-if="error" />
-  </PeachyComboboxField>
-</template>
-```
-
 ## Field
 
 <Do11yMeta :meta="ComboboxFieldMeta" />

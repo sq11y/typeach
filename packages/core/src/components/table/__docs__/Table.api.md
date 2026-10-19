@@ -8,27 +8,6 @@
   import TableRowHeadingCellMeta from '../TableRowHeadingCell.vue?meta';
 </script>
 
-## Anatomy
-
-```vue
-<template>
-  <PeachyTable>
-    <PeachyTableHead>
-      <PeachyTableRow>
-        <PeachyTableHeadingCell />
-      </PeachyTableRow>
-    </PeachyTableHead>
-
-    <PeachyTableBody>
-      <PeachyTableRow>
-        <PeachyTableRowHeadingCell />
-        <PeachyTableCell />
-      </PeachyTableRow>
-    </PeachyTableBody>
-  </PeachyTable>
-</template>
-```
-
 ## Table
 
 <Do11yMeta :meta="TableMeta" />

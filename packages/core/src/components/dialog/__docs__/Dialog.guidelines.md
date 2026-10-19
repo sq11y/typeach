@@ -1,12 +1,41 @@
-## Anatomy
+<script lang="ts" setup>
+  import illustration from './images/dialog-anatomy.png';
 
-<img alt="" class="anatomy-illustration" src="./images/dialog-anatomy.png" />
+  const anatomy = `
+    <template>
+      <PeachyDialog>
+         <PeachyDialogButton />
+
+         <PeachyDialogPanel>
+            <PeachyDialogHeading />
+            <PeachyDialogDescription />
+            <PeachyDialogCloseButton />
+         </PeachyDialogPanel>
+      </PeachyDialog>
+    </template>
+
+    <script lang="ts" setup>
+      import {
+         PeachyDialog,
+         PeachyDialogButton,
+         PeachyDialogPanel,
+         PeachyDialogHeading,
+         PeachyDialogDescription,
+         PeachyDialogCloseButton
+      } from "@typeach/core";
+    <\/script>
+  `;
+</script>
+
+<Do11yAnatomy :code="anatomy" :illustration="illustration">
 
 1. Button - opens the dialog
 2. Panel - the dialog
    1. Heading
    2. Description
    3. Close button
+
+</Do11yAnatomy>
 
 ## Use case
 

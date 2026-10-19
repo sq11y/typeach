@@ -1,9 +1,26 @@
-## Anatomy
+<script lang="ts" setup>
+  import illustration from './images/disclosure-anatomy.png';
 
-<img alt="" class="anatomy-illustration" src="./images/disclosure-anatomy.png" />
+  const anatomy = `
+    <template>
+      <PeachyDisclosure>
+        <PeachyDisclosureButton />
+        <PeachyDisclosurePanel />
+      </PeachyDisclosure>
+    </template>
+
+    <script lang="ts" setup>
+      import { PeachyDisclosure, PeachyDisclosureButton, PeachyDisclosurePanel } from "@typeach/core";
+    <\/script>
+  `;
+</script>
+
+<Do11yAnatomy :code="anatomy" :illustration="illustration">
 
 1. Button - toggles the content
 2. Panel - the content
+
+</Do11yAnatomy>
 
 ## Use case
 

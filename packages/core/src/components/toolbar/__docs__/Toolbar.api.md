@@ -2,16 +2,6 @@
   import ToolbarMeta from '../Toolbar.vue?meta';
 </script>
 
-## Anatomy
-
-```vue
-<template>
-  <PeachyToolbar>
-    <!-- Supported sub-components -->
-  </PeachyToolbar>
-</template>
-```
-
 ## Toolbar
 
 <Do11yMeta :meta="ToolbarMeta" />

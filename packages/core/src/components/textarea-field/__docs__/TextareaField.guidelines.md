@@ -1,10 +1,37 @@
-## Anatomy
+<script lang="ts" setup>
+  import illustration from './images/textarea-field-anatomy.png';
 
-<img alt="" class="anatomy-illustration" src="./images/textarea-field-anatomy.png" />
+  const anatomy = `
+    <template>
+       <PeachyTextareaField>
+          <PeachyFieldLabel />
+          <PeachyFieldDescription />
+
+          <PeachyTextareaInput />
+
+          <PeachyFieldError v-if="error" />
+       </PeachyTextareaField>
+    </template>
+
+    <script lang="ts" setup>
+      import {
+         PeachyFieldLabel,
+         PeachyFieldDescription,
+         PeachyFieldError,
+         PeachyTextareaField,
+         PeachyTextareaInput
+      } from "@typeach/core";
+    <\/script>
+  `;
+</script>
+
+<Do11yAnatomy :code="anatomy" :illustration="illustration">
 
 1. Input
 
 You'll find the label, descriptions and error messages documented in the [field component](/f/field).
+
+</Do11yAnatomy>
 
 ## Use case
 

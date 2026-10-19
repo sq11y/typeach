@@ -6,27 +6,6 @@
   import GridTableCellMeta from '../GridTableCell.vue?meta';
 </script>
 
-## Anatomy
-
-```vue
-<template>
-  <PeachyGridTable>
-    <PeachyTableHead>
-      <PeachyGridTableRow>
-        <PeachyGridTableHeadingCell />
-      </PeachyGridTableRow>
-    </PeachyTableHead>
-
-    <PeachyTableBody>
-      <PeachyGridTableRow>
-        <PeachyGridTableRowHeadingCell />
-        <PeachyGridTableCell />
-      </PeachyGridTableRow>
-    </PeachyTableBody>
-  </PeachyGridTable>
-</template>
-```
-
 ## Table
 
 <Do11yMeta :meta="GridTableMeta" />

@@ -4,17 +4,6 @@
   import PanelMeta from '../DisclosurePanel.vue?meta';
 </script>
 
-## Anatomy
-
-```vue
-<template>
-  <PeachyDisclosure>
-    <PeachyDisclosureButton />
-    <PeachyDisclosurePanel />
-  </PeachyDisclosure>
-</template>
-```
-
 ## Disclosure
 
 <Do11yMeta :meta="DisclosureMeta" />

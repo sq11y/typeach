@@ -1,11 +1,41 @@
-## Anatomy
+<script lang="ts" setup>
+  import illustration from './images/switch-field-anatomy.png';
 
-<img alt="" class="anatomy-illustration" src="./images/switch-field-anatomy.png" />
+  const anatomy = `
+    <template>
+      <PeachySwitchField>
+         <PeachyFieldLabel />
+         <PeachyFieldDescription />
+
+         <PeachySwitchTrack>
+            <PeachySwitchThumb />
+         </PeachySwitchTrack>
+
+         <PeachyFieldError v-if="error" />
+      </PeachySwitchField>
+    </template>
+
+    <script lang="ts" setup>
+      import {
+         PeachyFieldLabel,
+         PeachyFieldDescription,
+         PeachyFieldError,
+         PeachySwitchField,
+         PeachySwitchTrack,
+         PeachySwitchThumb
+      } from "@typeach/core";
+    <\/script>
+  `;
+</script>
+
+<Do11yAnatomy :code="anatomy" :illustration="illustration">
 
 1. Track - the control
    1. Thumb - the visual indicator for which side is "on"
 
 You'll find the label, descriptions and error messages documented in the [field component](/f/field).
+
+</Do11yAnatomy>
 
 ## Use case
 

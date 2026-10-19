@@ -18,6 +18,29 @@ color: "purple"
   import FieldErrorMeta from '../FieldDescription.vue?meta';
   import FieldLabelMeta from '../FieldDescription.vue?meta';
 
+  import illustration from './images/field-anatomy.png';
+
+  const anatomy = `
+    <template>
+      <*Field>
+        <PeachyFieldLabel />
+        <PeachyFieldDescription />
+
+        <!-- *Field sub-components -->
+
+        <PeachyFieldError v-if="error" />
+      </*Field>
+    </template>
+
+    <script lang="ts" setup>
+      import {
+         PeachyFieldLabel,
+         PeachyFieldDescription,
+         PeachyFieldError
+      } from "@typeach/core";
+    <\/script>
+  `;
+
   const route = useRoute();
 
   const fieldRoutes = computed(() => {
@@ -35,31 +58,14 @@ color: "purple"
 
 <FieldSandbox title="Field" block-size="24rem" />
 
-## Anatomy
-
-<img alt="" class="anatomy-illustration" src="./images/field-anatomy.png" />
+<Do11yAnatomy :code="anatomy" :illustration="illustration">
 
 1. Label
 2. Description
 3. *Field sub-components - see the full anatomy on the field's page
-4. Error
+4. Error - only render when there is an _actual_ error, rendering it will mark the field as invalid
 
-### API
-
-```vue
-<template>
-  <*Field>
-    <PeachyFieldLabel />
-    <PeachyFieldDescription />
-
-    <!-- *Field sub-components -->
-
-    <PeachyFieldError v-if="error" />
-  </*Field>
-</template>
-```
-
-You should only render the error sub-component when there is an actual error, as it will mark the field invalid (e.g. use `v-if` instead of `v-show`).
+</Do11yAnatomy>
 
 ## The {{ fieldRoutes.length }} fields
 

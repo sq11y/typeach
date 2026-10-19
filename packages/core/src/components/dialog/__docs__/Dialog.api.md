@@ -7,22 +7,6 @@
   import CloseButtonMeta from '../DialogCloseButton.vue?meta';
 </script>
 
-## Anatomy
-
-```vue
-<template>
-  <PeachyDialog>
-    <PeachyDialogButton />
-
-    <PeachyDialogPanel>
-      <PeachyDialogHeading />
-      <PeachyDialogDescription />
-      <PeachyDialogCloseButton />
-    </PeachyDialogPanel>
-  </PeachyDialog>
-</template>
-```
-
 ## Dialog
 
 <Do11yMeta :meta="DialogMeta" />

@@ -1,6 +1,39 @@
-## Anatomy
+<script lang="ts" setup>
+  import illustration from './images/table-anatomy.png';
 
-<img alt="" class="anatomy-illustration" src="./images/table-anatomy.png" />
+  const anatomy = `
+    <template>
+      <PeachyTable>
+         <PeachyTableHead>
+            <PeachyTableRow>
+               <PeachyTableHeadingCell />
+            </PeachyTableRow>
+         </PeachyTableHead>
+
+         <PeachyTableBody>
+            <PeachyTableRow>
+               <PeachyTableRowHeadingCell />
+               <PeachyTableCell />
+            </PeachyTableRow>
+         </PeachyTableBody>
+      </PeachyTable>
+    </template>
+
+    <script lang="ts" setup>
+      import {
+         PeachyTable,
+         PeachyTableHead,
+         PeachyTableBody,
+         PeachyTableRow,
+         PeachyTableHeadingCell,
+         PeachyTableRowHeadingCell,
+         PeachyTableCell
+      } from "@typeach/core";
+    <\/script>
+  `;
+</script>
+
+<Do11yAnatomy :code="anatomy" :illustration="illustration">
 
 1. Table
    1. Head
@@ -10,6 +43,8 @@
       1. Row
          1. Row heading cell
          1. Cell
+
+</Do11yAnatomy>
 
 ## Use case
 

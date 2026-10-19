@@ -1,11 +1,51 @@
-## Anatomy
+<script lang="ts" setup>
+  import illustration from './images/select-field-anatomy.png';
 
-<img alt="" class="anatomy-illustration" src="./images/select-field-anatomy.png" />
+  const anatomy = `
+    <template>
+       <PeachySelectField>
+          <PeachyFieldLabel />
+          <PeachyFieldDescription />
+
+          <PeachySelectButton />
+
+          <PeachyListboxInput>
+             <PeachyListboxOption />
+
+             <PeachyListboxGroup>
+                <PeachyListboxGroupLabel />
+                <PeachyListboxOption />
+             </PeachyListboxGroup>
+          </PeachyListboxInput>
+
+          <PeachyFieldError v-if="error" />
+       </PeachySelectField>
+    </template>
+
+    <script lang="ts" setup>
+      import { 
+         PeachyFieldLabel,
+         PeachyFieldDescription,
+         PeachyFieldError,
+         PeachySelectField,
+         PeachySelectButton,
+         PeachyListboxInput,
+         PeachyListboxOption,
+         PeachyListboxGroup,
+         PeachyListboxGroupLabel
+      } from "@typeach/core";
+    <\/script>
+  `;
+</script>
+
+<Do11yAnatomy :code="anatomy" :illustration="illustration">
 
 1. Button - where the selected options are put
 2. Listbox - see the full anatomy on the [listbox field page](/f/listbox-field)
 
 You'll find the label, descriptions and error messages documented in the [field component](/f/field).
+
+</Do11yAnatomy>
 
 ## Use case
 

@@ -3,23 +3,6 @@
   import SwitchTrackMeta from '../SwitchTrack.vue?meta';
 </script>
 
-## Anatomy
-
-```vue
-<template>
-  <PeachySwitchField>
-    <PeachyFieldLabel />
-    <PeachyFieldDescription />
-
-    <PeachySwitchTrack>
-      <PeachySwitchThumb />
-    </PeachySwitchTrack>
-
-    <PeachyFieldError v-if="error" />
-  </PeachySwitchField>
-</template>
-```
-
 ## Field
 
 <Do11yMeta :meta="SwitchFieldMeta" />

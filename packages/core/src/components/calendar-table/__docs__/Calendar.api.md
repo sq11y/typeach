@@ -4,30 +4,6 @@
   import CalendarDateMeta from '../CalendarDate.vue?meta';
 </script>
 
-## Anatomy
-
-```vue
-<template>
-  <PeachyCalendar>
-    <PeachyTableHead>
-      <PeachyTableRow>
-        <PeachyTableHeadingCell />
-      </PeachyTableRow>
-    </PeachyTableHead>
-
-    <PeachyTableBody>
-      <PeachyTableRow>
-        <PeachyTableRowHeadingCell />
-
-        <PeachyCalendarCell>
-          <PeachyCalendarDate />
-        </PeachyCalendarCell>
-      </PeachyTableRow>
-    </PeachyTableBody>
-  </PeachyCalendar>
-</template>
-```
-
 ## Calendar
 
 <Do11yMeta :meta="CalendarMeta" />

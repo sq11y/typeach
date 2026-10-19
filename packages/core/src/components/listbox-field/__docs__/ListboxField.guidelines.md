@@ -1,6 +1,41 @@
-## Anatomy
+<script lang="ts" setup>
+  import illustration from './images/listbox-field-anatomy.png';
 
-<img alt="" class="anatomy-illustration" src="./images/listbox-field-anatomy.png" />
+  const anatomy = `
+    <template>
+      <PeachyListboxField>
+         <PeachyFieldLabel />
+         <PeachyFieldDescription />
+
+         <PeachyListboxInput>
+            <PeachyListboxOption />
+
+            <PeachyListboxGroup>
+               <PeachyListboxGroupLabel />
+               <PeachyListboxOption />
+            </PeachyListboxGroup>
+         </PeachyListboxInput>
+
+         <PeachyFieldError v-if="error" />
+      </PeachyListboxField>
+    </template>
+
+    <script lang="ts" setup>
+      import {
+         PeachyFieldLabel,
+         PeachyFieldDescription,
+         PeachyFieldError,
+         PeachyListboxField,
+         PeachyListboxInput,
+         PeachyListboxGroup,
+         PeachyListboxGroupLabel,
+         PeachyListboxOption
+      } from "@typeach/core";
+    <\/script>
+  `;
+</script>
+
+<Do11yAnatomy :code="anatomy" :illustration="illustration">
 
 1. Input - the list of options
    1. Option
@@ -9,6 +44,8 @@
       2. Option (grouped)
 
 You'll find the label, descriptions and error messages documented in the [field component](/f/field).
+
+</Do11yAnatomy>
 
 ## Use case
 
