@@ -16,10 +16,17 @@
 <script lang="ts" setup>
 import hotkeys from "hotkeys-js";
 
-import { useAttrs, useTemplateRef, type ButtonHTMLAttributes } from "vue";
+import {
+  computed,
+  onBeforeUnmount,
+  useAttrs,
+  useTemplateRef,
+  type ButtonHTMLAttributes,
+} from "vue";
+
+import { watchImmediate } from "@vueuse/core";
 
 import { optionalInject, provideElement } from "../../hooks";
-
 import { ToolbarContextKey } from "../toolbar";
 
 export interface ButtonProps {
@@ -76,6 +83,8 @@ const { onKeyDown, navigateTo } = optionalInject(ToolbarContextKey);
 
 provideElement("toolbar", element);
 
+const keyboardShortcutsRef = computed(() => props.keyboardShortcut);
+
 const onClick = (event: MouseEvent) => {
   navigateTo?.(element.value!);
 
@@ -86,21 +95,22 @@ const onClick = (event: MouseEvent) => {
   }
 };
 
-hotkeys("*", (event) => {
-  if (!props.keyboardShortcut) {
-    return;
+watchImmediate(keyboardShortcutsRef, (newKeyboardShortcuts, oldKeyboardShortcuts) => {
+  if (oldKeyboardShortcuts) {
+    hotkeys.unbind(oldKeyboardShortcuts);
   }
 
-  const pressedKeys = hotkeys.getPressedKeyString();
-
-  for (const shortcut of props.keyboardShortcut.split(",")) {
-    const keys = shortcut.split("+").map((key) => key.trim());
-
-    if (keys.every((key) => pressedKeys.includes(key))) {
+  if (newKeyboardShortcuts) {
+    hotkeys(newKeyboardShortcuts, (event) => {
       event.preventDefault();
       element.value?.click();
-      return false;
-    }
+    });
+  }
+});
+
+onBeforeUnmount(() => {
+  if (props.keyboardShortcut) {
+    hotkeys.unbind(props.keyboardShortcut);
   }
 });
 </script>
