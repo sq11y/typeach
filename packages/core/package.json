@@ -1,6 +1,6 @@
 {
   "name": "@typeach/core",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "An unstyled component library for Vue.",
   "keywords": [
     "accessibility",
