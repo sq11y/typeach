@@ -9,7 +9,6 @@ color: "green"
 
 <script setup>
   import { useRoute } from 'vue-router';
-  import { useMediaQuery } from '@vueuse/core';
 
   import GridTableSandbox from './GridTable.sandbox.vue';
 
@@ -18,8 +17,6 @@ color: "green"
   import Accessibility from './GridTable.accessibility.md';
 
   const route = useRoute();
-
-  const tallTable = useMediaQuery('(width < 28rem)');
 
   const tabs = {
     Guidelines,
@@ -34,6 +31,6 @@ color: "green"
   {{ route?.meta.description }}
 </div>
 
-<GridTableSandbox title="Grid table" :block-size="tallTable ? '45rem' : '30rem'"  />
+<GridTableSandbox title="Grid table" block-size="45rem"  />
 
 <Do11yTabs :tabs="tabs" />

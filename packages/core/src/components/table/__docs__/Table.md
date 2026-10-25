@@ -8,7 +8,6 @@ color: "green"
 
 <script setup>
   import { useRoute } from 'vue-router';
-  import { useMediaQuery } from '@vueuse/core';
 
   import TableSandbox from './Table.sandbox.vue';
 
@@ -17,8 +16,6 @@ color: "green"
   import Accessibility from './Table.accessibility.md';
 
   const route = useRoute();
-
-  const tallTable = useMediaQuery('(width < 28rem)');
 
   const tabs = {
     Guidelines,
@@ -33,6 +30,6 @@ color: "green"
   {{ route?.meta.description }}
 </div>
 
-<TableSandbox title="Table" :block-size="tallTable ? '45rem' : '30rem'"  />
+<TableSandbox title="Table" block-size="45rem"  />
 
 <Do11yTabs :tabs="tabs" />
