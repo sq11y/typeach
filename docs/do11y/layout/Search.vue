@@ -1,12 +1,12 @@
 <template>
   <PeachyDialog v-model="open" modal>
-    <PeachyDialogButton :class="c('button')" keyboard-shortcut="Ctrl+K, ⌘+K">
+    <PeachyDialogButton :class="c('button')" keyboard-shortcut="ctrl+K, ⌘+K">
       Search
 
       <kbd v-if="isMacPlatform()" class="unstyled" aria-hidden="true">
         <CmdSvg aria-hidden="true" />K
       </kbd>
-      <kbd v-else> Ctrl + K </kbd>
+      <kbd v-else aria-hidden="true"> Ctrl + K </kbd>
     </PeachyDialogButton>
 
     <PeachyDialogPanel light-dismiss :class="c('dialog')">
