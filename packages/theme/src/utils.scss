@@ -36,6 +36,12 @@
   flex-wrap: wrap;
 }
 
+@mixin stretched-dock {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
 @mixin stack {
   display: flex;
   flex: 1 1 auto;

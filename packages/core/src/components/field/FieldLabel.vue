@@ -41,6 +41,10 @@ const { sharedIds } = inject(FieldContextKey)!;
 shareId(sharedIds, "label", () => props.id);
 
 const onClick = () => {
-  document.getElementById(sharedIds.get("input"))?.focus();
+  if (sharedIds.has("focus")) {
+    document.getElementById(sharedIds.get("focus"))?.focus();
+  } else {
+    document.getElementById(sharedIds.get("input"))?.focus();
+  }
 };
 </script>

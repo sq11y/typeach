@@ -69,7 +69,7 @@ You'll find the label, descriptions and error messages documented in the [field 
 
 <template v-slot:dont>
 
-- Few options - use a radio or a checkbox group.
+- Few options - use a [Radio field](/f/radio-field) or a checkbox group.
 - Few options, but you want to save space - use [Select Field](/f/select-field).
 
 </template>

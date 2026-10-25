@@ -11,6 +11,11 @@ export type SharedIds = {
    * The getter.
    */
   get: (key: string) => string;
+
+  /**
+   * If there is a shared id for the key.
+   */
+  has: (key: string) => boolean;
 };
 
 /**
@@ -31,6 +36,10 @@ export const useSharedIds = (): SharedIds => {
 
     get(key) {
       return sharedIds.value.get(key)!;
+    },
+
+    has(key) {
+      return sharedIds.value.has(key);
     },
   };
 };

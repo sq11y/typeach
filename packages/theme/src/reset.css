@@ -34,7 +34,8 @@
 /* Ensure clickable targets are communicated. */
 :where(label),
 :where(a, select:enabled:not([aria-disabled="true"]), button:enabled:not([aria-disabled="true"])),
-:where([role="combobox"]:not([aria-disabled="true"]), [role="option"]:not([aria-disabled="true"])) {
+:where([role="combobox"]:not([aria-disabled="true"]), [role="option"]:not([aria-disabled="true"])),
+:where(input[type="radio"]) {
   cursor: pointer;
 }
 

@@ -9,6 +9,7 @@ export * from "./field";
 export * from "./grid-table";
 export * from "./link";
 export * from "./listbox-field";
+export * from "./radio-field";
 export * from "./select-field";
 export * from "./separator";
 export * from "./switch-field";

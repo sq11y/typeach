@@ -60,7 +60,7 @@ You'll find the label, descriptions and error messages documented in the [field 
 
 <template v-slot:dont>
 
-- There are few options - use a radio or a checkbox group.
+- There are few options - use a [Radio field](/f/radio-field) or a checkbox group.
 - You want multiselect. Though the component supports it - it's not great for user friendliness, use [Combobox Field](/f/combobox-field) or a checkbox group, when possible.
 - The options benefit from filtering, use [Combobox Field](/f/combobox-field).
 

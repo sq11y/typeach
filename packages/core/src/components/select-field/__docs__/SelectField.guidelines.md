@@ -63,7 +63,7 @@ You'll find the label, descriptions and error messages documented in the [field 
 
 - You only want the typeahead and extensive keyboard navgiation, use a select.
 - It would be better for the user to _search_ through the options, use a combobox.
-- There are very few options, use a radio or a group of checkboxes.
+- There are few options - use a [Radio field](/f/radio-field) or a checkbox group.
 
 </template>
 
