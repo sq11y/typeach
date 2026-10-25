@@ -12,7 +12,7 @@
 
 html {
   block-size: 100%;
-  scrollbar-gutter: stable;
+  scrollbar-gutter: auto;
 }
 
 body {

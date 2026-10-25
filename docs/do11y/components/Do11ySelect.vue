@@ -171,16 +171,18 @@ button[role="combobox"] {
   }
 }
 
-[role="group"]:not(:first-child) {
-  margin-block-start: var(--spacing-s);
-}
+[role="listbox"] {
+  [role="group"]:not(:first-child) {
+    margin-block-start: var(--spacing-s);
+  }
 
-[role="group"] {
-  @include utils.stack;
-  gap: var(--spacing-xxs);
+  [role="group"] {
+    @include utils.stack;
+    gap: var(--spacing-xxs);
 
-  > [role="option"] {
-    margin-inline-start: var(--spacing-s);
+    > [role="option"] {
+      margin-inline-start: var(--spacing-s);
+    }
   }
 }
 
