@@ -2,7 +2,11 @@
   <PeachyDialog v-model="open" modal>
     <PeachyDialogButton :class="c('button')" keyboard-shortcut="Ctrl+K, ⌘+K">
       Search
-      <kbd class="unstyled" aria-hidden="true"><CmdSvg aria-hidden="true" />K</kbd>
+
+      <kbd v-if="isMacPlatform()" class="unstyled" aria-hidden="true">
+        <CmdSvg aria-hidden="true" />K
+      </kbd>
+      <kbd v-else> Ctrl + K </kbd>
     </PeachyDialogButton>
 
     <PeachyDialogPanel light-dismiss :class="c('dialog')">
@@ -44,6 +48,7 @@ import {
   PeachyTextInput,
   PeachyVisuallyHidden,
   useBemClass,
+  isMacPlatform,
 } from "@typeach/core";
 
 import CmdSvg from "../icons/cmd.svg?component";
