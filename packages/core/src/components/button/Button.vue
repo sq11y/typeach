@@ -86,7 +86,7 @@ const onClick = (event: MouseEvent) => {
   }
 };
 
-hotkeys("*", () => {
+hotkeys("*", (event) => {
   if (!props.keyboardShortcut) {
     return;
   }
@@ -97,6 +97,7 @@ hotkeys("*", () => {
     const keys = shortcut.split("+").map((key) => key.trim());
 
     if (keys.every((key) => pressedKeys.includes(key))) {
+      event.preventDefault();
       element.value?.click();
       return false;
     }
