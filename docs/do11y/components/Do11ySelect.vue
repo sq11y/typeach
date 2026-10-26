@@ -40,7 +40,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, useId, watch } from "vue";
+import { computed, ref, useId } from "vue";
+import { watchImmediate } from "@vueuse/core";
 
 import {
   PeachyListboxInput,
@@ -94,7 +95,7 @@ const modelValue = defineModel<string>();
 
 const multipleModelValue = ref<string[]>([]);
 
-watch(multipleModelValue, (newMultipleModelValue) => {
+watchImmediate(multipleModelValue, (newMultipleModelValue) => {
   modelValue.value = newMultipleModelValue[0] || undefined;
 });
 
@@ -105,7 +106,7 @@ const selectedOption = computed(() => {
     .find((o) => o.value === modelValue.value);
 });
 
-watch(modelValue, (newModelValue) => {
+watchImmediate(modelValue, (newModelValue) => {
   if (!newModelValue) {
     multipleModelValue.value = [];
   } else if (multipleModelValue.value[0] !== newModelValue) {
@@ -130,10 +131,9 @@ button[role="combobox"] {
 
 button[role="combobox"] {
   margin-inline-start: var(--relative-spacing-s);
-  padding-block: 0;
 
-  font-size: var(--font-size-smaller);
-  line-height: 2.2em;
+  padding-block: var(--relative-spacing-xs);
+  padding-inline: var(--relative-spacing-l) calc(var(--relative-spacing-l) * 0.875);
 }
 
 [role="listbox"] {

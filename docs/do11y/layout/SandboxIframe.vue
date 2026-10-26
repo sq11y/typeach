@@ -1,11 +1,13 @@
 <template>
   <div :class="c()">
     <div :class="c('toolbar')">
+      <Do11yVisionFilterSelect @filter="filter = $event" />
+
       <Do11ySizeRadio v-model="size" />
     </div>
 
     <div :class="c('wrapper')">
-      <iframe :id="frameId" ref="element" :title="`${title} sandbox`" :src="url" />
+      <iframe :id="frameId" ref="element" :title="`${title} sandbox`" :src="url" :style="style" />
     </div>
   </div>
 
@@ -20,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, useId, useTemplateRef, watch } from "vue";
+import { computed, ref, useId, useTemplateRef, watch, type CSSProperties } from "vue";
 import { useBemClass } from "@typeach/core";
 
 import type { SandboxIframeProps } from "do11y";
@@ -28,6 +30,7 @@ import type { SandboxIframeProps } from "do11y";
 import Do11yCodeBlock from "../components/Do11yCodeBlock.vue";
 import Do11ySwitch from "../components/Do11ySwitch.vue";
 import Do11ySizeRadio from "../components/Do11ySizeRadio.vue";
+import Do11yVisionFilterSelect from "../components/Do11yVisionFilterSelect.vue";
 
 import PaintBrushUncheckedSvg from "../icons/paint-brush--unchecked.svg?component";
 import PaintBrushCheckedSvg from "../icons/paint-brush--checked.svg?component";
@@ -56,7 +59,16 @@ const element = useTemplateRef("element");
 
 const showStyles = ref(false);
 
+const filter = ref<string>();
+
 const size = ref<"mobile" | "desktop">();
+
+const style = computed<CSSProperties>(() => {
+  return {
+    filter: filter.value,
+    resize: !size.value ? "horizontal" : undefined,
+  };
+});
 
 const inlineSize = computed(() => {
   if (!size.value) {
@@ -102,7 +114,6 @@ iframe {
 
   @include utils.dock;
   justify-content: end;
-  gap: var(--spacing-m);
 
   padding: var(--spacing-m);
 }

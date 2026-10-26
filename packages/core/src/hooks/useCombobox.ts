@@ -245,6 +245,7 @@ export const useCombobox = (
 
       case "open":
       case "close":
+        event.preventDefault();
         setOpen(action === "open");
         break;
 

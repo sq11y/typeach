@@ -55,6 +55,9 @@ const size = defineModel<"mobile" | "desktop">();
 }
 
 .size-radio__options {
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-s);
+
   @include utils.stretched-dock;
   gap: var(--spacing-xxs);
   justify-content: end;
