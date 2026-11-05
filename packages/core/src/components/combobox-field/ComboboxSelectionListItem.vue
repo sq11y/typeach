@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 export interface ComboboxFieldSelectionListItemSlots {
   /**
-   * The item and related controls like for example a "Remove option _x_" button.
+   * The item and related controls, e.g. "Remove option _x_" button.
    */
   default: () => void;
 }

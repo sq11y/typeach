@@ -21,7 +21,7 @@ export interface SelectFieldGroupLabelProps {
 
 export interface SelectFieldGroupLabelSlots {
   /**
-   * The content of the group label should include an [accessible label](/p/accessible-labels).
+   * The content of the group label.
    */
   default: () => void;
 }

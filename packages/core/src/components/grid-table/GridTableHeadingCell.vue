@@ -24,7 +24,7 @@ export interface GridTableHeadingCellProps {
 
 export interface GridTableHeadingCellSlots {
   /**
-   * The content of the heading should include an [accessible label](/p/accessible-labels).
+   * The content of the heading should only contain [valid children for the HTML th element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/th#technical_summary).
    */
   default: () => void;
 }

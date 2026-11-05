@@ -7,7 +7,7 @@
 - Keyboard support.
 - ARIA roles.
 - When used with [Field](/f/field) - associated label, descriptions and errors.
-- If the listbox input is scrollable, options are scrolled into view when focused.
+- If the listbox input is scrollable, the focused option remains scrolled into view.
 
 </template>
 
@@ -26,7 +26,7 @@
 
 ---
 
-- If you add a scrollable element _between_ the listbox input and the options, you have to scroll the options into view when focused.
+- If you add a scrollable element _between_ the listbox input and the options, you have to keep the focused option in view yourself.
 
 </template>
 

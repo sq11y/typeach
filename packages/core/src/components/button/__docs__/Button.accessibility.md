@@ -5,7 +5,7 @@
 <template v-slot:do>
 
 - Keyboard support.
-- Communicates keyboard shortcuts to trigger the button with `aria-keyshortcuts`.
+- Communicates which keyboard shortcuts trigger the button with `aria-keyshortcuts`.
 - Disabled state indicated with `"aria-disabled"`.
 - Loading indicated with `aria-busy`.
 

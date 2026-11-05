@@ -28,7 +28,7 @@
 
 ## Keyboard support
 
-Only one of the cell buttons remain in the tab order - the focused date - which will update as the user navigates.
+Only one of the cell buttons remain in the tab order - `modelValue` - which will change as the user navigates the calendar.
 
 | Key                                     | Moves..                               |
 | --------------------------------------- | ------------------------------------- |

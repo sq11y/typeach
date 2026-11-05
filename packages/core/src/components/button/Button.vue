@@ -31,12 +31,12 @@ import { ToolbarContextKey } from "../toolbar";
 
 export interface ButtonProps {
   /**
-   * The `type` attribute for the button.
+   * The [type attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button#type) for the button.
    */
   type?: ButtonHTMLAttributes["type"];
 
   /**
-   * If the button should be disabled. If you want it to also be taken out of the tab order, `"without-focus"` can be used.
+   * If the button should be disabled. If set to `"without-focus"` the button will also be taken out of the tab-order.
    */
   disabled?: boolean | "without-focus";
 
@@ -60,7 +60,7 @@ export interface ButtonEmits {
 
 export interface ButtonSlots {
   /**
-   * The button should include an [accessible label](/p/accessible-labels) and only contain non-interactive [phrasing content](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#phrasing_content).
+   * Should only contain non-interactive [phrasing content](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#phrasing_content).
    */
   default: () => void;
 }

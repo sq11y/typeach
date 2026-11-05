@@ -18,7 +18,7 @@ export interface RadioOptionProps {
 
 export interface RadioOptionSlots {
   /**
-   * The radio option should include an [accessible label](/p/accessible-labels) and a radio input.
+   * The radio option.
    */
   default: () => void;
 }

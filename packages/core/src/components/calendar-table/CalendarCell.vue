@@ -9,7 +9,7 @@ import { PeachyTableCell } from "../table";
 
 export interface CalendarCellSlots {
   /**
-   * The content of the cell should include a single `Date`.
+   * Should include a single `Date`.
    */
   default: () => void;
 }

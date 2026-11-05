@@ -10,7 +10,7 @@
 
 ## Cell
 
-<Do11yMeta :meta="CalendarDateMeta" />
+<Do11yMeta :meta="CalendarCellMeta" />
 
 ## Date
 

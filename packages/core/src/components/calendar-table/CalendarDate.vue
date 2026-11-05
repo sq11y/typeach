@@ -30,28 +30,26 @@ export interface CalendarDateProps {
   date: Date;
 
   /**
-   * If the button is disabled or not.
+   * If the date shoule be disabled.
    */
   disabled?: boolean;
 
   /**
-   * If the date is currently selected or not.
+   * If the date is currently selected.
    */
   selected?: boolean;
 }
 
 export interface CalendarDateEmits {
   /**
-   * The event triggered on click.
+   * Only fired when the date is enabled.
    */
   click: [event: MouseEvent];
 }
 
 export interface CalendarDateSlots {
   /**
-   * The content of the button should include an [accessible label](/p/accessible-labels) with the full date.
-   *
-   * Also keep in mind that a button should only contain [phrasing content](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#phrasing_content).
+   * Should only contain [phrasing content](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#phrasing_content).
    */
   default: () => void;
 }

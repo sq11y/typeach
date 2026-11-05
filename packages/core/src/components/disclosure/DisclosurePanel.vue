@@ -25,8 +25,6 @@ import { DisclosureContextKey } from "./hooks";
 export interface DisclosurePanelProps {
   /**
    * Disable the browser's built-in page search (e.g. with <kbd>Cmd</kbd> + <kbd>F</kbd>) from finding content inside the panel and opening it.
-   *
-   * Search does not work with `popopver`.
    */
   hideFromSearch?: boolean;
 

@@ -37,9 +37,7 @@ import { ListboxFieldContextKey } from "./hooks";
 
 export interface ListboxOptionProps {
   /**
-   * The label for the option.
-   *
-   * This will be used to test for a match with filters or typeahead, and will be the value of any related inputs in single-select mode.
+   * The label for the option. Used for filtering or typeahead, and as the value for related inputs when single select.
    */
   label: string;
 
@@ -63,7 +61,7 @@ export interface ListboxOptionProps {
 
 export interface ListboxOptionSlots {
   /**
-   * The content of the option should include an [accessible label](/p/accessible-labels).
+   * The content of the option.
    */
   default: () => void;
 }

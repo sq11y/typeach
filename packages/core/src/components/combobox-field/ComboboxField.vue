@@ -35,7 +35,7 @@ const props = defineProps<ComboboxFieldProps>();
 defineSlots<ComboboxFieldSlots>();
 
 /**
- * The selected values. When single select, there will be only one value in the array.
+ * The selected values. When single select, it will hold a single value.
  */
 const modelValue = defineModel<string[]>({ default: () => [] });
 

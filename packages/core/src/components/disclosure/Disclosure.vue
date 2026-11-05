@@ -22,7 +22,7 @@ export interface DisclosureProps {
   /**
    * If the disclosure should use the [Popover API](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover#auto) with `[popover="auto"]` and invoker commands.
    *
-   * Please note that this will disable the ability to search the content of the panel when closed.
+   * This will **disable the ability to search** the content of the panel while closed.
    */
   popover?: boolean;
 }
@@ -35,7 +35,7 @@ export interface DisclosureSlots {
 }
 
 /**
- * If the disclosure is open or not.
+ * If the disclosure is open.
  */
 const open = defineModel<boolean>({ default: false });
 

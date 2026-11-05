@@ -20,7 +20,7 @@ export interface LinkProps {
 
 export interface LinkSlots {
   /**
-   * The link should include an [accessible label](/p/accessible-labels) and no [interactive elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#interactive_content).
+   * Should contain no [interactive elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#interactive_content).
    */
   default: () => void;
 }

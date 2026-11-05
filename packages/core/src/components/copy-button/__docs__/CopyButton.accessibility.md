@@ -5,7 +5,7 @@
 <template v-slot:do>
 
 - Keyboard support.
-- Communicates keyboard shortcuts to trigger the button with `aria-keyshortcuts`.
+- Communicates which keyboard shortcuts trigger the button with `aria-keyshortcuts`.
 - Announces changes to the content of the button using a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions).
 
 </template>
@@ -14,7 +14,7 @@
 
 - Add an [accessible label](/p/accessible-labels), even if there is no _visible_ label.
 - Change the accessible label when `isCopying` is `true` to indicate a successful copy.
-- Avoid `aria-label` or `aria-labelledby`, use visually hidden text - the live region looks for changes to the _content_ of the button, not the button itself.
+- Avoid `aria-label` or `aria-labelledby`, use visually hidden tex, since the live region looks for changes to the _content_ of the button, not the button itself.
 
 ---
 
