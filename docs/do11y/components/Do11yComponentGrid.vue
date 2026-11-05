@@ -139,6 +139,9 @@ const searchResultText = computed(() => {
 
   margin-block-start: 0;
 
+  display: flex;
+  flex-direction: column;
+
   @media (prefers-reduced-motion: no-preference) {
     transition:
       outline var(--transition-duration) ease-in-out,
@@ -192,6 +195,8 @@ const searchResultText = computed(() => {
 }
 
 .component-grid__description {
+  flex-grow: 1;
+
   padding: var(--spacing-l);
   padding-block: var(--spacing-m);
   margin-block-start: calc((var(--spacing-m) / 2) * -1);
