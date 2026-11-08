@@ -33,7 +33,7 @@ import {
   PeachyRadioOptionInput
 } from "@typeach/core";
 
-const modelValue = defineModel<string>({ default: "tram" });
+const modelValue = defineModel<string | undefined>({ default: "tram" });
 </script>
 
 <style lang="scss">
