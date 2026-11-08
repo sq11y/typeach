@@ -14,7 +14,7 @@ import { inject, useId } from "vue";
 import { FieldContextKey } from "../field/hooks";
 import { shareId } from "../../hooks";
 
-export interface TextareaFieldInputProps {
+export interface TextareaInputProps {
   /**
    * The id for the element.
    *
@@ -23,7 +23,7 @@ export interface TextareaFieldInputProps {
   id?: string;
 }
 
-const props = withDefaults(defineProps<TextareaFieldInputProps>(), {
+const props = withDefaults(defineProps<TextareaInputProps>(), {
   id: () => useId(),
   rows: 2,
 });

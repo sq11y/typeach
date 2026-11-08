@@ -5,12 +5,12 @@
 </template>
 
 <script lang="ts" setup>
-export interface ComboboxFieldSelectionListItemSlots {
+export interface ComboboxSelectionListItemSlots {
   /**
    * The item and related controls, e.g. "Remove option _x_" button.
    */
   default: () => void;
 }
 
-defineSlots<ComboboxFieldSelectionListItemSlots>();
+defineSlots<ComboboxSelectionListItemSlots>();
 </script>

@@ -10,14 +10,14 @@ import { useSharedIds } from "../../hooks";
 
 import { ListboxFieldGroupContextKey } from "./hooks";
 
-export interface SelectFieldGroupSlots {
+export interface ListboxGroupSlots {
   /**
    * The label and options.
    */
   default: () => void;
 }
 
-defineSlots<SelectFieldGroupSlots>();
+defineSlots<ListboxGroupSlots>();
 
 const sharedIds = useSharedIds();
 

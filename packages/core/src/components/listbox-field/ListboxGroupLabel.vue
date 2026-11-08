@@ -10,7 +10,7 @@ import { shareId } from "../../hooks";
 
 import { ListboxFieldGroupContextKey } from "./hooks";
 
-export interface SelectFieldGroupLabelProps {
+export interface ListboxGroupLabelProps {
   /**
    * The id for the element.
    *
@@ -19,18 +19,18 @@ export interface SelectFieldGroupLabelProps {
   id?: string;
 }
 
-export interface SelectFieldGroupLabelSlots {
+export interface ListboxGroupLabelSlots {
   /**
    * The content of the group label.
    */
   default: () => void;
 }
 
-const props = withDefaults(defineProps<SelectFieldGroupLabelProps>(), {
+const props = withDefaults(defineProps<ListboxGroupLabelProps>(), {
   id: () => useId(),
 });
 
-defineSlots<SelectFieldGroupLabelSlots>();
+defineSlots<ListboxGroupLabelSlots>();
 
 const sharedIds = inject(ListboxFieldGroupContextKey)!;
 

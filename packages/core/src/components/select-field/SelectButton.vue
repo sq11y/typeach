@@ -26,7 +26,7 @@ import { shareId } from "../../hooks";
 import { FieldContextKey } from "../field/hooks";
 import { ListboxFieldContextKey } from "../listbox-field/hooks";
 
-export interface SelectFieldButtonProps {
+export interface SelectButtonProps {
   /**
    * The id for the element.
    *
@@ -35,18 +35,18 @@ export interface SelectFieldButtonProps {
   id?: string;
 }
 
-export interface SelectFieldButtonSlots {
+export interface SelectButtonSlots {
   /**
    * The accessibel label of the button should include the selected items.
    */
   default: () => void;
 }
 
-const props = withDefaults(defineProps<SelectFieldButtonProps>(), {
+const props = withDefaults(defineProps<SelectButtonProps>(), {
   id: () => useId(),
 });
 
-defineSlots<SelectFieldButtonSlots>();
+defineSlots<SelectButtonSlots>();
 
 const { sharedIds, disabled } = inject(FieldContextKey)!;
 

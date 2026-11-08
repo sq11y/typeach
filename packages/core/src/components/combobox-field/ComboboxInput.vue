@@ -26,7 +26,7 @@ import { ComboboxFieldContextKey } from "./hooks";
 import { FieldContextKey } from "../field/hooks";
 import { ListboxFieldContextKey } from "../listbox-field/hooks";
 
-export interface ComboboxFieldInputProps {
+export interface ComboboxInputProps {
   /**
    * The placeholder for the input.
    */
@@ -40,7 +40,7 @@ export interface ComboboxFieldInputProps {
   id?: string;
 }
 
-const props = withDefaults(defineProps<ComboboxFieldInputProps>(), {
+const props = withDefaults(defineProps<ComboboxInputProps>(), {
   id: () => useId(),
   placeholder: undefined,
 });

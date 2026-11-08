@@ -15,7 +15,7 @@ import { inject, useId } from "vue";
 import { FieldContextKey } from "../field/hooks";
 import { shareId } from "../../hooks";
 
-export interface TextFieldInputProps {
+export interface TextInputProps {
   /**
    * If the input is used for a search.
    */
@@ -29,7 +29,7 @@ export interface TextFieldInputProps {
   id?: string;
 }
 
-const props = withDefaults(defineProps<TextFieldInputProps>(), {
+const props = withDefaults(defineProps<TextInputProps>(), {
   id: () => useId(),
 });
 

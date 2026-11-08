@@ -11,7 +11,7 @@ import { shareId } from "../../hooks";
 import { FieldContextKey } from "../field/hooks";
 import { ListboxFieldContextKey } from "../listbox-field/hooks";
 
-export interface SelectFieldSelectionListProps {
+export interface ComboboxSelectionListProps {
   /**
    * The id for the element.
    *
@@ -20,18 +20,18 @@ export interface SelectFieldSelectionListProps {
   id?: string;
 }
 
-export interface ComboboxFieldSelectionListSlots {
+export interface ComboboxSelectionListSlots {
   /**
    * The selected list items.
    */
   default: () => void;
 }
 
-const props = withDefaults(defineProps<SelectFieldSelectionListProps>(), {
+const props = withDefaults(defineProps<ComboboxSelectionListProps>(), {
   id: () => useId(),
 });
 
-defineSlots<ComboboxFieldSelectionListSlots>();
+defineSlots<ComboboxSelectionListSlots>();
 
 const { sharedIds } = inject(FieldContextKey)!;
 
