@@ -15,7 +15,7 @@ export const useThemeSettingsStore = defineStore("theme-settings", () => {
   };
 
   watchImmediate(saturation, (newSaturation) => {
-    document.documentElement.style.setProperty("saturation", `${newSaturation}`);
+    document.documentElement.style.setProperty("--saturation", `${newSaturation}`);
   });
 
   watchImmediate(wrapCode, (newWrapCode) => {
