@@ -19,7 +19,7 @@ export interface TabsActionButtonProps {
   /**
    * The value for the accompanying panel.
    */
-  value: string | number;
+  value: string;
 
   /**
    * If the button should be disabled. If you want it to also be taken out of the tab order even when the associated tab is active, `"without-focus"` can be used.
