@@ -5,7 +5,7 @@ export { default as PeachyListboxGroupLabel } from "./ListboxGroupLabel.vue";
 export { default as PeachyListboxOption } from "./ListboxOption.vue";
 
 export type * from "./ListboxField.vue";
-export type * from "./ListboxFieldInput.vue";
-export type * from "./ListboxFieldGroup.vue";
-export type * from "./ListboxFieldGroupLabel.vue";
-export type * from "./ListboxFieldOption.vue";
+export type * from "./ListboxInput.vue";
+export type * from "./ListboxGroup.vue";
+export type * from "./ListboxGroupLabel.vue";
+export type * from "./ListboxOption.vue";
