@@ -12,9 +12,9 @@ import { provideField } from "../field/hooks";
 
 export interface TextFieldProps {
   /**
-   * If the input should be disabled.
+   * If the input should be readonly.
    */
-  disabled?: boolean;
+  readonly?: boolean;
 }
 
 export interface TextFieldSlots {
@@ -30,5 +30,5 @@ defineSlots<TextFieldSlots>();
 
 const element = useTemplateRef("element");
 
-provideField(element, () => props.disabled);
+provideField(element, () => props.readonly);
 </script>
