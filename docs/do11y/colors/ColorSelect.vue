@@ -35,9 +35,11 @@ import Do11ySelect from "../components/Do11ySelect.vue";
 
 const c = useBemClass("color-select");
 
-const compatibilityModelValue = defineModel<ColorContrastKey>("compatibility");
+const compatibilityModelValue = defineModel<ColorContrastKey | undefined>("compatibility", {
+  default: undefined,
+});
 
-const modelValue = defineModel<string>();
+const modelValue = defineModel<string | undefined>({ default: undefined });
 
 watch(modelValue, (newModelValue, oldModelValue) => {
   if (newModelValue && !oldModelValue) {

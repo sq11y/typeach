@@ -79,7 +79,7 @@ defineProps<CalendarTestProps>();
 
 const focusedDate = ref(new Date("12/14/2025"));
 
-const date = defineModel<Date>();
+const date = defineModel<Date | undefined>({ default: undefined });
 
 const weekdays = getWeekdays(Weekday.Monday);
 

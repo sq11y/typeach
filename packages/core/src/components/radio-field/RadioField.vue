@@ -29,7 +29,7 @@ defineSlots<RadioFieldSlots>();
 /**
  * The currently selected value.
  */
-const modelValue = defineModel<string>();
+const modelValue = defineModel<string | undefined>({ default: undefined });
 
 const element = useTemplateRef("element");
 

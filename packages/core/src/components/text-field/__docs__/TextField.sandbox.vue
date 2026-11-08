@@ -12,7 +12,7 @@
 <script lang="ts" setup>
 import { PeachyFieldLabel, PeachyTextField, PeachyTextInput } from "@typeach/core";
 
-const modelValue = defineModel<string>();
+const modelValue = defineModel<string | undefined>({ default: undefined });
 </script>
 
 <style lang="scss">

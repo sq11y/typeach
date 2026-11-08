@@ -40,7 +40,7 @@ import {
 
 const c = useBemClass("size-radio");
 
-const size = defineModel<"mobile" | "desktop">();
+const size = defineModel<"mobile" | "desktop" | undefined>({ default: undefined });
 </script>
 
 <style lang="scss">

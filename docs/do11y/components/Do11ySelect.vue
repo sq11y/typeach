@@ -91,7 +91,7 @@ const id = useId();
 
 const anchorName = computed(() => `${id}-anchor`);
 
-const modelValue = defineModel<string>();
+const modelValue = defineModel<string | undefined>({ default: undefined });
 
 const multipleModelValue = ref<string[]>([]);
 
