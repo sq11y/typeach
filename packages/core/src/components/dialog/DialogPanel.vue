@@ -4,7 +4,7 @@
     ref="element"
     :role="modal === 'alert' ? 'alertdialog' : undefined"
     :aria-labelledby="sharedIds.get('heading')"
-    :aria-describedby="sharedIds.get('description')"
+    :aria-describedby="sharedIds.get('description') || undefined"
     :closedby="lightDismiss ? 'any' : undefined"
     @command="onCommand"
     @toggle="open = $event.newState === 'open'"
@@ -21,7 +21,7 @@ import { DialogContextKey } from "./hooks";
 
 export interface DialogPanelProps {
   /**
-   * Allow the user to close the dialog by presing the <kbd>Escape</kbd> key or by clicking outside the panel.
+   * Allow the user to close the dialog by pressing the <kbd>Escape</kbd> key or by clicking outside the panel.
    */
   lightDismiss?: true;
 

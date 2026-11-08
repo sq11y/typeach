@@ -37,7 +37,7 @@ export interface SelectButtonProps {
 
 export interface SelectButtonSlots {
   /**
-   * The accessibel label of the button should include the selected items.
+   * The accessible label of the button should include the selected items.
    */
   default: () => void;
 }

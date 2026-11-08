@@ -3,7 +3,7 @@
     ref="element"
     role="radiogroup"
     :aria-labelledby="sharedIds.get('label')"
-    :aria-describedby="[errorIds, descriptionIds].flat().join(' ')"
+    :aria-describedby="[errorIds, descriptionIds].flat().join(' ') || undefined"
     :aria-invalid="hasErrors"
   >
     <slot />

@@ -7,7 +7,7 @@
 
     <PeachyDialogPanel light-dismiss>
       <div class="dialog__header">
-        <PeachyDialogHeading :level="2"> 
+        <PeachyDialogHeading>
           Queering the Map
         </PeachyDialogHeading>
 

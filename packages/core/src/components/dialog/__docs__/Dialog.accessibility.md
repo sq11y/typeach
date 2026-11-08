@@ -30,7 +30,7 @@
 
 <template v-slot:consider>
 
-- Consider what element in the dialog should be focused when you open the dialog. By default it will be the _first_ interactive element inside it, which is often the close button. It's recommended for it to be element the user most likely will want to interact with.
+- Consider what element in the dialog should be focused when you open the dialog. By default it will be the _first_ interactive element inside it, which is often the close button. It's recommended for it to be the element the user most likely will want to interact with.
 - Make both buttons bigger than `44px` by `44px`.
 - Test in [forced colors mode](https://benmyers.dev/encyclopedia/forced-colors-mode/). Both buttons should still _look_ like buttons. It's also common for dialogs to use box-shadows instead of borders and to have a backdrop - both of which are removed in forced colors mode.
 

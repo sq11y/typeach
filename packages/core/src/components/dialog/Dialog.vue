@@ -14,7 +14,7 @@ import { DialogContextKey } from "./hooks";
 
 export interface DialogProps {
   /**
-   * If the dialog and it's content should be the only interactive part of the page. If set to `"alert"` the dialog will also get the [ARIA alertdialog role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role).
+   * If the dialog and its content should be the only interactive part of the page. If set to `"alert"` the dialog will also get the [ARIA alertdialog role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role).
    */
   modal?: boolean | "alert";
 }

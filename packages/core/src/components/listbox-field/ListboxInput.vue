@@ -5,7 +5,7 @@
     :id="id"
     :aria-multiselectable="multiselect"
     :aria-labelledby="sharedIds.get('label')"
-    :aria-describedby="[errorIds, descriptionIds].flat().join(' ')"
+    :aria-describedby="[errorIds, descriptionIds].flat().join(' ') || undefined"
     :aria-disabled="disabled"
     :aria-invalid="hasErrors"
     :aria-activedescendant="activeElementId"

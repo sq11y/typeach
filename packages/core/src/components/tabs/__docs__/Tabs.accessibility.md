@@ -11,7 +11,7 @@
 
 <template v-slot:dont>
 
-- Add an [accessible label](/p/accessible-labels) to each tab and it's associated action buttons, even if there is no _visible_ label. The label for an action button should indicate which tab it belongs to.
+- Add an [accessible label](/p/accessible-labels) to each tab and its associated action buttons, even if there is no _visible_ label. The label for an action button should indicate which tab it belongs to.
 
 ---
 
@@ -39,10 +39,9 @@
 
 ## Keyboard support
 
-Only one of the tabs remain in the tab order - starting with the first enabled tab and then it switches to the last tab the user navigated to.
+Only one of the tabs remains in the tab order - starting with the first enabled tab and then it switches to the last tab the user navigated to.
 
-Action buttons are kept out of the tab order until the associated tab is active, in which case you have to disable it `
-without-focus"` to take it out of the tab order.
+Action buttons are kept out of the tab order until the associated tab is active, in which case you have to disable it `"without-focus"` to take it out of the tab order.
 
 | Key                                            | Action                                                                        |
 | ---------------------------------------------- | ----------------------------------------------------------------------------- |
@@ -52,6 +51,7 @@ without-focus"` to take it out of the tab order.
 | <kbd>PageDown</kbd>                            | Moves to the 10th tab after. If there isn't one - it moves to the last tab.   |
 | <kbd>Home</kbd>                                | Moves to the first tab.                                                       |
 | <kbd>End</kbd>                                 | Moves to the last tab.                                                        |
+| <kbd>Enter</kbd> or <kbd>Space</kbd>           | Selects the tab, unless selection follows focus.                              |
 
 ## Implementation
 
