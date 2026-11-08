@@ -14,7 +14,6 @@
     "dist"
   ],
   "type": "module",
-  "main": "./dist/typeach.umd.cjs",
   "module": "./dist/typeach.js",
   "exports": {
     ".": {
