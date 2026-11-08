@@ -5,6 +5,7 @@ import { defineConfig } from "vite-plus";
 
 import vue from "@vitejs/plugin-vue";
 import docs from "v-custom-block";
+import dts from "unplugin-dts/vite";
 
 import { compilerOptions } from "./tsconfig.app.json";
 
@@ -16,7 +17,11 @@ Object.entries(compilerOptions.paths).forEach(([pckg, [path]]) => {
 });
 
 export default defineConfig({
-  plugins: [vue(), docs("docs")],
+  plugins: [
+    vue(),
+    docs("docs"),
+    dts({ processor: "vue", tsconfigPath: "./tsconfig.app.json", entryRoot: "src" }),
+  ],
 
   resolve: {
     alias,
