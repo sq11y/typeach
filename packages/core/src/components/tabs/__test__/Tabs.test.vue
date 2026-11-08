@@ -1,5 +1,5 @@
 <template>
-  <PeachyTabs>
+  <PeachyTabs v-model="modelValue">
     <PeachyTabsList :selection-follows-focus="selectionFollowsFocus" :orientation="orientation">
       <PeachyTabsButton
         v-for="item of items"
@@ -18,6 +18,7 @@
 </template>
 
 <script lang="ts" setup>
+import { ref } from "vue";
 import { PeachyTabs, PeachyTabsList, PeachyTabsButton, PeachyTabsPanel } from "@typeach/core";
 
 export interface TabsTestProps {
@@ -43,6 +44,8 @@ export interface TabsTestProps {
 }
 
 defineProps<TabsTestProps>();
+
+const modelValue = ref("1");
 </script>
 
 <style scoped>
