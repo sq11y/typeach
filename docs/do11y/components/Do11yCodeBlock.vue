@@ -3,7 +3,7 @@
     <div :class="c('toolbar')">
       <slot />
 
-      <Do11ySwitch v-model="themeSettings.wrapCode" :icon="true ? TextWrapCheckSvg : TextWrapSvg">
+      <Do11ySwitch v-model="wrapCode" :icon="true ? TextWrapCheckSvg : TextWrapSvg">
         Wrap
       </Do11ySwitch>
 
@@ -29,7 +29,7 @@
 
 <script lang="ts" setup>
 import { computed, nextTick, ref, useId, useTemplateRef, watch } from "vue";
-import { useBemClass, useThemeSettingsStore } from "@typeach/core";
+import { useBemClass } from "@typeach/core";
 
 import Do11ySwitch from "./Do11ySwitch.vue";
 import Do11yCopyButton from "./Do11yCopyButton.vue";
@@ -63,7 +63,7 @@ const c = useBemClass("code-block");
 
 const id = useId();
 
-const themeSettings = useThemeSettingsStore();
+const wrapCode = ref(false);
 
 const showCode = ref(false);
 

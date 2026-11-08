@@ -29,7 +29,6 @@
     "@vueuse/core": "catalog:",
     "change-case": "catalog:",
     "culori": "^4.0.2",
-    "pinia": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:"
   },

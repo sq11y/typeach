@@ -3,15 +3,11 @@ import { nextTick, type Component } from "vue";
 import { START_LOCATION } from "vue-router";
 
 import type { Options } from "do11y";
-import { createPinia } from "pinia";
 
 import { theme } from "./shiki.ts";
 
 export default {
   async setup(app, router) {
-    const pinia = createPinia();
-    app.use(pinia);
-
     const Do11yMeta = (await import("./components/meta/Do11yMeta.vue")).default;
     app.component("Do11yMeta", Do11yMeta);
 

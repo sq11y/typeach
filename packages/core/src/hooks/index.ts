@@ -10,7 +10,6 @@ export * from "./useDocumentOutline";
 export * from "./useElements";
 export * from "./useFuzzySearch";
 export * from "./useId";
-export * from "./useThemeSettingsStore";
 
 /* prettier-ignore */
 export type OptionalContext<T> =

@@ -57,7 +57,6 @@
     "vue-tsc": "^3.3.8"
   },
   "peerDependencies": {
-    "pinia": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:"
   }
