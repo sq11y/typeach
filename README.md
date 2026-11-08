@@ -34,13 +34,12 @@ pnpm i @typeach/theme
 
 Import the theme.
 
-```scss
+```css
 // CSS variables
 @import "@typeach/theme";
 
 // Reset
 @import "@typeach/theme/reset";
-
-// If you have scss - there are some mixins available
-@use "@typeach/theme/utils";
 ```
+
+If you have scss - there are some mixins available through `@typeach/theme/utils`.
