@@ -52,6 +52,7 @@ Action buttons are kept out of the tab order until the associated tab is active,
 | <kbd>Home</kbd>                                | Moves to the first tab.                                                       |
 | <kbd>End</kbd>                                 | Moves to the last tab.                                                        |
 | <kbd>Enter</kbd> or <kbd>Space</kbd>           | Selects the tab, unless selection follows focus.                              |
+| <kbd>Delete</kbd>                              | Will emit `delete`, which you can use to delete the tab if it is deletable.   |
 
 ## Implementation
 
