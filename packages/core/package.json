@@ -19,8 +19,7 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/typeach.js",
-      "require": "./dist/typeach.umd.cjs"
+      "import": "./dist/typeach.js"
     }
   },
   "scripts": {

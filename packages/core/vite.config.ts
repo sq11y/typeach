@@ -7,7 +7,10 @@ import vue from "@vitejs/plugin-vue";
 import docs from "v-custom-block";
 import dts from "unplugin-dts/vite";
 
+import { dependencies, peerDependencies } from "./package.json";
 import { compilerOptions } from "./tsconfig.app.json";
+
+const externals = [...Object.keys(dependencies), ...Object.keys(peerDependencies)];
 
 const alias: Record<string, string> = {};
 
@@ -32,16 +35,11 @@ export default defineConfig({
       entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
       name: "Typeach",
       fileName: "typeach",
+      formats: ["es"],
     },
 
     rollupOptions: {
-      external: ["vue", "pinia"],
-
-      output: {
-        globals: {
-          vue: "Vue",
-        },
-      },
+      external: (id) => externals.some((dep) => id === dep || id.startsWith(`${dep}/`)),
     },
   },
 });
