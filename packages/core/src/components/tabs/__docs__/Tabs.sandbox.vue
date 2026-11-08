@@ -1,5 +1,5 @@
 <template>
-  <PeachyTabs class="tabs">
+  <PeachyTabs v-model="selectedPanel" class="tabs">
     <PeachyTabsList>
       <PeachyTabsButton
         v-for="quote of quotesFromUltraProcessedPeopleByChrisVanTulleken"
@@ -28,6 +28,10 @@ import {
   PeachyTabsButton,
   PeachyTabsPanel
 } from "@typeach/core";
+
+import { ref } from "vue";
+
+const selectedPanel = ref("Lunch");
 
 /* prettier-ignore */
 const quotesFromUltraProcessedPeopleByChrisVanTulleken = [

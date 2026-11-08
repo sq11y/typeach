@@ -40,5 +40,5 @@ shareId(sharedIds, "input", () => props.id);
 /**
  * The text value.
  */
-const value = defineModel<string | undefined>({ default: undefined });
+const value = defineModel<string>({ default: "" });
 </script>

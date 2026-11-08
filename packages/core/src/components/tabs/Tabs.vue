@@ -25,7 +25,7 @@ defineSlots<TabsSlots>();
 /**
  * The currently selected panel.
  */
-const selectedPanel = defineModel<string | undefined>({ default: undefined });
+const selectedPanel = defineModel<string>({ required: true });
 
 const sharedIds = useSharedIds();
 
