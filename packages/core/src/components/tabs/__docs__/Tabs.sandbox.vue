@@ -1,5 +1,5 @@
 <template>
-  <PeachyTabs as="div" class="tabs">
+  <PeachyTabs class="tabs">
     <PeachyTabsList>
       <PeachyTabsButton
         v-for="quote of quotesFromUltraProcessedPeopleByChrisVanTulleken"
