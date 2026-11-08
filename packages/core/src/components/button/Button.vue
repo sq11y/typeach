@@ -95,16 +95,18 @@ const onClick = (event: MouseEvent) => {
   }
 };
 
+const keyboardShortcutHandler = (event: KeyboardEvent) => {
+  event.preventDefault();
+  element.value?.click();
+};
+
 watchImmediate(keyboardShortcutsRef, (newKeyboardShortcuts, oldKeyboardShortcuts) => {
   if (oldKeyboardShortcuts) {
-    hotkeys.unbind(oldKeyboardShortcuts);
+    hotkeys.unbind(oldKeyboardShortcuts, keyboardShortcutHandler);
   }
 
   if (newKeyboardShortcuts) {
-    hotkeys(newKeyboardShortcuts, (event) => {
-      event.preventDefault();
-      element.value?.click();
-    });
+    hotkeys(newKeyboardShortcuts, keyboardShortcutHandler);
   }
 });
 
