@@ -16,11 +16,11 @@ Import the theme.
 
 ```scss
 // CSS variables
-@use "@typeach/theme";
+@import "@typeach/theme";
 
 // Reset
-@use "@typeach/theme/reset";
+@import "@typeach/theme/reset";
 
-// SCSS mixins and functions
+// If you have scss - there are some mixins available
 @use "@typeach/theme/utils";
 ```

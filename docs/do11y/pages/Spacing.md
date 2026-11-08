@@ -30,7 +30,7 @@
 Every spacing step has an accompanying CSS variable. For example `--spacing-xs`, `--relative-spacing-m` or `--spacing-xxl`.
 
 ```scss
-@use "@typeach/theme";
+@import "@typeach/theme";
 
 main {
   margin-block-start: var(--spacing-xxxxl);

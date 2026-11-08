@@ -22,7 +22,7 @@ The scale includes 9 steps: 6 heading sizes and 3 body sizes. The smaller headin
 Every step in the scale has accompanying CSS variables for the font size and the line height. For example `xxxl` will have the variables `--font-size-xxxl` and `--line-height-xxxl`.
 
 ```scss
-@use "@typeach/theme";
+@import "@typeach/theme";
 
 button {
   font-size: var(--font-size-l);
