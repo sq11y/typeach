@@ -43,7 +43,6 @@ export const useTypeahead = (
       search.value += character;
 
       const lookup = isRepeatingCharacter(search.value, character) ? character : search.value;
-      console.log("new search", lookup);
 
       const matches = options.value
         .map((option, index) => ({ ...option, index }))
