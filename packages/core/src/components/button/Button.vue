@@ -112,7 +112,7 @@ watchImmediate(keyboardShortcutsRef, (newKeyboardShortcuts, oldKeyboardShortcuts
 
 onBeforeUnmount(() => {
   if (props.keyboardShortcut) {
-    hotkeys.unbind(props.keyboardShortcut);
+    hotkeys.unbind(props.keyboardShortcut, keyboardShortcutHandler);
   }
 });
 </script>
